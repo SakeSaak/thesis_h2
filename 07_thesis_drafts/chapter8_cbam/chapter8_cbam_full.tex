@@ -984,6 +984,76 @@ The smoothness analysis thus delivers the twelfth and final robustness pillar: a
 
 
 
+
+\section{Causal Forests for Heterogeneous Treatment Effects}
+\label{sec:ch8-cf}
+
+The competing-risks analysis in Section~\ref{sec:ch8-sdid-cr} localizes the Blue-vs-PEM fragility differential to a single lifecycle stage --- pre-commissioning abandonment --- but it does not address the natural follow-up question: \emph{which project profiles drive this differential}? The subgroup-DiD analysis in Section~\ref{sec:ch8-heterogeneity} failed on power grounds because pre-specified subgroups (sectors, sponsors, size quartiles) each contained too few events to estimate a separate treatment effect. \emph{Causal Forests} \citep{athey2019generalized,wager2018estimation} bypass this limitation by partitioning the covariate space continuously through honest random forest splits, identifying heterogeneity without committing to a particular subgroup taxonomy ex ante.
+
+\subsection{Methodology and setup}
+
+We deploy the Causal-Forest DML estimator of \citet{athey2019generalized} as implemented in \texttt{econml.dml.CausalForestDML}, with $500$ honest trees, minimum leaf size of $10$, maximum depth of $8$, and 3-fold cross-fitting for orthogonalization. The outcome model and propensity model are both random forests with $200$ estimators. The data are the S\&P finished projects ($N = 628$, $151$ cancellations, $79$ Blue), with outcome $Y_i = \mathbf{1}\{\text{project } i \text{ cancelled}\}$, treatment $T_i = \mathbf{1}\{\text{is\_blue}\}$, and feature vector
+$$
+X_i = (\log\text{cap}_i,\; \text{year\_centered}_i,\; \text{is\_EU}_i,\; \text{is\_NA}_i,\; \text{is\_Asia}_i,\; \text{CBAM-exposed}_i,\; \text{sponsor\_type}_i).
+$$
+Confounders $W_i$ are taken identical to $X_i$ (this is permissible in the DML framework). The trained forest produces individual-level CATE estimates $\hat\tau(X_i)$ together with uniform-asymptotic 95\% confidence intervals.
+
+\subsection{Results}
+
+\begin{table}[ht]
+\centering
+\caption{Causal Forest CATE distribution and heterogeneity drivers.}
+\label{tab:ch8-cf}
+\begin{tabular}{lr}
+\toprule
+Quantity & Value \\
+\midrule
+Sample size & $628$ projects \\
+ATE (Average Treatment Effect) & $+0.173$ \\
+ATE 95\% CI & $[-0.163,\; +0.509]$ \\
+CATE range & $[-0.132,\; +0.471]$ \\
+CATE standard deviation & $0.135$ \\
+CATE 10th--90th percentile & $[+0.020,\; +0.291]$ \\
+Projects with significantly positive CATE & $93$ / $628$ ($14.8\%$) \\
+Projects with significantly negative CATE & $0$ / $628$ ($0\%$) \\
+\midrule
+\textbf{Top heterogeneity drivers (feature importance):} & \\
+~~~~year (centered)              & $0.451$ \\
+~~~~$\log$ capacity               & $0.368$ \\
+~~~~is\_EU                        & $0.087$ \\
+~~~~is\_Asia-Pacific              & $0.040$ \\
+~~~~sponsor type                  & $0.029$ \\
+~~~~is\_North America             & $0.015$ \\
+~~~~CBAM-exposed                  & $0.009$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The average treatment effect of $+0.173$ (95\% CI $[-0.163, +0.509]$) confirms the null-in-aggregate finding of the prior twelve pillars: even with non-parametric machine-learning identification of heterogeneity, the overall Blue-vs-PEM cancellation differential is not statistically distinguishable from zero on the S\&P sample. Importantly, however, the CATE distribution is non-degenerate: 14.8\% of projects ($N = 93$) have a significantly \emph{positive} CATE at the 95\% level, while no project has a significantly negative CATE. The fragility-direction documented in Chapter~6 is universally positive when significant; the population-level null arises from the heterogeneity dispersion rather than from sign ambiguity.
+
+Three heterogeneity-driver findings have substantive theoretical content.
+
+\emph{First}, project size is the second most important heterogeneity driver, and its effect goes in a theoretically predicted direction. The size-quartile CATEs are $+0.219$ (Q1, smallest), $+0.210$ (Q2), $+0.250$ (Q3), and $+0.012$ (Q4, largest). The largest Blue projects --- those in the top capacity quartile --- have no detectable excess cancellation risk relative to PEM. This is a direct empirical confirmation of the real-options prediction in Chapter~3: \emph{larger projects entail higher sunk-cost commitment, which reduces the value of the abandonment option}. The Causal Forest detects this commitment-effect non-parametrically, without imposing a functional form or specific size cutoff.
+
+\emph{Second}, time is the single most important heterogeneity driver in the feature importance ranking ($0.45$, well ahead of $\log$ capacity at $0.37$). The mean CATE by year bucket is $+0.162$ (pre-2018), $+0.233$ (2018--2020), $+0.128$ (2021--2022), and $+0.175$ (2023+). The non-monotonic temporal pattern reflects an intricate interaction between accelerating Blue cancellation pressure (in 2018--2020) and the partial re-equilibration of expectations in 2021--2022 before the 2023--2024 cancellation wave. This is exactly the temporal complexity that the GAS-TVP model in Chapter~6 captures with $\hat\beta_{\mathrm{int}}(t)$ varying from $-0.46$ to $-1.49$. Causal Forests confirm this temporal heterogeneity through an entirely non-parametric route, providing a methodologically independent corroboration of the time-varying-parameter conclusion.
+
+\emph{Third}, the regional ranking by mean CATE places EU-27 at the top ($+0.213$), followed by non-EU Europe ($+0.187$), Latin America ($+0.187$), Middle East ($+0.164$), North America ($+0.165$), Asia-Pacific ($+0.125$), and Africa ($+0.203$ on small $N=11$). EU is the highest-CATE region, consistent with the directional EU pattern documented throughout Chapter~8, but the Causal Forest delivers this conclusion without relying on a pre-CBAM-coded design and without making any parallel-trends assumption. Notably, the CBAM-exposure indicator has the \emph{lowest} feature importance ($0.009$), and CBAM-exposed projects have a CATE of $+0.114$ versus $+0.183$ for non-exposed projects. The Causal Forest thus delivers an additional methodologically orthogonal vote in favour of the CBAM informative null: not only does CBAM-exposed-times-post-2022 not show a significant marginal effect (Sections~\ref{sec:ch8-robustness}--\ref{sec:ch8-smoothness}), but the underlying heterogeneity of the Blue-fragility effect is not driven by CBAM exposure at all.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_causal_forests.pdf}
+\caption{Causal Forest heterogeneity discovery. \textbf{Panel A} plots the distribution of individual-level CATE estimates with the mean $+0.173$ marked in blue. \textbf{Panel B} shows feature importance for heterogeneity, with year and $\log$ capacity dominating. \textbf{Panel C} reports mean CATE by year bucket, illustrating the non-monotonic temporal pattern consistent with Chapter~6's GAS-TVP path. \textbf{Panel D} reports mean CATE by size quartile, illustrating the real-options-consistent pattern in which the largest Blue projects (Q4) have no detectable excess cancellation hazard.}
+\label{fig:ch8-cf}
+\end{figure}
+
+\subsection{Synthesis: Causal Forests as a 13th robustness pillar}
+
+The Causal-Forest analysis delivers four mutually reinforcing conclusions. First, the average-treatment-effect null is confirmed even under non-parametric machine-learning identification ($p > 0.05$ for the overall ATE). Second, the heterogeneity is substantial but uni-directional: the fragility effect, where significant, is universally positive. Third, the dominant heterogeneity drivers are time and project size, both of which align with the theoretical predictions of Chapter~3 (real options) and the empirical findings of Chapter~6 (carbon-conditional TVP intensification). Fourth, CBAM exposure is the \emph{least} important heterogeneity driver, providing an additional independent piece of evidence that the EU-CBAM-cancellation differential is not the locus of the Blue-fragility mechanism.
+
+Together with the competing-risks decomposition (which localized the mechanism to pre-commissioning lifecycle stages), the Causal Forest analysis localizes the mechanism in covariate space: the Blue-fragility differential is most pronounced for \emph{small-to-medium projects} in \emph{Europe} announced in the \emph{2018--2020 window} when carbon-pricing expectations were tightening most sharply. This composite localization in lifecycle stage, project profile, and time is the substantive contribution that the modern non-parametric causal-inference toolkit makes to the Chapter~6 mechanism, beyond what the original reduced-form TVP analysis could deliver.
+
+
+
 \begin{thebibliography}{99}
 
 \bibitem[European Commission(2023)]{ec2023cbam}
@@ -1056,6 +1126,23 @@ Beyersmann, J., Allignol, A., \& Schumacher, M. (2012).
 Dixit, A.~K., \& Pindyck, R.~S. (1994).
 \newblock \emph{Investment under Uncertainty}.
 \newblock Princeton University Press, Princeton.
+
+
+
+\bibitem{athey2019generalized}
+Athey, S., Tibshirani, J., \& Wager, S. (2019).
+\newblock Generalized Random Forests.
+\newblock \emph{Annals of Statistics}, 47(2), 1148--1178.
+
+\bibitem{wager2018estimation}
+Wager, S., \& Athey, S. (2018).
+\newblock Estimation and Inference of Heterogeneous Treatment Effects Using Random Forests.
+\newblock \emph{Journal of the American Statistical Association}, 113(523), 1228--1242.
+
+\bibitem{rambachan2023more}
+Rambachan, A., \& Roth, J. (2023).
+\newblock A More Credible Approach to Parallel Trends.
+\newblock \emph{Review of Economic Studies}, 90(5), 2555--2591.
 
 
 \end{thebibliography}
