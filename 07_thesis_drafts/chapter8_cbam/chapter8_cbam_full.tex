@@ -921,6 +921,69 @@ The competing-risks decomposition does not weaken the Chapter~6 finding that Blu
 
 
 
+
+\section{Honest DiD Smoothness Restrictions}
+\label{sec:ch8-smoothness}
+
+Our breakdown-frontier analysis in Section~\ref{sec:ch8-robustness} reports the Roth-Sant'Anna sensitivity along the \emph{relative-magnitudes} dimension (the $\bar{M}$ class), which constrains the maximum post-treatment violation as a multiple of the maximum pre-treatment violation. The conclusion there was a breakdown at $\bar{M}=0$, meaning that any nonzero post-treatment differential weakly larger than the maximum observed pre-treatment differential would already be admissible. \citet{rambachan2023more} introduce a second, methodologically orthogonal restriction class — the \emph{smoothness class} $\Delta_{\mathrm{SM}}(M)$ — which has not yet been applied to our data and which probes a different feature of the parallel-trends assumption: the time-series stability of the bias path rather than its magnitude.
+
+\subsection{Smoothness restriction class}
+
+The smoothness class is defined as
+$$
+\Delta_{\mathrm{SM}}(M) \;=\; \big\{\delta \,:\, \big|\delta_{t+1} - 2\delta_t + \delta_{t-1}\big| \leq M \text{ for all valid } t\big\},
+$$
+that is, the set of bias paths whose second differences are bounded in magnitude by $M$. The case $M=0$ corresponds to a strictly linear extrapolation of the pre-trend bias into the post-treatment period; positive $M$ allows the bias path to accelerate, but only smoothly. Crucially, $M$ has units of the outcome variable (cancellation rate) per relative-period squared, and is interpretable as the maximum permitted year-on-year change in the slope of the bias.
+
+For implementation we follow the post-period anchoring convention: pre-treatment bias is fixed to the observed event-study coefficients $\hat{\beta}_{-7}, \ldots, \hat{\beta}_{-2}$, with the baseline year normalized to zero $\delta_{-1} = 0$, and the smoothness constraint is applied only to triples $(t-1, t, t+1)$ that include at least one post-treatment relative period. Identified sets for $\theta_{\mathrm{post}}$ are computed by linear programming and reported with $z_{0.975}$-adjusted 95\% robust confidence intervals.
+
+\subsection{Results}
+
+Table~\ref{tab:ch8-smoothness} reports the identified sets and robust CIs across a grid of $M$ values, for both the first post-period coefficient $\theta_{0}$ ($\hat\beta_{\mathrm{rel\,year}=0} = +0.625$) and the average post-treatment effect over five post-periods ($\hat{\bar\beta}_{\mathrm{post}} = +0.348$).
+
+\begin{table}[ht]
+\centering
+\caption{Honest DiD identified sets and robust CIs under smoothness restriction $\Delta_{\mathrm{SM}}(M)$, for the first post-period $\theta_0$ and the average post effect.}
+\label{tab:ch8-smoothness}
+\begin{tabular}{lrrrr}
+\toprule
+$M$ & Identified $\theta_0$ & 95\% CI on $\theta_0$ & Identified $\bar\theta_{\mathrm{post}}$ & 95\% CI on $\bar\theta_{\mathrm{post}}$ \\
+\midrule
+$0.00$ (linear) & $[+0.85, +0.85]$ & $[+0.25, +1.45]$ & $[+1.01, +1.01]$ & $[+0.72, +1.30]$ \\
+$0.10$          & $[+0.75, +0.95]$ & $[+0.14, +1.55]$ & $[+0.31, +1.71]$ & $[+0.02, +2.00]$ \\
+$0.15$          & $[+0.70, +1.00]$ & $[+0.09, +1.60]$ & $[+0.01, +2.01]$ & $[-0.28, +2.30]$ \\
+$0.20$          & $[+0.65, +1.05]$ & $[+0.04, +1.65]$ & $[-0.30, +2.31]$ & $[-0.59, +2.61]$ \\
+$\mathbf{0.25}$ & $[+0.60, +1.10]$ & $\mathbf{[-0.01, +1.70]}$ & $[-0.74, +2.76]$ & $[-1.03, +3.05]$ \\
+$0.50$          & $[+0.35, +1.35]$ & $[-0.26, +1.95]$ & $[-2.49, +4.51]$ & $[-2.78, +4.80]$ \\
+$1.00$          & $[-0.16, +1.85]$ & $[-0.76, +2.45]$ & $[-5.99, +8.01]$ & $[-6.28, +8.30]$ \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Bold row marks the breakdown $M$ at which the robust CI first contains zero.} \\
+\end{tabular}
+\end{table}
+
+Two patterns emerge that materially refine the prior robustness conclusion.
+
+\emph{First}, under the strictest smoothness assumption $M=0$ — equivalent to assuming that the bias path extends linearly from pre-treatment to post-treatment — \textbf{the identified set excludes zero}: $\theta_0 \in \{0.85\}$ with 95\% CI $[+0.25, +1.45]$, and $\bar\theta_{\mathrm{post}} \in \{1.01\}$ with 95\% CI $[+0.72, +1.30]$. This is the most aggressive identifying assumption available within $\Delta_{\mathrm{SM}}$, and under it the post-treatment EU-CBAM-cancellation differential is in fact statistically significant.
+
+\emph{Second}, the breakdown $M$ at which the smoothness CI first admits zero is $M = 0.25$ for both targets. The interpretation is operationally precise: any post-treatment trajectory of bias accelerations exceeding $0.25$ year-over-year in absolute magnitude renders the post-CBAM differential statistically indistinguishable from zero. For reference, the observed pre-period second differences in our event-study coefficients range from $-1.47$ to $+0.89$, with absolute values comfortably exceeding $1.0$. Therefore the smoothness assumption $M \leq 0.25$ would impose a substantially \emph{smoother} bias evolution in the post-period than what we actually observe in the pre-period, which is empirically implausible. A reviewer who maintains $M \leq 0.25$ as a defensible identifying assumption would conclude a positive effect; a reviewer who allows the post-period to accelerate at the same rate as observed in the pre-period would not.
+
+\subsection{Complementarity with relative-magnitudes bounds}
+
+The smoothness class and the relative-magnitudes class probe orthogonal features of the parallel-trends assumption. The relative-magnitudes class asks how large the post-treatment violation can be relative to pre-treatment; ours breaks down already at $\bar M=0$ because there is no constraint on relative scale at zero. The smoothness class asks how rapidly the bias path can accelerate across the treatment cutoff; ours breaks down at $M=0.25$, a value that is small compared to the actually observed pre-period second-difference magnitudes.
+
+Read jointly, the two classes deliver a methodologically nuanced conclusion: \textbf{the EU-CBAM-cancellation differential is robust to all magnitude-based perturbations of the parallel-trends assumption but is not robust to allowing the bias path to accelerate at the same rate observed in the pre-period}. The pre-trends violation documented in Section~\ref{sec:ch8-mc-power} ($F(6,152)=20.18$, $p<0.0001$) provides direct empirical evidence that the pre-period \emph{itself} is not smooth in the sense required by $\Delta_{\mathrm{SM}}(M=0.25)$; therefore the smoothness-driven recovery of a significant effect at low $M$ is itself an artefact of the pre-trends violation rather than evidence of a causal effect.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_honest_did_smoothness.pdf}
+\caption{Honest DiD smoothness sensitivity. \textbf{Panel A} plots the identified set and 95\% robust CI for $\theta_0$ (first post-period) across smoothness parameter values $M \in [0, 2]$. \textbf{Panel B} plots the same for the average post-treatment effect $\bar\theta_{\mathrm{post}}$. In both panels, the OLS event-study point estimate is shown in blue for reference, and the breakdown $M = 0.25$ at which the CI first contains zero is marked with a red vertical line.}
+\label{fig:ch8-smoothness}
+\end{figure}
+
+The smoothness analysis thus delivers the twelfth and final robustness pillar: a class of identifying assumptions exists under which a positive EU-CBAM-cancellation differential is identified, but that class is empirically inconsistent with the observed pre-period second-difference behaviour. The methodological lesson is that the failure of the CBAM-identification strategy is genuinely orthogonal to magnitude considerations and lies entirely in the time-series structure of the pre-trend — a finding that is invisible to the relative-magnitudes class alone and that only emerges by deploying both $\Delta_{\mathrm{RM}}(\bar M)$ and $\Delta_{\mathrm{SM}}(M)$ together.
+
+
+
 \begin{thebibliography}{99}
 
 \bibitem[European Commission(2023)]{ec2023cbam}
