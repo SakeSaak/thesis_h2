@@ -1,0 +1,2 @@
+spec,N,beta,se,p,ci_lo,ci_hi,verdict
+IRA triple-diff (US × PEM × Post 2022),628,-0.15558525280553542,0.30604768648574004,0.6111943677362804,-0.7554387183175859,0.444268212706515,Informative null — IRA effect NIET identificeerbaar

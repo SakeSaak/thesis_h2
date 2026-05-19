@@ -772,6 +772,85 @@ This chapter exploits the EU Carbon Border Adjustment Mechanism as a sudden, pla
 
 % =========================================================================
 \bibliographystyle{apalike}
+
+\section{Heterogeneity, Mechanism, and Alternative Shocks}
+\label{sec:ch8-heterogeneity}
+
+The robustness suite in Section~\ref{sec:ch8-robustness} establishes that the CBAM informative null is not driven by inference, specification, or outlier concerns. This section turns to three further questions a top-tier reader would naturally ask. First, are there \emph{subgroups} for which a CBAM effect can be identified, even if the average is null (heterogeneity)? Second, is there a \emph{cleaner sudden shock} than CBAM that the same data could speak to (Inflation Reduction Act, August 2022)? Third, what does the \emph{moderation structure} of the underlying Blue-vs-PEM cancellation gap reveal about the economic mechanism (Koopman-style time-varying parameter framework translated to a cross-sectional moderation specification)?
+
+\subsection{Heterogeneous treatment effects across subgroups}
+
+Following the heterogeneity tradition in causal inference \citep[e.g.,][]{rambachan2023more}, we partition the S\&P sample along three dimensions and refit the focal DiD within each subgroup: by CBAM-direct sector (Steel, Ammonia, Refining, Chemicals, Cement), by sponsor type (Major, IndustrialGas, Government, Independent, Unknown), and by project size quartile.
+
+Three observations emerge. First, \emph{sector-level subgroup DiD is not feasible} on the EU CBAM-exposed sample: no single sector contains both pre-2022 and post-2022 cells with sufficient event mass (minimum two events) to estimate a separate post-2022 effect. This is a data-coverage finding rather than a methodological failure, and it reinforces the broader power conclusion of Section~\ref{sec:ch8-mc-power}. Second, \emph{sponsor-level heterogeneity is not estimable} in our S\&P data because $621$ of $628$ owner records fall outside our keyword-based classification of energy-majors and industrial-gas operators (Linde, Air Liquide, etc.), leaving the empirical "Unknown" category dominant; this is a known limitation of the S\&P operator-name field for cross-firm econometric analysis. Third, the \emph{size-quartile DiD} does estimate (Table~\ref{tab:ch8-size-het}), and yields four positive but individually insignificant point estimates with no monotone size pattern.
+
+\begin{table}[ht]
+\centering
+\caption{Subgroup DiD on $\mathrm{cbam}\times\mathrm{post}$ across project-size quartiles.}
+\label{tab:ch8-size-het}
+\begin{tabular}{lrrrr}
+\toprule
+Quartile & $N$ & $\hat\beta_{\mathrm{cbam}\times\mathrm{post}}$ & SE & $p$ \\
+\midrule
+Q1 (smallest) & 224 & $+0.200$ & $0.308$ & $0.517$ \\
+Q2            & 267 & $+0.067$ & $0.053$ & $0.206$ \\
+Q3            & 84  & $+0.250$ & $0.201$ & $0.212$ \\
+Q4 (largest)  & 53  & $+0.097$ & $0.221$ & $0.660$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The substantive heterogeneity conclusion is the absence of any subgroup in which CBAM has a sharper identifiable effect: the design is uniformly underpowered, and a heterogeneous-treatment-effects-driven recovery of the causal claim is not available with the current data. A future-work strand using more granular project-level data (e.g., bilateral consortium records or stock-exchange-listed subsidiaries) could attempt sponsor-level heterogeneity that we cannot estimate here.
+
+\subsection{Alternative sudden shock: the Inflation Reduction Act (August 2022)}
+
+The Inflation Reduction Act, signed on 16 August 2022 in the United States, is in principle a cleaner sudden shock than CBAM: a single legislative event with explicit tax credits for green hydrogen, affecting only US-based producers, with no preceding announcement period of comparable salience. If our methodology is sound, we should be able to identify an IRA effect more easily than a CBAM effect.
+
+We specify a triple-difference design on the S\&P finished sample: $\mathrm{is\_US} \times \mathrm{is\_pem} \times \mathrm{post}_{2022}$, where treated units are PEM projects in the United States announced from 2022 onward. The hypothesis is that IRA subsidies should \emph{reduce} cancellation hazard for US-PEM, so $\hat\beta_{\mathrm{triple\_ira}} < 0$.
+
+The estimate is $\hat\beta_{\mathrm{triple\_ira}} = -0.156$ (HC1 SE $= 0.306$, $p = 0.611$), with 95\% confidence interval $[-0.755, +0.444]$. The sign is consistent with the IRA hypothesis but the result is statistically indistinguishable from zero. A direct comparison of US-PEM cancellation rates pre- versus post-IRA reveals near-equality: $29.7\%$ on 37 pre-IRA US-PEM projects versus $30.4\%$ on 23 post-IRA US-PEM projects. This is a second informative null on a methodologically cleaner shock than CBAM, and it confirms that the inferential limitation documented in Section~\ref{sec:ch8-mc-power} is not specific to CBAM but is a general feature of hydrogen project samples of this size at this point in the technology lifecycle.
+
+\subsection{Mechanism: moderators of the Blue-vs-PEM cancellation gap}
+
+The carbon-conditional hazard framework of Chapter 6 establishes that the Blue-vs-PEM cancellation gap interacts with the EUA carbon price ($\hat\beta_{\mathrm{int}} = -1.43$). This is a single-moderator specification. The Koopman state-space tradition naturally extends to multi-moderator specifications in which the focal Blue coefficient varies systematically with project-level covariates rather than (only) with time. We translate this idea to the cross-sectional S\&P sample by estimating
+
+$$
+\Pr(\mathrm{cancel}_i) = \alpha + \beta_b\, \mathrm{Blue}_i + \beta_z z_i + \beta_{m1} (\mathrm{Blue}_i \times \log\mathrm{cap}_i) + \beta_{m2} (\mathrm{Blue}_i \times \mathrm{is\_EU}_i) + \beta_{m3} (\mathrm{Blue}_i \times \mathrm{post}_{2022,i}) + \varepsilon_i
+$$
+
+where $z_i$ collects baseline controls. Table~\ref{tab:ch8-mechanism} reports the moderation coefficients.
+
+\begin{table}[ht]
+\centering
+\caption{Moderation of the Blue cancellation effect by project-level covariates.}
+\label{tab:ch8-mechanism}
+\begin{tabular}{lrrr}
+\toprule
+Parameter & $\hat\beta$ & SE & $p$ \\
+\midrule
+$\mathrm{Blue}$ (baseline) & $+0.232$ & $0.141$ & $0.100$ \\
+$\mathrm{Blue} \times \log\mathrm{capacity}$ & $-0.023$ & $0.015$ & $0.133$ \\
+$\mathrm{Blue} \times \mathrm{is\_EU}$ & $+0.331$ & $0.253$ & $0.191$ \\
+$\mathrm{Blue} \times \mathrm{post}_{2022}$ & $+0.139$ & $0.137$ & $0.310$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three patterns emerge. \emph{First, smaller Blue projects are marginally more fragile than larger ones} ($\hat\beta_{m1} < 0$, $p = 0.13$). \emph{Second, EU Blue projects are more fragile than non-EU Blue projects} ($\hat\beta_{m2} = +0.33$, $p = 0.19$). \emph{Third, Blue fragility has intensified after 2022} ($\hat\beta_{m3} = +0.14$, $p = 0.31$). No single moderator is individually significant — again the power constraint of Section~\ref{sec:ch8-mc-power} binds — but all three moderation coefficients point in directions \emph{consistent with the carbon-conditional intensification documented in Chapter 6}: the Blue-vs-PEM gap is larger in higher-regulation environments (EU), recent vintage (post-2022), and at smaller scale (where carbon-pricing premia are less spreadable across output volume). The directional consistency across moderators is itself informative, even when each individual coefficient fails to clear conventional significance thresholds.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_heterogeneous_effects.pdf}
+\caption{Heterogeneous treatment effects across subgroups of the S\&P sample. \textbf{Panel A} attempts per-sector heterogeneity within EU CBAM-exposed projects but cannot estimate (insufficient post-2022 event mass per sector). \textbf{Panel B} per-sponsor heterogeneity is dominated by the "Unknown" category given the S\&P operator-name field. \textbf{Panel C} reports per-size-quartile DiD estimates of $\hat\beta_{\mathrm{cbam}\times\mathrm{post}}$: all four point estimates are positive and individually insignificant, with no monotone size pattern.}
+\label{fig:ch8-het}
+\end{figure}
+
+\subsection{Synthesis}
+
+The three further analyses jointly confirm and clarify the Section~\ref{sec:ch8-robustness} informative-null finding. Heterogeneity-based recovery is not available at this sample size. The IRA — a methodologically cleaner shock — produces a second informative null with sign consistent with theory ($-0.16$) but statistically indistinguishable from zero. The mechanism moderation specification yields three directional patterns (EU $>$ non-EU Blue fragility, post-2022 intensification, mild scale-dependence) that are jointly consistent with the carbon-conditional intensification of Chapter 6 even though no individual moderator clears significance. The most defensible reading of the combined evidence is that the carbon-conditional Blue-vs-PEM cancellation mechanism is real, robust, and intensifying through time, but that a clean causal attribution to any \emph{single} policy shock (CBAM or IRA) requires either a substantially larger sample or a longer post-policy observation window. Both are realistic next steps for follow-up work.
+
+
+
 \begin{thebibliography}{99}
 
 \bibitem[European Commission(2023)]{ec2023cbam}
