@@ -1,0 +1,211 @@
+% =========================================================================
+% Chapter 8: Causal Identification via CBAM — Research Design Memo
+% Sake Saakstra, MSc EOR thesis, Vrije Universiteit Amsterdam
+% Supervisor: prof. dr. S.J. Koopman | Second reader: dr. N. Ketel (proposed)
+% =========================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black}
+
+\newcommand{\bint}{\beta_{\mathrm{int}}}
+\newcommand{\bcbam}{\beta_{\mathrm{CBAM}}}
+\newcommand{\E}{\mathbb{E}}
+
+\title{\textbf{Chapter 8 / Design Memo}\\[0.3em]
+Causal Identification via CBAM: A Sudden-Shock Event Study\\
+of Carbon Border Adjustment on Hydrogen Project Cancellation}
+\author{Sake Saakstra \\ \small Supervisor: prof.\ dr.\ S.J.\ Koopman \\ \small Second reader (proposed): dr.\ N.\ Ketel}
+\date{Design memo v1, \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The findings of Chapters 6 and 7 document a robust associational relationship between EUA prices and the differential Blue-versus-PEM hydrogen project cancellation hazard. They do not, however, establish causation. This chapter proposes a research design exploiting the 1 January 2026 launch of the EU Carbon Border Adjustment Mechanism (CBAM) definitive period as a sudden, plausibly exogenous shock to the relative profitability of carbon-exposed hydrogen pathways. We outline a dynamic event-study specification with event-time dummies in a six-months-before, four-months-after window, treatment defined by project end-use exposure to CBAM-covered sectors, and identifying assumptions made explicit. The design follows the sudden-shock framework of \citet{hanemaaijer2024minority} and the event-study practice of \citet{bindler2022scaring}. The expected sample window is constrained (four post-treatment months as of May 2026) but the cleanest causal anchor available within the MSc timeline.
+\end{abstract}
+
+% =========================================================================
+\section{Motivation}
+\label{sec:ch8-motivation}
+
+Chapters 5 through 7 of this thesis document a structurally negative carbon-conditional cancellation differential between Blue and PEM hydrogen projects, with the interaction coefficient $\bint$ in the range $[-1.17, -1.88]$ depending on specification. We further document that this coefficient has gradually intensified over the 2014--2024 window and that the pattern is robust to sponsor-identification controls. A real-options theoretical model rationalises the observed pattern, and a complementary equity event study confirms it for diversified oil majors.
+
+The natural next question is whether the relationship is causal. Our DiD specification around the August 2022 Inflation Reduction Act (Chapter 7, Section 7.6) yielded $\beta_{\mathrm{IRA}} = -0.15$ with 95\% credible interval $[-1.9, +1.5]$, an informative null that we attributed to insufficient post-treatment events and to the IRA's protracted implementation timeline (final Treasury rules on the 45V credit only emerged in January 2025).
+
+CBAM provides a sharper alternative. Three features make it preferable for identification. First, the definitive period launches on a single discrete date (1 January 2026), enabling a clean cutoff. Second, the policy's mechanical effect is well-defined: importers of CBAM-covered goods must surrender certificates priced at the EUA spot rate, raising the effective carbon cost for hydrogen-derived products (initially fertilizers; steel and aluminium from 2026; chemicals from 2027 onward) that enter the EU market. Third, the news evidence assembled in Section \ref{sec:ch8-news} confirms that the shock has produced measurable real-economy responses already.
+
+% =========================================================================
+\section{Institutional Background and Timeline}
+\label{sec:ch8-institutional}
+
+The CBAM was politically agreed in December 2022 and entered into force in April 2023 with a transitional reporting-only phase commencing October 2023. The definitive period --- in which importers of covered goods incur actual financial obligations through CBAM certificate surrender --- began on 1 January 2026. As of May 2026, four months of definitive-period data are available.
+
+For the hydrogen sector, three CBAM features are mechanically relevant. First, hydrogen-based fertilizers (urea, ammonium nitrate) entered CBAM coverage from January 2026. Second, downstream sectors that consume hydrogen as an input (steel, aluminium, chemicals) carry phased CBAM obligations from 2026 onward. Third, hydrogen produced via Blue pathways uses natural gas as feedstock; if that gas is imported from outside the EU (notably Russian, Algerian, Norwegian, or LNG sources), the upstream carbon footprint is materially affected by CBAM-equivalent pricing in the supply chain even if direct hydrogen CBAM coverage is not yet phased in.
+
+The news evidence summarised in Section \ref{sec:ch8-news} documents three responses observed in the first four months of the definitive period: (i) the European Commission's decision in March 2026 against suspending CBAM for hydrogen-based fertilizers despite explicit H$_2$-lobby pressure, signalling political commitment to the policy; (ii) reports in gasworld that hydrogen trade dynamics have begun to shift; and (iii) at the firm level, BP's December 2025 withdrawal of its Teesside Blue hydrogen plant application --- a decision taken in the immediate run-up to CBAM definitive launch and consistent with this thesis's mechanism.
+
+% =========================================================================
+\section{Identification Strategy}
+\label{sec:ch8-identification}
+
+\subsection{Treatment definition: three nested options}
+
+We propose three nested treatment definitions, from narrowest (cleanest identification, smallest sample) to broadest (largest sample, more ambiguous identification):
+
+\paragraph{T1: Direct end-use coverage.} A project is treated if its hydrogen output is destined for a CBAM-covered downstream sector (fertilizers, steel, aluminium, chemicals from 2027). Control projects supply non-CBAM-covered sectors (mobility, residential heating, electricity generation). This treatment maps directly onto the CBAM mechanism and provides the cleanest identification. The cost is a smaller treated group; based on our v7 sample structure, approximately 60--80 projects have identified CBAM-covered end-uses.
+
+\paragraph{T2: Geographic exposure.} A project is treated if it is located within the EU customs union (and therefore competes with or supplies CBAM-affected products), and control if located outside. This is the broadest treatment and captures both direct mechanical effects and indirect competitive-positioning effects. The trade-off: T2 conflates CBAM with all other EU-specific policy changes occurring in the same period.
+
+\paragraph{T3: Feedstock-based exposure.} A project is treated if it relies on imported natural gas (Blue pathways with non-EU gas sourcing) and control if it relies on EU-domestic gas or renewable electricity (PEM). This isolates the upstream carbon-cost pass-through channel.
+
+We propose to estimate all three in parallel, with T1 as the primary specification and T2/T3 as robustness. Heterogeneous-effects analysis can probe whether the estimated effects differ across these stratifications, providing evidence on which channel dominates.
+
+\subsection{Event-time specification}
+
+Following \citet{hanemaaijer2024minority} and the standard event-study literature \citep{bindler2022scaring}, we adopt a dynamic specification with event-time dummies:
+\begin{equation}
+y_{it} = \alpha_i + \tau_t + \sum_{k = -K}^{K^{+}, k \neq -1} \beta_k \mathbb{1}[t = t^* + k] \cdot \mathrm{Treated}_i + \gamma X_{it} + \varepsilon_{it},
+\label{eq:ch8-eventstudy}
+\end{equation}
+where $\alpha_i$ is the project fixed effect, $\tau_t$ is the calendar time fixed effect, $t^* = $ January 2026, $K = 12$ months pre-treatment, $K^{+} = 4$ months post-treatment (constrained by data availability as of May 2026), and the $k = -1$ period is the omitted base category. The coefficients $\{\beta_k\}_{k=0}^{4}$ identify the post-treatment dynamic response; $\{\beta_k\}_{k=-K}^{-2}$ identify pre-treatment trends and serve as a falsification test.
+
+For project-level cancellation outcomes the dependent variable is the binary cancellation indicator in person-month $it$; we estimate via discrete-time logit hazard. For the equity-market complement we use daily log-returns of hydrogen-relevant stocks (Section \ref{sec:ch8-empirical-equity}).
+
+\subsection{Identifying assumptions}
+
+The event-study identification rests on three assumptions, each of which we make explicit and test where possible:
+
+\paragraph{A1: No anticipation effects beyond reported.} The CBAM definitive period was known to launch on 1 January 2026 from approximately the transitional-phase start (October 2023). Project sponsors with rational expectations should have begun adjusting their plans before the launch. The dynamic specification \eqref{eq:ch8-eventstudy} accommodates this by allowing $\beta_k \neq 0$ for $k < 0$. The substantive interpretation is then that the $k = 0, +1, +2$ coefficients capture marginal effects beyond anticipation. If anticipation was fully priced in, the post-treatment coefficients should be small. If anticipation was partial, the post-treatment coefficients capture the residual unanticipated component.
+
+\paragraph{A2: No confounding contemporaneous shocks.} The identification is threatened by other policy events affecting Blue/PEM cancellation differentially in the same window. We document the relevant contemporaneous events: the Trump administration's January 2025 funding cuts to US clean energy projects (affects North American sample but not EU); the final 45V Treasury rules of January 2025 (precedes our treatment date by 12 months, accommodated by event-time pre-period coefficients); and the EU ETS Phase IV cap revisions discussed by the Commission throughout 2025. Of these, the most plausible confound is contemporaneous EUA price dynamics; we address this by including EUA-level controls $X_{it}$ in equation \eqref{eq:ch8-eventstudy}.
+
+\paragraph{A3: Stable treatment effect across project types.} The estimated $\beta_k$ identifies an average treatment effect on the treated. Heterogeneity by sponsor type, project capacity, or end-use sub-segment is informative but not threatening to identification per se.
+
+\subsection{Threats to identification}
+
+Three threats deserve explicit discussion:
+
+\paragraph{Insufficient power.} With only four post-treatment months and approximately 8--12 expected events in that window (extrapolating from our 2024--2025 event rate), the post-treatment coefficient estimates will have wide credible intervals. The honest expectation is that our primary point estimate will not achieve 95\% credible interval exclusion of zero. The design's value is therefore as a directionally interpretable null-or-not result, complementing rather than overturning the associational findings of Chapter 7.
+
+\paragraph{Pre-trend violations.} If $\beta_{-K}, \ldots, \beta_{-2}$ differ significantly from zero, we have evidence that the treated and control groups were already on differential trajectories before CBAM, falsifying the parallel-trends assumption. We will report all pre-period coefficients transparently and not attempt to ``find'' a clean window by selective sample choice.
+
+\paragraph{Spillovers between treated and control.} If non-treated projects respond to CBAM (e.g., by shifting end-use sectors), the SUTVA (Stable Unit Treatment Value Assumption) is violated and our control group is contaminated. This is a known weakness of unit-level treatment definitions in policy DiD. We will probe this by estimating effects on a sample restricted to projects with end-uses determined before October 2023.
+
+% =========================================================================
+\section{Data Requirements}
+\label{sec:ch8-data}
+
+The empirical implementation requires three data inputs beyond what the v7 sample currently provides.
+
+\subsection{Existing data we can use immediately}
+
+The v7 project panel (Chapter 4) covers 714 projects through Q1 2026. The IEA Hydrogen Production Projects Database has been updated since our last extraction; we expect the May 2026 version to add approximately 30--50 new project entries and 8--12 new cancellation events covering the post-CBAM window. Daily EUA proxy data via KEUA (Section \ref{sec:ch8-empirical-equity}) is freely available through yfinance.
+
+\subsection{New data we need}
+
+Three additional inputs are required:
+
+\paragraph{Project end-use classification.} The IEA database includes a free-text \texttt{intended\_end\_use} field but does not standardise to a CBAM-coverage flag. We will hand-code each project as: (i) CBAM-covered fertilizer/chemical end-use, (ii) CBAM-covered steel/aluminium end-use, (iii) non-CBAM-covered (mobility, power, residential), or (iv) unspecified. Estimated time investment: 8--12 hours for full sample.
+
+\paragraph{Feedstock-source classification.} For Blue projects we need to identify the natural gas source country (EU domestic, Norwegian, North African, US LNG, Russian/Other). This information is partially available in IEA project descriptions and can be supplemented via project press releases. Estimated time investment: 6--10 hours for Blue projects (244 projects).
+
+\paragraph{Post-CBAM-launch news flow.} For sentiment validation and for identifying specific event-date project announcements, we will collect news mentions of in-sample projects in the December 2025--May 2026 window. Free sources: Hydrogen Insight, gasworld, Reuters energy desk, Bloomberg Green. Estimated time: 4--6 hours.
+
+\subsection{Data we cannot obtain}
+
+Two desirable data inputs are unavailable: (i) confidential project-level CAPEX trajectories from BloombergNEF (paywalled), and (ii) sponsor-internal Net Present Value calculations under different EUA scenarios. The absence of these makes the analysis essentially reduced-form rather than structural; we will treat this as a limitation in the Discussion.
+
+% =========================================================================
+\section{Falsification Tests}
+\label{sec:ch8-falsification}
+
+Three falsification tests will discipline our inference:
+
+\paragraph{Placebo treatment dates.} We will re-estimate equation \eqref{eq:ch8-eventstudy} with $t^*$ set to 1 January 2024 and 1 January 2025 (twelve and twenty-four months before the true treatment). If the estimated $\bcbam$ on these placebo dates is comparable to the true $\bcbam$, we have failed to identify the CBAM effect specifically and have instead picked up a January-of-year seasonal pattern.
+
+\paragraph{Effect on placebo outcomes.} We will check whether the estimated treatment effect appears in outcomes that should not be affected by CBAM: project announcements (vs cancellations), capacity expansions of non-hydrogen projects, and equity returns of unrelated sectors (e.g., consumer staples). A non-null effect on placebo outcomes would suggest our specification is picking up a broader macro pattern rather than the CBAM-specific channel.
+
+\paragraph{Heterogeneity by anticipation regime.} Projects announced after October 2023 (the start of the CBAM transitional phase) should have priced in CBAM expectations from the outset. Projects announced before October 2022 (before political agreement on CBAM) could not have anticipated CBAM. If the estimated effect is larger in the latter group, this is consistent with a genuine CBAM treatment effect. If the effects are similar, the identification is muddier.
+
+% =========================================================================
+\section{Expected Results and Interpretation Matrix}
+\label{sec:ch8-expected}
+
+The design will produce one of three principal outcomes; each carries a distinct interpretation:
+
+\begin{table}[h!]
+\centering
+\caption{Interpretation matrix for the CBAM event study.}
+\begin{tabular}{p{4cm}p{4cm}p{6cm}}
+\toprule
+Empirical pattern & Pre-trend behaviour & Substantive interpretation \\
+\midrule
+$\beta_k$ negative for $k \geq 0$, $\beta_k$ near zero for $k < 0$ & Clean parallel trends & CBAM causes differential cancellation reduction for Blue projects; supports the carbon-conditional mechanism causally. \\
+\midrule
+$\beta_k$ near zero for all $k$ & N/A (no effect) & CBAM has no measurable causal effect on cancellation in the four-month post-window; either anticipation was complete or the mechanism operates on longer time-scales. \\
+\midrule
+$\beta_k$ non-zero for $k < -2$ & Pre-trend violation & The estimated effect cannot be attributed to CBAM; treated and control groups were on different trajectories already. \\
+\bottomrule
+\end{tabular}
+\label{tab:ch8-interpretation}
+\end{table}
+
+The most informative scenario is the second one (a null result). It would tell us that even a clean natural experiment with a meaningful treatment cannot identify a causal effect on this short time horizon, strengthening the framing of Chapters 5--7 as documenting a robust associational pattern that operates at longer time-scales than four months.
+
+% =========================================================================
+\section{Pre-Registration Commitments}
+\label{sec:ch8-prereg}
+
+To pre-empt the most common reviewer concerns about ex-post specification mining, we commit ex ante to the following:
+
+\paragraph{Primary specification.} Equation \eqref{eq:ch8-eventstudy} with $K = 12, K^+ = 4$, project fixed effects, calendar-month fixed effects, treatment T1 (end-use exposure). Standard errors clustered at the project level. Bayesian estimation with weakly informative priors $\beta_k \sim \mathcal{N}(0, 2)$.
+
+\paragraph{Secondary specifications.} T2 (geographic) and T3 (feedstock) with otherwise identical structure.
+
+\paragraph{Falsification suite.} Three placebo tests (Section \ref{sec:ch8-falsification}) executed without amendment regardless of primary result.
+
+\paragraph{No data-driven sample restrictions.} We will not exclude observations ex post if they ``contaminate'' the result. If pre-trends fail, we will report failure rather than search for a cleaner window.
+
+\paragraph{Honest null reporting.} Following the framing of \citet{ketel2023unimportance}, any null finding will be reported with explicit power analysis indicating what effect sizes the design could have detected.
+
+% =========================================================================
+\section{Bibliography}
+\bibliographystyle{apalike}
+\begin{thebibliography}{99}
+
+\bibitem[Hanemaaijer et~al.(2024)]{hanemaaijer2024minority}
+Hanemaaijer, K., Ketel, N., \& Marie, O. (2024).
+\newblock Minority salience and criminal justice decisions.
+\newblock \textit{Tinbergen Institute Discussion Paper}, 24-065/V.
+
+\bibitem[Bindler and Ketel(2022)]{bindler2022scaring}
+Bindler, A., \& Ketel, N. (2022).
+\newblock Scaring or scarring? Labor market effects of criminal victimisation.
+\newblock \textit{Journal of Labor Economics}, 40(4), 939--970.
+
+\bibitem[Ketel et~al.(2023)]{ketel2023unimportance}
+Ketel, N., Oosterbeek, H., Sovago, S., \& van der Klaauw, B. (2023).
+\newblock The (un)importance of school assignment.
+\newblock \textit{IZA Discussion Paper}, 16591.
+
+\bibitem[Ketel et~al.(2016)]{ketel2016medical}
+Ketel, N., Leuven, E., Oosterbeek, H., \& van der Klaauw, B. (2016).
+\newblock The returns to medical school: Evidence from admission lotteries.
+\newblock \textit{American Economic Journal: Applied Economics}, 8(2), 225--254.
+
+\bibitem[European Commission(2023)]{ec2023cbam}
+European Commission (2023).
+\newblock Regulation (EU) 2023/956 establishing a Carbon Border Adjustment Mechanism.
+\newblock \textit{Official Journal of the European Union}, L 130, 16 May 2023.
+
+\end{thebibliography}
+
+\end{document}

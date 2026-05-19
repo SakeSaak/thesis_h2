@@ -1,0 +1,6 @@
+check,statistic,p,verdict
+Hosmer-Lemeshow GoF,χ²=7.79,0.4542,✓ pass
+AUC discrimination,0.8048,-,✓ excellent
+Brier score,0.0518,-,lower=better
+Calibration slope,0.891,-,✓ ok
+PH assumption (is_blue_ccs),-,0.3743,✓ ok

@@ -1,0 +1,715 @@
+v7_project_id,sp_record_id,match_quality,cap_diff,sp_project_name
+164,,no_match,,
+640,,no_match,,
+641,,no_match,,
+336,,no_match,,
+150,,no_match,,
+151,,no_match,,
+181,,no_match,,
+556,,no_match,,
+190,,no_match,,
+25,,no_match,,
+188,,no_match,,
+70,,no_match,,
+632,,no_match,,
+34,,no_match,,
+555,,no_match,,
+23,,no_match,,
+133,,no_match,,
+5,,no_match,,
+22,,no_match,,
+184,,no_match,,
+64,CETPROJH21158,exact,0.6931471805599453,Haldor Topsoe - El-Opgraderet Biogas
+149,,exact_exhausted,,
+18,CETPROJH21158,relaxed,1.1631508098056809,Haldor Topsoe - El-Opgraderet Biogas
+557,CETPROJH21615,relaxed,1.9661128563728327,Hydrogen Station
+296,CETPROJH262,relaxed,8.294299608857235,Olive Creek
+297,CETPROJH22912,relaxed,11.458120749595794,North Carolina CO2 reduction project
+56,CETPROJH2955,exact,0.0,RENOVAGAS
+62,CETPROJH21135,exact,0.0,H2 Logic Aalborg
+65,CETPROJH2774,exact,0.6931471805599453,Smart grid solar - arzberg
+67,,exact_exhausted,,
+102,CETPROJH264,relaxed,11.099801099494575,Coffeyville fertilizer plant
+112,CETPROJH260,relaxed,11.20793445339581,Port Arthur
+118,CETPROJH261,relaxed,11.257942888681463,Port Arthur
+322,CETPROJH22886,relaxed,11.34432928279475,Hydrogen Energy California (HECA)
+66,CETPROJH2785,exact,0.07232066157962613,Exytron demonstration project
+349,CETPROJH2275,relaxed,11.695255355062795,Quest Carbon Capture and Storage Project Alberta
+426,CETPROJH22190,relaxed,1.9459101490553132,Akershus Energy Park/The HyNor Project Low Carbon
+58,CETPROJH2771,relaxed,0.6931471805599453,RegEnKibo
+59,CETPROJH21619,relaxed,0.6931471805599453,Hanau H2
+61,CETPROJH21168,relaxed,0.6931471805599453,SYNFUEL
+68,CETPROJH2768,relaxed,1.6739764335716716,Hamburg - Schnackenburgallee
+553,CETPROJH2771,exact,0.0,RegEnKibo
+437,CETPROJH22124,relaxed,10.35780631486168,Port Jerome Cryocap
+280,CETPROJH2150,relaxed,1.6347557204183902,University of California Irvine H2
+581,CETPROJH2150,relaxed,1.742969305058623,University of California Irvine H2
+218,CETPROJH23252,exact,0.0,Nutrien Low Carbon Ammonia Plant
+694,CETPROJH21041,relaxed,1.3470736479666094,Hydrogen mini grid system Yorkshire (Rotherham)
+558,CETPROJH21614,relaxed,1.5511690043101245,West LA H2
+202,CETPROJH23305,exact,0.0,Lake Charles CCS
+703,CETPROJH21026,relaxed,1.742969305058623,"Fife, Levenmouth Community Energy Project III"
+704,CETPROJH21025,relaxed,1.7334905611040792,"Fife, Levenmouth Community Energy Project II"
+209,,no_match,,
+54,CETPROJH2962,exact,0.4054651081081645,CoSin: Synthetic Natural Gas from Sewage
+55,CETPROJH2779,exact,0.4054651081081645,Exytron Null-E
+63,CETPROJH21159,exact,0.6931471805599453,Haldor Topsoe - El-Opgraderet Biogas
+709,CETPROJH21612,exact,0.15415067982725827,Servco Pacific
+684,CETPROJH2878,relaxed,3.11569158863297,"STORE&GO, Solothurn"
+401,,no_match,,
+289,,no_match,,
+291,,no_match,,
+60,CETPROJH2904,exact,0.6931471805599453,GRHYD (inj in NG grid)
+142,CETPROJH21264,exact,0.4054651081081646,REFLEX
+143,CETPROJH2924,exact,0.5108256237659909,"SPHYNX, R&D"
+659,,exact_exhausted,,
+346,CETPROJH2103,relaxed,2.6984807500860595,SunLine Transit Agency station
+700,CETPROJH2278,relaxed,4.018183201256536,Markham Energy Storage
+21,CETPROJH21132,exact,0.4054651081081645,Rutherford Appleton Laboratory H2
+663,CETPROJH21132,relaxed,0.6733445532637656,Rutherford Appleton Laboratory H2
+185,CETPROJH2213,exact,0.3101549283038396,Cerro Pabellon Microgrid H2
+648,,exact_exhausted,,
+394,,no_match,,
+114,,no_match,,
+163,,no_match,,
+167,,no_match,,
+126,CETPROJH2988,exact,0.0,Seafuel
+148,,exact_exhausted,,
+51,CETPROJH2988,relaxed,0.06187540371808742,Seafuel
+52,CETPROJH21621,relaxed,0.6418538861723948,Hypos rSOC
+53,CETPROJH21239,relaxed,0.6418538861723948,H2Station
+564,CETPROJH21163,relaxed,0.4382549309311553,MeGa-stoRE 2
+568,CETPROJH2906,relaxed,2.120263536200091,GNVert H2 filling station
+17,CETPROJH2778,exact,0.5075143624623344,Wyhlen hydroelectric power plant
+643,CETPROJH21621,exact,0.0,Hypos rSOC
+20,CETPROJH21073,relaxed,0.4307829160924543,Surf'n'Turf Orkney Shapinsay/BIG HIT II
+683,CETPROJH21073,relaxed,0.6733445532637656,Surf'n'Turf Orkney Shapinsay/BIG HIT II
+107,,no_match,,
+116,,no_match,,
+165,,no_match,,
+197,,no_match,,
+72,CETPROJH21268,exact,0.1625189294977749,Agkistro H2
+76,CETPROJH2572,exact,0.5596157879354228,Magnum Battolyser Demo
+132,CETPROJH21221,exact,1.0986122886681096,VTT H2
+15,CETPROJH21591,relaxed,0.1988508587451652,Carbon2Chem
+48,CETPROJH2572,relaxed,0.1625189294977749,Magnum Battolyser Demo
+50,CETPROJH21221,relaxed,0.15082288973458358,VTT H2
+646,CETPROJH21591,exact,0.0198026272961797,Carbon2Chem
+135,CETPROJH2541,relaxed,12.144202560946876,H2M Eemshaven
+549,CETPROJH2164,relaxed,3.349904087274605,TTF project
+345,CETPROJH2279,relaxed,11.577476486029676,North West Sturgeon refinery
+310,CETPROJH22898,exact,0.0,H21 North England
+162,CETPROJH245,relaxed,3.0177111802727663,Mohammed bin Rashid Al Maktoum Solar Park PEM
+117,,no_match,,
+99,,no_match,,
+286,,no_match,,
+321,,no_match,,
+559,,no_match,,
+31,CETPROJH2899,exact,0.07410797215372211,AuxHYGen station
+36,CETPROJH2569,exact,0.20679441331267956,PosHYdon
+37,CETPROJH2923,exact,0.0,Bouin Public Transit and NEL
+121,CETPROJH21285,exact,0.32850406697203605,H2Evora
+124,,exact_exhausted,,
+127,,exact_exhausted,,
+138,,exact_exhausted,,
+636,CETPROJH22063,exact,0.0953101798043248,Kopernikus P2X
+134,CETPROJH2545,relaxed,11.982935344196433,H2-Gateway
+137,CETPROJH2545,exact,4.892025522116449,H2-Gateway
+340,CETPROJH2294,exact,1.3862943611198904,Canadian Tire Corporation H2 II
+662,CETPROJH2122,exact,1.1349799328389845,Howell P2G
+656,CETPROJH21023,exact,0.8266785731844677,EMEC Flow Battery Tidal Electrolysis
+651,CETPROJH21209,exact,0.0,CCB Energy Park
+654,,exact_exhausted,,
+677,,exact_exhausted,,
+169,CETPROJH243,relaxed,12.388398368982115,Ruwais Industrial Complex
+95,,no_match,,
+98,,no_match,,
+623,,no_match,,
+109,,no_match,,
+115,,no_match,,
+100,,no_match,,
+104,,no_match,,
+369,,no_match,,
+290,,no_match,,
+0,CETPROJH2835,exact,0.13162844247843664,Frankfurt 1 H2
+9,CETPROJH2994,exact,0.0,Port of Barcelona H2
+33,CETPROJH2728,exact,0.5465437063680696,eFarm Langenhorn
+146,CETPROJH21300,exact,0.44405744730115027,SINES GH2 SOLAR
+638,CETPROJH2806,exact,0.5389965007326869,GrInHy
+639,CETPROJH2927,exact,1.2656663733312756,Vannes H2
+24,CETPROJH2820,relaxed,1.3862943611198906,Neumunster H2
+41,CETPROJH2728,relaxed,0.6671716941566843,eFarm Langenhorn
+73,CETPROJH21360,relaxed,1.252762968495368,Air Products Botlek
+75,CETPROJH21267,relaxed,1.252762968495368,Ravenna H2
+131,CETPROJH2994,relaxed,1.9459101490553132,Port of Barcelona H2
+234,CETPROJH21300,relaxed,1.4350845252893225,SINES GH2 SOLAR
+603,CETPROJH2835,relaxed,2.014903020542265,Frankfurt 1 H2
+626,CETPROJH2806,relaxed,2.8853842163851255,GrInHy
+633,CETPROJH2927,relaxed,2.970414465569701,Vannes H2
+7,CETPROJH21173,exact,0.014144507386165017,Green Fuels for Denmark
+10,CETPROJH21306,exact,0.025190248828558914,Monforte H2 Pilot
+39,CETPROJH2919,exact,0.01960847138837618,Dijon H2
+42,CETPROJH2574,exact,0.08294908298075132,MultiplHy
+43,CETPROJH21325,exact,0.09440968447107423,SEM-REV/Sealhyfe
+125,CETPROJH2868,exact,0.24469188752041227,ZE PAK Green H2
+621,CETPROJH2563,exact,0.15303316102414755,Greenpoint
+1,CETPROJH2820,exact,0.0953101798043248,Neumunster H2
+139,CETPROJH2725,relaxed,1.791759469228055,North Stream H2
+77,CETPROJH2725,exact,0.0,North Stream H2
+315,,exact_exhausted,,
+332,CETPROJH290,exact,0.4678082386822995,Minneapolis Demonstration Plant
+16,CETPROJH294,relaxed,0.6931471805599453,H2-Orange
+544,CETPROJH2284,relaxed,0.6931471805599453,Bruce H2
+658,CETPROJH2143,relaxed,1.791759469228055,Heligon Testing Facility
+660,CETPROJH21376,relaxed,1.791759469228055,Enel US H2
+6,CETPROJH294,exact,0.0,H2-Orange
+80,CETPROJH271,relaxed,9.078065332666364,North Las Vegas H2
+699,CETPROJH21211,exact,0.867500567704723,Stord Hydrogen Energy House project
+649,CETPROJH21048,exact,0.2876820724517808,Long Mountain Antrium H2
+653,CETPROJH240,exact,0.6931471805599453,Bandirma Energy Base
+681,CETPROJH21077,exact,0.6931471805599453,Vanguard H2
+695,,exact_exhausted,,
+702,,exact_exhausted,,
+705,,exact_exhausted,,
+689,CETPROJH2853,exact,0.0392207131532812,Zaporizhzhia H2
+668,CETPROJH22890,exact,0.0,IOC Blue Ammonia Eastern Siberia
+711,,exact_exhausted,,
+608,CETPROJH2199,exact,1.9061698204057995,Verne Pilot Project
+444,CETPROJH2364,exact,0.11778303565638348,Power-to-X Pilot
+464,CETPROJH2349,exact,0.7896580809407889,Daures Green Hydrogen Village
+441,CETPROJH21421,exact,0.021053409197832273,Ain Sokhna H2
+425,CETPROJH2336,exact,0.009950330853168,Inga Dam
+439,CETPROJH2220,exact,0.0,Las Tortolas H2
+183,CETPROJH2218,exact,0.034420368400903456,HyEX
+180,,no_match,,
+313,,no_match,,
+317,,no_match,,
+96,,no_match,,
+108,,no_match,,
+563,,no_match,,
+93,,no_match,,
+97,,no_match,,
+383,,no_match,,
+597,,no_match,,
+78,,no_match,,
+85,,no_match,,
+106,,no_match,,
+113,,no_match,,
+287,,no_match,,
+292,,no_match,,
+407,,no_match,,
+584,,no_match,,
+2,CETPROJH2918,exact,0.35667494393873245,VHyGO (Grand Ouest Hydrogen Valley)
+32,CETPROJH2991,exact,0.38946476676172326,Fusion Fuel H2
+35,CETPROJH21580,exact,0.4519851237430572,Vienna Basin Green Hydrogen Project
+38,CETPROJH2992,exact,0.07020425867324853,Green H2 Langosteira
+46,CETPROJH2914,exact,0.39204208777602334,HyPSTER
+122,CETPROJH21720,exact,1.3156767939059373,Renewable Gasfield Pilot Project
+123,CETPROJH23307,exact,0.8194409058842376,HRS Compagnie Maritime Belge
+129,CETPROJH2917,exact,0.03352269203864289,VHyGO (Grand Ouest Hydrogen Valley)
+130,CETPROJH21593,exact,1.836211231798889,Hydrogen Lab Leuna/ e-CO2Met project
+145,CETPROJH2549,exact,1.9328380674879604,LIFE NEW HYTS Project
+434,CETPROJH2521,exact,1.072636802264849,Renewable Gasfield Project
+552,CETPROJH2515,exact,1.9965538818740685,Underground Sun Storage 2030
+569,CETPROJH21592,exact,0.13176927763112367,Aachen Nord wind farm H2
+634,CETPROJH2916,exact,0.04445176257083361,VHyGO (Grand Ouest Hydrogen Valley)
+13,CETPROJH2579,exact,0.0,Port of Ijzendoorn H2
+30,CETPROJH21290,exact,0.0,Hyround
+141,CETPROJH2595,exact,0.4054651081081645,GROHW
+144,CETPROJH21279,exact,0.0,PROMETEO
+147,CETPROJH21263,exact,0.2876820724517808,Seixal Industrial Park
+530,CETPROJH21315,exact,1.6094379124341005,Fronius Solhub Herzogenburg
+625,,exact_exhausted,,
+635,,exact_exhausted,,
+630,CETPROJH2997,relaxed,0.23111172096338659,Sestao H2
+4,CETPROJH21329,exact,0.01298719552681149,Herten Linde H2
+8,CETPROJH2939,exact,0.019048194970694432,Y Basque Green H2 - Jundiz
+40,CETPROJH2969,exact,0.03369384578647239,Alcudia H2
+44,CETPROJH2518,exact,0.01960847138837618,H2Pioneer
+49,CETPROJH2940,exact,0.029270382300112807,Y Basque Green H2 - Pasaia
+128,CETPROJH2967,exact,0.03658944743229231,Sesena H2
+379,CETPROJH21242,exact,0.01972450534777881,Port of Gothenburg H2
+551,CETPROJH2970,exact,0.00701757265864611,Granadilla H2
+119,CETPROJH2997,exact,0.048790164169432,Sestao H2
+140,CETPROJH22050,exact,2.1380701548495553,Wintershall Dea Turquoise Hydrogen
+14,CETPROJH21274,exact,0.0,Prinos H2
+136,,exact_exhausted,,
+429,,exact_exhausted,,
+501,,exact_exhausted,,
+647,,exact_exhausted,,
+279,CETPROJH289,exact,0.6607119048067913,Amelia Island project
+517,CETPROJH21618,exact,0.0,Sauk Valley H2 project
+591,CETPROJH297,exact,0.6931471805599454,SoCalGas Clinton
+593,CETPROJH2100,exact,1.3156767939059373,SoCalGas Demo
+606,,exact_exhausted,,
+617,,exact_exhausted,,
+642,,exact_exhausted,,
+308,CETPROJH2291,exact,0.5108256237659909,Vancouver H2
+554,CETPROJH299,relaxed,0.2468600779315258,Palomar Green Hydrogen Systems Project
+713,CETPROJH296,relaxed,0.1823215567939546,Borrego Springs project
+620,CETPROJH21762,exact,0.17416311934227213,Tent Mountain Renewable Energy Complex (TM-REX)
+645,CETPROJH2290,exact,1.4425340794427663,Burnaby H2
+666,,exact_exhausted,,
+47,CETPROJH266,exact,0.0,University of California Los Angeles
+69,CETPROJH21333,exact,0.0,Pecos County H2
+71,,exact_exhausted,,
+74,,exact_exhausted,,
+83,,exact_exhausted,,
+84,,exact_exhausted,,
+91,,exact_exhausted,,
+276,,exact_exhausted,,
+288,,exact_exhausted,,
+299,,exact_exhausted,,
+306,,exact_exhausted,,
+318,,exact_exhausted,,
+319,,exact_exhausted,,
+624,,exact_exhausted,,
+539,CETPROJH21021,exact,0.6613984822453651,Dorset Green H2
+655,CETPROJH21601,exact,0.39204208777602334,Octopus Hydrogen 40 ft container
+680,CETPROJH21095,exact,0.6190392084062233,Holyhead Hydrogen Hub
+682,CETPROJH21011,exact,1.015920572822996,Arbikie Distillery H2
+686,CETPROJH21008,exact,1.4026434991214205,Aberdeen Hydrogen Hub
+687,,exact_exhausted,,
+701,,exact_exhausted,,
+19,CETPROJH21064,exact,0.0,SHAPE UK H2
+710,CETPROJH21052,exact,0.13353139262452252,Orbital 2
+670,CETPROJH2863,exact,0.0,EN+ HPP H2 project 4
+688,CETPROJH2862,exact,0.0295588022415444,EN+ HPP H2 project 3
+679,CETPROJH21047,exact,0.6428527209482953,HyPER
+697,CETPROJH23059,exact,0.7184223255181399,CCB Energy Park
+262,CETPROJH2849,exact,0.0,Yamal Peninsula
+657,CETPROJH2848,exact,0.0,Gazprom blue hydrogen
+674,CETPROJH21070,exact,0.0,South Wales Industrial Cluster (HYDREUS)
+675,,exact_exhausted,,
+685,,exact_exhausted,,
+690,,exact_exhausted,,
+691,,exact_exhausted,,
+692,,exact_exhausted,,
+693,,exact_exhausted,,
+696,,exact_exhausted,,
+698,,exact_exhausted,,
+706,,exact_exhausted,,
+707,,exact_exhausted,,
+413,CETPROJH2192,exact,0.0,Cartagena refinery pilot project
+527,CETPROJH2342,exact,0.5596157879354227,Sasolburg H2 (Sasolburg solar farm)
+193,CETPROJH257,exact,0.0,Taqa/Emirates steel Green H2 project
+195,CETPROJH2340,exact,0.0,Durban Hub
+479,CETPROJH2339,exact,0.048790164169432,Johannesburg Hub
+499,CETPROJH2338,exact,0.0,Green Hydrogen Pilot Project Algeria
+214,CETPROJH2223,exact,0.04647676584572835,Aconcagua HyPro
+622,CETPROJH21787,exact,0.09078135823390454,Neptuno Solar PV H2 Project
+26,CETPROJH2348,exact,0.0,Blue Hydrogen Feasibility Study ENI
+27,CETPROJH2341,exact,0.0,Lesedi Project
+28,,exact_exhausted,,
+166,,exact_exhausted,,
+186,,exact_exhausted,,
+196,,exact_exhausted,,
+309,,exact_exhausted,,
+316,,exact_exhausted,,
+637,,exact_exhausted,,
+89,,no_match,,
+155,,no_match,,
+222,,no_match,,
+103,,no_match,,
+111,,no_match,,
+159,,no_match,,
+371,,no_match,,
+575,,no_match,,
+576,,no_match,,
+110,,no_match,,
+212,,no_match,,
+216,,no_match,,
+237,,no_match,,
+587,,no_match,,
+92,,no_match,,
+94,,no_match,,
+101,,no_match,,
+156,,no_match,,
+90,,no_match,,
+105,,no_match,,
+168,,no_match,,
+173,,no_match,,
+175,,no_match,,
+176,,no_match,,
+177,,no_match,,
+178,,no_match,,
+191,,no_match,,
+205,,no_match,,
+206,,no_match,,
+208,,no_match,,
+293,,no_match,,
+314,,no_match,,
+574,,no_match,,
+3,CETPROJH21401,exact,0.0,Port of Vigo H2
+535,CETPROJH2986,exact,0.6466271649250523,Coagener Los Barrios
+580,CETPROJH21442,exact,0.485507815781701,Duferco Sicily H2/Giammoro Hydrogen Valley
+599,CETPROJH21595,exact,0.06669137449867213,SINES GH2 SOLAR
+600,CETPROJH2922,exact,0.9067212808580045,Renault Flins Plant H2
+618,CETPROJH21511,exact,1.5723966407537513,GreenH2CY
+644,CETPROJH21304,exact,0.20223686649489636,SynBioS (Syngas Biological Storage)
+661,,exact_exhausted,,
+29,CETPROJH21357,exact,0.6931471805599452,Saarbrucken H2
+594,,exact_exhausted,,
+619,,exact_exhausted,,
+627,,exact_exhausted,,
+629,,exact_exhausted,,
+631,,exact_exhausted,,
+12,CETPROJH22066,relaxed,0.1484200051182732,Methanol-to-SAF (M2SAF) project
+11,CETPROJH21650,exact,0.05851471406142661,Lingen RWE ALK H2
+45,CETPROJH2921,exact,0.01960847138837618,Belfort H2
+628,CETPROJH21356,exact,0.09440968447107423,Pfeffenhausen H2
+602,CETPROJH22066,exact,0.0,Methanol-to-SAF (M2SAF) project
+278,CETPROJH22418,relaxed,9.169622538697624,Koping Hydrogen Park
+428,CETPROJH22986,relaxed,11.577467111102917,Yara-Northern Lights Sluiskil Plant
+500,CETPROJH21841,relaxed,11.744957397329843,BlueHyNow Project
+261,CETPROJH21418,exact,0.2513144282809061,Port Hawkesbury Paper H2
+449,CETPROJH2313,exact,0.8472978603872039,Port of Baie-Comeau H2
+560,,exact_exhausted,,
+588,,exact_exhausted,,
+592,,exact_exhausted,,
+275,CETPROJH2311,exact,0.13041709549516423,Charbone Winnipeg H2
+511,CETPROJH21530,exact,0.7529189238598626,Fresno H2B2 Green Hydrogen (Sohycal Plant)
+512,CETPROJH22164,exact,1.1034315751040582,Hydra Energy Hydrogen Station
+595,CETPROJH21388,exact,1.729239112246721,Pryor H2
+607,CETPROJH2310,exact,0.0,Spirit of Scotia Green Hydrogen Hub
+610,CETPROJH2160,exact,0.06241939786968853,Plug Olin Louisiana H2 project
+57,CETPROJH23277,exact,0.0,Beaumont Blue Ammonia Project
+88,CETPROJH2314,exact,0.0,Crossfield TC Energy
+213,CETPROJH2300,exact,0.0,Port Moody H2
+246,CETPROJH22900,exact,0.0,Project Phoenix Ammonia complex
+248,CETPROJH2166,exact,0.0,Cook Inlet Blue Ammonia
+253,CETPROJH21394,exact,0.0,West Virginia Clean Energy Hub
+257,CETPROJH21377,exact,0.0,Painter Reservoir Gas Complex
+305,CETPROJH21368,exact,0.0,Clean Energy Hub United States
+307,,exact_exhausted,,
+323,,exact_exhausted,,
+324,,exact_exhausted,,
+393,,exact_exhausted,,
+396,,exact_exhausted,,
+452,,exact_exhausted,,
+453,,exact_exhausted,,
+495,,exact_exhausted,,
+542,,exact_exhausted,,
+589,,exact_exhausted,,
+604,,exact_exhausted,,
+605,,exact_exhausted,,
+609,,exact_exhausted,,
+611,,exact_exhausted,,
+612,,exact_exhausted,,
+613,,exact_exhausted,,
+614,,exact_exhausted,,
+579,CETPROJH21106,exact,0.18232155679395445,County Antrim H2
+652,CETPROJH21202,exact,0.8873031950009027,ROBINSON H2
+664,CETPROJH21103,exact,0.11482132416205593,Hydrogen Oxygen Ecosystem Demonstrator Project
+665,CETPROJH21210,exact,1.7764919970972661,HyPilot Test
+667,CETPROJH21364,exact,0.8353216693404883,GHP Site
+615,CETPROJH22260,exact,1.0986122886681096,Project Pioneer One
+616,,exact_exhausted,,
+650,,exact_exhausted,,
+673,,exact_exhausted,,
+708,,exact_exhausted,,
+672,CETPROJH219,exact,0.18653462351325878,Solges Armenia
+601,CETPROJH21004,relaxed,10.646590883905475,Acorn Aberdeenshire H2
+669,CETPROJH21104,relaxed,11.115115977672941,Bacton Hydrogen Hub
+671,CETPROJH21087,relaxed,11.813785327687714,H2NorthEast
+676,CETPROJH21085,relaxed,11.927508874722921,"Humber Hub Blue, Killingholme"
+678,CETPROJH21403,relaxed,12.067367894131653,Easington Gas Terminal Blue Hydrogen
+712,CETPROJH21109,relaxed,12.438330534788479,H2H Production 2
+187,CETPROJH21413,exact,0.11122563511022454,Morocco Pilot H2
+442,CETPROJH228,exact,0.16705408466316607,Green Hydrogen for Mobility Muscat
+182,CETPROJH228,relaxed,0.9555114450274362,Green Hydrogen for Mobility Muscat
+189,CETPROJH258,relaxed,1.791759469228055,Azerbaijan green hydrogen
+562,CETPROJH255,relaxed,1.252762968495368,Demonstrator plant Masdar City
+577,CETPROJH2361,relaxed,1.0986122886681098,Benban Solar Park
+172,CETPROJH258,exact,0.0,Azerbaijan green hydrogen
+192,CETPROJH255,exact,0.0,Demonstrator plant Masdar City
+179,CETPROJH234,exact,0.0,Saudi Aramco PCER
+320,CETPROJH232,exact,0.0,King Salman Energy Park (SPARK)
+160,,no_match,,
+81,,no_match,,
+82,,no_match,,
+282,,no_match,,
+362,,no_match,,
+417,,no_match,,
+509,,no_match,,
+570,,no_match,,
+590,,no_match,,
+598,,no_match,,
+152,,no_match,,
+153,,no_match,,
+154,,no_match,,
+158,,no_match,,
+174,,no_match,,
+360,,no_match,,
+361,,no_match,,
+573,,no_match,,
+79,,no_match,,
+87,,no_match,,
+120,,no_match,,
+157,,no_match,,
+161,,no_match,,
+170,,no_match,,
+171,,no_match,,
+194,,no_match,,
+235,,no_match,,
+238,,no_match,,
+311,,no_match,,
+312,,no_match,,
+463,,no_match,,
+578,,no_match,,
+582,,no_match,,
+583,,no_match,,
+585,,no_match,,
+586,,no_match,,
+596,,no_match,,
+478,CETPROJH21920,exact,0.3746934494414105,H2goesRail
+485,CETPROJH21867,exact,0.04738862224414353,H2 Factory
+504,CETPROJH23168,exact,0.028573372444055778,VOZARTEK
+508,CETPROJH21923,exact,1.2656663733312756,Bouin Green H2
+435,CETPROJH21651,exact,0.5108256237659909,H2Evora
+468,,exact_exhausted,,
+481,,exact_exhausted,,
+496,,exact_exhausted,,
+505,,exact_exhausted,,
+514,,exact_exhausted,,
+526,,exact_exhausted,,
+538,,exact_exhausted,,
+540,,exact_exhausted,,
+565,,exact_exhausted,,
+567,,exact_exhausted,,
+572,,exact_exhausted,,
+543,CETPROJH22072,relaxed,0.2151113796169455,FrontFuel
+351,CETPROJH21991,exact,0.0,Modena
+482,CETPROJH21988,exact,0.0,Helios
+489,CETPROJH21776,exact,0.08309275856153686,H2HybNS project
+521,CETPROJH21566,exact,0.0,Hollandse Kust Noord H2/Baseload Power Hub
+522,CETPROJH21921,exact,0.1322477869430374,Brake
+523,CETPROJH21718,exact,0.13338868837882867,Montoir plant H2
+548,CETPROJH21821,exact,0.09317722485418312,HyTouraine Project
+506,CETPROJH22072,exact,0.0,FrontFuel
+263,CETPROJH21837,relaxed,10.709985739582528,Project IRIS Blue Hydrogen
+550,CETPROJH21636,relaxed,11.313290899206928,Rotterdam blue hydrogen plant retrofit Air Liquide
+510,CETPROJH21729,exact,1.3048267778818716,Maryland Green Hydrogen
+561,CETPROJH21943,exact,1.3499267169490161,DeBary
+469,CETPROJH22194,exact,0.0,Hieberts Farm Green Ammonia
+471,CETPROJH23023,exact,0.0,Minnesota Morris Demo
+528,,exact_exhausted,,
+487,CETPROJH21961,exact,1.001650580825312,Fresno H2B2 Green Hydrogen (Sohycal Plant)
+488,CETPROJH21571,exact,1.6094379124341005,Charbone Sorel-Tracy Green H2
+475,CETPROJH21599,exact,0.28973020723592136,Dakota Renewable Hydrogen Project (DRH)
+204,CETPROJH23301,exact,0.0,ConocoPhillips-JERA Americas Hydrogen/Ammonia plant
+207,CETPROJH23298,exact,0.0,Suncor refinery
+268,CETPROJH21935,exact,0.0,Midwest Low carbon Hydrogen Hub
+274,CETPROJH21933,exact,0.0,Heartland Low carbon Hydrogen Hub
+298,CETPROJH21928,exact,0.0,Appalachian Hydrogen Hub
+300,CETPROJH21767,exact,0.0,Florida clean hydrogen hub
+328,CETPROJH21756,exact,0.0,Cushing Refinery Blue H2
+329,,exact_exhausted,,
+374,,exact_exhausted,,
+420,,exact_exhausted,,
+447,,exact_exhausted,,
+451,,exact_exhausted,,
+454,,exact_exhausted,,
+472,,exact_exhausted,,
+473,,exact_exhausted,,
+474,,exact_exhausted,,
+476,,exact_exhausted,,
+491,,exact_exhausted,,
+492,,exact_exhausted,,
+493,,exact_exhausted,,
+494,,exact_exhausted,,
+507,,exact_exhausted,,
+515,,exact_exhausted,,
+518,,exact_exhausted,,
+524,,exact_exhausted,,
+536,,exact_exhausted,,
+541,,exact_exhausted,,
+249,CETPROJH21877,exact,0.6931471805599454,University of Sheffield SAF R&D
+480,CETPROJH21562,exact,0.8873031950009027,Egersund Liquid Green Hydrogen
+525,CETPROJH21637,exact,0.15415067982725827,Elemir Gas Refinery (RGE) Green Hydrogen
+490,CETPROJH22989,relaxed,0.5653138090500605,STFC ASPIRE Project
+277,CETPROJH22989,exact,0.0,STFC ASPIRE Project
+547,CETPROJH22262,exact,0.0,Samlesbury Net Zero
+203,CETPROJH21766,exact,0.0,RECYCLE project (REthinking low Carbon hYdrogen production by Chemical Looping rEforming)
+409,CETPROJH21728,exact,0.0,Brigg Power Station H2
+516,,exact_exhausted,,
+344,CETPROJH22611,exact,0.0,GH2GH Project
+513,CETPROJH21648,exact,0.4054651081081646,Bogota H2
+520,CETPROJH21711,exact,0.2876820724517808,Ullum San Juan H2
+534,,exact_exhausted,,
+519,CETPROJH22611,relaxed,0.06187540371808742,GH2GH Project
+545,CETPROJH23012,relaxed,0.1484200051182732,Sumitomo-Colbun Tocopilla
+470,CETPROJH21724,relaxed,3.58351893845611,Rustenburg smelter project
+486,CETPROJH21926,relaxed,7.469083884921234,Shaybah demonstration plant
+502,CETPROJH22293,relaxed,12.022396171249941,Blue Horizons Project
+529,CETPROJH22913,relaxed,12.589159211520418,Jafurah blue ammonia project - Saudi Aramco
+359,,no_match,,
+443,,no_match,,
+466,,no_match,,
+467,,no_match,,
+533,,no_match,,
+571,,no_match,,
+267,,no_match,,
+357,,no_match,,
+465,,no_match,,
+497,,no_match,,
+498,,no_match,,
+503,,no_match,,
+532,,no_match,,
+546,,no_match,,
+566,,no_match,,
+484,,no_match,,
+373,,no_match,,
+483,,no_match,,
+86,,no_match,,
+236,,no_match,,
+295,,no_match,,
+304,,no_match,,
+414,,no_match,,
+477,,no_match,,
+531,,no_match,,
+537,,no_match,,
+226,CETPROJH22430,exact,0.16705408466316607,Ossi Green H2
+229,CETPROJH22192,exact,0.8362480242006187,KIT Helmholtz centers R&D project
+387,CETPROJH22205,exact,1.0678406300013559,Nordex Navarra Green H2 Test
+415,CETPROJH22029,exact,1.1574527886910428,H-TEC project/HUB LA ISLA H2
+419,CETPROJH22211,exact,1.679642171107349,Project Hyvia
+423,CETPROJH23125,exact,1.7129785913749407,Loviisa nuclear power plant H2/Kalla test center Alkaline
+390,CETPROJH22204,exact,0.0,Odolanow Orlen Pilot Green H2
+392,CETPROJH22321,exact,0.33647223662121273,Seville (H2-24/7) Green H2
+395,CETPROJH22028,exact,0.0,FollHy Project
+432,CETPROJH22183,exact,0.08961215868968675,Iberia Hospital Green H2
+433,,exact_exhausted,,
+446,,exact_exhausted,,
+455,,exact_exhausted,,
+382,CETPROJH22421,exact,0.03378699757738257,Guttroff
+399,CETPROJH22375,exact,0.12814582269193053,Croixrault Green H2
+400,CETPROJH22362,exact,0.014320053774748764,EAV Green H2
+418,CETPROJH22714,exact,0.033616610798985036,Turn2X
+430,CETPROJH23158,exact,0.0953101798043248,ReSTart eSAF
+388,CETPROJH23302,exact,0.0,Graforce Plasmalysis project
+404,CETPROJH22026,exact,0.16798855914845223,Scalable Hydrogen Energy Platform (SHEP)
+458,CETPROJH22193,exact,0.13162844247843664,Simon Fraser Clean Hydrogen Hub
+201,CETPROJH22193,relaxed,1.6094379124341005,Simon Fraser Clean Hydrogen Hub
+391,CETPROJH22797,relaxed,1.801709800081223,Project Pathfinder
+397,CETPROJH22398,exact,0.1619328202693131,Lewis County Transit Station/Port of Chehalis Hydrogen Production & Fueling Station
+398,CETPROJH23308,exact,0.004962789342129348,Chevron Lost Hills Oil Field PEM
+403,,exact_exhausted,,
+217,CETPROJH22905,exact,0.0,Prairie Horizon Hydrogen Project
+301,CETPROJH22158,exact,0.0,NW Natural Portland
+303,,exact_exhausted,,
+372,,exact_exhausted,,
+402,,exact_exhausted,,
+405,,exact_exhausted,,
+406,,exact_exhausted,,
+411,,exact_exhausted,,
+412,,exact_exhausted,,
+424,,exact_exhausted,,
+427,,exact_exhausted,,
+431,,exact_exhausted,,
+438,,exact_exhausted,,
+460,,exact_exhausted,,
+462,,exact_exhausted,,
+422,CETPROJH22261,relaxed,1.7090677533829415,Project Pioneer Two
+436,CETPROJH22481,relaxed,2.43689743060164,H2Uri
+457,CETPROJH22987,relaxed,3.044522437723423,A Energi Kvinesdal
+385,CETPROJH22987,relaxed,1.0986122886681098,A Energi Kvinesdal
+416,CETPROJH22469,relaxed,1.252762968495368,HydroGlen Project
+450,CETPROJH22261,exact,0.042200354490376846,Project Pioneer Two
+302,CETPROJH22906,exact,0.0,Mongstad industrial transformation project (MITP)
+408,,exact_exhausted,,
+440,CETPROJH22417,exact,0.04879016416943216,Kahiros Green H2 Project
+445,CETPROJH22277,exact,0.31246758553213283,Kahiros Green H2 Project
+223,CETPROJH23222,relaxed,0.6931471805599453,EDF EVA Project
+269,CETPROJH22471,exact,0.0,Aramco Jubail CCS hub
+270,,exact_exhausted,,
+271,,exact_exhausted,,
+272,,exact_exhausted,,
+273,,exact_exhausted,,
+461,,exact_exhausted,,
+265,,no_match,,
+281,,no_match,,
+356,,no_match,,
+244,,no_match,,
+327,,no_match,,
+358,,no_match,,
+389,,no_match,,
+410,,no_match,,
+448,,no_match,,
+459,,no_match,,
+355,,no_match,,
+384,,no_match,,
+386,,no_match,,
+421,,no_match,,
+456,,no_match,,
+227,CETPROJH23179,exact,0.3746934494414105,Uniper Malmö facility
+228,CETPROJH23089,exact,0.49247648509779385,August Weckermann KG H2 plant
+231,CETPROJH23073,exact,0.11778303565638337,Hyround
+241,CETPROJH23223,exact,0.0,Viscofan Green H2
+243,CETPROJH23104,exact,0.03278982282299081,P2H2 Antwerp Port AEM
+258,CETPROJH22741,exact,0.2513144282809061,Isoparc business park
+381,CETPROJH23220,exact,1.3156767939059373,JMG Cranes Green H2
+225,CETPROJH22718,exact,1.0986122886681096,Plocan offshore green H2 (H2VERDE)
+230,,exact_exhausted,,
+232,,exact_exhausted,,
+260,,exact_exhausted,,
+266,,exact_exhausted,,
+348,,exact_exhausted,,
+365,,exact_exhausted,,
+368,,exact_exhausted,,
+370,,exact_exhausted,,
+375,,exact_exhausted,,
+377,,exact_exhausted,,
+240,CETPROJH22600,exact,0.021787354184907848,Sleeping Giant Green H2
+339,CETPROJH22824,exact,0.03891541624967321,Porto Marghera Green H2
+366,CETPROJH22926,exact,0.12014431184206309,GreenHydroChem24
+250,CETPROJH23180,exact,0.0,Bothnia LinkH2
+325,CETPROJH23160,exact,0.0,PP2XH Parnu Hub
+294,CETPROJH23156,exact,0.0,MAGHYC Onboard H2
+380,CETPROJH23198,relaxed,0.8754687373538999,StormFisher Texas Methanol Plant
+247,CETPROJH22599,relaxed,1.2200921862058198,Landus Green Ammonia Project
+350,CETPROJH22778,relaxed,1.6706815376748194,Verdagy Moss Landing Green H2
+252,CETPROJH23198,exact,0.0,StormFisher Texas Methanol Plant
+245,CETPROJH23163,exact,0.0,NXTClean Port Westward
+254,CETPROJH23127,exact,0.0,Texas City blue methanol - Sandpiper Chemicals
+255,CETPROJH22646,exact,0.0,Graphitic Energy H2
+285,,exact_exhausted,,
+341,,exact_exhausted,,
+259,CETPROJH23286,relaxed,1.252762968495368,Syntholene eSAF Plant
+233,CETPROJH23091,exact,1.1594310287031488,VfA Buchs H2 plant
+338,CETPROJH23053,exact,0.8056251639866354,Cleanergy H2 refuelling station
+256,CETPROJH23080,relaxed,0.6931471805599453,SOHAR Dutch H3 Green H2
+264,CETPROJH23008,relaxed,1.791759469228055,GoVerde Energia Bahia
+333,CETPROJH23003,relaxed,1.252762968495368,Voltalia Pecem
+367,CETPROJH22880,relaxed,1.0986122886681098,Yemen Green H2
+284,CETPROJH23080,relaxed,0.3220834991691133,SOHAR Dutch H3 Green H2
+251,CETPROJH22992,exact,0.9300569276383026,HVLC Prothium (The Protium Project)
+347,CETPROJH23011,exact,0.40771651618862137,Atvos Mineiros Plant
+330,CETPROJH22851,relaxed,6.776506992372183,Juiz de Fora Blue hydrogen
+331,CETPROJH22852,relaxed,11.931642378754141,Project Rabdan
+199,,no_match,,
+326,,no_match,,
+352,,no_match,,
+221,,no_match,,
+337,,no_match,,
+343,,no_match,,
+353,,no_match,,
+354,,no_match,,
+283,,no_match,,
+376,,no_match,,
+378,,no_match,,
+242,,no_match,,
+342,,no_match,,
+215,,no_match,,
+239,,no_match,,
+334,,no_match,,
+335,,no_match,,
+363,,no_match,,
+364,,no_match,,
+210,,no_match,,
+219,,no_match,,
+220,,no_match,,
+200,,no_match,,
+198,,no_match,,
+211,,no_match,,
+224,,no_match,,

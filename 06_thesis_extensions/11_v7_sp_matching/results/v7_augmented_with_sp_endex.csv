@@ -1,0 +1,1427 @@
+project_id,is_blue_ccs,log_capacity_mw,region,sponsor_type,sponsor_owner,tech,year_announced,duration,event_any,event_type,capacity_mw,region_short,cap_bkt,key,v7_project_id,sp_record_id,match_quality,Record ID,Project name,Primary end use sector,Primary end use sector detail,Secondary use sector,Output product,Will export,Export destination geography,project_status,Project status major,cbam_endex,sponsor_proxy_cbam
+0,0,3.269568939183719,EU,Unknown,Unknown,PEM,2020.0,6,0,0,25.299999999999997,EU,L,2020_EU_0_L,0,CETPROJH2835,exact,CETPROJH2835,Frankfurt 1 H2,Transport (rail),,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+1,0,0.0953101798043248,EU,Unknown,Unknown,PEM,2020.0,6,0,0,0.09999999999999994,EU,XS,2020_EU_0_XS,1,CETPROJH2820,exact,CETPROJH2820,Neumunster H2,Transport (road),Trucks & Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+2,0,3.044522437723423,EU,Unknown,Unknown,PEM,2021.0,5,0,0,20.0,EU,L,2021_EU_0_L,2,CETPROJH2918,exact,CETPROJH2918,VHyGO (Grand Ouest Hydrogen Valley),Transport (road),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+3,0,3.9318256327243257,EU,Unknown,Unknown,PEM,2022.0,4,0,0,50.0,EU,L,2022_EU_0_L,3,CETPROJH21401,exact,CETPROJH21401,Port of Vigo H2,Industry (other),Unknown,Transport (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+4,0,5.030437921392435,EU,Other,"Endesa, S.A.",PEM,2021.0,5,0,0,151.99999999999997,EU,XL,2021_EU_0_XL,4,CETPROJH21329,exact,CETPROJH21329,Herten Linde H2,Transport (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+5,0,0.0953101798043248,EU,Unknown,Unknown,PEM,2009.0,17,0,0,0.09999999999999994,EU,XS,2009_EU_0_XS,5,,no_match,,,,,,,,,,,0,0
+5,0,0.0953101798043248,EU,Unknown,Unknown,PEM,2009.0,17,0,0,0.09999999999999994,EU,XS,2009_EU_0_XS,5,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+6,0,0.0,North_America,Unknown,Unknown,PEM,2020.0,6,0,0,0.0,NA,XS,2020_NA_0_XS,6,CETPROJH294,exact,CETPROJH294,H2-Orange,Power & heat,Power,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+7,0,5.87493073085203,EU,Unknown,Unknown,PEM,2020.0,6,0,0,355.0,EU,XL,2020_EU_0_XL,7,CETPROJH21173,exact,CETPROJH21173,Green Fuels for Denmark,Transport (aviation),,Unknown,"Hydrogen,SAF",Unknown,,On-hold (confirmed),Cancelled,0,0
+8,0,5.356586274672012,EU,Unknown,Unknown,PEM,2021.0,5,0,0,210.99999999999997,EU,XL,2021_EU_0_XL,8,CETPROJH2939,exact,CETPROJH2939,Y Basque Green H2 - Jundiz,Transport (road),Heavy Goods Vehicles,Industry (chemical feedstock),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+9,0,3.044522437723423,EU,Utility,"Iberdrola, S.A.",PEM,2020.0,6,0,0,20.0,EU,L,2020_EU_0_L,9,CETPROJH2994,exact,CETPROJH2994,Port of Barcelona H2,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+10,0,5.303304908059076,EU,Other,unknown,PEM,2020.0,6,0,0,200.0,EU,XL,2020_EU_0_XL,10,CETPROJH21306,exact,CETPROJH21306,Monforte H2 Pilot,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,0
+11,0,6.478509642208569,EU,Unknown,Unknown,PEM,2022.0,4,0,0,649.9999999999998,EU,XL,2022_EU_0_XL,11,CETPROJH21650,exact,CETPROJH21650,Lingen RWE ALK H2,Transport (road),Heavy Goods Vehicles,Power & heat,Hydrogen,No,,Fully commissioned,Operating,0,0
+12,0,0.1484200051182732,EU,Unknown,Unknown,PEM,2022.0,4,0,0,0.1599999999999999,EU,S,2022_EU_0_S,12,CETPROJH22066,relaxed,CETPROJH22066,Methanol-to-SAF (M2SAF) project,Transport (aviation),,Unknown,"Hydrogen,SAF",No,,Design,Planning - early,0,0
+13,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2021.0,5,0,0,1.0,EU,M,2021_EU_0_M,13,CETPROJH2579,exact,CETPROJH2579,Port of Ijzendoorn H2,Transport (shipping),,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+14,1,0.0,EU,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,14,CETPROJH21274,exact,CETPROJH21274,Prinos H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+15,0,0.1988508587451652,EU,Unknown,Unknown,PEM,2018.0,8,0,0,0.22,EU,S,2018_EU_0_S,15,CETPROJH21591,relaxed,CETPROJH21591,Carbon2Chem,Industry (other),Steel & Plastic,Industry (chemical feedstock),Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+16,0,0.6931471805599453,North_America,Unknown,Unknown,PEM,2020.0,6,0,0,1.0,NA,M,2020_NA_0_M,16,CETPROJH294,relaxed,CETPROJH294,H2-Orange,Power & heat,Power,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+17,0,5.303304908059076,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2017.0,9,0,0,200.0,EU,XL,2017_EU_0_XL,17,CETPROJH2778,exact,CETPROJH2778,Wyhlen hydroelectric power plant,Transport (other),Unknown,Power & heat,Hydrogen,No,,Fully commissioned,Operating,0,1
+18,0,0.2231435513142097,EU,Unknown,Unknown,PEM,2010.0,16,0,0,0.24999999999999994,EU,S,2010_EU_0_S,18,CETPROJH21158,relaxed,CETPROJH21158,Haldor Topsoe - El-Opgraderet Biogas,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+19,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,2.0000000000000004,OE,M,2021_OE_0_M,19,CETPROJH21064,exact,CETPROJH21064,SHAPE UK H2,Other,R&D (Maritime),Transport (road),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+20,0,0.262364264467491,Other_Europe,Unknown,Unknown,PEM,2017.0,9,0,0,0.29999999999999993,OE,S,2017_OE_0_S,20,CETPROJH21073,relaxed,CETPROJH21073,Surf'n'Turf Orkney Shapinsay/BIG HIT II,Power & heat,Power,Transport (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+21,0,1.0986122886681098,Other_Europe,Other,Hydrospider AG,PEM,2016.0,10,0,0,2.0000000000000004,OE,M,2016_OE_0_M,21,CETPROJH21132,exact,CETPROJH21132,Rutherford Appleton Laboratory H2,Other,R&D,Unknown,Ammonia,Unknown,,Fully commissioned,Operating,0,0
+22,0,0.300104592450338,Other_Europe,Unknown,Unknown,PEM,2009.0,17,0,0,0.34999999999999987,OE,S,2009_OE_0_S,22,,no_match,,,,,,,,,,,0,0
+22,0,0.300104592450338,Other_Europe,Unknown,Unknown,PEM,2009.0,17,0,0,0.34999999999999987,OE,S,2009_OE_0_S,22,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+23,0,0.009950330853168,North_America,Unknown,Unknown,PEM,2008.0,18,0,0,0.009999999999999917,NA,XS,2008_NA_0_XS,23,,no_match,,,,,,,,,,,0,0
+23,0,0.009950330853168,North_America,Unknown,Unknown,PEM,2008.0,18,0,0,0.009999999999999917,NA,XS,2008_NA_0_XS,23,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+24,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2020.0,6,0,0,3.0,EU,M,2020_EU_0_M,24,CETPROJH2820,relaxed,CETPROJH2820,Neumunster H2,Transport (road),Trucks & Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+25,0,0.0295588022415444,North_America,Unknown,Unknown,PEM,2006.0,20,0,0,0.03,NA,XS,2006_NA_0_XS,25,,no_match,,,,,,,,,,,0,0
+25,0,0.0295588022415444,North_America,Unknown,Unknown,PEM,2006.0,20,0,0,0.03,NA,XS,2006_NA_0_XS,25,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+26,1,0.0,Other,Unknown,Unknown,Blue_CCS,2021.0,2,1,1,0.0,OT,XS,2021_OT_1_XS,26,CETPROJH2348,exact,CETPROJH2348,Blue Hydrogen Feasibility Study ENI,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+27,1,0.0,Other,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,27,CETPROJH2341,exact,CETPROJH2341,Lesedi Project,Power & heat,Power,Transport (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+28,1,0.0,Other,Other,Gazprom,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,28,,exact_exhausted,,,,,,,,,,,0,0
+28,1,0.0,Other,Other,Gazprom,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,28,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+29,0,1.791759469228055,EU,Unknown,Unknown,PEM,2022.0,4,0,0,5.0,EU,M,2022_EU_0_M,29,CETPROJH21357,exact,CETPROJH21357,Saarbrucken H2,Other,R&D,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+30,0,1.791759469228055,EU,Unknown,Unknown,PEM,2021.0,5,0,0,5.0,EU,M,2021_EU_0_M,30,CETPROJH21290,exact,CETPROJH21290,Hyround,Gas grid,Blending,Transport (road),Hydrogen,No,,Fully commissioned,Operating,0,0
+31,0,4.02535169073515,EU,Unknown,Unknown,PEM,2019.0,3,1,2,55.00000000000002,EU,L,2019_EU_0_L,31,CETPROJH2899,exact,CETPROJH2899,AuxHYGen station,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+32,0,3.044522437723423,EU,Unknown,Unknown,PEM,2021.0,5,0,0,20.0,EU,L,2021_EU_0_L,32,CETPROJH2991,exact,CETPROJH2991,Fusion Fuel H2,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,0
+33,0,2.3978952727983707,EU,Steel,ArcelorMittal S.A.,PEM,2020.0,6,0,0,10.000000000000002,EU,L,2020_EU_0_L,33,CETPROJH2728,exact,CETPROJH2728,eFarm Langenhorn,Transport (road),Fuel cell vehicles & Refueling station,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+34,0,0.0,North_America,Unknown,Unknown,PEM,2007.0,19,0,0,0.0,NA,XS,2007_NA_0_XS,34,,no_match,,,,,,,,,,,0,0
+34,0,0.0,North_America,Unknown,Unknown,PEM,2007.0,19,0,0,0.0,NA,XS,2007_NA_0_XS,34,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+35,0,3.044522437723423,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2021.0,5,0,0,20.0,EU,L,2021_EU_0_L,35,CETPROJH21580,exact,CETPROJH21580,Vienna Basin Green Hydrogen Project,Gas grid,Unknown,Unknown,Hydrogen,Yes,,On-hold (assumed),Cancelled,0,1
+36,0,4.51085950651685,EU,Unknown,Unknown,PEM,2019.0,7,0,0,89.99999999999997,EU,L,2019_EU_0_L,36,CETPROJH2569,exact,CETPROJH2569,PosHYdon,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+37,0,2.3978952727983707,EU,Other,unknown,PEM,2019.0,7,0,0,10.000000000000002,EU,L,2019_EU_0_L,37,CETPROJH2923,exact,CETPROJH2923,Bouin Public Transit and NEL,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+38,0,4.007333185232471,EU,Other,BASF SE,PEM,2021.0,5,0,0,54.000000000000014,EU,L,2021_EU_0_L,38,CETPROJH2992,exact,CETPROJH2992,Green H2 Langosteira,Transport (road),Heavy Goods Vehicles,Industry (other),Hydrogen,Unknown,,Permitted,Planning - advanced,0,0
+39,0,4.61512051684126,EU,Other,Luxcara GmbH,PEM,2020.0,6,0,0,100.00000000000003,EU,XL,2020_EU_0_XL,39,CETPROJH2919,exact,CETPROJH2919,Dijon H2,Transport (road),Unknown,Unknown,Hydrogen,Unknown,,Under construction,Planning - advanced,0,0
+40,0,5.771441123130016,EU,Other,EWE Aktiengesellschaft,PEM,2021.0,5,0,0,320.0,EU,XL,2021_EU_0_XL,40,CETPROJH2969,exact,CETPROJH2969,Alcudia H2,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+41,0,2.277267285009756,EU,Unknown,Unknown,PEM,2020.0,6,0,0,8.750000000000002,EU,M,2020_EU_0_M,41,CETPROJH2728,relaxed,CETPROJH2728,eFarm Langenhorn,Transport (road),Fuel cell vehicles & Refueling station,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+42,0,5.303304908059076,EU,Other,Uniper SE,PEM,2020.0,6,0,0,200.0,EU,XL,2020_EU_0_XL,42,CETPROJH2574,exact,CETPROJH2574,MultiplHy,Industry (refinery feedstock),Oil Refinery,Unknown,Liquids,Unknown,,Fully commissioned,Operating,1,0
+43,0,4.61512051684126,EU,Oil_major,BP p.l.c.,PEM,2020.0,6,0,0,100.00000000000003,EU,XL,2020_EU_0_XL,43,CETPROJH21325,exact,CETPROJH21325,SEM-REV/Sealhyfe,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+44,0,4.61512051684126,EU,Utility,RWE Aktiengesellschaft,PEM,2021.0,5,0,0,100.00000000000003,EU,XL,2021_EU_0_XL,44,CETPROJH2518,exact,CETPROJH2518,H2Pioneer,Industry (other),Semiconductor industry,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+45,0,4.61512051684126,EU,Utility,RWE Aktiengesellschaft,PEM,2022.0,4,0,0,100.00000000000003,EU,XL,2022_EU_0_XL,45,CETPROJH2921,exact,CETPROJH2921,Belfort H2,Transport (road),Buses,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+46,0,3.218875824868201,EU,Industrial_gas,Linde plc,PEM,2021.0,5,0,0,24.000000000000007,EU,L,2021_EU_0_L,46,CETPROJH2914,exact,CETPROJH2914,HyPSTER,Other,R&D/Storage,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,1
+47,1,0.0,North_America,Other,"Tallgrass Energy, LP",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,47,CETPROJH266,exact,CETPROJH266,University of California Los Angeles,Gas grid,Unknown,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+48,0,0.5306282510621704,EU,Unknown,Unknown,PEM,2018.0,8,0,0,0.7,EU,S,2018_EU_0_S,48,CETPROJH2572,relaxed,CETPROJH2572,Magnum Battolyser Demo,Power & heat,Power,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+49,0,4.61512051684126,EU,Oil_major,Shell plc,PEM,2021.0,5,0,0,100.00000000000003,EU,XL,2021_EU_0_XL,49,CETPROJH2940,exact,CETPROJH2940,Y Basque Green H2 - Pasaia,Transport (road),Heavy Goods Vehicles,Industry (chemical feedstock),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+50,0,0.5423242908253617,EU,Unknown,Unknown,PEM,2018.0,8,0,0,0.7200000000000001,EU,S,2018_EU_0_S,50,CETPROJH21221,relaxed,CETPROJH21221,VTT H2,Other,R&D,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+51,0,0.6312717768418579,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.88,EU,S,2017_EU_0_S,51,CETPROJH2988,relaxed,CETPROJH2988,Seafuel,Transport (road),Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+52,0,0.6418538861723948,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.9,EU,S,2017_EU_0_S,52,CETPROJH21621,relaxed,CETPROJH21621,Hypos rSOC,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+53,0,0.6418538861723948,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.9,EU,S,2017_EU_0_S,53,CETPROJH21239,relaxed,CETPROJH21239,H2Station,Transport (road),Industrial Vehicle,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+54,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2015.0,11,0,0,1.0,EU,M,2015_EU_0_M,54,CETPROJH2962,exact,CETPROJH2962,CoSin: Synthetic Natural Gas from Sewage,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+55,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2015.0,11,0,0,1.0,EU,M,2015_EU_0_M,55,CETPROJH2779,exact,CETPROJH2779,Exytron Null-E,Power & heat,Power and heat,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+56,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2011.0,15,0,0,1.0,EU,M,2011_EU_0_M,56,CETPROJH2955,exact,CETPROJH2955,RENOVAGAS,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+57,1,0.0,North_America,Other,Exxon Mobil Corporation,Blue_CCS,2022.0,2,1,2,0.0,NA,XS,2022_NA_1_XS,57,CETPROJH23277,exact,CETPROJH23277,Beaumont Blue Ammonia Project,Unknown,Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,Design,Planning - early,0,0
+58,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2013.0,13,0,0,1.0,EU,M,2013_EU_0_M,58,CETPROJH2771,relaxed,CETPROJH2771,RegEnKibo,Power & heat,Power,Gas grid,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+59,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2013.0,13,0,0,1.0,EU,M,2013_EU_0_M,59,CETPROJH21619,relaxed,CETPROJH21619,Hanau H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+60,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2016.0,10,0,0,1.0,EU,M,2016_EU_0_M,60,CETPROJH2904,exact,CETPROJH2904,GRHYD (inj in NG grid),Transport (other),Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+61,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2013.0,13,0,0,1.0,EU,M,2013_EU_0_M,61,CETPROJH21168,relaxed,CETPROJH21168,SYNFUEL,Transport (other),Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+62,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2011.0,15,0,0,1.0,EU,M,2011_EU_0_M,62,CETPROJH21135,exact,CETPROJH21135,H2 Logic Aalborg,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+63,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2015.0,11,0,0,1.0,EU,M,2015_EU_0_M,63,CETPROJH21159,exact,CETPROJH21159,Haldor Topsoe - El-Opgraderet Biogas,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+64,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2010.0,16,0,0,1.0,EU,M,2010_EU_0_M,64,CETPROJH21158,exact,CETPROJH21158,Haldor Topsoe - El-Opgraderet Biogas,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+65,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2011.0,15,0,0,1.0,EU,M,2011_EU_0_M,65,CETPROJH2774,exact,CETPROJH2774,Smart grid solar - arzberg,Power & heat,Power,Transport (other),Hydrogen,Unknown,,Decommissioned,Offline,0,0
+66,0,0.7654678421395714,EU,Unknown,Unknown,PEM,2012.0,14,0,0,1.15,EU,M,2012_EU_0_M,66,CETPROJH2785,exact,CETPROJH2785,Exytron demonstration project,Power & heat,Power and heat,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+67,0,0.7884573603642702,EU,Unknown,Unknown,PEM,2011.0,15,0,0,1.2,EU,M,2011_EU_0_M,67,,exact_exhausted,,,,,,,,,,,0,0
+67,0,0.7884573603642702,EU,Unknown,Unknown,PEM,2011.0,15,0,0,1.2,EU,M,2011_EU_0_M,67,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+68,0,0.8109302162163288,EU,Unknown,Unknown,PEM,2013.0,13,0,0,1.25,EU,M,2013_EU_0_M,68,CETPROJH2768,relaxed,CETPROJH2768,Hamburg - Schnackenburgallee,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+69,1,0.0,North_America,Other,Ekona Power Inc.,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,69,CETPROJH21333,exact,CETPROJH21333,Pecos County H2,Transport (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+70,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2007.0,19,0,0,2.0000000000000004,EU,M,2007_EU_0_M,70,,no_match,,,,,,,,,,,0,0
+70,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2007.0,19,0,0,2.0000000000000004,EU,M,2007_EU_0_M,70,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+71,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,71,,exact_exhausted,,,,,,,,,,,0,0
+71,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,71,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+72,0,1.2237754316221157,EU,Unknown,Unknown,PEM,2018.0,8,0,0,2.4,EU,M,2018_EU_0_M,72,CETPROJH21268,exact,CETPROJH21268,Agkistro H2,Power & heat,Power storage,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+73,0,1.252762968495368,EU,Unknown,Unknown,PEM,2020.0,6,0,0,2.5,EU,M,2020_EU_0_M,73,CETPROJH21360,relaxed,CETPROJH21360,Air Products Botlek,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+74,1,0.0,North_America,Other,"BayoTech, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,74,,exact_exhausted,,,,,,,,,,,0,0
+74,1,0.0,North_America,Other,"BayoTech, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,74,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+75,0,1.252762968495368,EU,Unknown,Unknown,PEM,2020.0,6,0,0,2.5,EU,M,2020_EU_0_M,75,CETPROJH21267,relaxed,CETPROJH21267,Ravenna H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+76,0,1.252762968495368,EU,Unknown,Unknown,PEM,2018.0,8,0,0,2.5,EU,M,2018_EU_0_M,76,CETPROJH2572,exact,CETPROJH2572,Magnum Battolyser Demo,Power & heat,Power,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+77,1,0.0,EU,Other,Gazprom Energoholding LLC ,Blue_CCS,2020.0,6,0,0,0.0,EU,XS,2020_EU_1_XS,77,CETPROJH2725,exact,CETPROJH2725,North Stream H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+78,0,0.1655144384775733,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,0.17999999999999988,UNK,S,2020_UNK_0_S,78,,no_match,,,,,,,,,,,0,0
+78,0,0.1655144384775733,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,0.17999999999999988,UNK,S,2020_UNK_0_S,78,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+79,1,0.0,ANZ,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,79,,no_match,,,,,,,,,,,0,0
+79,1,0.0,ANZ,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,79,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+80,1,0.0,North_America,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2020.0,6,0,0,0.0,NA,XS,2020_NA_1_XS,80,CETPROJH271,relaxed,CETPROJH271,North Las Vegas H2,Transport (road),Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+81,0,1.252762968495368,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,2.5,UNK,M,2022_UNK_0_M,81,,no_match,,,,,,,,,,,0,0
+81,0,1.252762968495368,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,2.5,UNK,M,2022_UNK_0_M,81,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+82,0,1.791759469228055,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,5.0,UNK,M,2022_UNK_0_M,82,,no_match,,,,,,,,,,,0,0
+82,0,1.791759469228055,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,5.0,UNK,M,2022_UNK_0_M,82,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+83,1,0.0,North_America,Other,"Tallgrass Energy, LP",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,83,,exact_exhausted,,,,,,,,,,,0,0
+83,1,0.0,North_America,Other,"Tallgrass Energy, LP",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,83,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+84,1,0.0,North_America,Other,Wabash Valley Resources LLC,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,84,,exact_exhausted,,,,,,,,,,,0,0
+84,1,0.0,North_America,Other,Wabash Valley Resources LLC,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,84,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+85,0,5.0106352940962555,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,148.99999999999997,UNK,XL,2020_UNK_0_XL,85,,no_match,,,,,,,,,,,0,0
+85,0,5.0106352940962555,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,148.99999999999997,UNK,XL,2020_UNK_0_XL,85,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+86,1,0.0,ANZ,Other,"Kawasaki Heavy Industries, Ltd",Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,86,,no_match,,,,,,,,,,,0,0
+86,1,0.0,ANZ,Other,"Kawasaki Heavy Industries, Ltd",Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,86,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+87,1,0.0,ANZ,Other,Australian Future Energy Pty Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,87,,no_match,,,,,,,,,,,0,0
+87,1,0.0,ANZ,Other,Australian Future Energy Pty Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,87,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+88,1,0.0,North_America,Other,"Lake Charles Methanol, LLC",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,88,CETPROJH2314,exact,CETPROJH2314,Crossfield TC Energy,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+89,0,2.923161580719156,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,17.600000000000012,UNK,L,2021_UNK_0_L,89,,no_match,,,,,,,,,,,0,0
+89,0,2.923161580719156,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,17.600000000000012,UNK,L,2021_UNK_0_L,89,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+90,1,0.0,ANZ,Other,Origin Energy Limited,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,90,,no_match,,,,,,,,,,,0,0
+90,1,0.0,ANZ,Other,Origin Energy Limited,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,90,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+91,1,0.0,North_America,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,91,,exact_exhausted,,,,,,,,,,,0,1
+91,1,0.0,North_America,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,91,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+92,0,0.0,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_0_XS,92,,no_match,,,,,,,,,,,0,0
+92,0,0.0,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_0_XS,92,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+93,0,0.8754687373538999,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,1.3999999999999997,UNK,M,2020_UNK_0_M,93,,no_match,,,,,,,,,,,0,0
+93,0,0.8754687373538999,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,1.3999999999999997,UNK,M,2020_UNK_0_M,93,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+94,0,0.048790164169432,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,0.049999999999999996,UNK,XS,2021_UNK_0_XS,94,,no_match,,,,,,,,,,,0,0
+94,0,0.048790164169432,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,0.049999999999999996,UNK,XS,2021_UNK_0_XS,94,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+95,0,3.9318256327243257,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,50.0,UNK,L,2019_UNK_0_L,95,,no_match,,,,,,,,,,,0,0
+95,0,3.9318256327243257,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,50.0,UNK,L,2019_UNK_0_L,95,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+96,0,2.3978952727983707,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,10.000000000000002,UNK,L,2020_UNK_0_L,96,,no_match,,,,,,,,,,,0,0
+96,0,2.3978952727983707,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,10.000000000000002,UNK,L,2020_UNK_0_L,96,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+97,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,1.0,UNK,M,2020_UNK_0_M,97,,no_match,,,,,,,,,,,0,0
+97,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2020.0,6,0,0,1.0,UNK,M,2020_UNK_0_M,97,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+98,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1.25,UNK,M,2019_UNK_0_M,98,,no_match,,,,,,,,,,,0,0
+98,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1.25,UNK,M,2019_UNK_0_M,98,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+99,0,0.048790164169432,ANZ,Unknown,Unknown,PEM,2018.0,8,0,0,0.049999999999999996,UNK,XS,2018_UNK_0_XS,99,,no_match,,,,,,,,,,,0,0
+99,0,0.048790164169432,ANZ,Unknown,Unknown,PEM,2018.0,8,0,0,0.049999999999999996,UNK,XS,2018_UNK_0_XS,99,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+100,0,5.081404364984463,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,160.00000000000003,UNK,XL,2019_UNK_0_XL,100,,no_match,,,,,,,,,,,0,0
+100,0,5.081404364984463,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,160.00000000000003,UNK,XL,2019_UNK_0_XL,100,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+101,0,0.009950330853168,ANZ,Unknown,Unknown,PEM,2021.0,2,1,2,0.009999999999999917,UNK,XS,2021_UNK_0_XS,101,,no_match,,,,,,,,,,,0,0
+101,0,0.009950330853168,ANZ,Unknown,Unknown,PEM,2021.0,2,1,2,0.009999999999999917,UNK,XS,2021_UNK_0_XS,101,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+102,1,0.0,North_America,Other,"Coffeyville Resources Nitrogen   Fertilizers, LLC",Blue_CCS,2011.0,15,0,0,0.0,NA,XS,2011_NA_1_XS,102,CETPROJH264,relaxed,CETPROJH264,Coffeyville fertilizer plant,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,Fully commissioned,Operating,1,0
+103,0,1.3862943611198906,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,3.0,UNK,M,2021_UNK_0_M,103,,no_match,,,,,,,,,,,0,0
+103,0,1.3862943611198906,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,3.0,UNK,M,2021_UNK_0_M,103,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+104,0,7.313886831633462,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1499.9999999999998,UNK,XXL,2019_UNK_0_XXL,104,,no_match,,,,,,,,,,,0,0
+104,0,7.313886831633462,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1499.9999999999998,UNK,XXL,2019_UNK_0_XXL,104,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+105,1,0.0,ANZ,Other,Woodside Energy Group Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,105,,no_match,,,,,,,,,,,0,0
+105,1,0.0,ANZ,Other,Woodside Energy Group Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,105,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+106,1,0.0,ANZ,Other,TNG Limited,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,106,,no_match,,,,,,,,,,,0,0
+106,1,0.0,ANZ,Other,TNG Limited,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,106,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+107,0,0.2231435513142097,ANZ,Unknown,Unknown,PEM,2017.0,9,0,0,0.24999999999999994,UNK,S,2017_UNK_0_S,107,,no_match,,,,,,,,,,,0,0
+107,0,0.2231435513142097,ANZ,Unknown,Unknown,PEM,2017.0,9,0,0,0.24999999999999994,UNK,S,2017_UNK_0_S,107,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+108,0,3.713572066704308,ANZ,Unknown,Unknown,PEM,2020.0,3,1,2,40.00000000000001,UNK,L,2020_UNK_0_L,108,,no_match,,,,,,,,,,,0,0
+108,0,3.713572066704308,ANZ,Unknown,Unknown,PEM,2020.0,3,1,2,40.00000000000001,UNK,L,2020_UNK_0_L,108,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+109,0,0.4054651081081644,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,0.5,UNK,S,2019_UNK_0_S,109,,no_match,,,,,,,,,,,0,0
+109,0,0.4054651081081644,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,0.5,UNK,S,2019_UNK_0_S,109,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+110,0,6.311734809152915,ANZ,Unknown,Unknown,PEM,2021.0,2,1,2,550.0000000000002,UNK,XL,2021_UNK_0_XL,110,,no_match,,,,,,,,,,,0,0
+110,0,6.311734809152915,ANZ,Unknown,Unknown,PEM,2021.0,2,1,2,550.0000000000002,UNK,XL,2021_UNK_0_XL,110,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+111,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,1.0,UNK,M,2021_UNK_0_M,111,,no_match,,,,,,,,,,,0,0
+111,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2021.0,5,0,0,1.0,UNK,M,2021_UNK_0_M,111,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+112,1,0.0,North_America,Other,Valero Energy Corporation,Blue_CCS,2011.0,15,0,0,0.0,NA,XS,2011_NA_1_XS,112,CETPROJH260,relaxed,CETPROJH260,Port Arthur,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+113,1,0.0,ANZ,Other,"Department of Mines, Industry Regulation and Safety",Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,113,,no_match,,,,,,,,,,,0,0
+113,1,0.0,ANZ,Other,"Department of Mines, Industry Regulation and Safety",Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,113,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+114,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2016.0,10,0,0,1.25,UNK,M,2016_UNK_0_M,114,,no_match,,,,,,,,,,,0,0
+114,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2016.0,10,0,0,1.25,UNK,M,2016_UNK_0_M,114,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+115,0,0.2311117209633866,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,0.25999999999999995,UNK,S,2019_UNK_0_S,115,,no_match,,,,,,,,,,,0,0
+115,0,0.2311117209633866,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,0.25999999999999995,UNK,S,2019_UNK_0_S,115,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+116,0,0.262364264467491,ANZ,Unknown,Unknown,PEM,2017.0,9,0,0,0.29999999999999993,UNK,S,2017_UNK_0_S,116,,no_match,,,,,,,,,,,0,0
+116,0,0.262364264467491,ANZ,Unknown,Unknown,PEM,2017.0,9,0,0,0.29999999999999993,UNK,S,2017_UNK_0_S,116,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+117,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2018.0,8,0,0,1.25,UNK,M,2018_UNK_0_M,117,,no_match,,,,,,,,,,,0,0
+117,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2018.0,8,0,0,1.25,UNK,M,2018_UNK_0_M,117,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+118,1,0.0,North_America,Other,Valero Energy Corporation,Blue_CCS,2011.0,15,0,0,0.0,NA,XS,2011_NA_1_XS,118,CETPROJH261,relaxed,CETPROJH261,Port Arthur,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+119,0,0.048790164169432,EU,Unknown,Unknown,PEM,2021.0,5,0,0,0.049999999999999996,EU,XS,2021_EU_0_XS,119,CETPROJH2997,exact,CETPROJH2997,Sestao H2,Industry (other),Steel,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,1,0
+120,1,0.0,MENA,Other,Qatar Fertilizer Co SAQ (QAFCO),Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,120,,no_match,,,,,,,,,,,0,0
+120,1,0.0,MENA,Other,Qatar Fertilizer Co SAQ (QAFCO),Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,120,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+121,0,1.2809338454620642,EU,Unknown,Unknown,PEM,2019.0,7,0,0,2.5999999999999996,EU,M,2019_EU_0_M,121,CETPROJH21285,exact,CETPROJH21285,H2Evora,Power & heat,Power storage,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+122,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2021.0,5,0,0,10.000000000000002,EU,L,2021_EU_0_L,122,CETPROJH21720,exact,CETPROJH21720,Renewable Gasfield Pilot Project,Industry (other),Metals,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+123,0,3.258096538021482,EU,Unknown,Unknown,PEM,2021.0,5,0,0,25.000000000000004,EU,L,2021_EU_0_L,123,CETPROJH23307,exact,CETPROJH23307,HRS Compagnie Maritime Belge,Transport (road),Refueling Station,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+124,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2019.0,7,0,0,3.0,EU,M,2019_EU_0_M,124,,exact_exhausted,,,,,,,,,,,0,0
+124,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2019.0,7,0,0,3.0,EU,M,2019_EU_0_M,124,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+125,0,4.61512051684126,EU,Other,Uniper SE,PEM,2020.0,6,0,0,100.00000000000003,EU,XL,2020_EU_0_XL,125,CETPROJH2868,exact,CETPROJH2868,ZE PAK Green H2,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+126,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2017.0,9,0,0,1.0,EU,M,2017_EU_0_M,126,CETPROJH2988,exact,CETPROJH2988,Seafuel,Transport (road),Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+127,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2019.0,7,0,0,1.0,EU,M,2019_EU_0_M,127,,exact_exhausted,,,,,,,,,,,0,0
+127,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2019.0,7,0,0,1.0,EU,M,2019_EU_0_M,127,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+128,0,5.081404364984463,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2021.0,5,0,0,160.00000000000003,EU,XL,2021_EU_0_XL,128,CETPROJH2967,exact,CETPROJH2967,Sesena H2,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+129,0,4.51085950651685,EU,Unknown,Unknown,PEM,2021.0,5,0,0,89.99999999999997,EU,L,2021_EU_0_L,129,CETPROJH2917,exact,CETPROJH2917,VHyGO (Grand Ouest Hydrogen Valley),Transport (road),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+130,0,2.3978952727983707,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2021.0,5,0,0,10.000000000000002,EU,L,2021_EU_0_L,130,CETPROJH21593,exact,CETPROJH21593,Hydrogen Lab Leuna/ e-CO2Met project,Industry (chemical feedstock),Unknown,Unknown,"Hydrogen,Methanol",Unknown,,On-hold (assumed),Cancelled,1,1
+131,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2020.0,6,0,0,2.0000000000000004,EU,M,2020_EU_0_M,131,CETPROJH2994,relaxed,CETPROJH2994,Port of Barcelona H2,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+132,0,1.791759469228055,EU,Unknown,Unknown,PEM,2018.0,8,0,0,5.0,EU,M,2018_EU_0_M,132,CETPROJH21221,exact,CETPROJH21221,VTT H2,Other,R&D,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+133,0,1.7047480922384253,EU,Unknown,Unknown,PEM,2009.0,17,0,0,4.5,EU,M,2009_EU_0_M,133,,no_match,,,,,,,,,,,0,0
+133,0,1.7047480922384253,EU,Unknown,Unknown,PEM,2009.0,17,0,0,4.5,EU,M,2009_EU_0_M,133,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+134,1,0.0,EU,Other,Port of Den Helder Authority,Blue_CCS,2019.0,7,0,0,0.0,EU,XS,2019_EU_1_XS,134,CETPROJH2545,relaxed,CETPROJH2545,H2-Gateway,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+135,1,0.0,EU,Oil_major,Equinor ASA,Blue_CCS,2018.0,4,1,1,0.0,EU,XS,2018_EU_1_XS,135,CETPROJH2541,relaxed,CETPROJH2541,H2M Eemshaven,Industry (other),Steel,Industry (chemical feedstock) and Power & heat,Hydrogen,Unknown,,Plans cancelled,Cancelled,1,1
+136,1,0.0,EU,Other,Dow Chemical Company,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,136,,exact_exhausted,,,,,,,,,,,0,0
+136,1,0.0,EU,Other,Dow Chemical Company,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,136,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+137,1,7.0909098220799835,EU,Other,Port of Rotterdam Authority,Blue_CCS,2019.0,7,0,0,1200.0,EU,XXL,2019_EU_1_XXL,137,CETPROJH2545,exact,CETPROJH2545,H2-Gateway,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+138,0,1.791759469228055,EU,Unknown,Unknown,PEM,2019.0,7,0,0,5.0,EU,M,2019_EU_0_M,138,,exact_exhausted,,,,,,,,,,,0,0
+138,0,1.791759469228055,EU,Unknown,Unknown,PEM,2019.0,7,0,0,5.0,EU,M,2019_EU_0_M,138,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+139,1,1.791759469228055,EU,Other,Port of Antwerp,Blue_CCS,2020.0,3,1,1,5.0,EU,M,2020_EU_1_M,139,CETPROJH2725,relaxed,CETPROJH2725,North Stream H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+140,1,6.90875477931522,EU,Utility,Engie SA,Blue_CCS,2021.0,5,0,0,999.9999999999999,EU,XL,2021_EU_1_XL,140,CETPROJH22050,exact,CETPROJH22050,Wintershall Dea Turquoise Hydrogen,Unknown,Unknown,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+141,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2021.0,5,0,0,1.0,EU,M,2021_EU_0_M,141,CETPROJH2595,exact,CETPROJH2595,GROHW,Industry (other),Unknown,Power & heat,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+142,0,1.791759469228055,EU,Unknown,Unknown,PEM,2016.0,10,0,0,5.0,EU,M,2016_EU_0_M,142,CETPROJH21264,exact,CETPROJH21264,REFLEX,Power & heat,Power storage and regeneration,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+143,0,1.791759469228055,EU,Unknown,Unknown,PEM,2016.0,10,0,0,5.0,EU,M,2016_EU_0_M,143,CETPROJH2924,exact,CETPROJH2924,"SPHYNX, R&D",Other,R&D,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+144,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2021.0,5,0,0,2.0000000000000004,EU,M,2021_EU_0_M,144,CETPROJH21279,exact,CETPROJH21279,PROMETEO,Gas grid,Unknown,Industry (chemical feedstock),"Hydrogen,Ammonia",Unknown,,Design,Planning - early,0,0
+145,0,2.3978952727983707,EU,Other,OMV Aktiengesellschaft,PEM,2021.0,5,0,0,10.000000000000002,EU,L,2021_EU_0_L,145,CETPROJH2549,exact,CETPROJH2549,LIFE NEW HYTS Project,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+146,0,2.6004649904222727,EU,Other,unknown,PEM,2020.0,6,0,0,12.470000000000002,EU,L,2020_EU_0_L,146,CETPROJH21300,exact,CETPROJH21300,SINES GH2 SOLAR,Industry (other),Unknown,Power & heat,Hydrogen,Unknown,,Design,Planning - early,0,0
+147,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2021.0,5,0,0,2.0000000000000004,EU,M,2021_EU_0_M,147,CETPROJH21263,exact,CETPROJH21263,Seixal Industrial Park,Gas grid,Blending,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+148,0,1.9459101490553132,EU,Unknown,Unknown,PEM,2017.0,9,0,0,5.999999999999999,EU,M,2017_EU_0_M,148,,exact_exhausted,,,,,,,,,,,0,0
+148,0,1.9459101490553132,EU,Unknown,Unknown,PEM,2017.0,9,0,0,5.999999999999999,EU,M,2017_EU_0_M,148,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+149,0,1.9459101490553132,EU,Unknown,Unknown,PEM,2010.0,16,0,0,5.999999999999999,EU,M,2010_EU_0_M,149,,exact_exhausted,,,,,,,,,,,0,0
+149,0,1.9459101490553132,EU,Unknown,Unknown,PEM,2010.0,16,0,0,5.999999999999999,EU,M,2010_EU_0_M,149,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+150,0,1.9878743481543455,EU,Unknown,Unknown,PEM,2004.0,22,0,0,6.300000000000001,EU,M,2004_EU_0_M,150,,no_match,,,,,,,,,,,0,0
+150,0,1.9878743481543455,EU,Unknown,Unknown,PEM,2004.0,22,0,0,6.300000000000001,EU,M,2004_EU_0_M,150,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+151,0,2.277267285009756,EU,Unknown,Unknown,PEM,2004.0,22,0,0,8.750000000000002,EU,M,2004_EU_0_M,151,,no_match,,,,,,,,,,,0,0
+151,0,2.277267285009756,EU,Unknown,Unknown,PEM,2004.0,22,0,0,8.750000000000002,EU,M,2004_EU_0_M,151,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+152,0,0.3506568716131693,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.4199999999999999,UNK,S,2022_UNK_0_S,152,,no_match,,,,,,,,,,,0,0
+152,0,0.3506568716131693,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.4199999999999999,UNK,S,2022_UNK_0_S,152,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+153,0,0.3074846997479606,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.35999999999999993,UNK,S,2022_UNK_0_S,153,,no_match,,,,,,,,,,,0,0
+153,0,0.3074846997479606,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.35999999999999993,UNK,S,2022_UNK_0_S,153,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+154,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.049999999999999996,UNK,XS,2022_UNK_0_XS,154,,no_match,,,,,,,,,,,0,0
+154,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.049999999999999996,UNK,XS,2022_UNK_0_XS,154,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+155,0,2.3978952727983707,Asia,Other,GAIL (India) Limited,PEM,2021.0,5,0,0,10.000000000000002,UNK,L,2021_UNK_0_L,155,,no_match,,,,,,,,,,,0,0
+155,0,2.3978952727983707,Asia,Other,GAIL (India) Limited,PEM,2021.0,5,0,0,10.000000000000002,UNK,L,2021_UNK_0_L,155,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+156,0,0.0,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_0_XS,156,,no_match,,,,,,,,,,,0,0
+156,0,0.0,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_0_XS,156,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+157,1,0.0,Asia,Other,Reliance Industries Limited,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,157,,no_match,,,,,,,,,,,0,0
+157,1,0.0,Asia,Other,Reliance Industries Limited,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,157,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+158,0,0.0,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,158,,no_match,,,,,,,,,,,0,0
+158,0,0.0,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,158,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+159,0,1.791759469228055,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,5.0,UNK,M,2021_UNK_0_M,159,,no_match,,,,,,,,,,,0,0
+159,0,1.791759469228055,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,5.0,UNK,M,2021_UNK_0_M,159,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+160,0,2.833213344056216,Asia,Other,Suntory Holdings Limited,PEM,2022.0,4,0,0,16.0,UNK,L,2022_UNK_0_L,160,,no_match,,,,,,,,,,,0,0
+160,0,2.833213344056216,Asia,Other,Suntory Holdings Limited,PEM,2022.0,4,0,0,16.0,UNK,L,2022_UNK_0_L,160,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+161,1,0.0,Asia,Other,"Toho Gas Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,161,,no_match,,,,,,,,,,,0,0
+161,1,0.0,Asia,Other,"Toho Gas Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,161,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+162,0,0.8109302162163288,Other,Unknown,Unknown,PEM,2018.0,8,0,0,1.25,OT,M,2018_OT_0_M,162,CETPROJH245,relaxed,CETPROJH245,Mohammed bin Rashid Al Maktoum Solar Park PEM,Power & heat,Re-electrification,Industry and mobility,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+163,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2016.0,10,0,0,0.049999999999999996,UNK,XS,2016_UNK_0_XS,163,,no_match,,,,,,,,,,,0,0
+163,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2016.0,10,0,0,0.049999999999999996,UNK,XS,2016_UNK_0_XS,163,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+164,0,0.0295588022415444,Asia,Unknown,Unknown,PEM,2001.0,25,0,0,0.03,UNK,XS,2001_UNK_0_XS,164,,no_match,,,,,,,,,,,0,0
+164,0,0.0295588022415444,Asia,Unknown,Unknown,PEM,2001.0,25,0,0,0.03,UNK,XS,2001_UNK_0_XS,164,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+165,0,0.0198026272961797,Asia,Unknown,Unknown,PEM,2017.0,9,0,0,0.019999999999999987,UNK,XS,2017_UNK_0_XS,165,,no_match,,,,,,,,,,,0,0
+165,0,0.0198026272961797,Asia,Unknown,Unknown,PEM,2017.0,9,0,0,0.019999999999999987,UNK,XS,2017_UNK_0_XS,165,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+166,1,0.0,Other,Other,Fertiglobe plc,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,166,,exact_exhausted,,,,,,,,,,,0,0
+166,1,0.0,Other,Other,Fertiglobe plc,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,166,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+167,0,0.009950330853168,Asia,Unknown,Unknown,PEM,2016.0,10,0,0,0.009999999999999917,UNK,XS,2016_UNK_0_XS,167,,no_match,,,,,,,,,,,0,0
+167,0,0.009950330853168,Asia,Unknown,Unknown,PEM,2016.0,10,0,0,0.009999999999999917,UNK,XS,2016_UNK_0_XS,167,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+168,1,0.0,Asia,Other,Iwatani Corporation,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,168,,no_match,,,,,,,,,,,0,0
+168,1,0.0,Asia,Other,Iwatani Corporation,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,168,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+169,1,0.0,Other,Other,Fertiglobe plc,Blue_CCS,2019.0,7,0,0,0.0,OT,XS,2019_OT_1_XS,169,CETPROJH243,relaxed,CETPROJH243,Ruwais Industrial Complex,Industry (chemical feedstock),Unknown,Industry (refinery feedstock),"Hydrogen,Ammonia",Yes,Japan,Fully commissioned,Operating,1,0
+170,1,0.0,Asia,Other,POSCO Co Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,170,,no_match,,,,,,,,,,,0,0
+170,1,0.0,Asia,Other,POSCO Co Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,170,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+171,1,0.0,Asia,Other,"LG Chem, Ltd. ",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,171,,no_match,,,,,,,,,,,0,0
+171,1,0.0,Asia,Other,"LG Chem, Ltd. ",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,171,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+172,0,0.0,Other,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,OT,XS,2022_OT_0_XS,172,CETPROJH258,exact,CETPROJH258,Azerbaijan green hydrogen,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+173,1,0.0,Asia,Other,Government Of Gyeonggido,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,173,,no_match,,,,,,,,,,,0,0
+173,1,0.0,Asia,Other,Government Of Gyeonggido,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,173,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+174,0,0.0,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,174,,no_match,,,,,,,,,,,0,0
+174,0,0.0,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,174,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+175,1,0.0,Asia,Other,Hyundai Oilbank Co Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,175,,no_match,,,,,,,,,,,0,0
+175,1,0.0,Asia,Other,Hyundai Oilbank Co Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,175,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+176,1,0.0,Asia,Other,SK Holdings Co. Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,176,,no_match,,,,,,,,,,,0,0
+176,1,0.0,Asia,Other,SK Holdings Co. Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,176,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+177,1,0.0,Asia,Other,Doosan Group,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,177,,no_match,,,,,,,,,,,0,0
+177,1,0.0,Asia,Other,Doosan Group,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,177,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+178,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,178,,no_match,,,,,,,,,,,0,0
+178,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,178,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+179,1,0.0,Other,Other,Tenaga Nasional Berhad,Blue_CCS,2022.0,4,0,0,0.0,OT,XS,2022_OT_1_XS,179,CETPROJH234,exact,CETPROJH234,Saudi Aramco PCER,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+180,1,0.0,Other,Other,Petroliam Nasional Berhad (PETRONAS),Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,180,,no_match,,,,,,,,,,,0,0
+180,1,0.0,Other,Other,Petroliam Nasional Berhad (PETRONAS),Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,180,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+181,0,0.0,Other,Unknown,Unknown,PEM,2004.0,22,0,0,0.0,OT,XS,2004_OT_0_XS,181,,no_match,,,,,,,,,,,0,0
+181,0,0.0,Other,Unknown,Unknown,PEM,2004.0,22,0,0,0.0,OT,XS,2004_OT_0_XS,181,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+182,0,1.6094379124341005,Other,Unknown,Unknown,PEM,2022.0,4,0,0,4.000000000000001,OT,M,2022_OT_0_M,182,CETPROJH228,relaxed,CETPROJH228,Green Hydrogen for Mobility Muscat,Transport (road),Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+183,0,6.947514308755485,Other,Other,unknown,PEM,2020.0,6,0,0,1039.5599999999997,OT,XXL,2020_OT_0_XXL,183,CETPROJH2218,exact,CETPROJH2218,HyEX,Industry (other),Mining,Unknown,Ammonia,Unknown,,Design,Planning - early,0,0
+184,0,0.048790164169432,Other,Unknown,Unknown,PEM,2009.0,17,0,0,0.049999999999999996,OT,XS,2009_OT_0_XS,184,,no_match,,,,,,,,,,,0,0
+184,0,0.048790164169432,Other,Unknown,Unknown,PEM,2009.0,17,0,0,0.049999999999999996,OT,XS,2009_OT_0_XS,184,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+185,0,0.7884573603642702,Other,Unknown,Unknown,PEM,2016.0,10,0,0,1.2,OT,M,2016_OT_0_M,185,CETPROJH2213,exact,CETPROJH2213,Cerro Pabellon Microgrid H2,Power & heat,Power storage and regeneration,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+186,1,0.0,Other,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,186,,exact_exhausted,,,,,,,,,,,0,0
+186,1,0.0,Other,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,186,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+187,0,3.9318256327243257,Other,Unknown,Unknown,PEM,2022.0,4,0,0,50.0,OT,L,2022_OT_0_L,187,CETPROJH21413,exact,CETPROJH21413,Morocco Pilot H2,Industry (other),Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,On-hold (assumed),Cancelled,0,0
+188,0,0.0,Other,Unknown,Unknown,PEM,2006.0,20,0,0,0.0,OT,XS,2006_OT_0_XS,188,,no_match,,,,,,,,,,,0,0
+188,0,0.0,Other,Unknown,Unknown,PEM,2006.0,20,0,0,0.0,OT,XS,2006_OT_0_XS,188,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+189,0,1.791759469228055,Other,Other,Cleanergy Solutions Namibia,PEM,2022.0,4,0,0,5.0,OT,M,2022_OT_0_M,189,CETPROJH258,relaxed,CETPROJH258,Azerbaijan green hydrogen,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+190,0,0.0,Other,Unknown,Unknown,PEM,2005.0,21,0,0,0.0,OT,XS,2005_OT_0_XS,190,,no_match,,,,,,,,,,,0,0
+190,0,0.0,Other,Unknown,Unknown,PEM,2005.0,21,0,0,0.0,OT,XS,2005_OT_0_XS,190,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+191,1,0.0,MENA,Other,Egyptian Natural Gas Holding Company,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,191,,no_match,,,,,,,,,,,0,0
+191,1,0.0,MENA,Other,Egyptian Natural Gas Holding Company,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,191,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+192,0,0.0,Other,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,OT,XS,2022_OT_0_XS,192,CETPROJH255,exact,CETPROJH255,Demonstrator plant Masdar City,Transport (aviation),,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+193,0,0.0,Other,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,OT,XS,2021_OT_0_XS,193,CETPROJH257,exact,CETPROJH257,Taqa/Emirates steel Green H2 project,Industry (other),Steel,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,1,0
+194,1,0.0,MENA,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,194,,no_match,,,,,,,,,,,0,0
+194,1,0.0,MENA,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,194,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+195,0,0.0,Other,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,OT,XS,2021_OT_0_XS,195,CETPROJH2340,exact,CETPROJH2340,Durban Hub,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+196,1,0.0,Other,Other,GCL-Poly Energy Holdings Ltd,Blue_CCS,2021.0,2,1,1,0.0,OT,XS,2021_OT_1_XS,196,,exact_exhausted,,,,,,,,,,,0,0
+196,1,0.0,Other,Other,GCL-Poly Energy Holdings Ltd,Blue_CCS,2021.0,2,1,1,0.0,OT,XS,2021_OT_1_XS,196,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+197,1,0.0,Asia,Other,SINOPEC Qilu Company Limited,Blue_CCS,2017.0,9,0,0,0.0,UNK,XS,2017_UNK_1_XS,197,,no_match,,,,,,,,,,,0,0
+197,1,0.0,Asia,Other,SINOPEC Qilu Company Limited,Blue_CCS,2017.0,9,0,0,0.0,UNK,XS,2017_UNK_1_XS,197,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+198,0,5.303304908059076,Asia,Other,Hyundai Corporation,PEM,2026.0,1,0,0,200.0,UNK,XL,2026_UNK_0_XL,198,,no_match,,,,,,,,,,,0,0
+198,0,5.303304908059076,Asia,Other,Hyundai Corporation,PEM,2026.0,1,0,0,200.0,UNK,XL,2026_UNK_0_XL,198,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+199,0,2.854168709232204,Asia,Other,"China Iron & Steel Research Institute Group Co., Ltd.",PEM,2025.0,1,0,0,16.36,UNK,L,2025_UNK_0_L,199,,no_match,,,,,,,,,,,0,0
+199,0,2.854168709232204,Asia,Other,"China Iron & Steel Research Institute Group Co., Ltd.",PEM,2025.0,1,0,0,16.36,UNK,L,2025_UNK_0_L,199,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+200,0,1.252762968495368,Asia,Other,"Korea Midland Power Co., Ltd.",PEM,2026.0,1,0,0,2.5,UNK,M,2026_UNK_0_M,200,,no_match,,,,,,,,,,,0,0
+200,0,1.252762968495368,Asia,Other,"Korea Midland Power Co., Ltd.",PEM,2026.0,1,0,0,2.5,UNK,M,2026_UNK_0_M,200,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+201,0,1.791759469228055,North_America,Other,Chevron Corporation,PEM,2024.0,2,0,0,5.0,NA,M,2024_NA_0_M,201,CETPROJH22193,relaxed,CETPROJH22193,Simon Fraser Clean Hydrogen Hub,Other,R&D,Unknown,Hydrogen,No,,Permitted,Planning - advanced,0,0
+202,1,0.0,North_America,Other,"Lake Charles Methanol, LLC",Blue_CCS,2014.0,6,1,1,0.0,NA,XS,2014_NA_1_XS,202,CETPROJH23305,exact,CETPROJH23305,Lake Charles CCS,Unknown,,Unknown,Hydrogen,Unknown,,Plans cancelled,Cancelled,0,0
+203,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2023.0,1,1,1,0.0,OE,XS,2023_OE_1_XS,203,CETPROJH21766,exact,CETPROJH21766,RECYCLE project (REthinking low Carbon hYdrogen production by Chemical Looping rEforming),Unknown,Unknown,Unknown,Hydrogen,No,,Design,Planning - early,0,1
+204,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,1,1,1,0.0,NA,XS,2023_NA_1_XS,204,CETPROJH23301,exact,CETPROJH23301,ConocoPhillips-JERA Americas Hydrogen/Ammonia plant,Unknown,,Unknown,"Hydrogen,Ammonia",Unknown,,Plans cancelled,Cancelled,0,0
+205,1,0.0,MENA,Unknown,Unknown,Blue_CCS,2021.0,2,1,1,0.0,UNK,XS,2021_UNK_1_XS,205,,no_match,,,,,,,,,,,0,0
+205,1,0.0,MENA,Unknown,Unknown,Blue_CCS,2021.0,2,1,1,0.0,UNK,XS,2021_UNK_1_XS,205,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+206,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,206,,no_match,,,,,,,,,,,0,0
+206,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,206,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+207,1,0.0,North_America,Other,Suncor Energy Inc.,Blue_CCS,2023.0,1,1,1,0.0,NA,XS,2023_NA_1_XS,207,CETPROJH23298,exact,CETPROJH23298,Suncor refinery,Unknown,,Unknown,Hydrogen,Unknown,,Plans cancelled,Cancelled,0,0
+208,1,0.0,Asia,Other,"HD Hyundai Oilbank Co., Ltd.",Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,208,,no_match,,,,,,,,,,,0,0
+208,1,0.0,Asia,Other,"HD Hyundai Oilbank Co., Ltd.",Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,208,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+209,1,0.0,ANZ,Other,Hydrogen Energy Ltd.,Blue_CCS,2014.0,6,1,1,0.0,UNK,XS,2014_UNK_1_XS,209,,no_match,,,,,,,,,,,0,0
+209,1,0.0,ANZ,Other,Hydrogen Energy Ltd.,Blue_CCS,2014.0,6,1,1,0.0,UNK,XS,2014_UNK_1_XS,209,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+210,0,1.0986122886681098,EU,Other,Stadtwerke Düsseldorf AG,PEM,2026.0,1,0,0,2.0000000000000004,EU,M,2026_EU_0_M,210,,no_match,,,,,,,,,,,0,0
+210,0,1.0986122886681098,EU,Other,Stadtwerke Düsseldorf AG,PEM,2026.0,1,0,0,2.0000000000000004,EU,M,2026_EU_0_M,210,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+211,0,0.048790164169432,Asia,Other,"Gansu Kaishuo New Energy Technology Co., Ltd.",PEM,2026.0,1,0,0,0.049999999999999996,UNK,XS,2026_UNK_0_XS,211,,no_match,,,,,,,,,,,0,0
+211,0,0.048790164169432,Asia,Other,"Gansu Kaishuo New Energy Technology Co., Ltd.",PEM,2026.0,1,0,0,0.049999999999999996,UNK,XS,2026_UNK_0_XS,211,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+212,0,6.398594934535208,MENA,Unknown,Unknown,PEM,2021.0,5,0,0,600.0,UNK,XL,2021_UNK_0_XL,212,,no_match,,,,,,,,,,,0,0
+212,0,6.398594934535208,MENA,Unknown,Unknown,PEM,2021.0,5,0,0,600.0,UNK,XL,2021_UNK_0_XL,212,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+213,1,0.0,North_America,Other,Woodside Energy Group Ltd,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,213,CETPROJH2300,exact,CETPROJH2300,Port Moody H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+214,0,7.00397413672268,Other,Other,Hive Energy Limited,PEM,2021.0,5,0,0,1099.9999999999998,OT,XXL,2021_OT_0_XXL,214,CETPROJH2223,exact,CETPROJH2223,Aconcagua HyPro,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+215,1,0.0,ANZ,Other,Yara Pilbara Fertilisers Pty. Ltd.,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,215,,no_match,,,,,,,,,,,0,0
+215,1,0.0,ANZ,Other,Yara Pilbara Fertilisers Pty. Ltd.,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,215,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+216,0,6.147121235192447,Asia,Other,"Inner Mongolia Gemeng Clean Hydrogen Energy Technology Co., Ltd.",PEM,2021.0,5,0,0,466.37000000000006,UNK,XL,2021_UNK_0_XL,216,,no_match,,,,,,,,,,,0,0
+216,0,6.147121235192447,Asia,Other,"Inner Mongolia Gemeng Clean Hydrogen Energy Technology Co., Ltd.",PEM,2021.0,5,0,0,466.37000000000006,UNK,XL,2021_UNK_0_XL,216,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+217,1,0.0,North_America,Other,NUIONIC TECHNOLOGIES (CANADA) INC.,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,217,CETPROJH22905,exact,CETPROJH22905,Prairie Horizon Hydrogen Project,Unknown,Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,Plans cancelled,Cancelled,0,0
+218,1,0.0,North_America,Other,Nutrien Ltd.,Blue_CCS,2013.0,13,0,0,0.0,NA,XS,2013_NA_1_XS,218,CETPROJH23252,exact,CETPROJH23252,Nutrien Low Carbon Ammonia Plant,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,No,,Fully commissioned,Operating,1,0
+219,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2026.0,1,0,0,1.0,EU,M,2026_EU_0_M,219,,no_match,,,,,,,,,,,0,0
+219,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2026.0,1,0,0,1.0,EU,M,2026_EU_0_M,219,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+220,0,1.791759469228055,EU,Other,Diverxia Infraestructuras SL,PEM,2026.0,1,0,0,5.0,EU,M,2026_EU_0_M,220,,no_match,,,,,,,,,,,0,0
+220,0,1.791759469228055,EU,Other,Diverxia Infraestructuras SL,PEM,2026.0,1,0,0,5.0,EU,M,2026_EU_0_M,220,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+221,0,0.6931471805599453,Asia,Other,Northern Railway,PEM,2025.0,1,0,0,1.0,UNK,M,2025_UNK_0_M,221,,no_match,,,,,,,,,,,0,0
+221,0,0.6931471805599453,Asia,Other,Northern Railway,PEM,2025.0,1,0,0,1.0,UNK,M,2025_UNK_0_M,221,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+222,0,4.564348191467836,MENA,Other,Scatec ASA,PEM,2021.0,5,0,0,94.99999999999999,UNK,L,2021_UNK_0_L,222,,no_match,,,,,,,,,,,0,0
+222,0,4.564348191467836,MENA,Other,Scatec ASA,PEM,2021.0,5,0,0,94.99999999999999,UNK,L,2021_UNK_0_L,222,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+223,0,0.6931471805599453,Other,Other,Empresa Nacional del Petróleo,PEM,2024.0,2,0,0,1.0,OT,M,2024_OT_0_M,223,CETPROJH23222,relaxed,CETPROJH23222,EDF EVA Project,Unknown,Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,Plans cancelled,Cancelled,0,0
+224,0,0.0198026272961797,Asia,Other,Toyota Motor Corporation,PEM,2026.0,1,0,0,0.019999999999999987,UNK,XS,2026_UNK_0_XS,224,,no_match,,,,,,,,,,,0,0
+224,0,0.0198026272961797,Asia,Other,Toyota Motor Corporation,PEM,2026.0,1,0,0,0.019999999999999987,UNK,XS,2026_UNK_0_XS,224,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+225,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,EU,M,2025_EU_0_M,225,CETPROJH22718,exact,CETPROJH22718,Plocan offshore green H2 (H2VERDE),Power & heat,Power,Transport (road),Hydrogen,No,,Announced (advanced),Planning - early,0,0
+226,0,2.3978952727983707,EU,Other,SWU Energie GmbH,PEM,2024.0,2,0,0,10.000000000000002,EU,L,2024_EU_0_L,226,CETPROJH22430,exact,CETPROJH22430,Ossi Green H2,Power & heat,Power,Unknown,Hydrogen,No,,Feasibility,Planning - early,0,0
+227,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2025.0,1,0,0,10.000000000000002,EU,L,2025_EU_0_L,227,CETPROJH23179,exact,CETPROJH23179,Uniper Malmö facility,Unknown,Unknown,Unknown,Hydrogen,No,,Announced (early stage),Planning - early,0,0
+228,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2025.0,1,0,0,10.000000000000002,EU,L,2025_EU_0_L,228,CETPROJH23089,exact,CETPROJH23089,August Weckermann KG H2 plant,Power & heat,Power,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+229,0,2.5649493574615367,EU,Other,Stadtwerke Stuttgart GmbH,PEM,2024.0,2,0,0,12.0,EU,L,2024_EU_0_L,229,CETPROJH22192,exact,CETPROJH22192,KIT Helmholtz centers R&D project,Other,R&D,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+230,0,1.791759469228055,EU,Other,Sauerstoffwerk Friedrichshafen GmbH,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,230,,exact_exhausted,,,,,,,,,,,0,0
+230,0,1.791759469228055,EU,Other,Sauerstoffwerk Friedrichshafen GmbH,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,230,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+231,0,2.772588722239781,EU,Other,Deutsche ReGas GmbH & Co. KGaA,PEM,2025.0,1,0,0,14.999999999999998,EU,L,2025_EU_0_L,231,CETPROJH23073,exact,CETPROJH23073,Hyround,Gas grid,Blending,Transport (road),Hydrogen,No,,Announced (advanced),Planning - early,0,0
+232,0,0.6931471805599453,EU,Other,Jmg Cranes Spa ,PEM,2025.0,1,0,0,1.0,EU,M,2025_EU_0_M,232,,exact_exhausted,,,,,,,,,,,0,0
+232,0,0.6931471805599453,EU,Other,Jmg Cranes Spa ,PEM,2025.0,1,0,0,1.0,EU,M,2025_EU_0_M,232,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+233,0,4.61512051684126,Other_Europe,Other,Hystar AS,PEM,2025.0,1,0,0,100.00000000000003,OE,XL,2025_OE_0_XL,233,CETPROJH23091,exact,CETPROJH23091,VfA Buchs H2 plant,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,No,,Feasibility,Planning - early,0,0
+234,0,1.6094379124341005,EU,Other,Hy2gen AG,PEM,2020.0,6,0,0,4.000000000000001,EU,M,2020_EU_0_M,234,CETPROJH21300,relaxed,CETPROJH21300,SINES GH2 SOLAR,Industry (other),Unknown,Power & heat,Hydrogen,Unknown,,Design,Planning - early,0,0
+235,1,0.0,Asia,Other,Shaanxi Yanchang Zhongmei Yulin Energy and Chemical Company,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,235,,no_match,,,,,,,,,,,0,0
+235,1,0.0,Asia,Other,Shaanxi Yanchang Zhongmei Yulin Energy and Chemical Company,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,235,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+236,1,0.0,Asia,Other,China Petroleum & Chemical Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,236,,no_match,,,,,,,,,,,0,0
+236,1,0.0,Asia,Other,China Petroleum & Chemical Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,236,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+237,0,5.017279836814924,MENA,Unknown,Unknown,PEM,2021.0,5,0,0,150.0,UNK,XL,2021_UNK_0_XL,237,,no_match,,,,,,,,,,,0,0
+237,0,5.017279836814924,MENA,Unknown,Unknown,PEM,2021.0,5,0,0,150.0,UNK,XL,2021_UNK_0_XL,237,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+238,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,238,,no_match,,,,,,,,,,,0,0
+238,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,238,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+239,1,0.0,Asia,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,239,,no_match,,,,,,,,,,,0,1
+239,1,0.0,Asia,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,239,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+240,0,6.523562306149512,EU,Other,Stablegrid Projects GmbH,PEM,2025.0,1,0,0,679.9999999999998,EU,XL,2025_EU_0_XL,240,CETPROJH22600,exact,CETPROJH22600,Sleeping Giant Green H2,Industry (other),Unknown,Transport (road),Hydrogen,No,,Announced (advanced),Planning - early,0,0
+241,0,3.4339872044851463,EU,Other,Stablegrid Projects GmbH,PEM,2025.0,1,0,0,30.0,EU,L,2025_EU_0_L,241,CETPROJH23223,exact,CETPROJH23223,Viscofan Green H2,Industry (other),Industrial heating,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+242,0,6.90875477931522,Asia,Other,Hyundai Corporation,PEM,2025.0,1,0,0,999.9999999999999,UNK,XL,2025_UNK_0_XL,242,,no_match,,,,,,,,,,,0,0
+242,0,6.90875477931522,Asia,Other,Hyundai Corporation,PEM,2025.0,1,0,0,999.9999999999999,UNK,XL,2025_UNK_0_XL,242,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+243,0,3.4339872044851463,EU,Other,EDF Renouvelables,PEM,2025.0,1,0,0,30.0,EU,L,2025_EU_0_L,243,CETPROJH23104,exact,CETPROJH23104,P2H2 Antwerp Port AEM,Industry (other),Port operation,Transport (shipping),Hydrogen,No,,Under construction,Planning - advanced,0,0
+244,0,1.3862943611198906,Asia,Other,China National Nuclear Corporation,PEM,2024.0,2,0,0,3.0,UNK,M,2024_UNK_0_M,244,,no_match,,,,,,,,,,,0,0
+244,0,1.3862943611198906,Asia,Other,China National Nuclear Corporation,PEM,2024.0,2,0,0,3.0,UNK,M,2024_UNK_0_M,244,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+245,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,245,CETPROJH23163,exact,CETPROJH23163,NXTClean Port Westward,Transport (aviation),,Unknown,"Hydrogen,SAF",Unknown,,Permitted,Planning - advanced,0,0
+246,1,0.0,North_America,Other,EPC,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,246,CETPROJH22900,exact,CETPROJH22900,Project Phoenix Ammonia complex,Unknown,Unknown,Unknown,Ammonia,Unknown,,On-hold (assumed),Cancelled,0,0
+247,0,5.602118820879701,North_America,Other,Synergen Green Energy,PEM,2025.0,1,0,0,270.00000000000006,NA,XL,2025_NA_0_XL,247,CETPROJH22599,relaxed,CETPROJH22599,Landus Green Ammonia Project,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,No,,Fully commissioned,Operating,1,0
+248,1,0.0,North_America,Other,ITOCHU Corporation,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,248,CETPROJH2166,exact,CETPROJH2166,Cook Inlet Blue Ammonia,Unknown,Unknown,Unknown,Ammonia,Unknown,,On-hold (assumed),Cancelled,0,0
+249,0,2.995732273553991,Other_Europe,Other,Hydrogen Solutions AS,PEM,2023.0,3,0,0,18.999999999999996,OE,L,2023_OE_0_L,249,CETPROJH21877,exact,CETPROJH21877,University of Sheffield SAF R&D,Other,R&D (Transport),Unknown,Hydrogen,No,,Permitted,Planning - advanced,0,0
+250,0,0.0,EU,Unknown,Unknown,PEM,2025.0,1,0,0,0.0,EU,XS,2025_EU_0_XS,250,CETPROJH23180,exact,CETPROJH23180,Bothnia LinkH2,Transport (shipping),,Unknown,"Hydrogen,Methanol",Unknown,,Announced (early stage),Planning - early,0,0
+251,0,4.61512051684126,Other,Other,ALTUS renewables GmbH,PEM,2025.0,1,0,0,100.00000000000003,OT,XL,2025_OT_0_XL,251,CETPROJH22992,exact,CETPROJH22992,HVLC Prothium (The Protium Project),Industry (other),,Industry (chemical feedstock),Ammonia,Unknown,,Design,Planning - early,0,0
+252,0,0.0,North_America,Unknown,Unknown,PEM,2025.0,1,0,0,0.0,NA,XS,2025_NA_0_XS,252,CETPROJH23198,exact,CETPROJH23198,StormFisher Texas Methanol Plant,Unknown,Unknown,Unknown,Methanol,Unknown,,Design,Planning - early,0,0
+253,1,0.0,North_America,Other,Nikola Corporation,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,253,CETPROJH21394,exact,CETPROJH21394,West Virginia Clean Energy Hub,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+254,1,0.0,North_America,Other,Cache Power Corp.,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,254,CETPROJH23127,exact,CETPROJH23127,Texas City blue methanol - Sandpiper Chemicals,Unknown,Unknown,Unknown,Methanol,Unknown,,Announced (early stage),Planning - early,0,0
+255,1,0.0,North_America,Other,Sandpiper Chemicals LLC,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,255,CETPROJH22646,exact,CETPROJH22646,Graphitic Energy H2,Unknown,Unknown,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+256,0,0.6931471805599453,Other,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,OT,M,2025_OT_0_M,256,CETPROJH23080,relaxed,CETPROJH23080,SOHAR Dutch H3 Green H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Feasibility,Planning - early,0,0
+257,1,0.0,North_America,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,257,CETPROJH21377,exact,CETPROJH21377,Painter Reservoir Gas Complex,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+258,0,3.044522437723423,EU,Other,VoltH2 Holdings AG,PEM,2025.0,1,0,0,20.0,EU,L,2025_EU_0_L,258,CETPROJH22741,exact,CETPROJH22741,Isoparc business park,Transport (road),Refueling Station,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+259,0,1.252762968495368,Other_Europe,Unknown,Unknown,PEM,2025.0,1,0,0,2.5,OE,M,2025_OE_0_M,259,CETPROJH23286,relaxed,CETPROJH23286,Syntholene eSAF Plant,Transport (aviation),,Unknown,"Hydrogen,SAF",Unknown,,Design,Planning - early,0,0
+260,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,EU,M,2025_EU_0_M,260,,exact_exhausted,,,,,,,,,,,0,0
+260,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,EU,M,2025_EU_0_M,260,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+261,0,3.044522437723423,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,20.0,NA,L,2022_NA_0_L,261,CETPROJH21418,exact,CETPROJH21418,Port Hawkesbury Paper H2,Industry (other),Unknown,Transport (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+262,1,0.0,Other_Europe,Other,ZEG Power AS,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,262,CETPROJH2849,exact,CETPROJH2849,Yamal Peninsula,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,Plans cancelled,Cancelled,0,0
+263,1,0.0,EU,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2023.0,3,0,0,0.0,EU,XS,2023_EU_1_XS,263,CETPROJH21837,relaxed,CETPROJH21837,Project IRIS Blue Hydrogen,Industry (chemical feedstock),Unknown,Unknown,"Hydrogen,Methanol",Unknown,,Design,Planning - early,1,1
+264,0,1.791759469228055,Other,Other,Cleanergy Solutions Namibia,PEM,2025.0,1,0,0,5.0,OT,M,2025_OT_0_M,264,CETPROJH23008,relaxed,CETPROJH23008,GoVerde Energia Bahia,Transport (shipping),,Transport (aviation),"Ammonia,Methanol",Unknown,,Announced (early stage),Planning - early,0,0
+265,0,3.1276373444339294,Asia,Other,State Power Investment Corporation Limited,PEM,2024.0,2,0,0,21.819999999999997,UNK,L,2024_UNK_0_L,265,,no_match,,,,,,,,,,,0,0
+265,0,3.1276373444339294,Asia,Other,State Power Investment Corporation Limited,PEM,2024.0,2,0,0,21.819999999999997,UNK,L,2024_UNK_0_L,265,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+266,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,266,,exact_exhausted,,,,,,,,,,,0,0
+266,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,266,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+267,0,1.316408233655724,Asia,Other,"Shaanxi Hydrogen Energy Industry   Development Co., Ltd.",PEM,2023.0,3,0,0,2.729999999999999,UNK,M,2023_UNK_0_M,267,,no_match,,,,,,,,,,,0,0
+267,0,1.316408233655724,Asia,Other,"Shaanxi Hydrogen Energy Industry   Development Co., Ltd.",PEM,2023.0,3,0,0,2.729999999999999,UNK,M,2023_UNK_0_M,267,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+268,1,0.0,North_America,Other,Hydrogen Canada,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,268,CETPROJH21935,exact,CETPROJH21935,Midwest Low carbon Hydrogen Hub,Industry (other),Steel and glass,"Power & heat,industry (refinery feedstock),transport (road) and transport (aviation)",Hydrogen,No,,Feasibility,Planning - early,1,0
+269,1,0.0,Other,Other,PT Pupuk Kalimantan Timur,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,269,CETPROJH22471,exact,CETPROJH22471,Aramco Jubail CCS hub,Power & heat,Power and heat,Unknown,"Hydrogen,Ammonia",Yes,,Feasibility,Planning - early,0,0
+270,1,0.0,Other,Other,PT Pupuk Kalimantan Timur,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,270,,exact_exhausted,,,,,,,,,,,0,0
+270,1,0.0,Other,Other,PT Pupuk Kalimantan Timur,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,270,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+271,1,0.0,Other,Other,PT Petrokimia Gresik,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,271,,exact_exhausted,,,,,,,,,,,0,0
+271,1,0.0,Other,Other,PT Petrokimia Gresik,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,271,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+272,1,0.0,Other,Other,PT Pupuk Sriwidjaja Palembang,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,272,,exact_exhausted,,,,,,,,,,,0,0
+272,1,0.0,Other,Other,PT Pupuk Sriwidjaja Palembang,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,272,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+273,1,0.0,Other,Other,PT Pupuk Iskandar Muda (PIM),Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,273,,exact_exhausted,,,,,,,,,,,0,0
+273,1,0.0,Other,Other,PT Pupuk Iskandar Muda (PIM),Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,273,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+274,1,0.0,North_America,Utility,RWE AG,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,274,CETPROJH21933,exact,CETPROJH21933,Heartland Low carbon Hydrogen Hub,Industry (chemical feedstock),Fertilizer,Power & heat,"Hydrogen,Ammonia",No,,Feasibility,Planning - early,1,0
+275,0,5.303304908059076,North_America,Other,EverWind Fuels LLC,PEM,2022.0,4,0,0,200.0,NA,XL,2022_NA_0_XL,275,CETPROJH2311,exact,CETPROJH2311,Charbone Winnipeg H2,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,0
+276,1,0.0,North_America,Other,Tidewater Midstream and Infrastructure Ltd,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,276,,exact_exhausted,,,,,,,,,,,0,0
+276,1,0.0,North_America,Other,Tidewater Midstream and Infrastructure Ltd,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,276,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+277,0,0.0,Other_Europe,Unknown,Unknown,PEM,2023.0,3,0,0,0.0,OE,XS,2023_OE_0_XS,277,CETPROJH22989,exact,CETPROJH22989,STFC ASPIRE Project,Other,R&D,Unknown,"Hydrogen,Ammonia",Unknown,,Under construction,Planning - advanced,0,0
+278,1,0.0,EU,Other,Yara International,Blue_CCS,2022.0,4,0,0,0.0,EU,XS,2022_EU_1_XS,278,CETPROJH22418,relaxed,CETPROJH22418,Koping Hydrogen Park,Unknown,Unknown,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+279,0,4.51085950651685,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,89.99999999999997,NA,L,2021_NA_0_L,279,CETPROJH289,exact,CETPROJH289,Amelia Island project,Gas grid,Blending,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+280,0,0.1570037488096647,North_America,Unknown,Unknown,PEM,2013.0,13,0,0,0.16999999999999993,NA,S,2013_NA_0_S,280,CETPROJH2150,relaxed,CETPROJH2150,University of California Irvine H2,Gas grid,Blending,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+281,0,2.854168709232204,Asia,Other,China Huadian Corporation Ltd.,PEM,2024.0,2,0,0,16.36,UNK,L,2024_UNK_0_L,281,,no_match,,,,,,,,,,,0,0
+281,0,2.854168709232204,Asia,Other,China Huadian Corporation Ltd.,PEM,2024.0,2,0,0,16.36,UNK,L,2024_UNK_0_L,281,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+282,0,0.8109302162163288,Asia,Other,China Petroleum & Chemical Corporation,PEM,2022.0,4,0,0,1.25,UNK,M,2022_UNK_0_M,282,,no_match,,,,,,,,,,,0,0
+282,0,0.8109302162163288,Asia,Other,China Petroleum & Chemical Corporation,PEM,2022.0,4,0,0,1.25,UNK,M,2022_UNK_0_M,282,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+283,0,0.4382549309311553,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.55,UNK,S,2025_UNK_0_S,283,,no_match,,,,,,,,,,,0,0
+283,0,0.4382549309311553,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.55,UNK,S,2025_UNK_0_S,283,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+284,0,0.3220834991691133,Other,Unknown,Unknown,PEM,2025.0,1,0,0,0.37999999999999995,OT,S,2025_OT_0_S,284,CETPROJH23080,relaxed,CETPROJH23080,SOHAR Dutch H3 Green H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Feasibility,Planning - early,0,0
+285,1,0.0,North_America,Other,Cronus Chemicals,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,285,,exact_exhausted,,,,,,,,,,,0,0
+285,1,0.0,North_America,Other,Cronus Chemicals,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,285,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+286,1,0.0,Asia,Other,SINOPEC-Northwest Branch (SINOPEC-Xibei),Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,286,,no_match,,,,,,,,,,,0,0
+286,1,0.0,Asia,Other,SINOPEC-Northwest Branch (SINOPEC-Xibei),Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,286,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+287,1,0.0,Asia,Other,Sinopec Tahe Refining & Chemical Co   Ltd ,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,287,,no_match,,,,,,,,,,,0,0
+287,1,0.0,Asia,Other,Sinopec Tahe Refining & Chemical Co   Ltd ,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,287,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+288,1,0.0,North_America,Other,Suncor Energy Inc.,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,288,,exact_exhausted,,,,,,,,,,,0,0
+288,1,0.0,North_America,Other,Suncor Energy Inc.,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,288,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+289,1,0.0,Asia,Other,PetroChina Changqing,Blue_CCS,2015.0,11,0,0,0.0,UNK,XS,2015_UNK_1_XS,289,,no_match,,,,,,,,,,,0,0
+289,1,0.0,Asia,Other,PetroChina Changqing,Blue_CCS,2015.0,11,0,0,0.0,UNK,XS,2015_UNK_1_XS,289,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+290,1,0.0,Asia,Other,China Energy Investment Corp Ltd,Blue_CCS,2019.0,7,0,0,0.0,UNK,XS,2019_UNK_1_XS,290,,no_match,,,,,,,,,,,0,0
+290,1,0.0,Asia,Other,China Energy Investment Corp Ltd,Blue_CCS,2019.0,7,0,0,0.0,UNK,XS,2019_UNK_1_XS,290,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+291,1,0.0,Asia,Other,Xinjiang Dunhua Petroleum Technology Co Ltd,Blue_CCS,2015.0,11,0,0,0.0,UNK,XS,2015_UNK_1_XS,291,,no_match,,,,,,,,,,,0,0
+291,1,0.0,Asia,Other,Xinjiang Dunhua Petroleum Technology Co Ltd,Blue_CCS,2015.0,11,0,0,0.0,UNK,XS,2015_UNK_1_XS,291,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+292,1,0.0,Asia,Other,Xinjiang Dunhua Petroleum Technology Co Ltd,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,292,,no_match,,,,,,,,,,,0,0
+292,1,0.0,Asia,Other,Xinjiang Dunhua Petroleum Technology Co Ltd,Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,292,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+293,1,0.0,Asia,Other,Sinopec Qilu Petrochemical Corp,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,293,,no_match,,,,,,,,,,,0,0
+293,1,0.0,Asia,Other,Sinopec Qilu Petrochemical Corp,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,293,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+294,1,0.0,EU,Other,Jastrzebska Spolka Weglowa SA,Blue_CCS,2025.0,1,0,0,0.0,EU,XS,2025_EU_1_XS,294,CETPROJH23156,exact,CETPROJH23156,MAGHYC Onboard H2,Transport (shipping),,Unknown,Hydrogen,No,,Announced (early stage),Planning - early,0,0
+295,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2023.0,1,1,1,0.0,UNK,XS,2023_UNK_1_XS,295,,no_match,,,,,,,,,,,0,0
+295,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2023.0,1,1,1,0.0,UNK,XS,2023_UNK_1_XS,295,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+296,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2010.0,8,1,1,0.0,NA,XS,2010_NA_1_XS,296,CETPROJH262,relaxed,CETPROJH262,Olive Creek,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,Fully commissioned,Operating,1,0
+297,1,0.0,North_America,Other,"Praxair, Inc",Blue_CCS,2010.0,8,1,1,0.0,NA,XS,2010_NA_1_XS,297,CETPROJH22912,relaxed,CETPROJH22912,North Carolina CO2 reduction project,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Plans cancelled,Cancelled,0,0
+298,1,0.0,North_America,Other,Black Hills Energy,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,298,CETPROJH21928,exact,CETPROJH21928,Appalachian Hydrogen Hub,Unknown,Unknown,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+299,1,0.0,North_America,Other,Howard Midstream Energy Partners LLC,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,299,,exact_exhausted,,,,,,,,,,,0,0
+299,1,0.0,North_America,Other,Howard Midstream Energy Partners LLC,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,299,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+300,1,0.0,North_America,Other,Grannus LLC,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,300,CETPROJH21767,exact,CETPROJH21767,Florida clean hydrogen hub,Transport (road),Buses & Light Motor Vehicles,Power & heat,Hydrogen,No,,Under construction,Planning - advanced,0,0
+301,1,0.0,North_America,Other,Bia Energy LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,301,CETPROJH22158,exact,CETPROJH22158,NW Natural Portland,Unknown,Unknown,Unknown,Hydrogen,No,,Announced (early stage),Planning - early,0,0
+302,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2024.0,2,0,0,0.0,OE,XS,2024_OE_1_XS,302,CETPROJH22906,exact,CETPROJH22906,Mongstad industrial transformation project (MITP),Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Yes,,Announced (early stage),Planning - early,1,1
+303,1,0.0,North_America,Other,Marathon Petroleum Corporation,Blue_CCS,2024.0,1,1,1,0.0,NA,XS,2024_NA_1_XS,303,,exact_exhausted,,,,,,,,,,,0,0
+303,1,0.0,North_America,Other,Marathon Petroleum Corporation,Blue_CCS,2024.0,1,1,1,0.0,NA,XS,2024_NA_1_XS,303,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+304,1,0.0,Asia,Other,ENEOS Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,304,,no_match,,,,,,,,,,,0,0
+304,1,0.0,Asia,Other,ENEOS Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,304,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+305,1,0.0,North_America,Other,Northern Plains Nitrogen LLP,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,305,CETPROJH21368,exact,CETPROJH21368,Clean Energy Hub United States,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+306,1,0.0,North_America,Other,Phillips 66,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,306,,exact_exhausted,,,,,,,,,,,0,0
+306,1,0.0,North_America,Other,Phillips 66,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,306,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+307,1,0.0,North_America,Other,"North Shore Energy, LLC",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,307,,exact_exhausted,,,,,,,,,,,0,0
+307,1,0.0,North_America,Other,"North Shore Energy, LLC",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,307,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+308,0,1.791759469228055,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,5.0,NA,M,2021_NA_0_M,308,CETPROJH2291,exact,CETPROJH2291,Vancouver H2,Transport (road),Light Motor Vehicles & Heavy Goods Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+309,1,0.0,Other,Other,SUEK,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,309,,exact_exhausted,,,,,,,,,,,0,0
+309,1,0.0,Other,Other,SUEK,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,309,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+310,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2018.0,8,0,0,0.0,OE,XS,2018_OE_1_XS,310,CETPROJH22898,exact,CETPROJH22898,H21 North England,Power & heat,Heat,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+311,1,0.0,MENA,Other,44.01.Earth,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,311,,no_match,,,,,,,,,,,0,0
+311,1,0.0,MENA,Other,44.01.Earth,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,311,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+312,1,0.0,Asia,Other,Indian Oil Corporation,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,312,,no_match,,,,,,,,,,,0,0
+312,1,0.0,Asia,Other,Indian Oil Corporation,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,312,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+313,1,0.0,Other,Oil_major,Philipinas Shell Petroleum Corp,Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,313,,no_match,,,,,,,,,,,0,1
+313,1,0.0,Other,Oil_major,Philipinas Shell Petroleum Corp,Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,313,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+314,1,0.0,Asia,Other,"SK Innovation Co., Ltd",Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,314,,no_match,,,,,,,,,,,0,0
+314,1,0.0,Asia,Other,"SK Innovation Co., Ltd",Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,314,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+315,1,0.0,EU,Other,Preem AB,Blue_CCS,2020.0,6,0,0,0.0,EU,XS,2020_EU_1_XS,315,,exact_exhausted,,,,,,,,,,,0,0
+315,1,0.0,EU,Other,Preem AB,Blue_CCS,2020.0,6,0,0,0.0,EU,XS,2020_EU_1_XS,315,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+316,1,0.0,Other,Other,PT Panca Amara Utama,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,316,,exact_exhausted,,,,,,,,,,,0,0
+316,1,0.0,Other,Other,PT Panca Amara Utama,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,316,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+317,1,0.0,Other,Other,Irkutsk Oil Company LLC,Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,317,,no_match,,,,,,,,,,,0,0
+317,1,0.0,Other,Other,Irkutsk Oil Company LLC,Blue_CCS,2020.0,6,0,0,0.0,OT,XS,2020_OT_1_XS,317,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+318,1,0.0,North_America,Oil_major,Shell plc,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,318,,exact_exhausted,,,,,,,,,,,0,1
+318,1,0.0,North_America,Oil_major,Shell plc,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,318,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+319,1,0.0,North_America,Other,"Mitsubishi Gas Chemical Company, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,319,,exact_exhausted,,,,,,,,,,,0,0
+319,1,0.0,North_America,Other,"Mitsubishi Gas Chemical Company, Inc.",Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,319,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+320,1,0.0,Other,Unknown,Unknown,Blue_CCS,2022.0,2,1,1,0.0,OT,XS,2022_OT_1_XS,320,CETPROJH232,exact,CETPROJH232,King Salman Energy Park (SPARK),Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+321,1,0.0,ANZ,Other,Pouakai NZ GP Ltd,Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,321,,no_match,,,,,,,,,,,0,0
+321,1,0.0,ANZ,Other,Pouakai NZ GP Ltd,Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,321,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+322,1,0.0,North_America,Other,SCS Energy LLC,Blue_CCS,2011.0,7,1,1,0.0,NA,XS,2011_NA_1_XS,322,CETPROJH22886,relaxed,CETPROJH22886,Hydrogen Energy California (HECA),Unknown,Unknown,Unknown,Hydrogen,No,,Plans cancelled,Cancelled,0,0
+323,1,0.0,North_America,Other,"Bakken Energy, LLC",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,323,,exact_exhausted,,,,,,,,,,,0,0
+323,1,0.0,North_America,Other,"Bakken Energy, LLC",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,323,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+324,1,0.0,North_America,Other,Dakota Gasification Company Inc.,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,324,,exact_exhausted,,,,,,,,,,,0,0
+324,1,0.0,North_America,Other,Dakota Gasification Company Inc.,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,324,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+325,0,0.0,EU,Unknown,Unknown,PEM,2025.0,1,0,0,0.0,EU,XS,2025_EU_0_XS,325,CETPROJH23160,exact,CETPROJH23160,PP2XH Parnu Hub,Transport (shipping),,Unknown,Methanol,Unknown,,Announced (advanced),Planning - early,0,0
+326,0,3.913821387369526,Asia,Other,"Gemeng Yihe New Energy Co., Ltd.",PEM,2025.0,1,0,0,49.09000000000002,UNK,L,2025_UNK_0_L,326,,no_match,,,,,,,,,,,0,0
+326,0,3.913821387369526,Asia,Other,"Gemeng Yihe New Energy Co., Ltd.",PEM,2025.0,1,0,0,49.09000000000002,UNK,L,2025_UNK_0_L,326,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+327,0,2.0215475632609334,Asia,Other,Power Construction Corporation Of China,PEM,2024.0,2,0,0,6.550000000000001,UNK,M,2024_UNK_0_M,327,,no_match,,,,,,,,,,,0,0
+327,0,2.0215475632609334,Asia,Other,Power Construction Corporation Of China,PEM,2024.0,2,0,0,6.550000000000001,UNK,M,2024_UNK_0_M,327,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+328,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,328,CETPROJH21756,exact,CETPROJH21756,Cushing Refinery Blue H2,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Announced (early stage),Planning - early,1,0
+329,1,0.0,North_America,Other,"TransGas Development Systems, LLC",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,329,,exact_exhausted,,,,,,,,,,,0,0
+329,1,0.0,North_America,Other,"TransGas Development Systems, LLC",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,329,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+330,1,0.0,Other,Other,Abu Dhabi National Oil Company,Blue_CCS,2025.0,1,0,0,0.0,OT,XS,2025_OT_1_XS,330,CETPROJH22851,relaxed,CETPROJH22851,Juiz de Fora Blue hydrogen,Industry (other),Steel,Unknown,Hydrogen,No,,Design,Planning - early,1,0
+331,1,0.0,Other,Steel,ArcelorMittal SA,Blue_CCS,2025.0,1,0,0,0.0,OT,XS,2025_OT_1_XS,331,CETPROJH22852,relaxed,CETPROJH22852,Project Rabdan,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,Design,Planning - early,1,1
+332,0,4.51085950651685,North_America,Oil_major,Shell plc,PEM,2020.0,6,0,0,89.99999999999997,NA,L,2020_NA_0_L,332,CETPROJH290,exact,CETPROJH290,Minneapolis Demonstration Plant,Gas grid,Blending,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+333,0,1.252762968495368,Other,Unknown,Unknown,PEM,2025.0,1,0,0,2.5,OT,M,2025_OT_0_M,333,CETPROJH23003,relaxed,CETPROJH23003,Voltalia Pecem,Unknown,Unknown,Unknown,Ammonia,Unknown,,Announced (early stage),Planning - early,0,0
+334,1,0.0,ANZ,Unknown,Unknown,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,334,,no_match,,,,,,,,,,,0,0
+334,1,0.0,ANZ,Unknown,Unknown,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,334,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+335,1,0.0,ANZ,Other,NH3 Clean Energy Limited,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,335,,no_match,,,,,,,,,,,0,0
+335,1,0.0,ANZ,Other,NH3 Clean Energy Limited,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,335,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+336,1,0.0,North_America,Other,Canadian Natural Resources,Blue_CCS,2003.0,23,0,0,0.0,NA,XS,2003_NA_1_XS,336,,no_match,,,,,,,,,,,0,0
+336,1,0.0,North_America,Other,Canadian Natural Resources,Blue_CCS,2003.0,23,0,0,0.0,NA,XS,2003_NA_1_XS,336,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+337,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,UNK,M,2025_UNK_0_M,337,,no_match,,,,,,,,,,,0,0
+337,0,0.6931471805599453,ANZ,Unknown,Unknown,PEM,2025.0,1,0,0,1.0,UNK,M,2025_UNK_0_M,337,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+338,0,3.044522437723423,Other,Other,Qair Brasil Participações S.A.,PEM,2025.0,1,0,0,20.0,OT,L,2025_OT_0_L,338,CETPROJH23053,exact,CETPROJH23053,Cleanergy H2 refuelling station,Transport (road),Heavy Goods Vehicles,Industry (other),Hydrogen,Unknown,,Announced (advanced),Planning - early,0,0
+339,0,4.875197323201151,EU,Unknown,Unknown,PEM,2025.0,1,1,1,129.99999999999994,EU,XL,2025_EU_0_XL,339,CETPROJH22824,exact,CETPROJH22824,Porto Marghera Green H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Under construction,Planning - advanced,0,0
+340,0,3.044522437723423,North_America,Industrial_gas,L'Air Liquide S.A.,PEM,2019.0,7,0,0,20.0,NA,L,2019_NA_0_L,340,CETPROJH2294,exact,CETPROJH2294,Canadian Tire Corporation H2 II,Transport (road),Industrial Vehicle,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+341,1,0.0,North_America,Other,Chevron,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,341,,exact_exhausted,,,,,,,,,,,0,0
+341,1,0.0,North_America,Other,Chevron,Blue_CCS,2025.0,1,0,0,0.0,NA,XS,2025_NA_1_XS,341,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+342,0,0.0,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_0_XS,342,,no_match,,,,,,,,,,,0,0
+342,0,0.0,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_0_XS,342,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+343,0,1.864080130807681,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,5.45,UNK,M,2025_UNK_0_M,343,,no_match,,,,,,,,,,,0,0
+343,0,1.864080130807681,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,5.45,UNK,M,2025_UNK_0_M,343,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+344,0,0.6931471805599453,Other,Unknown,Unknown,PEM,2023.0,3,0,0,1.0,OT,M,2023_OT_0_M,344,CETPROJH22611,exact,CETPROJH22611,GH2GH Project,Power & heat,Power,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+345,1,0.0,North_America,Other,Canadian Natural Upgrading Limited,Blue_CCS,2018.0,8,0,0,0.0,NA,XS,2018_NA_1_XS,345,CETPROJH2279,relaxed,CETPROJH2279,North West Sturgeon refinery,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+346,0,1.252762968495368,North_America,Unknown,Unknown,PEM,2016.0,10,0,0,2.5,NA,M,2016_NA_0_M,346,CETPROJH2103,relaxed,CETPROJH2103,SunLine Transit Agency station,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+347,0,7.601402334583733,Other,Other,Allied Green Ammonia Pty Ltd,PEM,2025.0,1,0,0,2000.0,OT,XXL,2025_OT_0_XXL,347,CETPROJH23011,exact,CETPROJH23011,Atvos Mineiros Plant,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,Announced (advanced),Planning - early,1,0
+348,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,348,,exact_exhausted,,,,,,,,,,,0,0
+348,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,348,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+349,1,0.0,North_America,Oil_major,Shell plc,Blue_CCS,2012.0,14,0,0,0.0,NA,XS,2012_NA_1_XS,349,CETPROJH2275,relaxed,CETPROJH2275,Quest Carbon Capture and Storage Project Alberta,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,1,1
+350,0,4.61512051684126,North_America,Other,"Infinium Holdings, Inc.",PEM,2025.0,1,0,0,100.00000000000003,NA,XL,2025_NA_0_XL,350,CETPROJH22778,relaxed,CETPROJH22778,Verdagy Moss Landing Green H2,Power & heat,Power,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+351,0,4.61512051684126,EU,Other,Moeve,PEM,2023.0,3,0,0,100.00000000000003,EU,XL,2023_EU_0_XL,351,CETPROJH21991,exact,CETPROJH21991,Modena,Transport (other),Public transport,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+352,0,3.1276373444339294,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,21.819999999999997,UNK,L,2025_UNK_0_L,352,,no_match,,,,,,,,,,,0,0
+352,0,3.1276373444339294,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,21.819999999999997,UNK,L,2025_UNK_0_L,352,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+353,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,1.09,UNK,M,2025_UNK_0_M,353,,no_match,,,,,,,,,,,0,0
+353,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,1.09,UNK,M,2025_UNK_0_M,353,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+354,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,1.09,UNK,M,2025_UNK_0_M,354,,no_match,,,,,,,,,,,0,0
+354,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,1.09,UNK,M,2025_UNK_0_M,354,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+355,0,0.0,Asia,Other,Shanghai Municipal People's Government,PEM,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_0_XS,355,,no_match,,,,,,,,,,,0,0
+355,0,0.0,Asia,Other,Shanghai Municipal People's Government,PEM,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_0_XS,355,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+356,0,2.477378383367209,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,10.910000000000002,UNK,L,2024_UNK_0_L,356,,no_match,,,,,,,,,,,0,0
+356,0,2.477378383367209,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,10.910000000000002,UNK,L,2024_UNK_0_L,356,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+357,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,1.09,UNK,M,2023_UNK_0_M,357,,no_match,,,,,,,,,,,0,0
+357,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,1.09,UNK,M,2023_UNK_0_M,357,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+358,0,1.0986122886681098,Asia,Other,Daye Municipal Government,PEM,2024.0,2,0,0,2.0000000000000004,UNK,M,2024_UNK_0_M,358,,no_match,,,,,,,,,,,0,0
+358,0,1.0986122886681098,Asia,Other,Daye Municipal Government,PEM,2024.0,2,0,0,2.0000000000000004,UNK,M,2024_UNK_0_M,358,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+359,0,2.744060638625243,Asia,Other,PetroChina Company Limited,PEM,2023.0,3,0,0,14.549999999999999,UNK,L,2023_UNK_0_L,359,,no_match,,,,,,,,,,,0,0
+359,0,2.744060638625243,Asia,Other,PetroChina Company Limited,PEM,2023.0,3,0,0,14.549999999999999,UNK,L,2023_UNK_0_L,359,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+360,0,0.0,Asia,Other,"Seraphim Energy Group Co., Ltd.",PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,360,,no_match,,,,,,,,,,,0,0
+360,0,0.0,Asia,Other,"Seraphim Energy Group Co., Ltd.",PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,360,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+361,0,0.0,Asia,Other,Envision Group,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,361,,no_match,,,,,,,,,,,0,0
+361,0,0.0,Asia,Other,Envision Group,PEM,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_0_XS,361,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+362,0,1.3862943611198906,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,3.0,UNK,M,2022_UNK_0_M,362,,no_match,,,,,,,,,,,0,0
+362,0,1.3862943611198906,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,3.0,UNK,M,2022_UNK_0_M,362,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+363,1,0.0,Asia,Other,Korea Gas Technology Corporation,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,363,,no_match,,,,,,,,,,,0,0
+363,1,0.0,Asia,Other,Korea Gas Technology Corporation,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,363,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+364,1,0.0,Asia,Other,Korea Gas Technology Corporation,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,364,,no_match,,,,,,,,,,,0,0
+364,1,0.0,Asia,Other,Korea Gas Technology Corporation,Blue_CCS,2025.0,1,0,0,0.0,UNK,XS,2025_UNK_1_XS,364,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+365,0,1.791759469228055,EU,Unknown,Unknown,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,365,,exact_exhausted,,,,,,,,,,,0,0
+365,0,1.791759469228055,EU,Unknown,Unknown,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,365,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+366,0,4.948759890378168,EU,Other,OMV Aktiengesellschaft,PEM,2025.0,1,0,0,140.00000000000003,EU,XL,2025_EU_0_XL,366,CETPROJH22926,exact,CETPROJH22926,GreenHydroChem24,Industry (other),Other Industrial Process,Unknown,Hydrogen,Unknown,,Permitted,Planning - advanced,0,0
+367,0,1.0986122886681098,Other,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,OT,M,2025_OT_0_M,367,CETPROJH22880,relaxed,CETPROJH22880,Yemen Green H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Feasibility,Planning - early,0,0
+368,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,368,,exact_exhausted,,,,,,,,,,,0,0
+368,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2025.0,1,0,0,2.0000000000000004,EU,M,2025_EU_0_M,368,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+369,0,7.313886831633462,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1499.9999999999998,UNK,XXL,2019_UNK_0_XXL,369,,no_match,,,,,,,,,,,0,0
+369,0,7.313886831633462,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1499.9999999999998,UNK,XXL,2019_UNK_0_XXL,369,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+370,0,1.717395053939193,EU,Unknown,Unknown,PEM,2025.0,1,0,0,4.570000000000001,EU,M,2025_EU_0_M,370,,exact_exhausted,,,,,,,,,,,0,0
+370,0,1.717395053939193,EU,Unknown,Unknown,PEM,2025.0,1,0,0,4.570000000000001,EU,M,2025_EU_0_M,370,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+371,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,2.5,UNK,M,2021_UNK_0_M,371,,no_match,,,,,,,,,,,0,0
+371,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,2.5,UNK,M,2021_UNK_0_M,371,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+372,1,0.0,North_America,Other,Genesis Fertilizers Limited Partnership,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,372,,exact_exhausted,,,,,,,,,,,0,0
+372,1,0.0,North_America,Other,Genesis Fertilizers Limited Partnership,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,372,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+373,0,7.876471464110061,MENA,Other,Dai Infrastruktur Gmbh,PEM,2023.0,3,0,0,2633.5599999999995,UNK,XXL,2023_UNK_0_XXL,373,,no_match,,,,,,,,,,,0,0
+373,0,7.876471464110061,MENA,Other,Dai Infrastruktur Gmbh,PEM,2023.0,3,0,0,2633.5599999999995,UNK,XXL,2023_UNK_0_XXL,373,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+374,1,0.0,North_America,Other,Yara International,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,374,,exact_exhausted,,,,,,,,,,,0,0
+374,1,0.0,North_America,Other,Yara International,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,374,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+375,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2025.0,1,0,0,4.000000000000001,EU,M,2025_EU_0_M,375,,exact_exhausted,,,,,,,,,,,0,0
+375,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2025.0,1,0,0,4.000000000000001,EU,M,2025_EU_0_M,375,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+376,0,0.262364264467491,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.29999999999999993,UNK,S,2025_UNK_0_S,376,,no_match,,,,,,,,,,,0,0
+376,0,0.262364264467491,Asia,Unknown,Unknown,PEM,2025.0,1,0,0,0.29999999999999993,UNK,S,2025_UNK_0_S,376,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+377,0,1.791759469228055,EU,Unknown,Unknown,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,377,,exact_exhausted,,,,,,,,,,,0,0
+377,0,1.791759469228055,EU,Unknown,Unknown,PEM,2025.0,1,0,0,5.0,EU,M,2025_EU_0_M,377,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+378,0,0.5306282510621704,ANZ,Unknown,Unknown,PEM,2025.0,1,0,0,0.7,UNK,S,2025_UNK_0_S,378,,no_match,,,,,,,,,,,0,0
+378,0,0.5306282510621704,ANZ,Unknown,Unknown,PEM,2025.0,1,0,0,0.7,UNK,S,2025_UNK_0_S,378,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+379,0,5.5254529391317835,EU,Unknown,Unknown,PEM,2021.0,5,0,0,249.9999999999999,EU,XL,2021_EU_0_XL,379,CETPROJH21242,exact,CETPROJH21242,Port of Gothenburg H2,Transport (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+380,0,0.8754687373538999,North_America,Unknown,Unknown,PEM,2025.0,1,0,0,1.3999999999999997,NA,M,2025_NA_0_M,380,CETPROJH23198,relaxed,CETPROJH23198,StormFisher Texas Methanol Plant,Unknown,Unknown,Unknown,Methanol,Unknown,,Design,Planning - early,0,0
+381,0,2.3978952727983707,EU,Other,Lhyfe SA,PEM,2025.0,1,0,0,10.000000000000002,EU,L,2025_EU_0_L,381,CETPROJH23220,exact,CETPROJH23220,JMG Cranes Green H2,Transport (road),Industrial Vehicle,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+382,0,5.707110264748875,EU,Other,SwitcH2 Offshore,PEM,2024.0,2,0,0,299.9999999999999,EU,XL,2024_EU_0_XL,382,CETPROJH22421,exact,CETPROJH22421,Guttroff,Transport (road),Refueling Station,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+383,0,0.6931471805599453,Asia,Oil_major,"Zhangjiakou City Transport and Shell New   Energy Co., Limited, Beijing Organizing Committee for the   Olympic Games (BOCOG)",PEM,2020.0,6,0,0,1.0,UNK,M,2020_UNK_0_M,383,,no_match,,,,,,,,,,,0,1
+383,0,0.6931471805599453,Asia,Oil_major,"Zhangjiakou City Transport and Shell New   Energy Co., Limited, Beijing Organizing Committee for the   Olympic Games (BOCOG)",PEM,2020.0,6,0,0,1.0,UNK,M,2020_UNK_0_M,383,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+384,1,0.0,Asia,Other,Inpex Corporation,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,384,,no_match,,,,,,,,,,,0,0
+384,1,0.0,Asia,Other,Inpex Corporation,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,384,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+385,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2024.0,2,0,0,2.0000000000000004,OE,M,2024_OE_0_M,385,CETPROJH22987,relaxed,CETPROJH22987,A Energi Kvinesdal,Unknown,Unknown,Unknown,Ammonia,Unknown,,Announced (early stage),Planning - early,0,0
+386,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,386,,no_match,,,,,,,,,,,0,0
+386,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,386,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+387,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2024.0,2,0,0,10.000000000000002,EU,L,2024_EU_0_L,387,CETPROJH22205,exact,CETPROJH22205,Nordex Navarra Green H2 Test,Industry (other),Other Industrial Processes & Equipment,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+388,1,0.0,EU,Other,Oulun Energia,Blue_CCS,2024.0,2,0,0,0.0,EU,XS,2024_EU_1_XS,388,CETPROJH23302,exact,CETPROJH23302,Graforce Plasmalysis project,Unknown,,Unknown,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+389,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,2.5,UNK,M,2024_UNK_0_M,389,,no_match,,,,,,,,,,,0,0
+389,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,2.5,UNK,M,2024_UNK_0_M,389,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+390,0,1.791759469228055,EU,Unknown,Unknown,PEM,2024.0,2,0,0,5.0,EU,M,2024_EU_0_M,390,CETPROJH22204,exact,CETPROJH22204,Odolanow Orlen Pilot Green H2,Gas grid,Blending,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+391,0,1.801709800081223,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,5.06,NA,M,2024_NA_0_M,391,CETPROJH22797,relaxed,CETPROJH22797,Project Pathfinder,Transport (road),Heavy Goods Vehicles,Transport (aviation) and industry (chemical feedstock),Liquids,Unknown,,Fully commissioned,Operating,0,0
+392,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2024.0,2,0,0,4.000000000000001,EU,M,2024_EU_0_M,392,CETPROJH22321,exact,CETPROJH22321,Seville (H2-24/7) Green H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Feasibility,Planning - early,0,0
+393,1,0.0,North_America,Other,"Clean Hydrogen Works LA-1, L.L.C.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,393,,exact_exhausted,,,,,,,,,,,0,0
+393,1,0.0,North_America,Other,"Clean Hydrogen Works LA-1, L.L.C.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,393,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+394,0,2.3978952727983707,Asia,Other,"Sino-Synergy Hydrogen Energy Technology   (Jiaxing) Co., Ltd.",PEM,2016.0,10,0,0,10.000000000000002,UNK,L,2016_UNK_0_L,394,,no_match,,,,,,,,,,,0,0
+394,0,2.3978952727983707,Asia,Other,"Sino-Synergy Hydrogen Energy Technology   (Jiaxing) Co., Ltd.",PEM,2016.0,10,0,0,10.000000000000002,UNK,L,2016_UNK_0_L,394,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+395,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2024.0,2,0,0,1.0,EU,M,2024_EU_0_M,395,CETPROJH22028,exact,CETPROJH22028,FollHy Project,Unknown,Unknown,Unknown,Hydrogen,No,,Financed,Planning - advanced,0,0
+396,1,0.0,North_America,Other,Newpoint Gas LLC,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,396,,exact_exhausted,,,,,,,,,,,0,0
+396,1,0.0,North_America,Other,Newpoint Gas LLC,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,396,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+397,0,5.707110264748875,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,299.9999999999999,NA,XL,2024_NA_0_XL,397,CETPROJH22398,exact,CETPROJH22398,Lewis County Transit Station/Port of Chehalis Hydrogen Production & Fueling Station,Transport (road),Refueling Station,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+398,0,5.303304908059076,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,200.0,NA,XL,2024_NA_0_XL,398,CETPROJH23308,exact,CETPROJH23308,Chevron Lost Hills Oil Field PEM,Unknown,,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+399,0,5.673323267171493,EU,Unknown,Unknown,PEM,2024.0,2,0,0,290.0000000000001,EU,XL,2024_EU_0_XL,399,CETPROJH22375,exact,CETPROJH22375,Croixrault Green H2,Transport (road),Unknown,Industry (chemical feedstock),Hydrogen,No,,Under construction,Planning - advanced,0,0
+400,0,5.351858133476067,EU,Other,Deutsche ReGas GmbH & Co. KGaA,PEM,2024.0,2,0,0,210.00000000000003,EU,XL,2024_EU_0_XL,400,CETPROJH22362,exact,CETPROJH22362,EAV Green H2,Transport (rail),,Transport (road),Hydrogen,No,,Design,Planning - early,0,0
+401,0,1.3862943611198906,Asia,Other,"Sino-Synergy Hydrogen Energy Technology   (Jiaxing) Co., Ltd.",PEM,2015.0,11,0,0,3.0,UNK,M,2015_UNK_0_M,401,,no_match,,,,,,,,,,,0,0
+401,0,1.3862943611198906,Asia,Other,"Sino-Synergy Hydrogen Energy Technology   (Jiaxing) Co., Ltd.",PEM,2015.0,11,0,0,3.0,UNK,M,2015_UNK_0_M,401,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+402,1,0.0,North_America,Other,"Babcock & Wilcox Enterprises, Inc.",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,402,,exact_exhausted,,,,,,,,,,,0,0
+402,1,0.0,North_America,Other,"Babcock & Wilcox Enterprises, Inc.",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,402,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+403,0,5.315026980110984,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,202.37,NA,XL,2024_NA_0_XL,403,,exact_exhausted,,,,,,,,,,,0,0
+403,0,5.315026980110984,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,202.37,NA,XL,2024_NA_0_XL,403,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+404,0,4.342375829044089,North_America,Unknown,Unknown,PEM,2024.0,2,0,0,75.88999999999997,NA,L,2024_NA_0_L,404,CETPROJH22026,exact,CETPROJH22026,Scalable Hydrogen Energy Platform (SHEP),Unknown,Unknown,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+405,1,0.0,North_America,Other,NUIONIC TECHNOLOGIES (CANADA) INC.,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,405,,exact_exhausted,,,,,,,,,,,0,0
+405,1,0.0,North_America,Other,NUIONIC TECHNOLOGIES (CANADA) INC.,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,405,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+406,1,0.0,North_America,Industrial_gas,Linde plc,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,406,,exact_exhausted,,,,,,,,,,,0,1
+406,1,0.0,North_America,Industrial_gas,Linde plc,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,406,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+407,1,0.0,Asia,Other,SINOPEC-East China Branch (SINOPEC-Huadong),Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,407,,no_match,,,,,,,,,,,0,0
+407,1,0.0,Asia,Other,SINOPEC-East China Branch (SINOPEC-Huadong),Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,407,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+408,1,0.0,Other_Europe,Other,Associated British Ports,Blue_CCS,2024.0,2,0,0,0.0,OE,XS,2024_OE_1_XS,408,,exact_exhausted,,,,,,,,,,,0,0
+408,1,0.0,Other_Europe,Other,Associated British Ports,Blue_CCS,2024.0,2,0,0,0.0,OE,XS,2024_OE_1_XS,408,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+409,1,0.0,Other_Europe,Other,BOC,Blue_CCS,2023.0,3,0,0,0.0,OE,XS,2023_OE_1_XS,409,CETPROJH21728,exact,CETPROJH21728,Brigg Power Station H2,Power & heat,Power,Unknown,Hydrogen,No,,Partially commissioned,Operating,0,0
+410,0,1.6094379124341005,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,4.000000000000001,UNK,M,2024_UNK_0_M,410,,no_match,,,,,,,,,,,0,0
+410,0,1.6094379124341005,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,4.000000000000001,UNK,M,2024_UNK_0_M,410,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+411,1,0.0,North_America,Other,Ten08 Energy LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,411,,exact_exhausted,,,,,,,,,,,0,0
+411,1,0.0,North_America,Other,Ten08 Energy LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,411,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+412,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,412,,exact_exhausted,,,,,,,,,,,0,0
+412,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,412,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+413,0,1.0986122886681098,Other,Unknown,Unknown,PEM,2021.0,5,0,0,2.0000000000000004,OT,M,2021_OT_0_M,413,CETPROJH2192,exact,CETPROJH2192,Cartagena refinery pilot project,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+414,1,0.0,MENA,Oil_major,Shell plc,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,414,,no_match,,,,,,,,,,,0,1
+414,1,0.0,MENA,Oil_major,Shell plc,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,414,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+415,0,2.3978952727983707,EU,Other,Enertrag Service GmbH,PEM,2024.0,2,0,0,10.000000000000002,EU,L,2024_EU_0_L,415,CETPROJH22029,exact,CETPROJH22029,H-TEC project/HUB LA ISLA H2,Transport (road),"Heavy Goods, Light Motor & Industry Vehicles",Unknown,Hydrogen,No,,Design,Planning - early,0,0
+416,0,1.252762968495368,Other_Europe,Unknown,Unknown,PEM,2024.0,2,0,0,2.5,OE,M,2024_OE_0_M,416,CETPROJH22469,relaxed,CETPROJH22469,HydroGlen Project,Transport (road),Fuel cell vehicles,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+417,0,1.0986122886681098,MENA,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,UNK,M,2022_UNK_0_M,417,,no_match,,,,,,,,,,,0,0
+417,0,1.0986122886681098,MENA,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,UNK,M,2022_UNK_0_M,417,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+418,0,4.795790545596741,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2024.0,2,0,0,120.00000000000003,EU,XL,2024_EU_0_XL,418,CETPROJH22714,exact,CETPROJH22714,Turn2X,Industry (other),Glass,Unknown,Methane,Yes,Germany,Fully commissioned,Operating,0,1
+419,0,2.3978952727983707,EU,Other,HyDN GmbH,PEM,2024.0,2,0,0,10.000000000000002,EU,L,2024_EU_0_L,419,CETPROJH22211,exact,CETPROJH22211,Project Hyvia,Transport (road),Unknown,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+420,1,0.0,North_America,Other,Copenhagen Infrastructure Partners P/S,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,420,,exact_exhausted,,,,,,,,,,,0,0
+420,1,0.0,North_America,Other,Copenhagen Infrastructure Partners P/S,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,420,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+421,1,0.0,MENA,Other,SABIC Agri-Nutrients Company,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,421,,no_match,,,,,,,,,,,0,0
+421,1,0.0,MENA,Other,SABIC Agri-Nutrients Company,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,421,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+422,0,3.044522437723423,Other_Europe,Other,Hydrogen Solutions AS,PEM,2024.0,2,0,0,20.0,OE,L,2024_OE_0_L,422,CETPROJH22261,relaxed,CETPROJH22261,Project Pioneer Two,Transport (road),Heavy Goods Vehicles,Transport (aviation),Hydrogen,No,,Under construction,Planning - advanced,0,0
+423,0,2.3978952727983707,EU,Other,Lhyfe SA,PEM,2024.0,2,0,0,10.000000000000002,EU,L,2024_EU_0_L,423,CETPROJH23125,exact,CETPROJH23125,Loviisa nuclear power plant H2/Kalla test center Alkaline,Other,R&D,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+424,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,424,,exact_exhausted,,,,,,,,,,,0,0
+424,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,424,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+425,0,0.009950330853168,Other,Unknown,Unknown,PEM,2020.0,6,0,0,0.009999999999999917,OT,XS,2020_OT_0_XS,425,CETPROJH2336,exact,CETPROJH2336,Inga Dam,Power & heat,Power and heat,Industry (other) and transport (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+426,1,0.0,Other_Europe,Other,Hynor Lillestrom AS,Blue_CCS,2012.0,14,0,0,0.0,OE,XS,2012_OE_1_XS,426,CETPROJH22190,relaxed,CETPROJH22190,Akershus Energy Park/The HyNor Project Low Carbon,Transport (road),Refueling Station,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+427,1,0.0,North_America,Other,8 Rivers Capital LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,427,,exact_exhausted,,,,,,,,,,,0,0
+427,1,0.0,North_America,Other,8 Rivers Capital LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,427,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+428,1,0.0,EU,Other,VNG AG,Blue_CCS,2022.0,4,0,0,0.0,EU,XS,2022_EU_1_XS,428,CETPROJH22986,relaxed,CETPROJH22986,Yara-Northern Lights Sluiskil Plant,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,On-hold (assumed),Cancelled,1,0
+429,1,0.0,EU,Oil_major,Equinor ASA,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,429,,exact_exhausted,,,,,,,,,,,0,1
+429,1,0.0,EU,Oil_major,Equinor ASA,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,429,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+430,0,0.0953101798043248,EU,Unknown,Unknown,PEM,2024.0,2,0,0,0.09999999999999994,EU,XS,2024_EU_0_XS,430,CETPROJH23158,exact,CETPROJH23158,ReSTart eSAF,Transport (aviation),,Unknown,"Methanol,SAF",Unknown,,Feasibility,Planning - early,0,0
+431,1,0.0,North_America,Other,INEOS Nitriles USA,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,431,,exact_exhausted,,,,,,,,,,,0,0
+431,1,0.0,North_America,Other,INEOS Nitriles USA,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,431,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+432,0,1.8562979903656265,EU,Unknown,Unknown,PEM,2024.0,2,0,0,5.400000000000002,EU,M,2024_EU_0_M,432,CETPROJH22183,exact,CETPROJH22183,Iberia Hospital Green H2,Power & heat,Power,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+433,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2024.0,2,0,0,2.0000000000000004,EU,M,2024_EU_0_M,433,,exact_exhausted,,,,,,,,,,,0,0
+433,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2024.0,2,0,0,2.0000000000000004,EU,M,2024_EU_0_M,433,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+434,0,3.258096538021482,EU,Oil_major,BP p.l.c.,PEM,2021.0,5,0,0,25.000000000000004,EU,L,2021_EU_0_L,434,CETPROJH2521,exact,CETPROJH2521,Renewable Gasfield Project,Industry (other),Metals,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,1
+435,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,435,CETPROJH21651,exact,CETPROJH21651,H2Evora,Power & heat,Power storage,Unknown,Hydrogen,Unknown,,Under construction,Planning - advanced,0,0
+436,0,2.772588722239781,Other_Europe,Oil_major,Grenian Hydrogen Limited,PEM,2024.0,2,0,0,14.999999999999998,OE,L,2024_OE_0_L,436,CETPROJH22481,relaxed,CETPROJH22481,H2Uri,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,1
+437,1,0.0,EU,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2013.0,13,0,0,0.0,EU,XS,2013_EU_1_XS,437,CETPROJH22124,relaxed,CETPROJH22124,Port Jerome Cryocap,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+438,1,0.0,North_America,Other,Transition Industries LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,438,,exact_exhausted,,,,,,,,,,,0,0
+438,1,0.0,North_America,Other,Transition Industries LLC,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,438,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+439,0,0.0,Other,Other,HIF Global,PEM,2020.0,6,0,0,0.0,OT,XS,2020_OT_0_XS,439,CETPROJH2220,exact,CETPROJH2220,Las Tortolas H2,Transport (road),Industrial Vehicle,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+440,0,3.044522437723423,Other,Other,H2 Green Mining SpA,PEM,2024.0,2,0,0,20.0,OT,L,2024_OT_0_L,440,CETPROJH22417,exact,CETPROJH22417,Kahiros Green H2 Project,Transport (road),Trucks,Unknown,Hydrogen,No,,Permitted,Planning - advanced,0,0
+441,0,5.662960480135946,Other,Other,HIF Global,PEM,2020.0,6,0,0,287.00000000000006,OT,XL,2020_OT_0_XL,441,CETPROJH21421,exact,CETPROJH21421,Ain Sokhna H2,Industry (chemical feedstock),,Unknown,"Hydrogen,Ammonia",Unknown,,Fully commissioned,Operating,1,0
+442,0,2.3978952727983707,Other,Unknown,Unknown,PEM,2022.0,4,0,0,10.000000000000002,OT,L,2022_OT_0_L,442,CETPROJH228,exact,CETPROJH228,Green Hydrogen for Mobility Muscat,Transport (road),Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+443,0,2.3978952727983707,Asia,Other,"China Energy Engineering Group Co., Ltd.",PEM,2023.0,3,0,0,10.000000000000002,UNK,L,2023_UNK_0_L,443,,no_match,,,,,,,,,,,0,0
+443,0,2.3978952727983707,Asia,Other,"China Energy Engineering Group Co., Ltd.",PEM,2023.0,3,0,0,10.000000000000002,UNK,L,2023_UNK_0_L,443,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+444,0,0.8109302162163288,Other,Other,HIF Global,PEM,2020.0,6,0,0,1.25,OT,M,2020_OT_0_M,444,CETPROJH2364,exact,CETPROJH2364,Power-to-X Pilot,Other,R&D,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+445,0,3.7984062786411785,Other,Other,Colbún S.A.,PEM,2024.0,2,0,0,43.63,OT,L,2024_OT_0_L,445,CETPROJH22277,exact,CETPROJH22277,Kahiros Green H2 Project,Transport (road),Trucks,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+446,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2024.0,2,0,0,3.0,EU,M,2024_EU_0_M,446,,exact_exhausted,,,,,,,,,,,0,0
+446,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2024.0,2,0,0,3.0,EU,M,2024_EU_0_M,446,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+447,1,0.0,North_America,Other,"Idemitsu Kosan Co.,Ltd.",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,447,,exact_exhausted,,,,,,,,,,,0,0
+447,1,0.0,North_America,Other,"Idemitsu Kosan Co.,Ltd.",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,447,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+448,0,0.4054651081081644,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,0.5,UNK,S,2024_UNK_0_S,448,,no_match,,,,,,,,,,,0,0
+448,0,0.4054651081081644,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,0.5,UNK,S,2024_UNK_0_S,448,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+449,0,4.248495242049359,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,69.00000000000003,NA,L,2022_NA_0_L,449,CETPROJH2313,exact,CETPROJH2313,Port of Baie-Comeau H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+450,0,4.795790545596741,Other_Europe,Other,Uniper SE,PEM,2024.0,2,0,0,120.00000000000003,OE,XL,2024_OE_0_XL,450,CETPROJH22261,exact,CETPROJH22261,Project Pioneer Two,Transport (road),Heavy Goods Vehicles,Transport (aviation),Hydrogen,No,,Under construction,Planning - advanced,0,0
+451,1,0.0,North_America,Other,Inpex Corp,Blue_CCS,2023.0,1,1,2,0.0,NA,XS,2023_NA_1_XS,451,,exact_exhausted,,,,,,,,,,,0,0
+451,1,0.0,North_America,Other,Inpex Corp,Blue_CCS,2023.0,1,1,2,0.0,NA,XS,2023_NA_1_XS,451,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+452,1,0.0,North_America,Other,Lapis Energy,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,452,,exact_exhausted,,,,,,,,,,,0,0
+452,1,0.0,North_America,Other,Lapis Energy,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,452,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+453,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,453,,exact_exhausted,,,,,,,,,,,0,0
+453,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,453,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+454,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,454,,exact_exhausted,,,,,,,,,,,0,0
+454,1,0.0,North_America,Other,"CF Industries Holdings, Inc.",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,454,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+455,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2024.0,2,0,0,1.0,EU,M,2024_EU_0_M,455,,exact_exhausted,,,,,,,,,,,0,0
+455,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2024.0,2,0,0,1.0,EU,M,2024_EU_0_M,455,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+456,1,0.0,Asia,Other,POSCO Holdings Inc.,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,456,,no_match,,,,,,,,,,,0,0
+456,1,0.0,Asia,Other,POSCO Holdings Inc.,Blue_CCS,2024.0,2,0,0,0.0,UNK,XS,2024_UNK_1_XS,456,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+457,0,3.044522437723423,Other_Europe,Unknown,Unknown,PEM,2024.0,2,0,0,20.0,OE,L,2024_OE_0_L,457,CETPROJH22987,relaxed,CETPROJH22987,A Energi Kvinesdal,Unknown,Unknown,Unknown,Ammonia,Unknown,,Announced (early stage),Planning - early,0,0
+458,0,3.269568939183719,North_America,Pure_play,Plug Power Inc.,PEM,2024.0,2,0,0,25.299999999999997,NA,L,2024_NA_0_L,458,CETPROJH22193,exact,CETPROJH22193,Simon Fraser Clean Hydrogen Hub,Other,R&D,Unknown,Hydrogen,No,,Permitted,Planning - advanced,0,0
+459,0,0.262364264467491,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,0.29999999999999993,UNK,S,2024_UNK_0_S,459,,no_match,,,,,,,,,,,0,0
+459,0,0.262364264467491,Asia,Unknown,Unknown,PEM,2024.0,2,0,0,0.29999999999999993,UNK,S,2024_UNK_0_S,459,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+460,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,460,,exact_exhausted,,,,,,,,,,,0,0
+460,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,460,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+461,1,0.0,Other,Other,KPI Pertamina,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,461,,exact_exhausted,,,,,,,,,,,0,0
+461,1,0.0,Other,Other,KPI Pertamina,Blue_CCS,2024.0,2,0,0,0.0,OT,XS,2024_OT_1_XS,461,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+462,1,0.0,North_America,Other,"CF Industries Blue Point, LLC",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,462,,exact_exhausted,,,,,,,,,,,0,0
+462,1,0.0,North_America,Other,"CF Industries Blue Point, LLC",Blue_CCS,2024.0,2,0,0,0.0,NA,XS,2024_NA_1_XS,462,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+463,1,0.0,MENA,Other,NewMed Energy Limited Partnership,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,463,,no_match,,,,,,,,,,,0,0
+463,1,0.0,MENA,Other,NewMed Energy Limited Partnership,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,463,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+464,0,0.8197798314933114,Other,Unknown,Unknown,PEM,2020.0,6,0,0,1.27,OT,M,2020_OT_0_M,464,CETPROJH2349,exact,CETPROJH2349,Daures Green Hydrogen Village,Industry (chemical feedstock),Fertilizer,"Transport (shipping,Transport (road)","Hydrogen,Ammonia",Unknown,,Fully commissioned,Operating,1,0
+465,0,1.3862943611198906,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,3.0,UNK,M,2023_UNK_0_M,465,,no_match,,,,,,,,,,,0,0
+465,0,1.3862943611198906,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,3.0,UNK,M,2023_UNK_0_M,465,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+466,0,3.044522437723423,ANZ,Unknown,Unknown,PEM,2023.0,1,1,1,20.0,UNK,L,2023_UNK_0_L,466,,no_match,,,,,,,,,,,0,0
+466,0,3.044522437723423,ANZ,Unknown,Unknown,PEM,2023.0,1,1,1,20.0,UNK,L,2023_UNK_0_L,466,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+467,0,3.4339872044851463,ANZ,Unknown,Unknown,PEM,2023.0,1,1,1,30.0,UNK,L,2023_UNK_0_L,467,,no_match,,,,,,,,,,,0,0
+467,0,3.4339872044851463,ANZ,Unknown,Unknown,PEM,2023.0,1,1,1,30.0,UNK,L,2023_UNK_0_L,467,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+468,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2023.0,3,0,0,2.0000000000000004,EU,M,2023_EU_0_M,468,,exact_exhausted,,,,,,,,,,,0,0
+468,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2023.0,3,0,0,2.0000000000000004,EU,M,2023_EU_0_M,468,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+469,0,1.9459101490553132,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,5.999999999999999,NA,M,2023_NA_0_M,469,CETPROJH22194,exact,CETPROJH22194,Hieberts Farm Green Ammonia,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,No,,Fully commissioned,Operating,1,0
+470,1,0.0,Other,Other,NIS-Petroleum Industry of Serbia,Blue_CCS,2023.0,3,0,0,0.0,OT,XS,2023_OT_1_XS,470,CETPROJH21724,relaxed,CETPROJH21724,Rustenburg smelter project,Industry (other),Unknown,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+471,0,1.0986122886681098,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,2.0000000000000004,NA,M,2023_NA_0_M,471,CETPROJH23023,exact,CETPROJH23023,Minnesota Morris Demo,Industry (chemical feedstock),Fertilizer,Unknown,Ammonia,Unknown,,Decommissioned,Offline,1,0
+472,1,0.0,North_America,Oil_major,BP p.l.c.,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,472,,exact_exhausted,,,,,,,,,,,0,1
+472,1,0.0,North_America,Oil_major,BP p.l.c.,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,472,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+473,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,473,,exact_exhausted,,,,,,,,,,,0,0
+473,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,473,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+474,1,0.0,North_America,Other,U.S. Department of Energy,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,474,,exact_exhausted,,,,,,,,,,,0,0
+474,1,0.0,North_America,Other,U.S. Department of Energy,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,474,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+475,0,7.447465691485828,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,1714.5099999999993,NA,XXL,2023_NA_0_XXL,475,CETPROJH21599,exact,CETPROJH21599,Dakota Renewable Hydrogen Project (DRH),Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,Unknown,,Design,Planning - early,1,0
+476,1,0.0,North_America,Other,Battelle Memorial Institute,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,476,,exact_exhausted,,,,,,,,,,,0,0
+476,1,0.0,North_America,Other,Battelle Memorial Institute,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,476,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+477,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,477,,no_match,,,,,,,,,,,0,0
+477,1,0.0,MENA,Other,Saudi Arabian Oil Company,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,477,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+478,0,2.3978952727983707,EU,Other,Lhyfe SA,PEM,2023.0,3,0,0,10.000000000000002,EU,L,2023_EU_0_L,478,CETPROJH21920,exact,CETPROJH21920,H2goesRail,Transport (rail),,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+479,0,0.048790164169432,Other,Unknown,Unknown,PEM,2021.0,5,0,0,0.049999999999999996,OT,XS,2021_OT_0_XS,479,CETPROJH2339,exact,CETPROJH2339,Johannesburg Hub,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+480,0,3.044522437723423,Other_Europe,Other,Trafigura Group Pte. Ltd.,PEM,2023.0,3,0,0,20.0,OE,L,2023_OE_0_L,480,CETPROJH21562,exact,CETPROJH21562,Egersund Liquid Green Hydrogen,Transport (shipping),,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+481,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,481,,exact_exhausted,,,,,,,,,,,0,0
+481,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,481,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+482,0,4.61512051684126,EU,Other,"Galp Energia, SGPS, S.A.",PEM,2023.0,3,0,0,100.00000000000003,EU,XL,2023_EU_0_XL,482,CETPROJH21988,exact,CETPROJH21988,Helios,Power & heat,Power to the industry,Unknown,Hydrogen,No,,Design,Planning - early,0,0
+483,0,8.006700845440367,ANZ,Other,Allied Green Ammonia Pty Ltd,PEM,2023.0,3,0,0,2999.9999999999995,UNK,XXL,2023_UNK_0_XXL,483,,no_match,,,,,,,,,,,0,0
+483,0,8.006700845440367,ANZ,Other,Allied Green Ammonia Pty Ltd,PEM,2023.0,3,0,0,2999.9999999999995,UNK,XXL,2023_UNK_0_XXL,483,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+484,0,0.0,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_0_XS,484,,no_match,,,,,,,,,,,0,0
+484,0,0.0,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_0_XS,484,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+485,0,3.573749146860305,EU,Industrial_gas,L'Air Liquide S.A.,PEM,2023.0,3,0,0,34.650000000000006,EU,L,2023_EU_0_L,485,CETPROJH21867,exact,CETPROJH21867,H2 Factory,Industry (other),Ceramics,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,1
+486,1,0.0,Other,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,OT,XS,2023_OT_1_XS,486,CETPROJH21926,relaxed,CETPROJH21926,Shaybah demonstration plant,Power & heat,Power,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+487,0,4.61512051684126,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,100.00000000000003,NA,XL,2023_NA_0_XL,487,CETPROJH21961,exact,CETPROJH21961,Fresno H2B2 Green Hydrogen (Sohycal Plant),Transport (road),Buses & Light Motor Vehicles,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+488,0,4.61512051684126,North_America,Other,New Fortress Energy Inc.,PEM,2023.0,3,0,0,100.00000000000003,NA,XL,2023_NA_0_XL,488,CETPROJH21571,exact,CETPROJH21571,Charbone Sorel-Tracy Green H2,Industry (other),Mining,Power & heat and transport (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+489,0,5.707110264748875,EU,Other,PCK Raffinerie GmbH,PEM,2023.0,3,0,0,299.9999999999999,EU,XL,2023_EU_0_XL,489,CETPROJH21776,exact,CETPROJH21776,H2HybNS project,Transport (road),Buses,Unknown,Hydrogen,No,,Plans cancelled,Cancelled,0,0
+490,0,0.5653138090500605,Other_Europe,Unknown,Unknown,PEM,2023.0,3,0,0,0.7600000000000001,OE,S,2023_OE_0_S,490,CETPROJH22989,relaxed,CETPROJH22989,STFC ASPIRE Project,Other,R&D,Unknown,"Hydrogen,Ammonia",Unknown,,Under construction,Planning - advanced,0,0
+491,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,491,,exact_exhausted,,,,,,,,,,,0,0
+491,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,491,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+492,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,492,,exact_exhausted,,,,,,,,,,,0,0
+492,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,492,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+493,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,493,,exact_exhausted,,,,,,,,,,,0,0
+493,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,493,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+494,1,0.0,North_America,Other,"Fidelis New Energy, LLC",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,494,,exact_exhausted,,,,,,,,,,,0,0
+494,1,0.0,North_America,Other,"Fidelis New Energy, LLC",Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,494,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+495,1,0.0,North_America,Other,PCS Nitrogen Fertilizer LP,Blue_CCS,2022.0,2,1,2,0.0,NA,XS,2022_NA_1_XS,495,,exact_exhausted,,,,,,,,,,,0,0
+495,1,0.0,North_America,Other,PCS Nitrogen Fertilizer LP,Blue_CCS,2022.0,2,1,2,0.0,NA,XS,2022_NA_1_XS,495,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+496,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2023.0,3,0,0,3.0,EU,M,2023_EU_0_M,496,,exact_exhausted,,,,,,,,,,,0,0
+496,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2023.0,3,0,0,3.0,EU,M,2023_EU_0_M,496,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+497,0,1.791759469228055,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,UNK,M,2023_UNK_0_M,497,,no_match,,,,,,,,,,,0,0
+497,0,1.791759469228055,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,UNK,M,2023_UNK_0_M,497,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+498,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,UNK,M,2023_UNK_0_M,498,,no_match,,,,,,,,,,,0,0
+498,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,UNK,M,2023_UNK_0_M,498,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+499,0,0.0,Other,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,OT,XS,2021_OT_0_XS,499,CETPROJH2338,exact,CETPROJH2338,Green Hydrogen Pilot Project Algeria,Industry (other),Steel,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,1,0
+500,1,0.0,EU,Other,Wintershall Dea AG,Blue_CCS,2022.0,4,0,0,0.0,EU,XS,2022_EU_1_XS,500,CETPROJH21841,relaxed,CETPROJH21841,BlueHyNow Project,Industry (other),Other Industrial Process,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+501,1,0.0,EU,Oil_major,TotalEnergies SE,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,501,,exact_exhausted,,,,,,,,,,,0,1
+501,1,0.0,EU,Oil_major,TotalEnergies SE,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,501,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+502,1,0.0,Other,Other,Motor Oil Holdings SA,Blue_CCS,2023.0,3,0,0,0.0,OT,XS,2023_OT_1_XS,502,CETPROJH22293,relaxed,CETPROJH22293,Blue Horizons Project,Unknown,Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,Feasibility,Planning - early,0,0
+503,0,1.791759469228055,Asia,Other,China Huadian Corporation Ltd.,PEM,2023.0,3,0,0,5.0,UNK,M,2023_UNK_0_M,503,,no_match,,,,,,,,,,,0,0
+503,0,1.791759469228055,Asia,Other,China Huadian Corporation Ltd.,PEM,2023.0,3,0,0,5.0,UNK,M,2023_UNK_0_M,503,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+504,0,4.2626798770413155,EU,Unknown,Unknown,PEM,2023.0,3,0,0,70.0,EU,L,2023_EU_0_L,504,CETPROJH23168,exact,CETPROJH23168,VOZARTEK,Transport (road),Heavy Goods Vehicles,Gas grid,Hydrogen,No,,Financed,Planning - advanced,0,0
+505,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,505,,exact_exhausted,,,,,,,,,,,0,0
+505,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,505,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+506,0,0.0,EU,Unknown,Unknown,PEM,2023.0,3,0,0,0.0,EU,XS,2023_EU_0_XS,506,CETPROJH22072,exact,CETPROJH22072,FrontFuel,Transport (aviation),,Unknown,"Hydrogen,SAF",No,,Design,Planning - early,0,0
+507,1,0.0,North_America,Other,BASF SE,Blue_CCS,2023.0,1,1,1,0.0,NA,XS,2023_NA_1_XS,507,,exact_exhausted,,,,,,,,,,,0,0
+507,1,0.0,North_America,Other,BASF SE,Blue_CCS,2023.0,1,1,1,0.0,NA,XS,2023_NA_1_XS,507,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+508,0,2.3978952727983707,EU,Other,Lhyfe SA,PEM,2023.0,3,0,0,10.000000000000002,EU,L,2023_EU_0_L,508,CETPROJH21923,exact,CETPROJH21923,Bouin Green H2,Transport (road),Unknown,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+509,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,1.09,UNK,M,2022_UNK_0_M,509,,no_match,,,,,,,,,,,0,0
+509,0,0.7371640659767197,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,1.09,UNK,M,2022_UNK_0_M,509,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+510,0,2.4087452888224363,North_America,Other,Avina Clean Hydrogen Inc.,PEM,2023.0,3,0,0,10.12,NA,L,2023_NA_0_L,510,CETPROJH21729,exact,CETPROJH21729,Maryland Green Hydrogen,Transport (road),Buses,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+511,0,4.927253685157205,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,137.00000000000006,NA,XL,2022_NA_0_XL,511,CETPROJH21530,exact,CETPROJH21530,Fresno H2B2 Green Hydrogen (Sohycal Plant),Transport (road),Buses & Light Motor Vehicles,Unknown,Hydrogen,No,,Decommissioned,Offline,0,0
+512,0,4.927253685157205,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,137.00000000000006,NA,XL,2022_NA_0_XL,512,CETPROJH22164,exact,CETPROJH22164,Hydra Energy Hydrogen Station,Transport (road),Trucks,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+513,0,1.791759469228055,Other,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,OT,M,2023_OT_0_M,513,CETPROJH21648,exact,CETPROJH21648,Bogota H2,Transport (road),Buses,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+514,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,1,1,1,5.0,EU,M,2023_EU_0_M,514,,exact_exhausted,,,,,,,,,,,0,0
+514,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,1,1,1,5.0,EU,M,2023_EU_0_M,514,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+515,1,0.0,North_America,Other,LowCarbon Hydrogen Corporation,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,515,,exact_exhausted,,,,,,,,,,,0,0
+515,1,0.0,North_America,Other,LowCarbon Hydrogen Corporation,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,515,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+516,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,OE,XS,2023_OE_1_XS,516,,exact_exhausted,,,,,,,,,,,0,0
+516,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,OE,XS,2023_OE_1_XS,516,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+517,0,2.3978952727983707,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,10.000000000000002,NA,L,2021_NA_0_L,517,CETPROJH21618,exact,CETPROJH21618,Sauk Valley H2 project,Power & heat,Auxiliary Services,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+518,1,0.0,North_America,Other,Southern Rock Energy Partners LLC,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,518,,exact_exhausted,,,,,,,,,,,0,0
+518,1,0.0,North_America,Other,Southern Rock Energy Partners LLC,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,518,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+519,0,0.6312717768418579,Other,Unknown,Unknown,PEM,2023.0,3,0,0,0.88,OT,S,2023_OT_0_S,519,CETPROJH22611,relaxed,CETPROJH22611,GH2GH Project,Power & heat,Power,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+520,0,1.3862943611198906,Other,Unknown,Unknown,PEM,2023.0,3,0,0,3.0,OT,M,2023_OT_0_M,520,CETPROJH21711,exact,CETPROJH21711,Ullum San Juan H2,Power & heat,Power,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+521,0,5.303304908059076,EU,Unknown,Unknown,PEM,2023.0,3,0,0,200.0,EU,XL,2023_EU_0_XL,521,CETPROJH21566,exact,CETPROJH21566,Hollandse Kust Noord H2/Baseload Power Hub,Unknown,Unknown,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+522,0,6.90875477931522,EU,Unknown,Unknown,PEM,2023.0,3,0,0,999.9999999999999,EU,XL,2023_EU_0_XL,522,CETPROJH21921,exact,CETPROJH21921,Brake,Transport (shipping),,Industry (other),Hydrogen,No,,Under construction,Planning - advanced,0,0
+523,0,6.90875477931522,EU,Unknown,Unknown,PEM,2023.0,3,0,0,999.9999999999999,EU,XL,2023_EU_0_XL,523,CETPROJH21718,exact,CETPROJH21718,Montoir plant H2,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,Announced (advanced),Planning - early,0,0
+524,1,0.0,North_America,Other,Pembina Pipeline Corp,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,524,,exact_exhausted,,,,,,,,,,,0,0
+524,1,0.0,North_America,Other,Pembina Pipeline Corp,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,524,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+525,0,1.791759469228055,Other_Europe,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,OE,M,2023_OE_0_M,525,CETPROJH21637,exact,CETPROJH21637,Elemir Gas Refinery (RGE) Green Hydrogen,Gas grid,Unknown,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+526,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,526,,exact_exhausted,,,,,,,,,,,0,0
+526,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,526,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+527,0,1.3862943611198906,Other,Unknown,Unknown,PEM,2021.0,5,0,0,3.0,OT,M,2021_OT_0_M,527,CETPROJH2342,exact,CETPROJH2342,Sasolburg H2 (Sasolburg solar farm),Transport (road),Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+528,0,0.6931471805599453,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,1.0,NA,M,2023_NA_0_M,528,,exact_exhausted,,,,,,,,,,,0,0
+528,0,0.6931471805599453,North_America,Unknown,Unknown,PEM,2023.0,3,0,0,1.0,NA,M,2023_NA_0_M,528,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+529,1,0.0,Other,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,OT,XS,2023_OT_1_XS,529,CETPROJH22913,relaxed,CETPROJH22913,Jafurah blue ammonia project - Saudi Aramco,Unknown,Unknown,Unknown,Ammonia,Unknown,,Plans cancelled,Cancelled,0,0
+530,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2021.0,5,0,0,1.0,EU,M,2021_EU_0_M,530,CETPROJH21315,exact,CETPROJH21315,Fronius Solhub Herzogenburg,Transport (road),"Buses, Heavy Goods Vehicles & Light Motor Vehicles",Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+531,1,0.0,Asia,Other,Hanyang Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,531,,no_match,,,,,,,,,,,0,0
+531,1,0.0,Asia,Other,Hanyang Corporation,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,531,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+532,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,UNK,M,2023_UNK_0_M,532,,no_match,,,,,,,,,,,0,0
+532,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,UNK,M,2023_UNK_0_M,532,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+533,0,3.9318256327243257,Asia,Other,"Jilin Electric Power Co.,Ltd.",PEM,2023.0,3,0,0,50.0,UNK,L,2023_UNK_0_L,533,,no_match,,,,,,,,,,,0,0
+533,0,3.9318256327243257,Asia,Other,"Jilin Electric Power Co.,Ltd.",PEM,2023.0,3,0,0,50.0,UNK,L,2023_UNK_0_L,533,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+534,0,0.6931471805599453,Other,Other,Matrai Eromu ZRt.,PEM,2023.0,3,0,0,1.0,OT,M,2023_OT_0_M,534,,exact_exhausted,,,,,,,,,,,0,0
+534,0,0.6931471805599453,Other,Other,Matrai Eromu ZRt.,PEM,2023.0,3,0,0,1.0,OT,M,2023_OT_0_M,534,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+535,0,2.3978952727983707,EU,Other,Rolls-Royce plc,PEM,2022.0,4,0,0,10.000000000000002,EU,L,2022_EU_0_L,535,CETPROJH2986,exact,CETPROJH2986,Coagener Los Barrios,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+536,1,0.0,North_America,Other,Copenhagen Infrastructure Partners P/S,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,536,,exact_exhausted,,,,,,,,,,,0,0
+536,1,0.0,North_America,Other,Copenhagen Infrastructure Partners P/S,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,536,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+537,1,0.0,ANZ,Other,Hydrogen Energy Ltd,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,537,,no_match,,,,,,,,,,,0,0
+537,1,0.0,ANZ,Other,Hydrogen Energy Ltd,Blue_CCS,2023.0,3,0,0,0.0,UNK,XS,2023_UNK_1_XS,537,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+538,0,2.1972245773362196,EU,Unknown,Unknown,PEM,2023.0,3,0,0,8.000000000000002,EU,M,2023_EU_0_M,538,,exact_exhausted,,,,,,,,,,,0,0
+538,0,2.1972245773362196,EU,Unknown,Unknown,PEM,2023.0,3,0,0,8.000000000000002,EU,M,2023_EU_0_M,538,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+539,0,2.772588722239781,Other_Europe,Other,Hyro Energy Limited,PEM,2021.0,5,0,0,14.999999999999998,OE,L,2021_OE_0_L,539,CETPROJH21021,exact,CETPROJH21021,Dorset Green H2,Industry (other),Industrial heating,"Transport (shipping),transport (road) and transport (rail)",Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+540,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,540,,exact_exhausted,,,,,,,,,,,0,0
+540,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,540,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+541,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,541,,exact_exhausted,,,,,,,,,,,0,0
+541,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2023.0,3,0,0,0.0,NA,XS,2023_NA_1_XS,541,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+542,1,0.0,North_America,Other,Alaska Gasline Development Corporation,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,542,,exact_exhausted,,,,,,,,,,,0,0
+542,1,0.0,North_America,Other,Alaska Gasline Development Corporation,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,542,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+543,0,0.2151113796169455,EU,Unknown,Unknown,PEM,2023.0,3,0,0,0.24,EU,S,2023_EU_0_S,543,CETPROJH22072,relaxed,CETPROJH22072,FrontFuel,Transport (aviation),,Unknown,"Hydrogen,SAF",No,,Design,Planning - early,0,0
+544,0,0.6931471805599453,North_America,Unknown,Unknown,PEM,2020.0,6,0,0,1.0,NA,M,2020_NA_0_M,544,CETPROJH2284,relaxed,CETPROJH2284,Bruce H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+545,0,0.1484200051182732,Other,Unknown,Unknown,PEM,2023.0,3,0,0,0.1599999999999999,OT,S,2023_OT_0_S,545,CETPROJH23012,relaxed,CETPROJH23012,Sumitomo-Colbun Tocopilla,Unknown,Unknown,Unknown,Ammonia,Yes,,Announced (early stage),Planning - early,0,0
+546,0,0.6931471805599453,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,1.0,UNK,M,2023_UNK_0_M,546,,no_match,,,,,,,,,,,0,0
+546,0,0.6931471805599453,Asia,Unknown,Unknown,PEM,2023.0,3,0,0,1.0,UNK,M,2023_UNK_0_M,546,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+547,0,0.0,Other_Europe,Unknown,Unknown,PEM,2023.0,3,0,0,0.0,OE,XS,2023_OE_0_XS,547,CETPROJH22262,exact,CETPROJH22262,Samlesbury Net Zero,Industry (other),Food & Beverage,Transport (road),Hydrogen,No,,Design,Planning - early,0,0
+548,0,5.638354669333745,EU,Other,Arcadia eFuels ApS,PEM,2023.0,3,0,0,279.9999999999999,EU,XL,2023_EU_0_XL,548,CETPROJH21821,exact,CETPROJH21821,HyTouraine Project,Transport (road),Heavy Goods Vehicles,Industry (other),Hydrogen,Unknown,,Design,Planning - early,0,0
+549,0,0.6931471805599453,North_America,Unknown,Unknown,PEM,2018.0,8,0,0,1.0,NA,M,2018_NA_0_M,549,CETPROJH2164,relaxed,CETPROJH2164,TTF project,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+550,1,0.0,EU,Industrial_gas,L'Air Liquide S.A.,Blue_CCS,2023.0,3,0,0,0.0,EU,XS,2023_EU_1_XS,550,CETPROJH21636,relaxed,CETPROJH21636,Rotterdam blue hydrogen plant retrofit Air Liquide,Industry (refinery feedstock),Oil Refinery,Unknown,Hydrogen,No,,Under construction,Planning - advanced,1,1
+551,0,6.90875477931522,EU,Other,Trafigura Group Pte. Ltd.,PEM,2021.0,5,0,0,999.9999999999999,EU,XL,2021_EU_0_XL,551,CETPROJH2970,exact,CETPROJH2970,Granadilla H2,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+552,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2021.0,5,0,0,10.000000000000002,EU,L,2021_EU_0_L,552,CETPROJH2515,exact,CETPROJH2515,Underground Sun Storage 2030,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+553,0,0.0,EU,Unknown,Unknown,PEM,2013.0,13,0,0,0.0,EU,XS,2013_EU_0_XS,553,CETPROJH2771,exact,CETPROJH2771,RegEnKibo,Power & heat,Power,Gas grid,Hydrogen,Unknown,,Decommissioned,Offline,0,0
+554,0,0.2468600779315258,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,0.28,NA,S,2021_NA_0_S,554,CETPROJH299,relaxed,CETPROJH299,Palomar Green Hydrogen Systems Project,Power & heat,Power,Industry (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+555,0,0.1570037488096647,North_America,Unknown,Unknown,PEM,2008.0,18,0,0,0.16999999999999993,NA,S,2008_NA_0_S,555,,no_match,,,,,,,,,,,0,0
+555,0,0.1570037488096647,North_America,Unknown,Unknown,PEM,2008.0,18,0,0,0.16999999999999993,NA,S,2008_NA_0_S,555,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+556,0,0.1133286853070031,North_America,Unknown,Unknown,PEM,2005.0,21,0,0,0.11999999999999991,NA,S,2005_NA_0_S,556,,no_match,,,,,,,,,,,0,0
+556,0,0.1133286853070031,North_America,Unknown,Unknown,PEM,2005.0,21,0,0,0.11999999999999991,NA,S,2005_NA_0_S,556,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+557,0,0.1133286853070031,North_America,Unknown,Unknown,PEM,2010.0,16,0,0,0.11999999999999991,NA,S,2010_NA_0_S,557,CETPROJH21615,relaxed,CETPROJH21615,Hydrogen Station,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+558,0,0.0582689081239757,North_America,Unknown,Unknown,PEM,2014.0,12,0,0,0.05999999999999992,NA,XS,2014_NA_0_XS,558,CETPROJH21614,relaxed,CETPROJH21614,West LA H2,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+559,1,0.0,ANZ,Other,"Kawasaki Heavy Industries,   Ltd.",Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,559,,no_match,,,,,,,,,,,0,0
+559,1,0.0,ANZ,Other,"Kawasaki Heavy Industries,   Ltd.",Blue_CCS,2018.0,8,0,0,0.0,UNK,XS,2018_UNK_1_XS,559,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+560,0,3.6620219999440535,North_America,Pure_play,Plug Power Inc.,PEM,2022.0,4,0,0,37.94,NA,L,2022_NA_0_L,560,,exact_exhausted,,,,,,,,,,,0,0
+560,0,3.6620219999440535,North_America,Pure_play,Plug Power Inc.,PEM,2022.0,4,0,0,37.94,NA,L,2022_NA_0_L,560,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+561,0,3.044522437723423,North_America,Other,"Gevo, Inc.",PEM,2023.0,3,0,0,20.0,NA,L,2023_NA_0_L,561,CETPROJH21943,exact,CETPROJH21943,DeBary,Gas grid,Gas grid injection,Unknown,Hydrogen,No,,Under construction,Planning - advanced,0,0
+562,0,1.252762968495368,Other,Unknown,Unknown,PEM,2022.0,4,0,0,2.5,OT,M,2022_OT_0_M,562,CETPROJH255,relaxed,CETPROJH255,Demonstrator plant Masdar City,Transport (aviation),,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+563,0,3.713572066704308,ANZ,Unknown,Unknown,PEM,2020.0,3,1,2,40.00000000000001,UNK,L,2020_UNK_0_L,563,,no_match,,,,,,,,,,,0,0
+563,0,3.713572066704308,ANZ,Unknown,Unknown,PEM,2020.0,3,1,2,40.00000000000001,UNK,L,2020_UNK_0_L,563,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+564,0,0.4382549309311553,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.55,EU,S,2017_EU_0_S,564,CETPROJH21163,relaxed,CETPROJH21163,MeGa-stoRE 2,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+565,0,1.252762968495368,EU,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,EU,M,2023_EU_0_M,565,,exact_exhausted,,,,,,,,,,,0,0
+565,0,1.252762968495368,EU,Unknown,Unknown,PEM,2023.0,3,0,0,2.5,EU,M,2023_EU_0_M,565,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+566,0,0.1397619423751586,ANZ,Unknown,Unknown,PEM,2023.0,3,0,0,0.14999999999999988,UNK,S,2023_UNK_0_S,566,,no_match,,,,,,,,,,,0,0
+566,0,0.1397619423751586,ANZ,Unknown,Unknown,PEM,2023.0,3,0,0,0.14999999999999988,UNK,S,2023_UNK_0_S,566,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+567,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,567,,exact_exhausted,,,,,,,,,,,0,0
+567,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,567,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+568,0,0.5187937934151676,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.6800000000000002,EU,S,2017_EU_0_S,568,CETPROJH2906,relaxed,CETPROJH2906,GNVert H2 filling station,Transport (road),Refueling Station,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+569,0,4.2626798770413155,EU,Unknown,Unknown,PEM,2021.0,5,0,0,70.0,EU,L,2021_EU_0_L,569,CETPROJH21592,exact,CETPROJH21592,Aachen Nord wind farm H2,Transport (road),Buses,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,0
+570,0,1.5040773967762742,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,3.5000000000000004,UNK,M,2022_UNK_0_M,570,,no_match,,,,,,,,,,,0,0
+570,0,1.5040773967762742,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,3.5000000000000004,UNK,M,2022_UNK_0_M,570,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+571,0,2.3978952727983707,ANZ,Other,Vast Renewables Limited,PEM,2023.0,3,0,0,10.000000000000002,UNK,L,2023_UNK_0_L,571,,no_match,,,,,,,,,,,0,0
+571,0,2.3978952727983707,ANZ,Other,Vast Renewables Limited,PEM,2023.0,3,0,0,10.000000000000002,UNK,L,2023_UNK_0_L,571,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+572,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,572,,exact_exhausted,,,,,,,,,,,0,0
+572,0,1.791759469228055,EU,Unknown,Unknown,PEM,2023.0,3,0,0,5.0,EU,M,2023_EU_0_M,572,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+573,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.049999999999999996,UNK,XS,2022_UNK_0_XS,573,,no_match,,,,,,,,,,,0,0
+573,0,0.048790164169432,Asia,Unknown,Unknown,PEM,2022.0,4,0,0,0.049999999999999996,UNK,XS,2022_UNK_0_XS,573,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+574,1,0.0,Asia,Other,Baotailong New Materials Co Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,574,,no_match,,,,,,,,,,,0,0
+574,1,0.0,Asia,Other,Baotailong New Materials Co Ltd,Blue_CCS,2021.0,5,0,0,0.0,UNK,XS,2021_UNK_1_XS,574,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+575,0,1.4516138272405332,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,3.27,UNK,M,2021_UNK_0_M,575,,no_match,,,,,,,,,,,0,0
+575,0,1.4516138272405332,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,3.27,UNK,M,2021_UNK_0_M,575,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+576,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,2.5,UNK,M,2021_UNK_0_M,576,,no_match,,,,,,,,,,,0,0
+576,0,1.252762968495368,Asia,Unknown,Unknown,PEM,2021.0,5,0,0,2.5,UNK,M,2021_UNK_0_M,576,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+577,0,1.0986122886681098,Other,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,OT,M,2022_OT_0_M,577,CETPROJH2361,relaxed,CETPROJH2361,Benban Solar Park,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+578,1,0.0,Asia,Other,"SK E&S Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,578,,no_match,,,,,,,,,,,0,0
+578,1,0.0,Asia,Other,"SK E&S Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,578,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+579,0,3.58351893845611,Other_Europe,Oil_major,"SSE plc, Equinor ASA",PEM,2022.0,4,0,0,35.0,OE,L,2022_OE_0_L,579,CETPROJH21106,exact,CETPROJH21106,County Antrim H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+580,0,2.772588722239781,EU,Unknown,Unknown,PEM,2022.0,4,0,0,14.999999999999998,EU,L,2022_EU_0_L,580,CETPROJH21442,exact,CETPROJH21442,Duferco Sicily H2/Giammoro Hydrogen Valley,Industry (other),Steel,Transport (other),Hydrogen,Unknown,,Permitted,Planning - advanced,1,0
+581,0,0.048790164169432,North_America,Unknown,Unknown,PEM,2013.0,13,0,0,0.049999999999999996,NA,XS,2013_NA_0_XS,581,CETPROJH2150,relaxed,CETPROJH2150,University of California Irvine H2,Gas grid,Blending,Power & heat,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+582,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,582,,no_match,,,,,,,,,,,0,0
+582,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,582,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+583,1,0.0,Asia,Other,Ningxia Kaitian Gas Development Co Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,583,,no_match,,,,,,,,,,,0,0
+583,1,0.0,Asia,Other,Ningxia Kaitian Gas Development Co Ltd,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,583,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+584,1,0.0,Asia,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,584,,no_match,,,,,,,,,,,0,1
+584,1,0.0,Asia,Industrial_gas,"Air Products and Chemicals, Inc.",Blue_CCS,2020.0,6,0,0,0.0,UNK,XS,2020_UNK_1_XS,584,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+585,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,585,,no_match,,,,,,,,,,,0,0
+585,1,0.0,Asia,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,585,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+586,1,0.0,Asia,Other,"Huizhou HuaDaTong Gas Manufacturing Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,586,,no_match,,,,,,,,,,,0,0
+586,1,0.0,Asia,Other,"Huizhou HuaDaTong Gas Manufacturing Co., Ltd.",Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,586,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+587,0,6.036414011891476,Asia,Other,"Inner Mongolia Gemeng Clean Hydrogen Energy Technology Co., Ltd.",PEM,2021.0,5,0,0,417.38999999999993,UNK,XL,2021_UNK_0_XL,587,,no_match,,,,,,,,,,,0,0
+587,0,6.036414011891476,Asia,Other,"Inner Mongolia Gemeng Clean Hydrogen Energy Technology Co., Ltd.",PEM,2021.0,5,0,0,417.38999999999993,UNK,XL,2021_UNK_0_XL,587,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+588,0,3.258096538021482,North_America,Other,Florida Power & Light Company,PEM,2022.0,4,0,0,25.000000000000004,NA,L,2022_NA_0_L,588,,exact_exhausted,,,,,,,,,,,0,0
+588,0,3.258096538021482,North_America,Other,Florida Power & Light Company,PEM,2022.0,4,0,0,25.000000000000004,NA,L,2022_NA_0_L,588,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+589,1,0.0,North_America,Other,Lone Cypress Energy Services,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,589,,exact_exhausted,,,,,,,,,,,0,0
+589,1,0.0,North_America,Other,Lone Cypress Energy Services,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,589,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+590,0,1.791759469228055,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,5.0,UNK,M,2022_UNK_0_M,590,,no_match,,,,,,,,,,,0,0
+590,0,1.791759469228055,ANZ,Unknown,Unknown,PEM,2022.0,4,0,0,5.0,UNK,M,2022_UNK_0_M,590,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+591,0,3.58351893845611,North_America,Industrial_gas,Linde plc,PEM,2021.0,5,0,0,35.0,NA,L,2021_NA_0_L,591,CETPROJH297,exact,CETPROJH297,SoCalGas Clinton,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+592,0,4.330733340286331,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,75.0,NA,L,2022_NA_0_L,592,,exact_exhausted,,,,,,,,,,,0,0
+592,0,4.330733340286331,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,75.0,NA,L,2022_NA_0_L,592,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+593,0,3.713572066704308,North_America,Pure_play,Plug Power Inc.,PEM,2021.0,5,0,0,40.00000000000001,NA,L,2021_NA_0_L,593,CETPROJH2100,exact,CETPROJH2100,SoCalGas Demo,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+594,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2022.0,4,0,0,3.0,EU,M,2022_EU_0_M,594,,exact_exhausted,,,,,,,,,,,0,0
+594,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2022.0,4,0,0,3.0,EU,M,2022_EU_0_M,594,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+595,0,4.795790545596741,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,120.00000000000003,NA,XL,2022_NA_0_XL,595,CETPROJH21388,exact,CETPROJH21388,Pryor H2,Industry (chemical feedstock),Unknown,Unknown,Ammonia,Unknown,,On-hold (assumed),Cancelled,1,0
+596,1,0.0,Asia,Other,Inpex Corporation,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,596,,no_match,,,,,,,,,,,0,0
+596,1,0.0,Asia,Other,Inpex Corporation,Blue_CCS,2022.0,4,0,0,0.0,UNK,XS,2022_UNK_1_XS,596,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+597,0,1.791759469228055,MENA,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,UNK,M,2020_UNK_0_M,597,,no_match,,,,,,,,,,,0,0
+597,0,1.791759469228055,MENA,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,UNK,M,2020_UNK_0_M,597,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+598,0,0.6931471805599453,MENA,Unknown,Unknown,PEM,2022.0,4,0,0,1.0,UNK,M,2022_UNK_0_M,598,,no_match,,,,,,,,,,,0,0
+598,0,0.6931471805599453,MENA,Unknown,Unknown,PEM,2022.0,4,0,0,1.0,UNK,M,2022_UNK_0_M,598,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+599,0,3.4339872044851463,EU,Unknown,Unknown,PEM,2022.0,4,0,0,30.0,EU,L,2022_EU_0_L,599,CETPROJH21595,exact,CETPROJH21595,SINES GH2 SOLAR,Industry (other),Unknown,Power & heat,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+600,0,3.044522437723423,EU,Other,"Endesa, S.A.",PEM,2022.0,4,0,0,20.0,EU,L,2022_EU_0_L,600,CETPROJH2922,exact,CETPROJH2922,Renault Flins Plant H2,Transport (road),Unknown,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+601,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,601,CETPROJH21004,relaxed,CETPROJH21004,Acorn Aberdeenshire H2,Gas grid,Blending,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,1
+602,0,0.0,EU,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,EU,XS,2022_EU_0_XS,602,CETPROJH22066,exact,CETPROJH22066,Methanol-to-SAF (M2SAF) project,Transport (aviation),,Unknown,"Hydrogen,SAF",No,,Design,Planning - early,0,0
+603,0,1.3862943611198906,EU,Unknown,Unknown,PEM,2020.0,6,0,0,3.0,EU,M,2020_EU_0_M,603,CETPROJH2835,relaxed,CETPROJH2835,Frankfurt 1 H2,Transport (rail),,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+604,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,604,,exact_exhausted,,,,,,,,,,,0,0
+604,1,0.0,North_America,Unknown,Unknown,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,604,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+605,1,0.0,North_America,Other,JERA Co. Inc.,Blue_CCS,2022.0,2,1,1,0.0,NA,XS,2022_NA_1_XS,605,,exact_exhausted,,,,,,,,,,,0,0
+605,1,0.0,North_America,Other,JERA Co. Inc.,Blue_CCS,2022.0,2,1,1,0.0,NA,XS,2022_NA_1_XS,605,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+606,0,4.342375829044089,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,75.88999999999997,NA,L,2021_NA_0_L,606,,exact_exhausted,,,,,,,,,,,0,0
+606,0,4.342375829044089,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,75.88999999999997,NA,L,2021_NA_0_L,606,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+607,0,0.0,North_America,Unknown,Unknown,PEM,2022.0,4,0,0,0.0,NA,XS,2022_NA_0_XS,607,CETPROJH2310,exact,CETPROJH2310,Spirit of Scotia Green Hydrogen Hub,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+608,0,2.3978952727983707,Other,Other,MOL Magyar Olaj- és Gázipari Nyilvánosan Muködo Részvénytársaság,PEM,2020.0,6,0,0,10.000000000000002,OT,L,2020_OT_0_L,608,CETPROJH2199,exact,CETPROJH2199,Verne Pilot Project,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+609,1,0.0,North_America,Other,8 Rivers Capital LLC,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,609,,exact_exhausted,,,,,,,,,,,0,0
+609,1,0.0,North_America,Other,8 Rivers Capital LLC,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,609,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+610,0,7.496097345175956,North_America,Other,HIF Global,PEM,2022.0,4,0,0,1800.0,NA,XXL,2022_NA_0_XXL,610,CETPROJH2160,exact,CETPROJH2160,Plug Olin Louisiana H2 project,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+611,1,0.0,North_America,Other,KeyState Energy,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,611,,exact_exhausted,,,,,,,,,,,0,0
+611,1,0.0,North_America,Other,KeyState Energy,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,611,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+612,1,0.0,North_America,Oil_major,Shell plc,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,612,,exact_exhausted,,,,,,,,,,,0,1
+612,1,0.0,North_America,Oil_major,Shell plc,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,612,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+613,1,0.0,North_America,Other,Woodside Energy Group Ltd,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,613,,exact_exhausted,,,,,,,,,,,0,0
+613,1,0.0,North_America,Other,Woodside Energy Group Ltd,Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,613,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+614,1,0.0,North_America,Other,"Clean Hydrogen Works LA-1, L.L.C.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,614,,exact_exhausted,,,,,,,,,,,0,0
+614,1,0.0,North_America,Other,"Clean Hydrogen Works LA-1, L.L.C.",Blue_CCS,2022.0,4,0,0,0.0,NA,XS,2022_NA_1_XS,614,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+615,0,0.6931471805599453,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,1.0,OE,M,2022_OE_0_M,615,CETPROJH22260,exact,CETPROJH22260,Project Pioneer One,Unknown,Unknown,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+616,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,OE,M,2022_OE_0_M,616,,exact_exhausted,,,,,,,,,,,0,0
+616,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,OE,M,2022_OE_0_M,616,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+617,0,4.148990563335426,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,62.37000000000001,NA,L,2021_NA_0_L,617,,exact_exhausted,,,,,,,,,,,0,0
+617,0,4.148990563335426,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,62.37000000000001,NA,L,2021_NA_0_L,617,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+618,0,2.3978952727983707,EU,Other,Lhyfe SA,PEM,2022.0,4,0,0,10.000000000000002,EU,L,2022_EU_0_L,618,CETPROJH21511,exact,CETPROJH21511,GreenH2CY,Transport (road),Heavy Goods Vehicles,Unknown,Hydrogen,Unknown,,Permitted,Planning - advanced,0,0
+619,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2022.0,4,0,0,4.000000000000001,EU,M,2022_EU_0_M,619,,exact_exhausted,,,,,,,,,,,0,0
+619,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2022.0,4,0,0,4.000000000000001,EU,M,2022_EU_0_M,619,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+620,0,6.90875477931522,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,999.9999999999999,NA,XL,2021_NA_0_XL,620,CETPROJH21762,exact,CETPROJH21762,Tent Mountain Renewable Energy Complex (TM-REX),Transport (other),Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,On-hold (assumed),Cancelled,0,0
+621,0,5.315026980110984,EU,Unknown,Unknown,PEM,2020.0,6,0,0,202.37,EU,XL,2020_EU_0_XL,621,CETPROJH2563,exact,CETPROJH2563,Greenpoint,Transport (road),Unknown,Industry (chemical feedstock) and industry (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+622,0,8.517393171418904,Other,Unknown,Unknown,PEM,2021.0,5,0,0,5000.000000000003,OT,XXL,2021_OT_0_XXL,622,CETPROJH21787,exact,CETPROJH21787,Neptuno Solar PV H2 Project,Unknown,Unknown,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+623,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1.25,UNK,M,2019_UNK_0_M,623,,no_match,,,,,,,,,,,0,0
+623,0,0.8109302162163288,ANZ,Unknown,Unknown,PEM,2019.0,7,0,0,1.25,UNK,M,2019_UNK_0_M,623,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+624,1,0.0,North_America,Other,MMEX Resources Corporation,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,624,,exact_exhausted,,,,,,,,,,,0,0
+624,1,0.0,North_America,Other,MMEX Resources Corporation,Blue_CCS,2021.0,5,0,0,0.0,NA,XS,2021_NA_1_XS,624,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+625,0,1.3987168811184478,EU,Unknown,Unknown,PEM,2021.0,5,0,0,3.0500000000000003,EU,M,2021_EU_0_M,625,,exact_exhausted,,,,,,,,,,,0,0
+625,0,1.3987168811184478,EU,Unknown,Unknown,PEM,2021.0,5,0,0,3.0500000000000003,EU,M,2021_EU_0_M,625,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+626,0,0.6981347220709844,EU,Unknown,Unknown,PEM,2020.0,6,0,0,1.01,EU,M,2020_EU_0_M,626,CETPROJH2806,relaxed,CETPROJH2806,GrInHy,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+627,0,1.33500106673234,EU,Unknown,Unknown,PEM,2022.0,4,0,0,2.8,EU,M,2022_EU_0_M,627,,exact_exhausted,,,,,,,,,,,0,0
+627,0,1.33500106673234,EU,Unknown,Unknown,PEM,2022.0,4,0,0,2.8,EU,M,2022_EU_0_M,627,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+628,0,4.61512051684126,EU,Unknown,Unknown,PEM,2022.0,4,0,0,100.00000000000003,EU,XL,2022_EU_0_XL,628,CETPROJH21356,exact,CETPROJH21356,Pfeffenhausen H2,Transport (road),Buses,Unknown,Hydrogen,No,,Fully commissioned,Operating,0,0
+629,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,EU,M,2022_EU_0_M,629,,exact_exhausted,,,,,,,,,,,0,0
+629,0,1.0986122886681098,EU,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,EU,M,2022_EU_0_M,629,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+630,0,0.2311117209633866,EU,Unknown,Unknown,PEM,2021.0,5,0,0,0.25999999999999995,EU,S,2021_EU_0_S,630,CETPROJH2997,relaxed,CETPROJH2997,Sestao H2,Industry (other),Steel,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,1,0
+631,0,2.0794415416798357,EU,Unknown,Unknown,PEM,2022.0,4,0,0,6.999999999999998,EU,M,2022_EU_0_M,631,,exact_exhausted,,,,,,,,,,,0,0
+631,0,2.0794415416798357,EU,Unknown,Unknown,PEM,2022.0,4,0,0,6.999999999999998,EU,M,2022_EU_0_M,631,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+632,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2007.0,19,0,0,1.0,EU,M,2007_EU_0_M,632,,no_match,,,,,,,,,,,0,0
+632,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2007.0,19,0,0,1.0,EU,M,2007_EU_0_M,632,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+633,0,0.6931471805599453,EU,Unknown,Unknown,PEM,2020.0,6,0,0,1.0,EU,M,2020_EU_0_M,633,CETPROJH2927,relaxed,CETPROJH2927,Vannes H2,Transport (road),Light Motor Vehicles & Heavy Goods Vehicles,Industry (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+634,0,4.5217885770490405,EU,Unknown,Unknown,PEM,2021.0,5,0,0,91.00000000000001,EU,L,2021_EU_0_L,634,CETPROJH2916,exact,CETPROJH2916,VHyGO (Grand Ouest Hydrogen Valley),Transport (road),Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+635,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2021.0,5,0,0,4.000000000000001,EU,M,2021_EU_0_M,635,,exact_exhausted,,,,,,,,,,,0,0
+635,0,1.6094379124341005,EU,Unknown,Unknown,PEM,2021.0,5,0,0,4.000000000000001,EU,M,2021_EU_0_M,635,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+636,0,0.0953101798043248,EU,Unknown,Unknown,PEM,2019.0,7,0,0,0.09999999999999994,EU,XS,2019_EU_0_XS,636,CETPROJH22063,exact,CETPROJH22063,Kopernikus P2X,Transport (aviation),,Unknown,"Hydrogen,SAF",No,,On-hold (assumed),Cancelled,0,0
+637,1,0.0,Other,Other,Energean,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,637,,exact_exhausted,,,,,,,,,,,0,0
+637,1,0.0,Other,Other,Energean,Blue_CCS,2021.0,5,0,0,0.0,OT,XS,2021_OT_1_XS,637,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+638,0,3.044522437723423,EU,Unknown,Unknown,PEM,2020.0,6,0,0,20.0,EU,L,2020_EU_0_L,638,CETPROJH2806,exact,CETPROJH2806,GrInHy,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+639,0,2.3978952727983707,EU,Unknown,Unknown,PEM,2020.0,6,0,0,10.000000000000002,EU,L,2020_EU_0_L,639,CETPROJH2927,exact,CETPROJH2927,Vannes H2,Transport (road),Light Motor Vehicles & Heavy Goods Vehicles,Industry (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+640,0,0.0,Other,Unknown,Unknown,PEM,2002.0,24,0,0,0.0,OT,XS,2002_OT_0_XS,640,,no_match,,,,,,,,,,,0,0
+640,0,0.0,Other,Unknown,Unknown,PEM,2002.0,24,0,0,0.0,OT,XS,2002_OT_0_XS,640,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+641,0,0.0,Other,Unknown,Unknown,PEM,2002.0,24,0,0,0.0,OT,XS,2002_OT_0_XS,641,,no_match,,,,,,,,,,,0,0
+641,0,0.0,Other,Unknown,Unknown,PEM,2002.0,24,0,0,0.0,OT,XS,2002_OT_0_XS,641,,no_match,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+642,0,3.6620219999440535,North_America,Unknown,Unknown,PEM,2021.0,2,1,1,37.94,NA,L,2021_NA_0_L,642,,exact_exhausted,,,,,,,,,,,0,0
+642,0,3.6620219999440535,North_America,Unknown,Unknown,PEM,2021.0,2,1,1,37.94,NA,L,2021_NA_0_L,642,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+643,0,0.0,EU,Unknown,Unknown,PEM,2017.0,9,0,0,0.0,EU,XS,2017_EU_0_XS,643,CETPROJH21621,exact,CETPROJH21621,Hypos rSOC,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+644,0,4.2626798770413155,EU,Unknown,Unknown,PEM,2022.0,2,1,1,70.0,EU,L,2022_EU_0_L,644,CETPROJH21304,exact,CETPROJH21304,SynBioS (Syngas Biological Storage),Gas grid,Unknown,Unknown,Methane,Unknown,,On-hold (assumed),Cancelled,0,0
+645,0,4.795790545596741,North_America,Unknown,Unknown,PEM,2021.0,2,1,2,120.00000000000003,NA,XL,2021_NA_0_XL,645,CETPROJH2290,exact,CETPROJH2290,Burnaby H2,Gas grid,Gas grid and supply to fuel station,Transport (road),Hydrogen,No,,Fully commissioned,Operating,0,0
+646,0,0.0198026272961797,EU,Unknown,Unknown,PEM,2018.0,8,0,0,0.019999999999999987,EU,XS,2018_EU_0_XS,646,CETPROJH21591,exact,CETPROJH21591,Carbon2Chem,Industry (other),Steel & Plastic,Industry (chemical feedstock),Hydrogen,Unknown,,Fully commissioned,Operating,1,0
+647,1,0.0,EU,Other,Neste Oyj,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,647,,exact_exhausted,,,,,,,,,,,0,0
+647,1,0.0,EU,Other,Neste Oyj,Blue_CCS,2021.0,5,0,0,0.0,EU,XS,2021_EU_1_XS,647,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+648,0,0.6981347220709844,Other,Unknown,Unknown,PEM,2016.0,10,0,0,1.01,OT,M,2016_OT_0_M,648,,exact_exhausted,,,,,,,,,,,0,0
+648,0,0.6981347220709844,Other,Unknown,Unknown,PEM,2016.0,10,0,0,1.01,OT,M,2016_OT_0_M,648,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+649,0,1.3862943611198906,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,3.0,OE,M,2020_OE_0_M,649,CETPROJH21048,exact,CETPROJH21048,Long Mountain Antrium H2,Power & heat,Power and heat,Transport (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+650,0,0.9162907318741552,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,1.5000000000000004,OE,M,2022_OE_0_M,650,,exact_exhausted,,,,,,,,,,,0,0
+650,0,0.9162907318741552,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,1.5000000000000004,OE,M,2022_OE_0_M,650,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+651,1,0.0,Other_Europe,Other,ZEG Power AS,Blue_CCS,2019.0,7,0,0,0.0,OE,XS,2019_OE_1_XS,651,CETPROJH21209,exact,CETPROJH21209,CCB Energy Park,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Feasibility,Planning - early,0,0
+652,0,3.044522437723423,Other_Europe,Other,Greenstat Energy As,PEM,2022.0,4,0,0,20.0,OE,L,2022_OE_0_L,652,CETPROJH21202,exact,CETPROJH21202,ROBINSON H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Design,Planning - early,0,0
+653,0,1.3862943611198906,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,3.0,OE,M,2020_OE_0_M,653,CETPROJH240,exact,CETPROJH240,Bandirma Energy Base,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+654,1,0.0,Other_Europe,Other,Barents,Blue_CCS,2019.0,7,0,0,0.0,OE,XS,2019_OE_1_XS,654,,exact_exhausted,,,,,,,,,,,0,0
+654,1,0.0,Other_Europe,Other,Barents,Blue_CCS,2019.0,7,0,0,0.0,OE,XS,2019_OE_1_XS,654,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+655,0,3.218875824868201,Other_Europe,Other,Yara International ASA,PEM,2021.0,5,0,0,24.000000000000007,OE,L,2021_OE_0_L,655,CETPROJH21601,exact,CETPROJH21601,Octopus Hydrogen 40 ft container,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+656,0,1.252762968495368,Other_Europe,Unknown,Unknown,PEM,2019.0,7,0,0,2.5,OE,M,2019_OE_0_M,656,CETPROJH21023,exact,CETPROJH21023,EMEC Flow Battery Tidal Electrolysis,Transport (shipping),Ferry,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+657,1,0.0,Other_Europe,Other,CapeOmega AS,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,657,CETPROJH2848,exact,CETPROJH2848,Gazprom blue hydrogen,Transport (rail),,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+658,0,1.791759469228055,North_America,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,NA,M,2020_NA_0_M,658,CETPROJH2143,relaxed,CETPROJH2143,Heligon Testing Facility,Industry (other),Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+659,0,0.9162907318741552,EU,Other,Eurowind Energy A/S,PEM,2016.0,10,0,0,1.5000000000000004,EU,M,2016_EU_0_M,659,,exact_exhausted,,,,,,,,,,,0,0
+659,0,0.9162907318741552,EU,Other,Eurowind Energy A/S,PEM,2016.0,10,0,0,1.5000000000000004,EU,M,2016_EU_0_M,659,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+660,0,1.791759469228055,North_America,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,NA,M,2020_NA_0_M,660,CETPROJH21376,relaxed,CETPROJH21376,Enel US H2,Industry (refinery feedstock),Biorefinery,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,1,0
+661,0,3.9318256327243257,EU,Other,European Energy A/S,PEM,2022.0,4,0,0,50.0,EU,L,2022_EU_0_L,661,,exact_exhausted,,,,,,,,,,,0,0
+661,0,3.9318256327243257,EU,Other,European Energy A/S,PEM,2022.0,4,0,0,50.0,EU,L,2022_EU_0_L,661,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+662,0,0.8109302162163288,North_America,Unknown,Unknown,PEM,2019.0,7,0,0,1.25,NA,M,2019_NA_0_M,662,CETPROJH2122,exact,CETPROJH2122,Howell P2G,Gas grid,Building,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+663,0,0.0198026272961797,Other_Europe,Unknown,Unknown,PEM,2016.0,10,0,0,0.019999999999999987,OE,XS,2016_OE_0_XS,663,CETPROJH21132,relaxed,CETPROJH21132,Rutherford Appleton Laboratory H2,Other,R&D,Unknown,Ammonia,Unknown,,Fully commissioned,Operating,0,0
+664,0,3.962716119743664,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,51.59999999999998,OE,L,2022_OE_0_L,664,CETPROJH21103,exact,CETPROJH21103,Hydrogen Oxygen Ecosystem Demonstrator Project,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+665,0,2.3978952727983707,Other_Europe,Other,Carlton Power Limited,PEM,2022.0,4,0,0,10.000000000000002,OE,L,2022_OE_0_L,665,CETPROJH21210,exact,CETPROJH21210,HyPilot Test,Other,R&D,Unknown,Ammonia,Unknown,,Fully commissioned,Operating,0,0
+666,0,4.795790545596741,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,120.00000000000003,NA,XL,2021_NA_0_XL,666,,exact_exhausted,,,,,,,,,,,0,0
+666,0,4.795790545596741,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,120.00000000000003,NA,XL,2021_NA_0_XL,666,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+667,0,3.58351893845611,Other_Europe,Other,Carlton Power Limited,PEM,2022.0,4,0,0,35.0,OE,L,2022_OE_0_L,667,CETPROJH21364,exact,CETPROJH21364,GHP Site,Industry (other),Other Industrial Process,Transport (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+668,1,0.0,Other_Europe,Other,Exxon Mobil Corporation,Blue_CCS,2020.0,6,0,0,0.0,OE,XS,2020_OE_1_XS,668,CETPROJH22890,exact,CETPROJH22890,IOC Blue Ammonia Eastern Siberia,Power & heat,Power Generation,Transport (shipping) and industry (other),Ammonia,Unknown,,On-hold (assumed),Cancelled,0,0
+669,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,669,CETPROJH21104,relaxed,CETPROJH21104,Bacton Hydrogen Hub,Gas grid,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,1
+670,0,0.0,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,0.0,OE,XS,2021_OE_0_XS,670,CETPROJH2863,exact,CETPROJH2863,EN+ HPP H2 project 4,Transport (road),Buses,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+671,1,0.0,Other_Europe,Other,"McDermott International, Inc.",Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,671,CETPROJH21087,relaxed,CETPROJH21087,H2NorthEast,Industry (other),Industrial heating,Unknown,Hydrogen,No,,Announced (advanced),Planning - early,0,0
+672,0,6.906754778648554,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,998.0000000000003,OE,XL,2022_OE_0_XL,672,CETPROJH219,exact,CETPROJH219,Solges Armenia,Power & heat,Power,Transport (road),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+673,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,OE,M,2022_OE_0_M,673,,exact_exhausted,,,,,,,,,,,0,0
+673,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,2.0000000000000004,OE,M,2022_OE_0_M,673,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+674,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,674,CETPROJH21070,exact,CETPROJH21070,South Wales Industrial Cluster (HYDREUS),Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+675,1,0.0,Other_Europe,Other,ARUP,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,675,,exact_exhausted,,,,,,,,,,,0,0
+675,1,0.0,Other_Europe,Other,ARUP,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,675,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+676,1,0.0,Other_Europe,Other,Kellas Midstream Limited,Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,676,CETPROJH21085,relaxed,CETPROJH21085,"Humber Hub Blue, Killingholme",Power & heat,Power,Industry (other) and transport (road),Hydrogen,Unknown,,Design,Planning - early,0,0
+677,1,0.0,Other_Europe,Other,Kellas Midstream Limited,Blue_CCS,2019.0,7,0,0,0.0,OE,XS,2019_OE_1_XS,677,,exact_exhausted,,,,,,,,,,,0,0
+677,1,0.0,Other_Europe,Other,Kellas Midstream Limited,Blue_CCS,2019.0,7,0,0,0.0,OE,XS,2019_OE_1_XS,677,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+678,1,0.0,Other_Europe,Other,Uniper SE,Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,678,CETPROJH21403,relaxed,CETPROJH21403,Easington Gas Terminal Blue Hydrogen,Gas grid,Pipeline Injection,Transport (aviation),"Hydrogen,SAF",Unknown,,On-hold (assumed),Cancelled,0,0
+679,1,6.398594934535208,Other_Europe,Oil_major,BP p.l.c.,Blue_CCS,2021.0,2,1,1,600.0,OE,XL,2021_OE_1_XL,679,CETPROJH21047,exact,CETPROJH21047,HyPER,Other,R&D,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+680,0,3.044522437723423,Other_Europe,Unknown,Unknown,PEM,2021.0,2,1,2,20.0,OE,L,2021_OE_0_L,680,CETPROJH21095,exact,CETPROJH21095,Holyhead Hydrogen Hub,Transport (other),Regional transport,"Power & heat,Industry (chemical feedstock) and Industry (other)",Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+681,0,1.3862943611198906,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,3.0,OE,M,2020_OE_0_M,681,CETPROJH21077,exact,CETPROJH21077,Vanguard H2,Transport (road),Trucks,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+682,0,3.044522437723423,Other_Europe,Other,Carlton Power Limited,PEM,2021.0,5,0,0,20.0,OE,L,2021_OE_0_L,682,CETPROJH21011,exact,CETPROJH21011,Arbikie Distillery H2,Power & heat,Heat,Unknown,Hydrogen,No,,On-hold (assumed),Cancelled,0,0
+683,0,0.0198026272961797,Other_Europe,Unknown,Unknown,PEM,2017.0,9,0,0,0.019999999999999987,OE,XS,2017_OE_0_XS,683,CETPROJH21073,relaxed,CETPROJH21073,Surf'n'Turf Orkney Shapinsay/BIG HIT II,Power & heat,Power,Transport (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+684,0,0.0198026272961797,Other_Europe,Unknown,Unknown,PEM,2015.0,11,0,0,0.019999999999999987,OE,XS,2015_OE_0_XS,684,CETPROJH2878,relaxed,CETPROJH2878,"STORE&GO, Solothurn",Gas grid,Unknown,Transport (other) and industry (other),Methane,Unknown,,Decommissioned,Offline,0,0
+685,1,0.0,Other_Europe,Utility,RWE AG,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,685,,exact_exhausted,,,,,,,,,,,0,0
+685,1,0.0,Other_Europe,Utility,RWE AG,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,685,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+686,0,2.9014215940827497,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,17.2,OE,L,2021_OE_0_L,686,CETPROJH21008,exact,CETPROJH21008,Aberdeen Hydrogen Hub,Transport (road),Buses & Heavy Goods Vehicle,Unknown,Hydrogen,Unknown,,Financed,Planning - advanced,0,0
+687,0,3.044522437723423,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,20.0,OE,L,2021_OE_0_L,687,,exact_exhausted,,,,,,,,,,,0,0
+687,0,3.044522437723423,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,20.0,OE,L,2021_OE_0_L,687,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+688,0,0.0295588022415444,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,0.03,OE,XS,2021_OE_0_XS,688,CETPROJH2862,exact,CETPROJH2862,EN+ HPP H2 project 3,Unknown,Unknown,Unknown,"Hydrogen,Ammonia",Unknown,,On-hold (assumed),Cancelled,0,0
+689,0,0.0392207131532812,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,0.0399999999999999,OE,XS,2020_OE_0_XS,689,CETPROJH2853,exact,CETPROJH2853,Zaporizhzhia H2,Unknown,Unknown,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+690,1,0.0,Other_Europe,Other,Cranfield University,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,690,,exact_exhausted,,,,,,,,,,,0,0
+690,1,0.0,Other_Europe,Other,Cranfield University,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,690,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+691,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,691,,exact_exhausted,,,,,,,,,,,0,0
+691,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,691,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+692,1,0.0,Other_Europe,Other,Essar Oil (UK) Limited,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,692,,exact_exhausted,,,,,,,,,,,0,0
+692,1,0.0,Other_Europe,Other,Essar Oil (UK) Limited,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,692,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+693,1,0.0,Other_Europe,Other,Essar Oil (UK) Ltd,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,693,,exact_exhausted,,,,,,,,,,,0,0
+693,1,0.0,Other_Europe,Other,Essar Oil (UK) Ltd,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,693,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+694,0,0.0392207131532812,Other_Europe,Unknown,Unknown,PEM,2013.0,13,0,0,0.0399999999999999,OE,XS,2013_OE_0_XS,694,CETPROJH21041,relaxed,CETPROJH21041,Hydrogen mini grid system Yorkshire (Rotherham),Transport (road),Refueling Station,Power & heat and Gas grid,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+695,0,2.302585092994046,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,9.000000000000002,OE,M,2020_OE_0_M,695,,exact_exhausted,,,,,,,,,,,0,0
+695,0,2.302585092994046,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,9.000000000000002,OE,M,2020_OE_0_M,695,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+696,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,696,,exact_exhausted,,,,,,,,,,,0,0
+696,1,0.0,Other_Europe,Unknown,Unknown,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,696,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+697,1,6.398594934535208,Other_Europe,Oil_major,BP p.l.c.,Blue_CCS,2021.0,2,1,1,600.0,OE,XL,2021_OE_1_XL,697,CETPROJH23059,exact,CETPROJH23059,CCB Energy Park,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,1
+698,1,0.0,Other_Europe,Other,Storegga Geotechnologies Limited,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,698,,exact_exhausted,,,,,,,,,,,0,0
+698,1,0.0,Other_Europe,Other,Storegga Geotechnologies Limited,Blue_CCS,2021.0,5,0,0,0.0,OE,XS,2021_OE_1_XS,698,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+699,0,3.044522437723423,Other_Europe,Unknown,Unknown,PEM,2020.0,3,1,2,20.0,OE,L,2020_OE_0_L,699,CETPROJH21211,exact,CETPROJH21211,Stord Hydrogen Energy House project,Transport (road),Light Motor Vehicles,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+700,0,0.9162907318741552,North_America,Unknown,Unknown,PEM,2016.0,10,0,0,1.5000000000000004,NA,M,2016_NA_0_M,700,CETPROJH2278,relaxed,CETPROJH2278,Markham Energy Storage,Transport (rail),,Transport (road),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+701,0,4.564348191467836,Other_Europe,Unknown,Unknown,PEM,2021.0,2,1,2,94.99999999999999,OE,L,2021_OE_0_L,701,,exact_exhausted,,,,,,,,,,,0,0
+701,0,4.564348191467836,Other_Europe,Unknown,Unknown,PEM,2021.0,2,1,2,94.99999999999999,OE,L,2021_OE_0_L,701,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+702,0,1.791759469228055,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,OE,M,2020_OE_0_M,702,,exact_exhausted,,,,,,,,,,,0,0
+702,0,1.791759469228055,Other_Europe,Unknown,Unknown,PEM,2020.0,6,0,0,5.0,OE,M,2020_OE_0_M,702,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+703,0,0.048790164169432,Other_Europe,Unknown,Unknown,PEM,2014.0,12,0,0,0.049999999999999996,OE,XS,2014_OE_0_XS,703,CETPROJH21026,relaxed,CETPROJH21026,"Fife, Levenmouth Community Energy Project III",Power & heat,Fuel cells,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+704,0,0.0582689081239757,Other_Europe,Unknown,Unknown,PEM,2014.0,12,0,0,0.05999999999999992,OE,XS,2014_OE_0_XS,704,CETPROJH21025,relaxed,CETPROJH21025,"Fife, Levenmouth Community Energy Project II",Power & heat,Fuel cells,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+705,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2020.0,3,1,1,2.0000000000000004,OE,M,2020_OE_0_M,705,,exact_exhausted,,,,,,,,,,,0,0
+705,0,1.0986122886681098,Other_Europe,Unknown,Unknown,PEM,2020.0,3,1,1,2.0000000000000004,OE,M,2020_OE_0_M,705,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+706,1,0.0,Other_Europe,Other,Neptune Energy Group Ltd,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,706,,exact_exhausted,,,,,,,,,,,0,0
+706,1,0.0,Other_Europe,Other,Neptune Energy Group Ltd,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,706,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+707,1,0.0,Other_Europe,Other,Uniper SE,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,707,,exact_exhausted,,,,,,,,,,,0,0
+707,1,0.0,Other_Europe,Other,Uniper SE,Blue_CCS,2021.0,2,1,1,0.0,OE,XS,2021_OE_1_XS,707,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+708,0,2.1972245773362196,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,8.000000000000002,OE,M,2022_OE_0_M,708,,exact_exhausted,,,,,,,,,,,0,0
+708,0,2.1972245773362196,Other_Europe,Unknown,Unknown,PEM,2022.0,4,0,0,8.000000000000002,OE,M,2022_OE_0_M,708,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,0
+709,0,1.252762968495368,North_America,Unknown,Unknown,PEM,2015.0,11,0,0,2.5,NA,M,2015_NA_0_M,709,CETPROJH21612,exact,CETPROJH21612,Servco Pacific,Unknown,Unknown,Unknown,Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+710,0,1.252762968495368,Other_Europe,Unknown,Unknown,PEM,2021.0,5,0,0,2.5,OE,M,2021_OE_0_M,710,CETPROJH21052,exact,CETPROJH21052,Orbital 2,Transport (shipping),Ferry,Transport (aviation) and Industry (other),Hydrogen,Unknown,,Fully commissioned,Operating,0,0
+711,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2020.0,6,0,0,0.0,OE,XS,2020_OE_1_XS,711,,exact_exhausted,,,,,,,,,,,0,1
+711,1,0.0,Other_Europe,Oil_major,Equinor ASA,Blue_CCS,2020.0,6,0,0,0.0,OE,XS,2020_OE_1_XS,711,,exact_exhausted,,"Applied filters:
+geography is not (Blank)",,,,,,,,,0,1
+712,1,0.0,Other_Europe,Other,Storegga Norge AS,Blue_CCS,2022.0,4,0,0,0.0,OE,XS,2022_OE_1_XS,712,CETPROJH21109,relaxed,CETPROJH21109,H2H Production 2,Power & heat,Power and heat,Industry (other) and transport (other),Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0
+713,0,0.1823215567939546,North_America,Unknown,Unknown,PEM,2021.0,5,0,0,0.19999999999999996,NA,S,2021_NA_0_S,713,CETPROJH296,relaxed,CETPROJH296,Borrego Springs project,Power & heat,Power,Unknown,Hydrogen,Unknown,,On-hold (assumed),Cancelled,0,0

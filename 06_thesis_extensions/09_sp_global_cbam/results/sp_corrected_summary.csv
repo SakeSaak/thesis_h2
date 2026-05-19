@@ -1,0 +1,11 @@
+,0
+cancel_def,B (Plans cancelled + Decommissioned)
+n_total,3231
+n_cancelled,151
+n_operating,477
+n_cbam_exposed,609
+beta_cbam_endex,-0.6479600264161536
+p_cbam_endex,0.03452878879536467
+did_interaction_beta,0.857617530604005
+did_interaction_p,0.14265353569974293
+did_raw_pp,10.920000000000002

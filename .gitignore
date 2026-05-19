@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+
+# Anaconda
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Output files we DON'T want to ignore (commit results for reproducibility audit)
+# *.csv  # DON'T ignore — results CSVs are part of reproducibility
+# *.pdf  # DON'T ignore — figures and final PDFs
+
+# But ignore data with restricted access
+01_data/raw/Hydrogen projects master data table.xlsx
+01_data/raw/Hydrogen Production Projects Database*
+
+# Large binary archives
+backup_*.tar.gz
+*.zip
