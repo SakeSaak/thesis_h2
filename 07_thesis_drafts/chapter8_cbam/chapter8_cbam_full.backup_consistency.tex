@@ -12,7 +12,7 @@
 \usepackage{booktabs}
 \usepackage{natbib}
 \usepackage{hyperref}
-\usepackage[table]{xcolor}
+\usepackage{xcolor}
 \usepackage{caption}
 \hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
 
@@ -41,7 +41,7 @@
 \section{Introduction and Motivation}
 \label{sec:ch8-intro}
 
-\subsection{The empirical puzzle from Chapters 5--7} Within the broader implementation-risk framework of this thesis, the present chapter probes whether observed cancellation patterns can be causally attributed to a specific regulatory shock; we conclude with what we term an \textit{informative null}.
+\subsection{The empirical puzzle from Chapters 5--7}
 
 The body of empirical evidence assembled in Chapters 5 through 7 establishes a robust pattern: hydrogen projects employing blue (gas-with-CCS) technologies exhibit cancellation hazards that respond differentially to carbon prices, with the time-varying interaction parameter $\bint$ remaining negative across all specifications. Across pooled, sponsor-controlled, regional, and time-varying parameter (TVP) specifications, the point estimates cluster within the range $[-1.17, -1.88]$, with the gradual intensification documented in Chapter 6 (from $-0.73$ in 2014 to $-1.87$ in 2024) corroborated by a complementary equity event study showing $\gamma_{\mathrm{EUA}} = +0.041$ for diversified oil majors versus a null effect for PEM pure-plays. The Dixit--Pindyck-style real options framework developed in Chapter 3 rationalizes this pattern theoretically: when carbon prices rise, the option-to-defer becomes more valuable for projects whose marginal cost is carbon-elastic, and Blue projects are precisely the cases where this elasticity is high.
 
@@ -638,39 +638,11 @@ The Bayesian posterior places $96.9\%$ probability mass on a positive effect, wi
 
 For the EU 2x2 DiD, all three functional forms produce same-sign, marginally significant AMEs in the narrow range $[+0.30, +0.35]$ percentage points; the EU pattern is therefore not driven by functional-form choice but rather by the underlying associational regularity in the data. For the triple-difference, all three functional forms give same-sign null results, confirming the robustness of our causal informative null across model classes. Combined with the inference robustness results above, we have now established that neither the inferential procedure nor the functional-form choice can rescue significance from the triple-difference; the null is genuinely informative.
 
-
-\paragraph{Outlier influence (Cook's distance and DFBETA).} A natural concern with parallel-trends-based inference on small samples is whether the focal coefficient is driven by a few highly influential observations. We compute Cook's distance and DFBETA for the focal interaction term in both the EU 2x2 DiD and the triple-difference specifications, identify the top five most-influential observations per specification, and refit the model on the reduced sample. The results, summarised in Table~\ref{tab:ch8-outlier}, are reassuring in three respects. First, the EU 2x2 DiD coefficient on $\mathrm{cbam}\times \mathrm{post}$ is \emph{not} driven by influential outliers; removing the top-5 by Cook's distance increases the point estimate (from $+0.346$ to $+0.514$) and tightens the $p$-value to $0.004$. The five most influential observations are in fact \emph{against} the pattern; the EU association is therefore not an artefact of a small set of high-leverage observations. Second, the triple-difference coefficient on $\mathrm{is\_EU}\times \mathrm{cbam}\times \mathrm{post}$ remains insignificant and indeed becomes \emph{more} null after outlier removal ($+0.195 \to +0.051$, $p$: $0.33 \to 0.80$): the informative null is therefore not masked by outliers. Third, on the v7 hazard model the focal $\mathrm{is\_blue\_ccs}$ coefficient is stable (sign and significance preserved; $-19.9\%$ change in magnitude, well within the no-leverage regime). Taken together, neither inference robustness nor outlier influence is a plausible alternative explanation for our headline findings.
-
-\begin{table}[ht]
-\centering
-\caption{Outlier-influence diagnostics. Comparison of focal coefficient on full sample versus sample with top-5 most-influential observations (by Cook's distance) removed.}
-\label{tab:ch8-outlier}
-\begin{tabular}{lcccccc}
-\toprule
-& \multicolumn{2}{c}{Full sample} & \multicolumn{2}{c}{Without top-5} & \multicolumn{2}{c}{Change} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
-Specification & $\hat\beta$ & $p$ & $\hat\beta$ & $p$ & $\Delta\hat\beta$ & \% \\
-\midrule
-EU 2x2 DiD ($N = 227$)         & $+0.346$ & $0.044$ & $+0.514$ & $0.004$ & $+0.168$ & $+48.5\%$ \\
-Triple-difference ($N = 628$)  & $+0.195$ & $0.327$ & $+0.051$ & $0.799$ & $-0.146$ & $-74.0\%$ \\
-v7 hazard LPM ($N = 714$)      & $+0.112$ & $<0.001$ & $+0.090$ & $<0.001$ & $-0.022$ & $-19.9\%$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{figures/F_outlier_influence.pdf}
-\caption{Outlier-influence diagnostics for the three focal specifications. \textbf{Top row:} Cook's distance per observation; dashed line at the conventional $4/N$ threshold, red markers indicate the top-5 most-influential observations. \textbf{Bottom row:} DFBETA on the focal coefficient per observation; red dashed lines at the conventional $\pm 2/\sqrt{N}$ threshold. The number of observations above the $4/N$ Cook's threshold is 24 for the EU 2x2 DiD, 38 for the triple-difference, and 43 for the v7 hazard model — consistent with the natural threshold behaviour in small finite samples, and well below the influential-fraction levels at which leverage-based concerns dominate.}
-\label{fig:ch8-outlier-influence}
-\end{figure}
-
-
-\paragraph{Synthesis of inference robustness.} The four-way inference suite (asymptotic, Wild Cluster Bootstrap, permutation, Bayesian) is reinforced by the hazard-model diagnostics of Chapter 7: the Schoenfeld test for proportional hazards is violated specifically for \texttt{year\_centered} ($p = 0.0006$), and rolling-window out-of-sample cross-validation produces an AUC collapse on 2020-2021 cohorts. Both findings are independent empirical signals that the cancellation data-generating process is temporally non-stationary in ways that the time-varying-parameter specifications of Chapter 6 capture but a single CBAM treatment date cannot isolate. The four supplementary inference procedures converge on a consistent story. For the EU 2x2 DiD (the strongest associational pattern), the evidence is fragile: only the asymptotic and unit-level permutation inference produce conventional significance, while WCB, cluster-permutation, Honest DiD, and Bayesian HDI all indicate that the effect cannot be ruled out as zero. For the triple-difference (the cleanest causal test), the null is robust across every inference method we apply. The thesis interpretation in Section \ref{sec:ch8-discussion} stands: the cross-sectional EU pattern is a real associational regularity but cannot be identified as a CBAM-causal effect under any defensible inferential standard.
+\paragraph{Synthesis of inference robustness.} The four supplementary inference procedures converge on a consistent story. For the EU 2x2 DiD (the strongest associational pattern), the evidence is fragile: only the asymptotic and unit-level permutation inference produce conventional significance, while WCB, cluster-permutation, Honest DiD, and Bayesian HDI all indicate that the effect cannot be ruled out as zero. For the triple-difference (the cleanest causal test), the null is robust across every inference method we apply. The thesis interpretation in Section \ref{sec:ch8-discussion} stands: the cross-sectional EU pattern is a real associational regularity but cannot be identified as a CBAM-causal effect under any defensible inferential standard.
 
 
 \section{Discussion}
-\label{sec:ch8-discussion-implications}
+\label{sec:ch8-discussion}
 
 \subsection{Summary of empirical findings}
 
@@ -732,6 +704,26 @@ This chapter exploits the EU Carbon Border Adjustment Mechanism as a sudden, pla
 \bibliographystyle{apalike}
 \begin{thebibliography}{99}
 
+\bibitem[Bindler and Ketel(2022)]{bindler2022scaring}
+Bindler, A., \& Ketel, N. (2022).
+\newblock Scaring or scarring? Labor market effects of criminal victimisation.
+\newblock \textit{Journal of Labor Economics}, 40(4), 939--970.
+
+\bibitem[Borusyak et~al.(2024)]{borusyak2024revisiting}
+Borusyak, K., Jaravel, X., \& Spiess, J. (2024).
+\newblock Revisiting event study designs: Robust and efficient estimation.
+\newblock \textit{Review of Economic Studies}, forthcoming.
+
+\bibitem[Callaway and Sant'Anna(2021)]{callaway2021difference}
+Callaway, B., \& Sant'Anna, P. H. C. (2021).
+\newblock Difference-in-differences with multiple time periods.
+\newblock \textit{Journal of Econometrics}, 225(2), 200--230.
+
+\bibitem[de Chaisemartin and D'Haultf{\oe}uille(2020)]{chaisemartin2020two}
+de Chaisemartin, C., \& D'Haultf{\oe}uille, X. (2020).
+\newblock Two-way fixed effects estimators with heterogeneous treatment effects.
+\newblock \textit{American Economic Review}, 110(9), 2964--2996.
+
 \bibitem[European Commission(2023)]{ec2023cbam}
 European Commission (2023).
 \newblock Regulation (EU) 2023/956 establishing a Carbon Border Adjustment Mechanism.
@@ -742,6 +734,11 @@ European Commission (2026).
 \newblock Decision not to suspend CBAM coverage for hydrogen-based fertilizers.
 \newblock Press release, 3 March 2026.
 
+\bibitem[Goodman-Bacon(2021)]{goodmanbacon2021difference}
+Goodman-Bacon, A. (2021).
+\newblock Difference-in-differences with variation in treatment timing.
+\newblock \textit{Journal of Econometrics}, 225(2), 254--277.
+
 \bibitem[Hanemaaijer et~al.(2024)]{hanemaaijer2024minority}
 Hanemaaijer, K., Ketel, N., \& Marie, O. (2024).
 \newblock Minority salience and criminal justice decisions.
@@ -751,6 +748,11 @@ Hanemaaijer, K., Ketel, N., \& Marie, O. (2024).
 Ketel, N., Oosterbeek, H., Sovago, S., \& van der Klaauw, B. (2023).
 \newblock The (un)importance of school assignment.
 \newblock \textit{IZA Discussion Paper}, 16591.
+
+\bibitem[Marcus and Sant'Anna(2021)]{marcus2021role}
+Marcus, M., \& Sant'Anna, P. H. C. (2021).
+\newblock The role of parallel trends in event study settings: An application to environmental economics.
+\newblock \textit{Journal of the Association of Environmental and Resource Economists}, 8(2), 235--275.
 
 \bibitem[Roth and Sant'Anna(2022)]{roth2022parallel}
 Roth, J., \& Sant'Anna, P. H. C. (2022).
@@ -781,6 +783,11 @@ Roodman, D., MacKinnon, J. G., Nielsen, M. \O., \& Webb, M. D. (2019).
 Vehtari, A., Gelman, A., Simpson, D., Carpenter, B., \& Bürkner, P.-C. (2021).
 \newblock Rank-normalization, folding, and localization: An improved $\hat{R}$ for assessing convergence of MCMC.
 \newblock \textit{Bayesian Analysis}, 16(2), 667--718.
+
+\bibitem[Sun and Abraham(2021)]{sun2021estimating}
+Sun, L., \& Abraham, S. (2021).
+\newblock Estimating dynamic treatment effects in event studies with heterogeneous treatment effects.
+\newblock \textit{Journal of Econometrics}, 225(2), 175--199.
 
 \end{thebibliography}
 

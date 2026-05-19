@@ -1,0 +1,4 @@
+spec,focal_var,N,beta_full,p_full,beta_reduced,p_reduced,pct_change,verdict
+EU 2x2 DiD,cbam_x_post,227,+0.3457,0.0440,+0.5135,0.0039,+48.5%,⚠ COEFFICIENT SHIFT >15% — sensitivity concern
+Triple-difference EUxCBAMxPost,triple,628,+0.1954,0.3268,+0.0508,0.7989,-74.0%,⚠ COEFFICIENT SHIFT >15% — sensitivity concern
+v7 hazard model (LPM),is_blue_ccs,714,+0.1120,0.0000,+0.0897,0.0001,-19.9%,⚠ COEFFICIENT SHIFT >15% — sensitivity concern

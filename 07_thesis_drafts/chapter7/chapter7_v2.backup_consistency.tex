@@ -207,10 +207,6 @@ We assess whether sponsor-level unobserved heterogeneity drives our findings by 
 
 The diagnostic battery yields three substantive conclusions. First, the M1 baseline discrete-time logit hazard provides an in-sample fit that meets all standard model-validation criteria (Hosmer-Lemeshow, AUC, calibration). Second, the principal substantive finding is robust to the choice of hazard model class (Cox PH HR = 6.23 vs logit HR = 7.81). Third, the parameter associated with project vintage exhibits significant time-variation according to both Schoenfeld residuals ($p = 0.0006$) and rolling-window cross-validation (collapse in OOS AUC). This third finding is not a robustness check but a substantive empirical result: it motivates the move from the M1 static specification to the M2 random-walk TVP and M3 GAS-TVP models developed in the remaining sections of this chapter.
 
-
-
-\paragraph{Outlier influence.} A linear-probability proxy of the focal hazard model — refit excluding the top-5 most influential observations identified by Cook's distance — yields $\hat\beta_{\mathrm{is\_blue\_ccs}} = +0.090$ ($p < 0.001$, versus $+0.112$ in the full sample, a $-19.9\%$ change in magnitude). Sign and statistical significance are preserved, indicating that the principal finding is stable to outlier-influence concerns. See Section 10.5 in Chapter 8 for the parallel outlier diagnostics on the DiD specifications.
-
 \section{Results: Regional Stratification}
 \label{sec:ch7-regional}
 \label{sec:ch7-results-stratified}
@@ -389,9 +385,6 @@ The North American gradual intensification finding has at least three implicatio
 
 % =========================================================================
 \section{Conclusion}
-\paragraph{Link to causal identification in Chapter 8.} The empirical finding of time-varying parameters here — formally documented through the Schoenfeld PH violation on \texttt{year\_centered} ($p = 0.0006$) and the rolling-window cross-validation collapse on 2020-2021 cohorts — provides important context for Chapter 8, which attempts to causally identify a specific time-varying mechanism (CBAM regulatory pressure). The causal analysis in Chapter 8 produces what we term an \textit{informative null}: the associational pattern is statistically robust and economically substantial ($+17$pp to $+20$pp), but it cannot be cleanly attributed to CBAM under modern small-sample inference (Wild Cluster Bootstrap, cluster-permutation, Honest DiD bounds), nor under functional-form alternatives (Roth-Sant'Anna 2022). The general implementation-risk framework developed here therefore subsumes the more specific causal claim attempted in Chapter 8; the two chapters jointly demonstrate that hydrogen project hazard dynamics are temporally non-stationary, but that pinpointing single regulatory shocks remains econometrically difficult in our sample.
-
-
 \label{sec:ch7-conclusion}
 
 This chapter has tested the temporal stability of the carbon-conditional hazard coefficient in hydrogen project cancellations using three nested specifications and three sample stratifications. The principal findings are summarised as follows.
@@ -439,10 +432,20 @@ Durbin, J., \& Koopman, S.~J. (2012).
 \newblock \textit{Time Series Analysis by State Space Methods} (2nd ed.).
 \newblock Oxford University Press.
 
+\bibitem[Koopman(2000)]{koopman2000time}
+Koopman, S.~J. (2000).
+\newblock Time series analysis of non-Gaussian observations based on state space models from both classical and Bayesian perspectives.
+\newblock \textit{Journal of the Royal Statistical Society: Series B}, 62(1), 3--29.
+
 \bibitem[Koopman et~al.(2016)]{koopman2016predicting}
 Koopman, S.~J., Lucas, A., \& Scharth, M. (2016).
 \newblock Predicting time-varying parameters with parameter-driven and observation-driven models.
 \newblock \textit{Review of Economics and Statistics}, 98(1), 97--110.
+
+\bibitem[Vehtari et~al.(2017)]{vehtari2017practical}
+Vehtari, A., Gelman, A., \& Gabry, J. (2017).
+\newblock Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC.
+\newblock \textit{Statistics and Computing}, 27(5), 1413--1432.
 
 \end{thebibliography}
 
