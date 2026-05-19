@@ -666,49 +666,7 @@ v7 hazard LPM ($N = 714$)      & $+0.112$ & $<0.001$ & $+0.090$ & $<0.001$ & $-0
 \end{figure}
 
 
-
-\paragraph{Event-study pre-trends test.} A standard validation of any DiD design is to examine the path of treated-versus-control differences in the pre-treatment period: under parallel trends, all pre-CBAM leads should be jointly insignificant. We re-specify the EU 2x2 DiD as an event-study with year-relative-to-CBAM fixed effects interacted with $\mathrm{cbam\_endex}$, baseline year $t = -1$ (i.e., 2021). Figure~\ref{fig:ch8-event-study} displays the resulting coefficient path. The joint F-test on the six pre-CBAM leads (relative years $-7$ through $-2$, excluding the baseline) yields $F(6, 152) = 20.18$, $p < 0.0001$, decisively rejecting the null of zero pre-trends. The single largest pre-period coefficient is at relative year $-3$ (i.e., 2019), with $\hat\beta_{-3} = +0.82$ ($p = 0.0003$): CBAM-end-use projects in the EU already showed an elevated relative cancellation pattern \emph{three years before} CBAM political agreement. This finding has profound implications for the causal claim: the EU associational pattern is \emph{pre-existing}, not CBAM-induced. It cannot be cleanly attributed to a 2022 regulatory shock under any standard DiD identification, and provides the most direct empirical confirmation of the Honest DiD (Rambachan-Roth) breakdown $\bar{M} = 0$ result.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{figures/F_event_study_pretrends.pdf}
-\caption{Event-study coefficients: $\hat\beta_t$ on $\mathrm{cbam\_endex} \times \mathbb{1}\{\mathrm{rel\_year} = t\}$ for relative years $t \in \{-7, \ldots, +4\}$, baseline $t = -1$. The joint F-test on pre-CBAM leads (relative years $-7$ through $-2$) yields $F(6, 152) = 20.18$, $p < 0.0001$. The pre-CBAM violation is driven primarily by relative year $-3$ ($\hat\beta_{-3} = +0.82$, $p < 0.001$), indicating a pre-existing EU CBAM-end associational pattern.}
-\label{fig:ch8-event-study}
-\end{figure}
-
-\paragraph{Monte Carlo power analysis.} A second concern about any null finding is whether it could be a power artefact. To address this rigorously rather than analytically, we run a Monte Carlo simulation on the EU 2x2 DiD design. For each candidate true treatment effect $\beta_{\text{true}} \in \{0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30\}$, we simulate 1{,}000 datasets in which the EU CBAM-post cell has cancellation probability $r_{10} + (r_{01} - r_{00}) + \beta_{\text{true}}$ and the three other cells retain their empirical rates. We refit the DiD model on each simulated dataset and record whether $p < 0.05$. Table~\ref{tab:ch8-mc-power} reports the resulting power curve.
-
-\begin{table}[ht]
-\centering
-\caption{Monte Carlo power: fraction of 1{,}000 simulations with $p < 0.05$ as a function of true treatment effect. EU 2x2 DiD specification, $N = 227$.}
-\label{tab:ch8-mc-power}
-\begin{tabular}{lrr}
-\toprule
-True $\beta$ (pp) & Empirical power & Mean $\hat\beta$ \\
-\midrule
-$0$  & $0.076$ & $+0.003$ \\
-$5$  & $0.067$ & $+0.055$ \\
-$10$ & $0.10$  & $+0.102$ \\
-$15$ & $0.14$  & $+0.158$ \\
-$20$ & $0.20$  & $+0.195$ \\
-$25$ & $0.29$  & $+0.258$ \\
-$30$ & $0.38$  & $+0.298$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The Type-I error rate at $\beta_{\text{true}} = 0$ is $7.6\%$, slightly inflated relative to the nominal $5\%$ — a known small-sample feature of HC1-based LPM inference, not affecting the substantive conclusions below. The substantive finding is that the design is severely underpowered: even at a true effect of $30$pp, simulated power is only $38\%$. The minimum detectable effect at $80\%$ power exceeds $50$pp, well outside the empirical range of any of our point estimates. This corrects the earlier analytical MDE claim of $\sim 11$pp and aligns directly with the Honest DiD breakdown: our null findings are jointly consistent with effects of substantial magnitude that we simply cannot detect with $N = 227$. Conversely, any single significant finding in this sample (such as the borderline $p = 0.044$ in the headline EU 2x2 DiD) should be interpreted as a $\sim 38\%$-power detection — a "lucky draw" rather than a strong identification.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/F_monte_carlo_power.pdf}
-\caption{Monte Carlo power curve for the EU 2x2 DiD design ($N = 227$, $1{,}000$ simulations per point). The empirical power is well below conventional 80\% across the entire plotted range. The dashed vertical line marks the empirical DiD point estimate.}
-\label{fig:ch8-mc-power}
-\end{figure}
-
-\paragraph{Oster (2019) omitted-variable-bias bounds.} A third standard moderne robustness check is whether selection on unobservables could plausibly drive our findings to zero. Following \citet{oster2019unobservable}, we estimate the $\delta$ bound which measures how strong selection on unobservables must be relative to selection on observables to attain $\beta^* = 0$. The empirical movement is informative on its own: adding standard controls (\texttt{is\_blue}, \texttt{log\_capacity}) \emph{increases} both the EU 2x2 DiD coefficient ($+0.287 \to +0.346$, $+21\%$) and the v7 hazard coefficient ($+0.077 \to +0.110$, $+43\%$). The triple-difference is essentially stable ($+0.201 \to +0.195$). Standard OVB concerns presume that unobservables bias the estimate \emph{upward}; in our data the controls suppress rather than inflate the focal effect, so traditional OVB worries point in the wrong direction. For the triple-difference at $R^2_{\max} = 1$, $\delta = +2.08$: even with maximal $R^2$, selection on unobservables would have to be twice as strong as on observables, in the opposite direction of common confounders, to produce a non-zero positive effect from the null. This is reassuring for the informative-null interpretation.
-
-\paragraph{Synthesis of inference robustness.} The combined robustness suite now spans nine independent pillars — four inference robustness methods (asymptotic, Wild Cluster Bootstrap, permutation, Bayesian), two specification-robustness checks (Roth-Sant'Anna functional form, outlier influence), and three identification-robustness checks (event-study pre-trends, Monte Carlo power, Oster OVB bounds). The four-way inference suite (asymptotic, Wild Cluster Bootstrap, permutation, Bayesian) is reinforced by the hazard-model diagnostics of Chapter 7: the Schoenfeld test for proportional hazards is violated specifically for \texttt{year\_centered} ($p = 0.0006$), and rolling-window out-of-sample cross-validation produces an AUC collapse on 2020-2021 cohorts. Both findings are independent empirical signals that the cancellation data-generating process is temporally non-stationary in ways that the time-varying-parameter specifications of Chapter 6 capture but a single CBAM treatment date cannot isolate. The four supplementary inference procedures converge on a consistent story. For the EU 2x2 DiD (the strongest associational pattern), the evidence is fragile: only the asymptotic and unit-level permutation inference produce conventional significance, while WCB, cluster-permutation, Honest DiD, and Bayesian HDI all indicate that the effect cannot be ruled out as zero. For the triple-difference (the cleanest causal test), the null is robust across every inference method we apply. The thesis interpretation in Section \ref{sec:ch8-discussion} stands: the cross-sectional EU pattern is a real associational regularity but cannot be identified as a CBAM-causal effect under any defensible inferential standard.
+\paragraph{Synthesis of inference robustness.} The four-way inference suite (asymptotic, Wild Cluster Bootstrap, permutation, Bayesian) is reinforced by the hazard-model diagnostics of Chapter 7: the Schoenfeld test for proportional hazards is violated specifically for \texttt{year\_centered} ($p = 0.0006$), and rolling-window out-of-sample cross-validation produces an AUC collapse on 2020-2021 cohorts. Both findings are independent empirical signals that the cancellation data-generating process is temporally non-stationary in ways that the time-varying-parameter specifications of Chapter 6 capture but a single CBAM treatment date cannot isolate. The four supplementary inference procedures converge on a consistent story. For the EU 2x2 DiD (the strongest associational pattern), the evidence is fragile: only the asymptotic and unit-level permutation inference produce conventional significance, while WCB, cluster-permutation, Honest DiD, and Bayesian HDI all indicate that the effect cannot be ruled out as zero. For the triple-difference (the cleanest causal test), the null is robust across every inference method we apply. The thesis interpretation in Section \ref{sec:ch8-discussion} stands: the cross-sectional EU pattern is a real associational regularity but cannot be identified as a CBAM-causal effect under any defensible inferential standard.
 
 
 \section{Discussion}
@@ -793,11 +751,6 @@ Hanemaaijer, K., Ketel, N., \& Marie, O. (2024).
 Ketel, N., Oosterbeek, H., Sovago, S., \& van der Klaauw, B. (2023).
 \newblock The (un)importance of school assignment.
 \newblock \textit{IZA Discussion Paper}, 16591.
-
-\bibitem[Oster(2019)]{oster2019unobservable}
-Oster, E. (2019).
-\newblock Unobservable selection and coefficient stability: Theory and evidence.
-\newblock \textit{Journal of Business \& Economic Statistics}, 37(2), 187--204.
 
 \bibitem[Roth and Sant'Anna(2022)]{roth2022parallel}
 Roth, J., \& Sant'Anna, P. H. C. (2022).
