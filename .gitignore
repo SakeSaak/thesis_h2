@@ -25,6 +25,10 @@ env/
 *.lof
 *.lot
 
+# Backup files — niet nodig in repo, git history bevat rollback
+*.backup_*.tex
+*.backup.tex
+
 # OS
 .DS_Store
 Thumbs.db
@@ -35,11 +39,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# Output files we DON'T want to ignore (commit results for reproducibility audit)
-# *.csv  # DON'T ignore — results CSVs are part of reproducibility
-# *.pdf  # DON'T ignore — figures and final PDFs
-
-# But ignore data with restricted access
+# Restricted raw data
 01_data/raw/Hydrogen projects master data table.xlsx
 01_data/raw/Hydrogen Production Projects Database*
 
