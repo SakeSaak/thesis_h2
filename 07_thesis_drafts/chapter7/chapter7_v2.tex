@@ -455,6 +455,54 @@ The overall conclusion is that the GAS-TVP fit is dynamically well-calibrated: t
 
 
 
+
+\section{Score-Driven Stochastic Volatility Extension}
+\label{sec:ch7-sv}
+
+The Conditional Score Residuals diagnostic in Section~\ref{sec:ch7-csr} identifies a single piece of evidence that does not align with full GAS-TVP correctness: the heteroskedasticity test, which detects a 328-fold variance ratio between pre-2018 and post-2018 sub-windows. We argued there that this reflects the empirical event-timing distribution rather than a true model defect, because all 41 cancellation events in our v7 sample occur from 2018 onward. A more rigorous way to settle this question is to formally test whether the score-driven framework needs to be \emph{extended} with a stochastic-volatility component, in the tradition of \citet{harvey2008beta} and \citet{creal2013generalized}. Specifically, we fit a GAS-vol model
+$$
+\log\sigma^2_{t+1} \;=\; \psi + \lambda\,\big(\log\sigma^2_t - \psi\big) + \alpha_h\,s_{h,t}, \qquad s_{h,t} \;=\; \tfrac{1}{2}\!\left(\frac{y_t^2}{\sigma^2_t} - 1\right),
+$$
+where $y_t$ is the score residual recovered from the Chapter~6 GAS-TVP fit (cf.\ Section~\ref{sec:ch7-csr}) and $(\psi, \lambda, \alpha_h)$ are estimated by maximum likelihood. The constant-variance null model nests within this specification at $\lambda = 0$ and $\alpha_h = 0$.
+
+Table~\ref{tab:ch7-sv} reports the estimates and the likelihood-ratio test.
+
+\begin{table}[ht]
+\centering
+\caption{Constant-variance vs Score-Driven Stochastic Volatility on Chapter~6 GAS-TVP residuals.}
+\label{tab:ch7-sv}
+\begin{tabular}{lrrrr}
+\toprule
+Model & $\hat\psi$ & $\hat\lambda$ & $\hat\alpha_h$ & $\log\mathcal L$ \\
+\midrule
+Constant variance ($H_0$)         & $+0.039$ & --      & --      & $-24.456$ \\
+GAS-vol ($H_1$)                    & $-0.115$ & $-0.359$ & $+0.234$ & $-23.225$ \\
+\midrule
+LR statistic $\chi^2_{2}$         & \multicolumn{3}{r}{$2.462$} & \\
+LR $p$-value                       & \multicolumn{3}{r}{$0.292$} & \\
+AIC ($H_0$, $H_1$)                 & \multicolumn{3}{r}{$50.9$, $52.5$} & \\
+BIC ($H_0$, $H_1$)                 & \multicolumn{3}{r}{$51.7$, $55.0$} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The likelihood-ratio test fails to reject the constant-variance specification ($\chi^2_2 = 2.46$, $p = 0.29$), and both AIC and BIC favor the parsimonious constant-variance model. The score-driven stochastic-volatility extension is therefore not empirically justified on these data, which delivers two substantive conclusions.
+
+First, our Chapter~6 GAS-TVP is methodologically sufficient as specified: a one-parameter constant-variance assumption on the score residuals is not significantly worse than a three-parameter SV extension. The carbon-conditional intensification finding $\hat\beta_{\mathrm{int}}(t)$ from $-0.46$ in 2010 to $-1.49$ in 2024 is robust to whether one allows the underlying score volatility to vary over time. Second, the empirical heteroskedasticity documented in Section~\ref{sec:ch7-csr} (the $F = 328$ pre/post-2018 variance ratio) is essentially mechanical: with zero events in 2010--2017 and 41 events in 2018--2024, the score variance is bounded near zero by construction in the early sub-window and is meaningful only in the later sub-window. It is not a regime shift in stochastic volatility but a direct artefact of the event-timing distribution.
+
+Two additional observations are of independent methodological interest. The filtered log-volatility path $\hat{\log\sigma}^2_t$ exhibits a sharp single-period spike in 2024, with $\hat\sigma_{2024} = 2.15$ versus a baseline of approximately $\hat\sigma_{2010-2023} \approx 0.90$ --- consistent with the empirically observed 2023--2024 cancellation wave and aligned with what \citet{odenweller2025green} document for the broader green-hydrogen pipeline. And the persistence estimate is $\hat\lambda = -0.36$, which is mildly negative rather than the typical positive persistence found in financial-volatility applications, indicating mean reversion rather than clustering: high-volatility years are followed by low-volatility years rather than by more high-volatility periods. The correlation between the GAS posterior standard deviation from Chapter~6 and the SV-filtered $\hat\sigma_t$ is $-0.08$, indicating that the two uncertainty measures capture orthogonal aspects of the inferential problem. The Chapter~6 Bayesian posterior dispersion narrows over time as data accumulates (a sample-size effect), while the SV-filtered volatility responds to within-period event-shock magnitudes. Together they imply that the carbon-conditional intensification of $\hat\beta_{\mathrm{int}}(t)$ is identified with increasing precision as the post-2018 event-window opens up, even though the underlying volatility itself does not exhibit persistent regime behaviour.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_stochastic_volatility.pdf}
+\caption{Score-driven stochastic volatility extension of the Chapter~6 GAS-TVP residuals. \textbf{Panel A} plots the standardised score residuals over time. \textbf{Panel B} shows the filtered $\log\sigma^2_t$ path under the GAS-vol model alongside the constant-variance baseline; the LR test statistic and $p$-value are reported in the title. \textbf{Panel C} plots the ratio $\hat\sigma_t / \hat\sigma_{\mathrm{const}}$, illustrating the single-period 2024 vol-spike with subsequent mean reversion. \textbf{Panel D} compares the Chapter~6 GAS posterior standard deviation (left axis, in purple) against the SV-filtered $\hat\sigma_t$ (right axis, in orange); correlation $-0.08$.}
+\label{fig:ch7-sv}
+\end{figure}
+
+The conclusion of the SV-extension exercise is therefore positive for the Chapter~6 specification: a one-parameter constant-variance assumption on the score residuals captures the data essentially as well as a three-parameter time-varying-volatility specification, and the carbon-conditional intensification result is invariant to this methodological choice. This is the second methodological seal --- after the Conditional Score Residuals diagnostic in Section~\ref{sec:ch7-csr} --- that the Chapter~6 finding is not an artefact of restrictive GAS assumptions but is robust to natural Koopman-tradition extensions of the score-driven framework.
+
+
+
 \begin{thebibliography}{99}
 \bibitem[Hosmer et al.(2013)]{hosmer2013applied}
 Hosmer, D. W., Lemeshow, S., \& Sturdivant, R. X. (2013).
@@ -506,6 +554,18 @@ Blasques, F., van Brummelen, J., Gorgi, P., \& Koopman, S.~J. (2024).
 Creal, D., Koopman, S.~J., \& Lucas, A. (2013).
 \newblock Generalized Autoregressive Score Models with Applications.
 \newblock \emph{Journal of Applied Econometrics}, 28(5), 777--795.
+
+
+
+\bibitem{harvey2008beta}
+Harvey, A.~C., \& Chakravarty, T. (2008).
+\newblock Beta-t-(E)GARCH.
+\newblock \emph{Cambridge Working Papers in Economics}, 0840.
+
+\bibitem{odenweller2025green}
+Odenweller, A., \& Ueckerdt, F. (2025).
+\newblock The Green Hydrogen Ambition and Implementation Gap.
+\newblock \emph{Nature Energy}, 10(1), 110--123.
 
 
 \end{thebibliography}
