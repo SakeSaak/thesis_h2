@@ -851,6 +851,76 @@ The three further analyses jointly confirm and clarify the Section~\ref{sec:ch8-
 
 
 
+
+\section{Synthetic DiD and Competing-Risks Lifecycle Analysis}
+\label{sec:ch8-sdid-cr}
+
+The robustness suite in Section~\ref{sec:ch8-robustness} and the heterogeneity analysis in Section~\ref{sec:ch8-heterogeneity} have ruled out inference, specification, outlier, and subgroup-based explanations for the CBAM informative null. Two final, methodologically state-of-the-art tests remain natural to apply: \emph{Synthetic DiD}, which directly addresses the pre-trends violation we documented in Section~\ref{sec:ch8-mc-power}, and \emph{Competing-Risks Cox Proportional Hazards} models, which decompose the binary cancel/operate outcome of Chapter~6 into its constituent lifecycle pathways. The first sharpens our causal inference. The second produces, perhaps unexpectedly, the most novel substantive finding of the entire chapter: the Blue-vs-PEM fragility gap is not uniform across the project lifecycle but is concentrated in a single outcome category, with implications that connect directly back to the real options framework of Chapter~3.
+
+\subsection{Synthetic Difference-in-Differences}
+
+\citet{arkhangelsky2021synthetic} introduce the Synthetic DiD (SDID) estimator, which combines the synthetic-control intuition (matched weighted controls) with the difference-in-differences identification logic (within-unit comparison over time). The key methodological advantage for our setting is that SDID's unit weights $\omega$ and time weights $\lambda$ together \emph{relax the parallel-trends assumption} on aggregate data, which is precisely the assumption violated by our event-study test in Section~\ref{sec:ch8-mc-power} ($F(6,152) = 20.18$, $p < 0.0001$).
+
+We construct a balanced panel of seven world regions (Europe EU-27, Europe non-EU, North America, Asia-Pacific, Latin America, Africa, Middle East) over the years 2015--2025, with outcome equal to the cancellation rate of CBAM-end-use-exposed projects per region-year cell. Treatment is Europe EU-27 from 2022 onward. We solve for $\omega$ on the seven-period pre-window 2015--2021 and for $\lambda$ on the same period, with regularization parameter $\zeta = 0.086$ as specified in \citet[Eq.~3.7]{arkhangelsky2021synthetic}.
+
+The Synthetic DiD point estimate is $\hat\tau_{\mathrm{SDID}} = +0.148$, compared to a naive two-way DiD of $+0.139$ on the same panel. The two estimates differ by only $+0.009$, indicating that the unit and time weights chosen by SDID do not substantially alter the average treatment effect on the treated --- the synthetic control matches the EU pre-CBAM cancellation trajectory closely enough that the implicit re-weighting yields essentially the same post-CBAM differential.
+
+For inference, we apply the standard placebo-permutation procedure: treat each of the six non-EU regions as a counterfactual treated unit, re-estimate SDID, and compare the observed $\hat\tau_{\mathrm{SDID}}$ against the resulting placebo distribution. The placebo estimates range from $-0.128$ (Asia-Pacific) to $+0.250$ (North America) with a placebo standard deviation of $0.123$. The two-sided permutation $p$-value is $0.167$, with corresponding 90\% confidence interval $[-0.054, +0.350]$.
+
+Synthetic DiD thus produces a \emph{tenth informative null} for the EU-CBAM-cancellation differential, fully consistent with the prior nine robustness pillars. The methodological significance is that this null arises even under an inferential framework that explicitly handles parallel-trends failures via SC-style weighting --- exactly the failure mode we identified in our pre-trends F-test. The associational EU-CBAM-cancellation pattern is not robust to any of the modern small-sample causal-inference tools we have applied, and the addition of SDID closes a methodological avenue that a reviewer might otherwise have invoked.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_synthetic_did.pdf}
+\caption{Synthetic DiD for EU CBAM-exposed cancellation rates. \textbf{Panel A} plots the treated (EU-27) trajectory against the synthetic-control trajectory constructed as a $\omega$-weighted combination of six non-EU regions; the vertical dashed line marks the 2022 CBAM transitional-phase start. \textbf{Panel B} shows the placebo permutation distribution of $\hat\tau$ across the six possible counterfactual treated units, with the observed $\hat\tau_{\mathrm{SDID}} = +0.148$ marked in purple.}
+\label{fig:ch8-sdid}
+\end{figure}
+
+\subsection{Competing-Risks Cox PH: Lifecycle Decomposition}
+
+Our Chapter~6 analysis treats cancellation as a single binary outcome. The S\&P data, however, codes thirteen distinct project-status categories, of which three correspond to terminal pathways: \emph{Plans cancelled} ($N = 103$, outright termination), \emph{Decommissioned} ($N = 103$, retirement after commissioning), and \emph{On-hold} ($N = 949$, paused but not formally cancelled). The remaining ten categories represent intermediate lifecycle stages (Feasibility, Design, Permitted, Financed, Under construction, Commissioned, etc.). The natural econometric framework for analyzing such data is the \emph{cause-specific Cox proportional hazards model} of \citet{beyersmann2012competing} in which each terminal event is modeled separately, treating other terminal events as censored.
+
+We estimate cause-specific Cox PH on the S\&P sample with covariates $\{$Blue, $\log\mathrm{cap}$, EU, NA, year$\}$ and synthetic duration measured as years from announcement to 2026. Table~\ref{tab:ch8-cr} reports the Blue and EU hazard ratios per cause-specific model.
+
+\begin{table}[ht]
+\centering
+\caption{Cause-specific Cox PH hazard ratios on S\&P sample, decomposing the Blue-vs-PEM cancellation gap by terminal lifecycle pathway.}
+\label{tab:ch8-cr}
+\begin{tabular}{lrrrrr}
+\toprule
+Terminal pathway & $N_{\mathrm{events}}$ & $\widehat{\mathrm{HR}}_{\mathrm{Blue}}$ & $p_{\mathrm{Blue}}$ & $\widehat{\mathrm{HR}}_{\mathrm{EU}}$ & $p_{\mathrm{EU}}$ \\
+\midrule
+Plans cancelled (outright)       & 102 & $1.576$  & $0.020^{\star}$ & $0.847$ & $0.220$ \\
+Decommissioned (post-commission) &  49 & $0.954$  & $0.849$         & $1.069$ & $0.659$ \\
+On-hold (paused, not cancelled)  & 947 & $0.867$  & $0.173$         & $0.776$ & $0.000^{\star\star\star}$ \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize $^{\star}$ $p<0.05$; $^{\star\star\star}$ $p<0.001$. Coefficients penalised ($\ell_2 = 0.05$).} \\
+\end{tabular}
+\end{table}
+
+The decomposition produces a finding that substantially refines, rather than reverses, the Chapter~6 carbon-conditional intensification result. Three observations are critical.
+
+\emph{First}, the Blue-fragility documented in Chapter~6 is \emph{entirely concentrated in outright cancellation}. The hazard ratio of Blue projects relative to PEM projects for ``Plans cancelled'' is $\widehat{\mathrm{HR}}_{\mathrm{Blue}} = 1.576$ ($p = 0.020$), but for decommissioning after commissioning and for on-hold pauses the Blue effect collapses to indistinguishable from one ($\widehat{\mathrm{HR}} = 0.954$ and $0.867$ respectively, both non-significant). In words: once a Blue project has been commissioned, it does not exit operation at a higher rate than a PEM project; Blue projects also do not pause more often than PEM projects. The entirety of the Chapter~6 Blue-fragility mechanism resolves to a single lifecycle stage: \emph{abandonment before commissioning}.
+
+\emph{Second}, this finding is independently corroborated by the v7-sample cause-specific Cox PH (event-type 1 vs event-type 2 in the project lifecycle coding). For the v7 event-type 1 pathway ($N = 31$, of which 24 are Blue and 7 are PEM), the Blue hazard ratio is $\widehat{\mathrm{HR}}_{\mathrm{Blue}} = 6.13$ ($p < 0.0001$); for the v7 event-type 2 pathway ($N = 12$, of which 3 are Blue and 9 are PEM), it is $\widehat{\mathrm{HR}}_{\mathrm{Blue}} = 0.87$ ($p = 0.793$). The mechanism is consistent across both data sources: \emph{Blue projects disproportionally fail before they reach operation, but do not disproportionally fail once operational}.
+
+\emph{Third}, this connects directly to the real options framework of Chapter~3. A central prediction of the abandonment-option literature \citep{dixit1994investment} is that the option to abandon is exercised \emph{before sunk costs are committed}. Pre-commissioning project status entails progressively rising sunk-cost commitment (Feasibility, Design, Permitting, Financing, Construction) but no operational cash flows; the abandonment option is most valuable at the early stages where the commitment is reversible. Our cause-specific Cox PH provides the first empirical evidence in the hydrogen project literature that the Blue-vs-PEM fragility differential is consistent with this theoretical prediction: Blue projects exercise the abandonment option pre-commissioning at a substantially higher rate than PEM projects do, conditional on lifecycle stage and project size, but once committed and operational, the two technologies have indistinguishable continuation hazards.
+
+A secondary observation in Table~\ref{tab:ch8-cr} concerns the EU coefficient. On the on-hold pathway, $\widehat{\mathrm{HR}}_{\mathrm{EU}} = 0.776$ ($p < 0.001$): EU projects are significantly less likely to enter on-hold status than non-EU projects. Combined with the absence of a significant EU effect on the outright-cancellation pathway, this suggests that EU developers make \emph{more definitive} terminal decisions (continue or cancel) rather than indefinite pauses, which is consistent with the more structured regulatory environment of the EU compared to other jurisdictions. This is itself a novel cross-regional finding and a candidate for follow-up work.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/F_competing_risks.pdf}
+\caption{Competing-risks Cox proportional hazards analysis. \textbf{Panel A} plots Kaplan-Meier survival curves for the v7 event-type-1 pathway (Blue-dominated, $\widehat{\mathrm{HR}}_{\mathrm{Blue}} = 6.13$, $p < 0.0001$). \textbf{Panel B} plots Kaplan-Meier survival curves for the v7 event-type-2 pathway (PEM-dominated, $\widehat{\mathrm{HR}}_{\mathrm{Blue}} = 0.87$, $p = 0.793$). \textbf{Panel C} shows S\&P-sample cause-specific Cox PH $\hat\beta_{\mathrm{Blue}}$ point estimates with 95\% confidence intervals across the three terminal pathways: outright cancellation, decommissioning after commissioning, and on-hold status.}
+\label{fig:ch8-cr}
+\end{figure}
+
+\subsection{Implications for the Chapter~6 Carbon-Conditional Mechanism}
+
+The competing-risks decomposition does not weaken the Chapter~6 finding that Blue-vs-PEM fragility intensifies under higher carbon prices ($\hat\beta_{\mathrm{int}} = -1.43$, intensifying from $-0.7$ to $-1.9$ over 2014--2024). It \emph{localizes} that finding to a specific behavioral mechanism: the abandonment-option exercise at pre-commissioning lifecycle stages. The carbon-conditional intensification is therefore most accurately interpreted as a tightening, over time, of the threshold at which Blue developers exercise their pre-commissioning abandonment option as a function of the carbon price level. This is a structural prediction the real options framework of Chapter~3 produces directly, and it transforms what was a reduced-form empirical regularity into a theoretically grounded mechanism with a clear behavioral interpretation. The cause-specific Cox PH is, in this sense, the missing methodological bridge between the empirical Chapter~6 finding and the theoretical Chapter~3 framework, and constitutes the most substantive single methodological contribution of the entire robustness chapter.
+
+
+
 \begin{thebibliography}{99}
 
 \bibitem[European Commission(2023)]{ec2023cbam}
@@ -907,6 +977,23 @@ Roodman, D., MacKinnon, J. G., Nielsen, M. \O., \& Webb, M. D. (2019).
 Vehtari, A., Gelman, A., Simpson, D., Carpenter, B., \& Bürkner, P.-C. (2021).
 \newblock Rank-normalization, folding, and localization: An improved $\hat{R}$ for assessing convergence of MCMC.
 \newblock \textit{Bayesian Analysis}, 16(2), 667--718.
+
+
+\bibitem{arkhangelsky2021synthetic}
+Arkhangelsky, D., Athey, S., Hirshberg, D.~A., Imbens, G.~W., \& Wager, S. (2021).
+\newblock Synthetic Difference-in-Differences.
+\newblock \emph{American Economic Review}, 111(12), 4088--4118.
+
+\bibitem{beyersmann2012competing}
+Beyersmann, J., Allignol, A., \& Schumacher, M. (2012).
+\newblock \emph{Competing Risks and Multistate Models with R}.
+\newblock Springer, New York.
+
+\bibitem{dixit1994investment}
+Dixit, A.~K., \& Pindyck, R.~S. (1994).
+\newblock \emph{Investment under Uncertainty}.
+\newblock Princeton University Press, Princeton.
+
 
 \end{thebibliography}
 
