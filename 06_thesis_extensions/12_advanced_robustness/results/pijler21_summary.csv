@@ -1,0 +1,2 @@
+method,reference_p5,reference_p17,n_treated_EUgreen,n_control_pool,method_1A_ATT,method_1A_p_perm,method_1B_ATT,method_1B_p_perm,method_2_matching_ATT,method_2_matching_ci_lo,method_2_matching_ci_hi,method_2_matching_p_boot,matching_mean_distance
+Pijler 21: Project-level SDID + 1-NN matching,Replaces Pijler 5 (regional SDID),Complements Pijler 17 (sequential SDID),432,649,-0.04062270746127104,0.5555555555555556,-0.006285344693892785,0.6666666666666666,-0.0023148148148148147,-0.023148148148148147,0.01851851851851852,0.844,0.06168041637766361
