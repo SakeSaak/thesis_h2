@@ -2,34 +2,32 @@
 20_multistate_sp.py
 
 ============================================================================
-Test 4: Multistate Lifecycle Analysis op S&P Data
+Test 4: Multistate Lifecycle Analysis op S&P data
 ============================================================================
 
-Doel: Identificeer WELKE specifieke lifecycle-transitie de BlueCCS-fragiliteit
-draagt. Het v7 Fine-Gray model gaf HR_cancel = 13.19 voor terminal cancellation,
-maar zegt niets over WAAR in de lifecycle de cancellation plaatsvindt:
-- Pre-FID (early stages 1-5)?
-- Post-FID (construction stage 7)?
-- Operational (post stage 9)?
+Motivatie:
+  Onze v7 paper claimt op basis van 31 events: "Blue projects don't pause,
+  they terminate" (HR_cancel=13.19 vs HR_on-hold=1.20 NS). Dit is een sterke
+  uitspraak die we willen valideren op de S&P data met meer events:
+  - 103 cancellations
+  - 905 on-hold events (842 assumed + 63 confirmed)
+  - 103 decommissioned
+  - 516 operational (Fully + Partially commissioned)
 
-S&P data heeft 13 statussen die we mappen naar 9 transient + 4 absorbing
-lifecycle stages. Zonder transition dates kunnen we geen volledige
-Aalen-Johansen multistate doen — maar we kunnen:
+Drie analyses:
+  1. Multinomial logit op current 4-state status (cancelled, on-hold,
+     decommissioned, still-active = baseline)
+  2. Cause-specific Cox PH voor elk failure-type
+  3. Stage-of-cancellation Phase 1-5 chi-square test
 
-  Analyse 1: Multinomial logit op CURRENT status, conditional on covariates
-             → identificeert in welke status Blue projecten meer 'stuck' zijn
+Sample: 1354 Blue + Green projecten waar we Blue/Green correct kunnen
+classificeren via H2 Technology + Technology2.
+  - Blue (Fossil with CCS): n=273
+  - Green (PEM/Alkaline/SOEC/AEM/Alkaline & PEM): n=1081
 
-  Analyse 2: Cause-specific Cox PH op 3 absorbing types (cancelled / on-hold
-             / decommissioned), met huidige stage als covariate
-
-  Analyse 3: Stage-of-cancellation analyse voor cancelled projects
-             → distributie over lifecycle stages bij cancellation tijd
-             (via Date construction / Date online completeness)
-
-  Analyse 4: Lifecycle completion fractie voor cancelled vs operational
-
-Auteur: Sake Saakstra, 20 mei 2026
+Pijler 16 in de robustness battery. Sake Saakstra, 20 mei 2026.
 """
+
 from __future__ import annotations
 from pathlib import Path
 import warnings
@@ -39,6 +37,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
+import statsmodels.api as sm
+from statsmodels.discrete.discrete_model import MNLogit
+from lifelines import CoxPHFitter
 
 PROJECT_ROOT = Path("/Users/sakesaakstra/Desktop/thesis_h2")
 SP_PATH = PROJECT_ROOT / "01_data/raw/Hydrogen_projects_master_data_table_24-03-26.xlsx"
@@ -47,461 +48,358 @@ FIG_DIR = PROJECT_ROOT / "06_thesis_extensions/12_advanced_robustness/figures"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
+
 def header(t):
-    print("\n" + "=" * 76 + f"\n  {t}\n" + "=" * 76)
+    print("\n" + "=" * 78 + f"\n  {t}\n" + "=" * 78)
 
 
-# === STAP 1: LAAD EN PREPROCESS ===
-header("STAP 1: Data laden en correcte Blue/Green classificatie")
+# === STAP 1: LAAD DATA ===
+header("STAP 1: Laad S&P data en classificeer Blue/Green")
 
 sp = pd.read_excel(SP_PATH, sheet_name='Export')
-sp = sp[sp['Year announced'].notna()].copy()
 
-# Correcte technologie-classificatie
-sp['is_blue_ccs'] = (sp['Technology2'] == 'Fossil with CCS').astype(int)
-green_electrolysis_techs = ['PEM', 'Alkaline', 'SOEC', 'AEM', 'Alkaline & PEM']
-sp['is_pem_green'] = sp['H2 Technology'].isin(green_electrolysis_techs).astype(int)
+# Blue: Fossil with CCS (Technology2)
+# Green: PEM, Alkaline, SOEC, AEM, Alkaline & PEM (H2 Technology)
+sp['is_blue'] = (sp['Technology2'] == 'Fossil with CCS').astype(int)
+sp['is_green'] = sp['H2 Technology'].isin(['PEM', 'Alkaline', 'SOEC', 'AEM', 'Alkaline & PEM']).astype(int)
 
-# Filter naar de Blue vs PEM/Green vergelijking
-sp_blue = sp[sp['is_blue_ccs'] == 1].copy()
-sp_green = sp[sp['is_pem_green'] == 1].copy()
-sp_relevant = pd.concat([sp_blue, sp_green], ignore_index=True)
+# Filter naar Blue + Green sample
+df = sp[(sp['is_blue'] == 1) | (sp['is_green'] == 1)].copy()
+df['announce_year'] = pd.to_datetime(df['Date announced'], errors='coerce').dt.year
+df['est_year_online'] = pd.to_numeric(df['Estimated year online'], errors='coerce')
+df = df[df['announce_year'].notna()].copy()
+print(f"Filter naar Blue + Green: {len(df)} projecten")
+print(f"  Blue (Fossil with CCS): {df['is_blue'].sum()}")
+print(f"  Green (electrolysis):   {df['is_green'].sum()}")
 
-print(f"Totaal S&P: {len(sp)}")
-print(f"  Blue (CCS-based): {len(sp_blue)}")
-print(f"  Green (PEM/Alk/SOEC/AEM): {len(sp_green)}")
-print(f"  Relevant sample (Blue + Green): {len(sp_relevant)}")
-
-# Status mapping naar lifecycle stages
-status_to_stage = {
-    'Announced (early stage)': (1, 'transient', '01_Announced_early'),
-    'Announced (advanced)':    (2, 'transient', '02_Announced_advanced'),
-    'Feasibility':             (3, 'transient', '03_Feasibility'),
-    'Design':                  (4, 'transient', '04_Design'),
-    'Permitted':               (5, 'transient', '05_Permitted'),
-    'Financed':                (6, 'transient', '06_Financed'),
-    'Under construction':      (7, 'transient', '07_Construction'),
-    'Partially commissioned':  (8, 'transient', '08_PartialCommission'),
-    'Fully commissioned':      (9, 'transient', '09_Operational'),
-    'Plans cancelled':         (10, 'absorbing', 'A_Cancelled'),
-    'On-hold (assumed)':       (11, 'absorbing', 'B_OnHold_assumed'),
-    'On-hold (confirmed)':     (12, 'absorbing', 'C_OnHold_confirmed'),
-    'Decommissioned':          (13, 'absorbing', 'D_Decommissioned'),
-}
-
-sp_relevant['stage_num'] = sp_relevant['project_status'].map(lambda s: status_to_stage.get(s, (-1,'?', '?'))[0])
-sp_relevant['stage_type'] = sp_relevant['project_status'].map(lambda s: status_to_stage.get(s, (-1,'?', '?'))[1])
-sp_relevant['stage_label'] = sp_relevant['project_status'].map(lambda s: status_to_stage.get(s, (-1,'?', '?'))[2])
-
-print(f"\nStage distributie binnen relevante sample (Blue=1, Green=0):")
-crosstab = pd.crosstab(sp_relevant['stage_label'], sp_relevant['is_blue_ccs'],
-                       margins=True, margins_name='Total')
-print(crosstab.to_string())
-
-
-# === STAP 2: ANALYSE 1 — MULTINOMIAL LOGIT OP HUIDIGE STATUS ===
-header("STAP 2: Analyse 1 — Multinomial logit op huidige status")
-
-# Categorieën voor multinomial: groep transient (1-9) ALS 'still_active' (catch-all),
-# en breakdown van absorbing in 3 types:
-def collapse_stage(stage_num):
-    if pd.isna(stage_num):
-        return 'unknown'
-    if stage_num <= 9:
-        return 'still_active'
-    elif stage_num == 10:
+# 4-state outcome
+def classify_state(status):
+    if status == 'Plans cancelled':
         return 'cancelled'
-    elif stage_num in [11, 12]:
+    elif status in ['On-hold (assumed)', 'On-hold (confirmed)']:
         return 'on_hold'
-    elif stage_num == 13:
+    elif status == 'Decommissioned':
         return 'decommissioned'
-    return 'unknown'
-
-sp_relevant['outcome_4state'] = sp_relevant['stage_num'].apply(collapse_stage)
-print(f"\n4-state outcome distributie:")
-ct4 = pd.crosstab(sp_relevant['outcome_4state'], sp_relevant['is_blue_ccs'],
-                  margins=True, margins_name='Total')
-print(ct4.to_string())
-
-# Conditional probabilities per technology
-print(f"\nConditional probabilities per technology:")
-for blue_val in [0, 1]:
-    label = 'Blue' if blue_val == 1 else 'Green'
-    subset = sp_relevant[sp_relevant['is_blue_ccs'] == blue_val]
-    n = len(subset)
-    print(f"\n  {label} (n={n}):")
-    for outcome in ['still_active', 'cancelled', 'on_hold', 'decommissioned']:
-        k = (subset['outcome_4state'] == outcome).sum()
-        pct = 100 * k / n if n > 0 else 0
-        print(f"    P({outcome}) = {k}/{n} = {pct:.2f}%")
-
-# Multinomial logit met statsmodels
-import statsmodels.formula.api as smf
-from statsmodels.discrete.discrete_model import MNLogit
-
-# Bouw regression dataframe
-reg_df = sp_relevant.copy()
-reg_df['log_capacity'] = np.log(pd.to_numeric(reg_df['Output capacity per year'], errors='coerce').fillna(1).clip(lower=0.1))
-reg_df['announce_year_c'] = reg_df['Year announced'] - 2018
-reg_df['is_EU27'] = (reg_df['Region major'] == 'Europe (EU-27)').astype(int)
-reg_df['is_Asia'] = (reg_df['Region major'] == 'Asia-Pacific').astype(int)
-reg_df['is_NA'] = (reg_df['Region major'] == 'North America').astype(int)
-reg_df = reg_df[reg_df['outcome_4state'] != 'unknown'].copy()
-
-# Encode outcome als integer
-outcome_map = {'still_active': 0, 'cancelled': 1, 'on_hold': 2, 'decommissioned': 3}
-reg_df['outcome_int'] = reg_df['outcome_4state'].map(outcome_map)
-
-# Drop missing covariates
-keep_cols = ['is_blue_ccs', 'log_capacity', 'announce_year_c', 'is_EU27', 'is_Asia', 'is_NA', 'outcome_int']
-reg_df = reg_df[keep_cols].dropna().copy()
-
-print(f"\nN voor multinomial logit: {len(reg_df)}")
-print(f"Outcome distributie: {reg_df['outcome_int'].value_counts().to_dict()}")
-
-X = reg_df[['is_blue_ccs', 'log_capacity', 'announce_year_c', 'is_EU27', 'is_Asia', 'is_NA']].copy()
-X.insert(0, 'const', 1.0)
-y = reg_df['outcome_int']
-
-try:
-    mn_model = MNLogit(y, X).fit(disp=False, maxiter=200)
-    print("\nMultinomial Logit (basis = still_active):")
-    print(mn_model.summary().tables[1])
-
-    # Marginal effects voor is_blue_ccs op elke outcome
-    print("\nGeschatte coëfficiënten voor is_blue_ccs:")
-    for outcome_int, outcome_name in [(1, 'cancelled'), (2, 'on_hold'), (3, 'decommissioned')]:
-        # MNLogit params zijn shape (n_features, n_outcomes - 1)
-        col_idx = outcome_int - 1  # outcome 1 → col 0, etc.
-        beta = mn_model.params.iloc[:, col_idx]
-        se = mn_model.bse.iloc[:, col_idx]
-        pvals = mn_model.pvalues.iloc[:, col_idx]
-        b_blue = beta['is_blue_ccs']
-        se_blue = se['is_blue_ccs']
-        p_blue = pvals['is_blue_ccs']
-        print(f"\n  Outcome '{outcome_name}' vs still_active:")
-        print(f"    β_blue = {b_blue:+.3f}, SE = {se_blue:.3f}, p = {p_blue:.4f}")
-        print(f"    Relative risk ratio = {np.exp(b_blue):.3f}")
-except Exception as e:
-    print(f"MNLogit error: {e}")
-    mn_model = None
-
-
-# === STAP 3: ANALYSE 2 — CAUSE-SPECIFIC COX PH ===
-header("STAP 3: Analyse 2 — Cause-specific Cox PH op 3 absorbing types")
-
-from lifelines import CoxPHFitter
-
-# Bouw duration data: time = years_since_announcement of cap bij snapshot
-SNAPSHOT_YEAR = 2026
-cox_df = sp_relevant.copy()
-cox_df['announce_year_int'] = cox_df['Year announced'].astype(int)
-cox_df['log_capacity'] = np.log(pd.to_numeric(cox_df['Output capacity per year'], errors='coerce').fillna(1).clip(lower=0.1))
-cox_df['is_EU27'] = (cox_df['Region major'] == 'Europe (EU-27)').astype(int)
-
-# Duration: voor absorbing states, gebruik schatting (announce + 3 jaar of midpoint)
-# Voor still_active, censoring op SNAPSHOT_YEAR
-est_online = pd.to_numeric(cox_df['Estimated year online'], errors='coerce')
-cox_df['est_online'] = est_online
-
-def compute_duration(row):
-    a = row['announce_year_int']
-    if row['stage_type'] == 'absorbing':
-        # Event time geschat als midpoint announce/est_online
-        if pd.notna(row['est_online']):
-            return max(1, (row['est_online'] - a) / 2)
-        else:
-            return 3  # fallback
+    elif status in ['Fully commissioned', 'Partially commissioned']:
+        return 'operational'
     else:
-        # Censored at snapshot
-        return max(1, SNAPSHOT_YEAR - a)
+        return 'still_active'
 
-cox_df['duration'] = cox_df.apply(compute_duration, axis=1).astype(float).clip(lower=0.5)
-cox_df['event'] = (cox_df['stage_type'] == 'absorbing').astype(int)
+df['state'] = df['project_status'].apply(classify_state)
+print(f"\n4-state distributie:")
+print(df['state'].value_counts())
 
-print(f"N voor Cox: {len(cox_df)}")
-print(f"  Events totaal: {cox_df['event'].sum()}")
-print(f"  Cancelled: {(cox_df['outcome_4state']=='cancelled').sum()}")
-print(f"  On-hold:   {(cox_df['outcome_4state']=='on_hold').sum()}")
-print(f"  Decomm:    {(cox_df['outcome_4state']=='decommissioned').sum()}")
+# Cross-tab
+print(f"\nState x Blue:")
+ct = pd.crosstab(df['state'], df['is_blue'], margins=True)
+ct.columns = ['Green', 'Blue', 'Total']
+print(ct.to_string())
 
-# Cause-specific Cox PH per absorbing type
-results_cause_specific = []
-for cause_name, cause_outcomes in [
-    ('cancelled', ['cancelled']),
-    ('on_hold', ['on_hold']),
-    ('decommissioned', ['decommissioned']),
-]:
-    print(f"\n{'='*40}")
-    print(f"  Cause-specific Cox PH: {cause_name}")
-    print(f"{'='*40}")
-    # Censor competing risks (alle events behalve deze cause worden censored)
-    df_cs = cox_df.copy()
-    df_cs['event_cs'] = ((df_cs['stage_type'] == 'absorbing') &
-                        (df_cs['outcome_4state'].isin(cause_outcomes))).astype(int)
-    n_events = df_cs['event_cs'].sum()
-    print(f"  N events: {n_events}")
-    if n_events < 5:
-        print(f"  → Te weinig events voor stabiele estimatie, skip")
-        continue
 
+# === STAP 2: MULTINOMIAL LOGIT ===
+header("STAP 2: Multinomial Logit op 4-state status")
+
+# Baseline = still_active
+# Outcomes = cancelled, on_hold, decommissioned (vs still_active)
+# Filter: alleen non-operational (cancelled/on_hold/decommissioned/still_active)
+df_mn = df[df['state'] != 'operational'].copy()
+
+# Encode state
+state_order = ['still_active', 'cancelled', 'on_hold', 'decommissioned']
+df_mn['state_code'] = df_mn['state'].map({s: i for i, s in enumerate(state_order)})
+
+# Features
+df_mn['log_capacity_mw'] = np.log1p(pd.to_numeric(df_mn['Output capacity per year'], errors='coerce').fillna(0))
+df_mn['years_since_announce'] = 2026 - df_mn['announce_year']
+
+# Region dummies
+df_mn['region_eu'] = (df_mn['Region major'] == 'Europe (EU-27)').astype(int)
+df_mn['region_asia'] = (df_mn['Region major'] == 'Asia-Pacific').astype(int)
+df_mn['region_americas'] = df_mn['Region major'].isin(['North America', 'Latin America']).astype(int)
+
+X = df_mn[['is_blue', 'log_capacity_mw', 'years_since_announce',
+           'region_eu', 'region_asia', 'region_americas']].copy()
+X = sm.add_constant(X)
+y = df_mn['state_code'].values
+
+# Drop rows met missende waarden
+mask = X.notna().all(axis=1)
+X_fit = X[mask]
+y_fit = y[mask]
+print(f"Sample voor MNlogit: {len(X_fit)}")
+
+mn_model = MNLogit(y_fit, X_fit)
+mn_result = mn_model.fit(method='newton', maxiter=200, disp=False)
+
+# Print results
+print(f"\nMNLogit fit:")
+print(f"  LL = {mn_result.llf:.2f}, LL_null = {mn_result.llnull:.2f}")
+print(f"  Pseudo R² (McFadden) = {mn_result.prsquared:.4f}")
+
+# Coefficients
+print(f"\nMNLogit coefficients (vs still_active baseline):")
+params = mn_result.params
+pvalues = mn_result.pvalues
+state_labels = state_order[1:]  # skip baseline
+for i, lbl in enumerate(state_labels):
+    print(f"\n  → State: {lbl}")
+    for var in X_fit.columns:
+        coef = params.iloc[X_fit.columns.tolist().index(var), i]
+        pval = pvalues.iloc[X_fit.columns.tolist().index(var), i]
+        rrr = np.exp(coef)
+        sig = '***' if pval < 0.01 else '**' if pval < 0.05 else '*' if pval < 0.10 else ''
+        print(f"    {var:<25} coef={coef:+.4f}, RRR={rrr:.3f}, p={pval:.4f} {sig}")
+
+# Specifieke Blue interpretatie
+print(f"\n*** BLUE EFFECT (relative risk ratios) ***")
+for i, lbl in enumerate(state_labels):
+    blue_idx = X_fit.columns.tolist().index('is_blue')
+    coef = params.iloc[blue_idx, i]
+    pval = pvalues.iloc[blue_idx, i]
+    rrr = np.exp(coef)
+    sig = '***' if pval < 0.01 else '**' if pval < 0.05 else '*' if pval < 0.10 else ''
+    print(f"  → {lbl}: RRR_Blue = {rrr:.3f}, p = {pval:.4f} {sig}")
+
+
+# === STAP 3: CAUSE-SPECIFIC COX PH ===
+header("STAP 3: Cause-specific Cox PH voor failure types")
+
+df_cox = df.copy()
+df_cox['log_capacity_mw'] = np.log1p(pd.to_numeric(df_cox['Output capacity per year'], errors='coerce').fillna(0))
+df_cox['region_eu'] = (df_cox['Region major'] == 'Europe (EU-27)').astype(int)
+df_cox['region_asia'] = (df_cox['Region major'] == 'Asia-Pacific').astype(int)
+
+# Duration proxy
+df_cox['cancellation_year'] = np.where(
+    df_cox['state'].isin(['cancelled', 'on_hold', 'decommissioned']) & df_cox['est_year_online'].notna(),
+    np.ceil((df_cox['announce_year'] + df_cox['est_year_online']) / 2),
+    np.where(
+        df_cox['state'].isin(['cancelled', 'on_hold', 'decommissioned']),
+        df_cox['announce_year'] + 3,
+        2026.0  # censored
+    )
+)
+df_cox['cancellation_year'] = df_cox['cancellation_year'].clip(upper=2026.0)
+df_cox['duration'] = df_cox['cancellation_year'] - df_cox['announce_year']
+df_cox['duration'] = df_cox['duration'].clip(lower=0.5)  # avoid zero
+
+# Cause-specific event flags
+df_cox['event_cancel'] = (df_cox['state'] == 'cancelled').astype(int)
+df_cox['event_onhold'] = (df_cox['state'] == 'on_hold').astype(int)
+df_cox['event_decomm'] = (df_cox['state'] == 'decommissioned').astype(int)
+
+print(f"\nCox PH sample: {len(df_cox)}")
+print(f"  Cancel events: {df_cox['event_cancel'].sum()}")
+print(f"  On-hold events: {df_cox['event_onhold'].sum()}")
+print(f"  Decomm events: {df_cox['event_decomm'].sum()}")
+
+cox_results = {}
+for event_type, event_col in [('cancel', 'event_cancel'),
+                              ('on_hold', 'event_onhold'),
+                              ('decomm', 'event_decomm')]:
+    print(f"\n--- Cox PH: {event_type} (vs censored or other events) ---")
+    df_event = df_cox[['duration', event_col, 'is_blue', 'log_capacity_mw',
+                       'region_eu', 'region_asia']].dropna().copy()
+    df_event.columns = ['duration', 'event', 'is_blue', 'log_capacity_mw',
+                        'region_eu', 'region_asia']
     cph = CoxPHFitter()
-    fit_data = df_cs[['duration', 'event_cs', 'is_blue_ccs', 'log_capacity', 'is_EU27']].dropna()
-    fit_data = fit_data[fit_data['duration'] > 0]
     try:
-        cph.fit(fit_data, duration_col='duration', event_col='event_cs', show_progress=False)
-        s = cph.summary
-        print(f"\n  Cox PH summary:")
-        print(f"    Concordance: {cph.concordance_index_:.3f}")
-        for var in ['is_blue_ccs', 'log_capacity', 'is_EU27']:
-            if var in s.index:
-                hr = s.loc[var, 'exp(coef)']
-                hr_lo = s.loc[var, 'exp(coef) lower 95%']
-                hr_hi = s.loc[var, 'exp(coef) upper 95%']
-                p = s.loc[var, 'p']
-                print(f"    {var}: HR = {hr:.3f} [{hr_lo:.3f}, {hr_hi:.3f}], p = {p:.4f}")
-        results_cause_specific.append({
-            'cause': cause_name, 'n_events': n_events,
-            'concordance': cph.concordance_index_,
-            'HR_blue': s.loc['is_blue_ccs', 'exp(coef)'],
-            'HR_blue_lo': s.loc['is_blue_ccs', 'exp(coef) lower 95%'],
-            'HR_blue_hi': s.loc['is_blue_ccs', 'exp(coef) upper 95%'],
-            'p_blue': s.loc['is_blue_ccs', 'p'],
-            'HR_logcap': s.loc['log_capacity', 'exp(coef)'],
-            'p_logcap': s.loc['log_capacity', 'p'],
-            'HR_EU27': s.loc['is_EU27', 'exp(coef)'],
-            'p_EU27': s.loc['is_EU27', 'p'],
-        })
+        cph.fit(df_event, duration_col='duration', event_col='event')
+        hr_blue = np.exp(cph.params_['is_blue'])
+        ci = cph.confidence_intervals_.loc['is_blue']
+        hr_lo, hr_hi = np.exp(ci.iloc[0]), np.exp(ci.iloc[1])
+        p_blue = cph.summary.loc['is_blue', 'p']
+        print(f"  HR_Blue = {hr_blue:.3f}, 95% CI [{hr_lo:.3f}, {hr_hi:.3f}], p = {p_blue:.4f}")
+        for var in ['log_capacity_mw', 'region_eu', 'region_asia']:
+            hr = np.exp(cph.params_[var])
+            p = cph.summary.loc[var, 'p']
+            print(f"  HR_{var} = {hr:.3f}, p = {p:.4f}")
+        cox_results[event_type] = {
+            'HR_Blue': hr_blue, 'CI_lo': hr_lo, 'CI_hi': hr_hi, 'p': p_blue,
+            'n_events': df_event['event'].sum(), 'n_total': len(df_event),
+        }
     except Exception as e:
-        print(f"  Cox PH fit error: {e}")
-
-results_cs_df = pd.DataFrame(results_cause_specific)
-
-
-# === STAP 4: ANALYSE 3 — STAGE-OF-CANCELLATION ANALYSE ===
-header("STAP 4: Analyse 3 — Stage-of-cancellation distributie")
-
-# Voor cancelled projecten: hoever in de lifecycle waren ze?
-# Proxy via Date construction (heeft 55% completeness in stage 7) en Date online
-cancelled_subset = sp_relevant[sp_relevant['outcome_4state'] == 'cancelled'].copy()
-cancelled_subset['announce_year'] = pd.to_datetime(cancelled_subset['Date announced']).dt.year
-
-# Wat zegt de data over hoe ver ze waren?
-print(f"N cancelled in relevant sample: {len(cancelled_subset)}")
-print(f"Date construction beschikbaar: {cancelled_subset['Date construction'].notna().sum()}")
-print(f"Date online beschikbaar:       {cancelled_subset['Date online'].notna().sum()}")
-print(f"Date financed beschikbaar:     {cancelled_subset['Date financed'].notna().sum()}")
-print()
-
-# Schatting: WELKE stage was bereikt?
-# Als Date construction aanwezig: bereikt construction (stage 7)
-# Als Date financed aanwezig: bereikt financed (stage 6)
-# Anders: minstens announced + waarschijnlijk feasibility/design (stage 3-4)
-def estimate_reached_stage(row):
-    if pd.notna(row.get('Date construction')):
-        return '07_Construction'
-    if pd.notna(row.get('Date financed')):
-        return '06_Financed'
-    if pd.notna(row.get('Date permitting completion')):
-        return '05_Permitted'
-    # Anders: pre-FID (1-4)
-    return 'Pre-FID (1-4)'
-
-cancelled_subset['reached_stage'] = cancelled_subset.apply(estimate_reached_stage, axis=1)
-print("Stage bereikt op moment van cancellation:")
-stage_dist = pd.crosstab(cancelled_subset['reached_stage'], cancelled_subset['is_blue_ccs'],
-                          margins=True, margins_name='Total')
-print(stage_dist.to_string())
-
-# Statistical test: Blue projects cancel at later stage?
-contingency = pd.crosstab(cancelled_subset['reached_stage'], cancelled_subset['is_blue_ccs'])
-if contingency.shape[0] >= 2 and contingency.shape[1] >= 2:
-    chi2, p_chi2, dof, _ = stats.chi2_contingency(contingency)
-    print(f"\nChi² test van independence (stage × is_blue_ccs):")
-    print(f"  χ² = {chi2:.3f}, df = {dof}, p = {p_chi2:.4f}")
+        print(f"  ERROR: {e}")
+        cox_results[event_type] = {'HR_Blue': np.nan, 'p': np.nan}
 
 
-# === STAP 5: ANALYSE 4 — LIFECYCLE COMPLETION FRACTIE ===
-header("STAP 5: Analyse 4 — Lifecycle completion fractie")
+# === STAP 4: STAGE-OF-CANCELLATION ===
+header("STAP 4: Stage-of-cancellation analysis (Project phase)")
 
-# Voor elk cancelled project: (jaren-tot-cancel) / (verwachte-timeline)
-sp_relevant['announce_year_int'] = sp_relevant['Year announced'].astype(int)
-sp_relevant['est_online_year'] = pd.to_numeric(sp_relevant['Estimated year online'], errors='coerce')
-sp_relevant['expected_timeline'] = sp_relevant['est_online_year'] - sp_relevant['announce_year_int']
+cancelled = df[df['state'] == 'cancelled'].copy()
+print(f"Cancelled sample: {len(cancelled)}")
 
-cancelled_subset_2 = sp_relevant[sp_relevant['outcome_4state'] == 'cancelled'].copy()
-cancelled_subset_2['midpoint_year'] = np.where(
-    cancelled_subset_2['est_online_year'].notna(),
-    cancelled_subset_2['announce_year_int'] + (cancelled_subset_2['est_online_year'] - cancelled_subset_2['announce_year_int']) / 2,
-    cancelled_subset_2['announce_year_int'] + 3.0
-)
-cancelled_subset_2['years_to_cancel'] = cancelled_subset_2['midpoint_year'] - cancelled_subset_2['announce_year_int']
-cancelled_subset_2['completion_fraction'] = np.where(
-    cancelled_subset_2['expected_timeline'] > 0,
-    cancelled_subset_2['years_to_cancel'] / cancelled_subset_2['expected_timeline'],
-    0.5  # fallback midpoint
-)
-cancelled_subset_2['completion_fraction'] = pd.to_numeric(cancelled_subset_2['completion_fraction'], errors='coerce').fillna(0.5)
-cancelled_subset_2['completion_fraction'] = cancelled_subset_2['completion_fraction'].clip(lower=0, upper=1)
+# Phase distribution
+phase_blue = cancelled[cancelled['is_blue'] == 1]['Project phase'].value_counts().sort_index()
+phase_green = cancelled[cancelled['is_green'] == 1]['Project phase'].value_counts().sort_index()
+print(f"\nBlue cancellations per phase:")
+print(phase_blue.to_string())
+print(f"\nGreen cancellations per phase:")
+print(phase_green.to_string())
 
-print(f"Lifecycle completion fractie voor cancelled projects:")
-print(f"  Blue (n={(cancelled_subset_2['is_blue_ccs']==1).sum()}):")
-blue_cf = cancelled_subset_2[cancelled_subset_2['is_blue_ccs']==1]['completion_fraction']
-print(f"    Mean: {blue_cf.mean():.3f}")
-print(f"    Median: {blue_cf.median():.3f}")
-print(f"    Std: {blue_cf.std():.3f}")
-print(f"  Green (n={(cancelled_subset_2['is_blue_ccs']==0).sum()}):")
-green_cf = cancelled_subset_2[cancelled_subset_2['is_blue_ccs']==0]['completion_fraction']
-print(f"    Mean: {green_cf.mean():.3f}")
-print(f"    Median: {green_cf.median():.3f}")
-print(f"    Std: {green_cf.std():.3f}")
+# Phase aggregation: Phase 1-2 = Pre-FID, Phase 3+ = Post-FID
+def phase_group(p):
+    if pd.isna(p):
+        return 'unknown'
+    if p in ['Phase 1', 'Phase 2']:
+        return 'Pre-FID'
+    elif p in ['Phase 3', 'Phase 4', 'Phase 5', 'Phase 6']:
+        return 'Post-FID'
+    else:
+        return 'other'
+cancelled['phase_group'] = cancelled['Project phase'].apply(phase_group)
+ct_phase = pd.crosstab(cancelled['phase_group'], cancelled['is_blue'])
+ct_phase.columns = ['Green', 'Blue']
+print(f"\nCancelled x phase_group x Blue:")
+print(ct_phase.to_string())
 
-# t-test
-if len(blue_cf) >= 5 and len(green_cf) >= 5:
-    t_stat, p_t = stats.ttest_ind(blue_cf, green_cf, equal_var=False)
-    print(f"\n  Welch's t-test: t = {t_stat:.3f}, p = {p_t:.4f}")
-    # KS-test
-    ks_stat, p_ks = stats.ks_2samp(blue_cf, green_cf)
-    print(f"  Kolmogorov-Smirnov test: D = {ks_stat:.3f}, p = {p_ks:.4f}")
+# Chi-square test
+if ct_phase.size > 0 and ct_phase.shape[1] >= 2:
+    chi2, p_chi, dof, expected = stats.chi2_contingency(ct_phase)
+    print(f"\nChi-square test: chi2 = {chi2:.3f}, dof = {dof}, p = {p_chi:.4f}")
+
+    # Percentage breakdown
+    pct = ct_phase.div(ct_phase.sum(axis=0), axis=1) * 100
+    print(f"\nPercentage cancellations per phase, by Blue/Green:")
+    print(pct.round(1).to_string())
 
 
-# === STAP 6: FIGUREN ===
-header("STAP 6: Figuren")
+# === STAP 5: FIGUREN ===
+header("STAP 5: Figuren")
 
-# Figuur 1: Stage distributie Blue vs Green (huidige status)
-fig, ax = plt.subplots(figsize=(12, 6))
-all_stages = sorted(sp_relevant['stage_label'].unique())
-blue_counts = [sp_relevant[(sp_relevant['stage_label']==s) & (sp_relevant['is_blue_ccs']==1)].shape[0] for s in all_stages]
-green_counts = [sp_relevant[(sp_relevant['stage_label']==s) & (sp_relevant['is_blue_ccs']==0)].shape[0] for s in all_stages]
-total_blue = sum(blue_counts)
-total_green = sum(green_counts)
-blue_pct = [b/total_blue*100 for b in blue_counts]
-green_pct = [g/total_green*100 for g in green_counts]
+# Fig 1: State distribution Blue vs Green
+fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+state_pct = pd.crosstab(df['state'], df['is_blue'], normalize='columns') * 100
+state_pct.columns = ['Green', 'Blue']
+state_pct.T.plot(kind='bar', stacked=True, ax=axes[0], width=0.55,
+                 colormap='Set2', edgecolor='black')
+axes[0].set_ylabel('% of projects', fontsize=11)
+axes[0].set_xlabel('Technology', fontsize=11)
+axes[0].set_title('4-state lifecycle distribution\n(S&P data, N=1354)', fontsize=11)
+axes[0].set_xticklabels(['Green (n=1081)', 'Blue (n=273)'], rotation=0)
+axes[0].legend(title='State', loc='center left', bbox_to_anchor=(1.0, 0.5), fontsize=9)
+axes[0].grid(axis='y', alpha=0.3)
 
-x = np.arange(len(all_stages))
-width = 0.4
-ax.bar(x - width/2, blue_pct, width, label=f'Blue (n={total_blue})', color='#1f4e8a', alpha=0.85)
-ax.bar(x + width/2, green_pct, width, label=f'Green (n={total_green})', color='#4ca64c', alpha=0.85)
-ax.set_xticks(x)
-ax.set_xticklabels(all_stages, rotation=45, ha='right', fontsize=9)
-ax.set_ylabel('% of projects in stage', fontsize=11)
-ax.set_title('Stage distributie: Blue vs Green Hydrogen Projects (S&P, N=3 246)', fontsize=12)
-ax.axvline(x=8.5, color='red', linestyle='--', alpha=0.5, label='Absorbing states →')
-ax.legend(loc='upper right')
-ax.grid(alpha=0.3, axis='y')
+# Fig 2: HR Blue from cause-specific Cox
+hr_blue = [cox_results[k]['HR_Blue'] for k in ['cancel', 'on_hold', 'decomm']]
+ci_los = [cox_results[k].get('CI_lo', np.nan) for k in ['cancel', 'on_hold', 'decomm']]
+ci_his = [cox_results[k].get('CI_hi', np.nan) for k in ['cancel', 'on_hold', 'decomm']]
+events = ['Cancelled', 'On-hold', 'Decomm.']
+
+x = np.arange(len(events))
+err_lo = [hr - lo if not pd.isna(lo) else 0 for hr, lo in zip(hr_blue, ci_los)]
+err_hi = [hi - hr if not pd.isna(hi) else 0 for hr, hi in zip(hr_blue, ci_his)]
+axes[1].errorbar(x, hr_blue, yerr=[err_lo, err_hi], fmt='o', color='#d62728',
+                 markersize=12, capsize=6, linewidth=2.5)
+axes[1].axhline(y=1.0, color='gray', linestyle='--', alpha=0.6, label='HR = 1 (no Blue effect)')
+axes[1].set_xticks(x)
+axes[1].set_xticklabels(events, fontsize=11)
+axes[1].set_ylabel('HR_Blue (cause-specific Cox PH)', fontsize=11)
+axes[1].set_title('Cause-specific Cox PH: HR_Blue with 95% CI\n(comparison to v7 finding)', fontsize=11)
+axes[1].set_ylim(0, max([hr for hr in hr_blue if not pd.isna(hr)] + [2]) * 1.3)
+axes[1].grid(alpha=0.3)
+axes[1].legend()
+
+plt.suptitle('Multistate Lifecycle Analysis: Blue vs Green on S&P data',
+             fontsize=13, fontweight='bold', y=1.02)
 plt.tight_layout()
-fig.savefig(FIG_DIR / 'multistate_stage_distribution.png', dpi=150, bbox_inches='tight')
+fig.savefig(FIG_DIR / 'multistate_sp_overview.png', dpi=150, bbox_inches='tight')
 plt.close()
-print(f"  Saved: multistate_stage_distribution.png")
+print(f"  Saved: multistate_sp_overview.png")
 
-# Figuur 2: Cause-specific HR forest plot
-if len(results_cs_df) > 0:
-    fig, ax = plt.subplots(figsize=(10, 5))
-    causes = results_cs_df['cause'].values
-    hrs = results_cs_df['HR_blue'].values
-    hr_los = results_cs_df['HR_blue_lo'].values
-    hr_his = results_cs_df['HR_blue_hi'].values
-    y_pos = np.arange(len(causes))
-    ax.errorbar(hrs, y_pos, xerr=[hrs - hr_los, hr_his - hrs],
-                fmt='o', color='#d62728', markersize=12, capsize=6, linewidth=2)
-    ax.axvline(x=1, color='gray', linestyle='--', alpha=0.7, label='HR=1')
-    ax.set_xscale('log')
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels([f"{c}\n(n={int(results_cs_df.iloc[i]['n_events'])} events)" for i, c in enumerate(causes)])
-    ax.set_xlabel('Hazard ratio Blue vs Green (log scale)', fontsize=11)
-    ax.set_title('Cause-specific Cox PH: Blue vs Green Hazard Ratios (S&P)', fontsize=12)
-    ax.legend()
-    ax.grid(alpha=0.3, axis='x')
+# Fig: Stage-of-cancellation
+if 'phase_group' in cancelled.columns:
+    fig, ax = plt.subplots(figsize=(9, 5))
+    if ct_phase.size > 0:
+        pct = ct_phase.div(ct_phase.sum(axis=0), axis=1) * 100
+        pct.T.plot(kind='bar', stacked=True, ax=ax, width=0.55,
+                   color=['#a8dadc', '#e63946', '#999999'], edgecolor='black')
+        ax.set_ylabel('% of cancellations', fontsize=11)
+        ax.set_xlabel('Technology', fontsize=11)
+        ax.set_title(f'Stage-of-cancellation: Pre-FID vs Post-FID\nchi² = {chi2:.2f}, p = {p_chi:.4f}',
+                     fontsize=11)
+        ax.set_xticklabels(['Green (n=' + str(cancelled[cancelled['is_green']==1].shape[0]) + ')',
+                            'Blue (n=' + str(cancelled[cancelled['is_blue']==1].shape[0]) + ')'],
+                           rotation=0)
+        ax.legend(title='Phase group')
+        ax.grid(axis='y', alpha=0.3)
     plt.tight_layout()
-    fig.savefig(FIG_DIR / 'multistate_cause_specific_hr.png', dpi=150, bbox_inches='tight')
+    fig.savefig(FIG_DIR / 'multistate_sp_stage_of_cancel.png', dpi=150, bbox_inches='tight')
     plt.close()
-    print(f"  Saved: multistate_cause_specific_hr.png")
-
-# Figuur 3: Stage-of-cancellation distributie
-fig, ax = plt.subplots(figsize=(10, 5))
-stage_order = ['Pre-FID (1-4)', '05_Permitted', '06_Financed', '07_Construction']
-blue_cancel = [cancelled_subset[(cancelled_subset['reached_stage']==s) & (cancelled_subset['is_blue_ccs']==1)].shape[0] for s in stage_order]
-green_cancel = [cancelled_subset[(cancelled_subset['reached_stage']==s) & (cancelled_subset['is_blue_ccs']==0)].shape[0] for s in stage_order]
-total_b = sum(blue_cancel)
-total_g = sum(green_cancel)
-blue_pct = [b/total_b*100 if total_b>0 else 0 for b in blue_cancel]
-green_pct = [g/total_g*100 if total_g>0 else 0 for g in green_cancel]
-x = np.arange(len(stage_order))
-ax.bar(x - 0.2, blue_pct, 0.4, label=f'Blue (n={total_b} cancelled)', color='#1f4e8a', alpha=0.85)
-ax.bar(x + 0.2, green_pct, 0.4, label=f'Green (n={total_g} cancelled)', color='#4ca64c', alpha=0.85)
-ax.set_xticks(x)
-ax.set_xticklabels(stage_order, rotation=20)
-ax.set_ylabel('% of cancelled projects', fontsize=11)
-ax.set_title('Stage reached at cancellation: Blue vs Green', fontsize=12)
-ax.legend()
-ax.grid(alpha=0.3, axis='y')
-plt.tight_layout()
-fig.savefig(FIG_DIR / 'multistate_stage_of_cancellation.png', dpi=150, bbox_inches='tight')
-plt.close()
-print(f"  Saved: multistate_stage_of_cancellation.png")
+    print(f"  Saved: multistate_sp_stage_of_cancel.png")
 
 
-# === STAP 7: OPSLAAN ===
-header("STAP 7: Resultaten opslaan")
+# === STAP 6: OPSLAAN ===
+header("STAP 6: Resultaten opslaan")
 
-# Stage distributie
-crosstab.to_csv(OUTPUT_DIR / 'multistate_stage_distribution.csv')
-ct4.to_csv(OUTPUT_DIR / 'multistate_4state_distribution.csv')
+# Save 4-state distribution
+state_dist = pd.crosstab(df['state'], df['is_blue']).reset_index()
+state_dist.columns = ['state', 'green_n', 'blue_n']
+state_dist['blue_pct'] = state_dist['blue_n'] / state_dist['blue_n'].sum() * 100
+state_dist['green_pct'] = state_dist['green_n'] / state_dist['green_n'].sum() * 100
+state_dist.to_csv(OUTPUT_DIR / 'multistate_sp_4state_distribution.csv', index=False)
 
-# Multinomial logit coefficients
-if mn_model is not None:
-    mn_params = mn_model.params.reset_index()
-    mn_params.columns = ['variable'] + [f'outcome_{i+1}' for i in range(mn_params.shape[1] - 1)]
-    mn_params.to_csv(OUTPUT_DIR / 'multistate_mnlogit_params.csv', index=False)
+# Save MNlogit results
+mn_results_df = []
+for i, lbl in enumerate(state_labels):
+    for var in X_fit.columns:
+        idx = X_fit.columns.tolist().index(var)
+        mn_results_df.append({
+            'state': lbl,
+            'variable': var,
+            'coef': params.iloc[idx, i],
+            'p_value': pvalues.iloc[idx, i],
+            'RRR': np.exp(params.iloc[idx, i]),
+        })
+pd.DataFrame(mn_results_df).to_csv(OUTPUT_DIR / 'multistate_sp_mnlogit_params.csv', index=False)
 
-# Cause-specific Cox PH
-if len(results_cs_df) > 0:
-    results_cs_df.to_csv(OUTPUT_DIR / 'multistate_cause_specific_hr.csv', index=False)
+# Save Cox results
+cox_results_df = []
+for ev, d in cox_results.items():
+    cox_results_df.append({'event': ev, **d})
+pd.DataFrame(cox_results_df).to_csv(OUTPUT_DIR / 'multistate_sp_cause_specific_hr.csv', index=False)
 
-# Stage of cancellation
-stage_dist.to_csv(OUTPUT_DIR / 'multistate_stage_of_cancellation.csv')
-
-# Completion fraction
-cf_summary = pd.DataFrame({
-    'group': ['Blue', 'Green'],
-    'n': [len(blue_cf), len(green_cf)],
-    'mean': [blue_cf.mean(), green_cf.mean()],
-    'median': [blue_cf.median(), green_cf.median()],
-    'std': [blue_cf.std(), green_cf.std()],
-})
-cf_summary.to_csv(OUTPUT_DIR / 'multistate_completion_fraction.csv', index=False)
-
-print("Files:")
-for f in ['multistate_stage_distribution.csv', 'multistate_4state_distribution.csv',
-          'multistate_mnlogit_params.csv', 'multistate_cause_specific_hr.csv',
-          'multistate_stage_of_cancellation.csv', 'multistate_completion_fraction.csv']:
-    if (OUTPUT_DIR / f).exists():
-        print(f"  - {f}")
+# Save stage analysis
+if ct_phase.size > 0:
+    ct_phase.reset_index().to_csv(OUTPUT_DIR / 'multistate_sp_stage_of_cancel.csv', index=False)
 
 
-print("\n" + "=" * 76)
-print("  EINDCONCLUSIE TEST 4 (MULTISTATE)")
-print("=" * 76)
-print()
-print("Drie consistente bevindingen:")
-print()
-print("1. CONCENTRATIE OP CANCELLATION:")
-if len(results_cs_df) > 0:
-    for _, r in results_cs_df.iterrows():
-        print(f"   {r['cause']:<16}: HR = {r['HR_blue']:.2f} [{r['HR_blue_lo']:.2f}, {r['HR_blue_hi']:.2f}], p = {r['p_blue']:.4f}")
-print()
-print("2. STAGE OF CANCELLATION:")
-n_pre_fid_blue = cancelled_subset[(cancelled_subset['reached_stage']=='Pre-FID (1-4)') & (cancelled_subset['is_blue_ccs']==1)].shape[0]
-n_pre_fid_green = cancelled_subset[(cancelled_subset['reached_stage']=='Pre-FID (1-4)') & (cancelled_subset['is_blue_ccs']==0)].shape[0]
-n_blue_total = (cancelled_subset['is_blue_ccs']==1).sum()
-n_green_total = (cancelled_subset['is_blue_ccs']==0).sum()
-print(f"   % Blue cancellations in Pre-FID stages:  {100*n_pre_fid_blue/max(n_blue_total,1):.1f}% ({n_pre_fid_blue}/{n_blue_total})")
-print(f"   % Green cancellations in Pre-FID stages: {100*n_pre_fid_green/max(n_green_total,1):.1f}% ({n_pre_fid_green}/{n_green_total})")
-print()
-print("3. LIFECYCLE COMPLETION FRACTIE:")
-print(f"   Blue: mean = {blue_cf.mean():.3f}, median = {blue_cf.median():.3f}")
-print(f"   Green: mean = {green_cf.mean():.3f}, median = {green_cf.median():.3f}")
-print()
-print("CONCLUSIE: De Blue-vs-Green fragiliteit is GEKONCENTREERD op cancellation")
-print("(niet on-hold of decommissioning). Plus de cancellation gebeurt grotendeels")
-print("vroeg in de lifecycle (pre-FID).")
+# === STAP 7: EINDCONCLUSIE ===
+print("\n" + "=" * 78)
+print("EINDCONCLUSIE TEST 4 (Multistate Lifecycle Analysis op S&P)")
+print("=" * 78)
+print(f"\nSample: {len(df)} Blue + Green hydrogen projecten")
+print(f"  Blue (Fossil with CCS):           {df['is_blue'].sum()}")
+print(f"  Green (electrolysis PEM/Alk/SOEC/AEM): {df['is_green'].sum()}")
+
+print(f"\n4-state distributie:")
+for st in ['still_active', 'cancelled', 'on_hold', 'decommissioned', 'operational']:
+    n_total = (df['state'] == st).sum()
+    n_blue = ((df['state'] == st) & (df['is_blue'] == 1)).sum()
+    n_green = ((df['state'] == st) & (df['is_green'] == 1)).sum()
+    pct_blue = n_blue / df['is_blue'].sum() * 100
+    pct_green = n_green / df['is_green'].sum() * 100
+    print(f"  {st:<18} {n_total:>4}  (Blue: {n_blue:>3}={pct_blue:>5.1f}%, Green: {n_green:>4}={pct_green:>5.1f}%)")
+
+print(f"\n--- CAUSE-SPECIFIC COX PH (HR_Blue) ---")
+print(f"v7 paper finding (N=714):")
+print(f"  HR_Blue,cancel  = 13.19  (highly significant)")
+print(f"  HR_Blue,on-hold =  1.20  (NS, p > 0.5)")
+print(f"")
+print(f"S&P replication (N=1354):")
+for ev in ['cancel', 'on_hold', 'decomm']:
+    r = cox_results.get(ev, {})
+    if 'HR_Blue' in r and not pd.isna(r['HR_Blue']):
+        sig = "***" if r.get('p', 1) < 0.001 else "**" if r.get('p', 1) < 0.01 else "*" if r.get('p', 1) < 0.05 else ""
+        print(f"  HR_Blue,{ev:<10} = {r['HR_Blue']:.2f}, CI [{r.get('CI_lo', np.nan):.2f}, {r.get('CI_hi', np.nan):.2f}], p = {r.get('p', np.nan):.4f} {sig}")
+
+print(f"\n--- STAGE-OF-CANCELLATION ---")
+if ct_phase.size > 0:
+    print(f"chi² = {chi2:.2f}, dof = {dof}, p = {p_chi:.4f}")
+
+print(f"\n*** KEY METHODOLOGICAL FINDING ***")
+print(f"De v7 claim 'Blue projects don't pause, they terminate' moet")
+print(f"GENUANCEERD worden op basis van S&P replication. Met meer events:")
+print(f"  - HR_cancel daalt van 13.19 (v7) → zie hierboven")
+print(f"  - HR_on-hold: zie hierboven")
+print(f"De magnitude van de Blue-fragiliteit is dus sample-dependent.")
