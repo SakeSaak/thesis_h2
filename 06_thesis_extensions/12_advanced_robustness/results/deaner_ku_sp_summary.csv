@@ -1,3 +1,2 @@
-test,treatment_year,n_projects,n_treated_EU27,n_control_nonEU,n_cancellations,pretrend_slope,pretrend_slope_p,tau_H_first_post,tau_H_first_post_p,tau_F_last
-2A_anticipation,2024,3247,1003,2244,103,0.00594142097297857,0.036,-0.0003143680622850441,0.64,-0.0020919762806724806
-2B_actual,2026,3247,1003,2244,103,0.0036502577619671127,0.036,-0.000457772289686271,0.244,-0.003996698277830335
+method,reference,n_projects,n_treated_EU,n_control_nonEU,n_cancellations_total,time_range,t_star_2A,label_2A,pretrend_slope_2A,pretrend_slope_p_2A,tau_H_2024_anticipation,tau_H_2025_anticipation,tau_H_2026_anticipation,tau_H_p_2024_anticipation,t_star_2B,label_2B,pretrend_slope_2B,pretrend_slope_p_2B,tau_H_2026_actual,tau_H_p_2026_actual,tau_F_2026_actual,b_bootstrap
+"Deaner-Ku Hazard-DiD (S&P data, dual treatment)",arXiv:2405.05220 (2024),3247,1003,2244,103,2018–2026,2024,ANTICIPATION,0.005903286981555915,0.036,-1.2079491012073357e-05,0.00021839756267271783,-0.0002393747270135532,1.0,2026,ACTUAL_EFFECT,0.003662954741607198,0.036,-0.000457772289686271,0.244,-0.003996698277830335,500
