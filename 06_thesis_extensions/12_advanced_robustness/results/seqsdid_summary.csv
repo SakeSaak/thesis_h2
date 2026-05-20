@@ -1,0 +1,2 @@
+method,n_regions,n_pre_periods_EU,n_post_periods_EU,standard_sdid_ATT_EU,standard_sdid_p_perm,sequential_sdid_ATT_NA_round1,sequential_sdid_ATT_EU_round2,sequential_sdid_p_perm,verschil_seq_minus_standard
+Sequential SDID (Arkhangelsky-Samkov 2024),7,5,4,0.0012320186710257312,1.0,-0.01966311759925004,0.0013728157634341903,1.0,0.00014079709240845915
