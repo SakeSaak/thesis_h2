@@ -1,0 +1,84 @@
+Project name,Primary owner,is_oil_major,tech_label,capacity_tpy,is_megaproject,announce_year,project_status,event_any,Primary end use sector
+Project Starling,Carbon Neutral Fuels Ltd,0,Green,23339.0,0,2025.0,Design,0,Transport (aviation)
+STFC ASPIRE Project,,0,Green,0.0,0,2023.0,Under construction,0,Other
+H21 North England,Equinor ASA,1,Blue,0.0,0,2018.0,On-hold (assumed),1,Power & heat
+MESH (Marram Energy Storage Hub) Project,EnergyPathways plc,0,Blue,20000.0,0,2025.0,Design,0,Power & heat
+South Wales Industrial Cluster (Clean Growth Hub Port of Barry),Associated British Ports,0,Blue,833333.0,1,2024.0,Announced (early stage),0,Unknown
+BOC Teesside Hydrogen CCS Project,BOC,0,Blue,40000.0,0,2023.0,Design,0,Unknown
+Project Pioneer Two,,0,Green,328.0,0,2024.0,Under construction,0,Transport (road)
+Project Pioneer One,,0,Green,15.0,0,2022.0,Fully commissioned,0,Unknown
+Grenian Hydrogen Speke ,Grenian Hydrogen Limited,1,Green,2405.0,0,2024.0,Design,0,Industry (other)
+The Humber H2ub Project,Uniper SE,1,Green,19239.0,0,2024.0,Design,0,Industry (refinery feedstock)
+Kraft Heinz Project/Kitt Green project,,0,Green,3206.0,0,2024.0,Feasibility,0,Industry (other)
+Port of Milford Haven/West Wales Hydrogen Project,Trafigura Group Pte. Ltd.,0,Green,1875.0,0,2023.0,Financed,0,Industry (refinery feedstock)
+Intelligent Energy Limited project,,0,Green,166.0,0,2023.0,Announced (advanced),0,Transport (other)
+University of Sheffield SAF R&D,,0,Green,110.0,0,2023.0,Permitted,0,Other
+RECYCLE project (REthinking low Carbon hYdrogen production by Chemical Looping rEforming),,0,Blue,0.0,0,2023.0,Design,0,Unknown
+Brigg Power Station H2,,0,Blue,0.0,0,2023.0,Partially commissioned,0,Power & heat
+RES and Octopus Green Hydrogen 3 (HYRO),Hyro Energy Limited,0,Green,2405.0,0,2021.0,Permitted,0,Industry (other)
+Inverness Green Hydrogen Hub,,0,Green,913.0,0,2023.0,Plans cancelled,1,Transport (other)
+Octopus Hydrogen 40 ft container,,0,Green,142.0,0,2021.0,On-hold (assumed),1,Unknown
+Wrightbus Ballymena H2,Hygen Energy Ltd.,0,Green,1708.0,0,2023.0,Design,0,Transport (road)
+Aldbrough Hydrogen Pathfinder Project,"SSE plc, Equinor ASA",1,Green,5611.0,0,2022.0,Permitted,0,Power & heat
+Easington Gas Terminal Blue Hydrogen,Equinor ASA,1,Blue,217620.0,1,2022.0,On-hold (assumed),1,Gas grid
+Rutherford Appleton Laboratory H2,,0,Green,2.0,0,2016.0,Fully commissioned,0,Other
+Protium Tees Valley Hydrogen (South Tees Net Zero),,0,Green,8273.0,0,2022.0,On-hold (assumed),1,Industry (other)
+Langage Energy Park/South Hams Hydrogen Hub,Carlton Power Limited,0,Green,1603.0,0,2022.0,Permitted,0,Industry (other)
+Barrow Green Hydrogen,Carlton Power Limited,0,Green,3500.0,0,2022.0,Permitted,0,Industry (other)
+Port of Southampton H2,Exxon Mobil Corporation,1,Blue,312763.0,1,2020.0,On-hold (assumed),1,Transport (other)
+H2H Production 2,Equinor ASA,1,Blue,315360.0,1,2022.0,On-hold (assumed),1,Power & heat
+OYSTER H2,,0,Green,0.0,0,2021.0,Under construction,0,Other
+Bacton Hydrogen Hub,"McDermott International, Inc.",0,Blue,83972.0,0,2022.0,On-hold (assumed),1,Gas grid
+Sizewell C,,0,Green,144708.0,1,2022.0,On-hold (assumed),1,Power & heat
+Sizewell C,,0,Green,292.0,0,2022.0,On-hold (assumed),1,Power & heat
+Kittybrewster H2,,0,Green,200.0,0,2016.0,Fully commissioned,0,Transport (road)
+HyNet North West 4,,0,Blue,294669.0,1,2021.0,On-hold (assumed),1,Industry (other)
+Cavendish,ARUP,0,Blue,459900.0,1,2021.0,Plans cancelled,1,Power & heat
+Inverness Green Hydrogen Hub,,0,Green,2738.0,0,2020.0,Plans cancelled,1,Transport (other)
+H2NorthEast,Kellas Midstream Limited,0,Blue,168876.0,1,2022.0,Announced (advanced),0,Industry (other)
+H2NorthEast,Kellas Midstream Limited,0,Blue,93924.0,0,2019.0,Permitted,0,Power & heat
+"Humber Hub Blue, Killingholme",Uniper SE,1,Blue,189216.0,1,2022.0,Design,0,Power & heat
+H2Teesside/Net Zero Teesside Power (NZT Power),BP p.l.c.,1,Blue,131400.0,1,2021.0,Plans cancelled,1,Industry (other)
+Whitelee H2,,0,Green,912.0,0,2021.0,On-hold (confirmed),1,Transport (road)
+Tyseley Energy Park refuelling hub,,0,Green,481.0,0,2020.0,Fully commissioned,0,Transport (road)
+Trafford Green Hydrogen Energy Park,Carlton Power Limited,0,Green,3500.0,0,2021.0,Permitted,0,Industry (other)
+The Hydrogen office,,0,Green,4.0,0,2007.0,Decommissioned,1,Power & heat
+Surf'n'Turf Orkney Shapinsay/BIG HIT II,,0,Green,3.0,0,2017.0,Fully commissioned,0,Power & heat
+Surf'n'Turf Orkney Eday/BIG HIT I,,0,Green,73.0,0,2015.0,Fully commissioned,0,Power & heat
+South Wales Industrial Cluster (HYDREUS),RWE AG,0,Blue,0.0,0,2021.0,On-hold (assumed),1,Unknown
+SHAPE UK H2,,0,Green,6.0,0,2021.0,Fully commissioned,0,Other
+RABH2,,0,Green,1.0,0,2009.0,Decommissioned,1,Power & heat
+"PURE Project, Unst H2",,0,Green,5.0,0,2003.0,Fully commissioned,0,Power & heat
+Protium Tees Valley Hydrogen (South Tees Net Zero),,0,Green,2758.0,0,2021.0,On-hold (assumed),1,Industry (other)
+Port of Immingham (Mayflower) H2,,0,Green,3206.0,0,2021.0,On-hold (assumed),1,Transport (other)
+Orbital 2,,0,Green,5.0,0,2021.0,Fully commissioned,0,Transport (shipping)
+Long Mountain Antrium H2,,0,Green,6.0,0,2020.0,Fully commissioned,0,Power & heat
+HyPER,Cranfield University,0,Blue,394.0,0,2021.0,Fully commissioned,0,Other
+HyNet North West 3,,0,Blue,294669.0,1,2021.0,On-hold (assumed),1,Industry (other)
+HyNet North West 2,Essar Oil (UK) Limited,0,Blue,222391.0,1,2021.0,On-hold (assumed),1,Industry (other)
+Hynet North West 1,Essar Oil (UK) Ltd,0,Blue,77837.0,0,2021.0,Permitted,0,Industry (other)
+Hydrogen mini grid system Yorkshire (Rotherham),,0,Green,6.0,0,2013.0,Fully commissioned,0,Transport (road)
+HyDeploy,,0,Green,80.0,0,2017.0,Decommissioned,1,Unknown
+Hy2Go Glasgow H2,,0,Green,800.0,0,2020.0,On-hold (assumed),1,Transport (road)
+Humber Zero VPI Immingham,,0,Blue,210240.0,1,2021.0,On-hold (assumed),1,Power & heat
+"HARI project, West Beacon Farm",,0,Green,8.0,0,2002.0,Fully commissioned,0,Power & heat
+H2Teesside,BP p.l.c.,1,Blue,160000.0,1,2021.0,Plans cancelled,1,Industry (other)
+Grangemouth H2,Storegga Geotechnologies Limited,1,Blue,190000.0,1,2021.0,On-hold (assumed),1,Industry (refinery feedstock)
+Glasgow H2,,0,Green,2920.0,0,2020.0,On-hold (confirmed),1,Transport (road)
+Gigastack,,0,Green,14564.0,0,2021.0,On-hold (confirmed),1,Industry (refinery feedstock)
+Gigastack,,0,Green,767.0,0,2020.0,On-hold (assumed),1,Unknown
+"Fife, Levenmouth Community Energy Project III",,0,Green,9.0,0,2014.0,Fully commissioned,0,Power & heat
+"Fife, Levenmouth Community Energy Project II",,0,Green,9.0,0,2014.0,Fully commissioned,0,Power & heat
+"Fife, Levenmouth Community Energy Project I",,0,Green,37.0,0,2014.0,Fully commissioned,0,Power & heat
+Dorset Green H2,,0,Green,120.0,0,2021.0,Fully commissioned,0,Industry (other)
+Dolphyn H2,,0,Green,321.0,0,2020.0,Plans cancelled,1,Power & heat
+DelpHYnus H2,Neptune Energy Group Ltd,1,Blue,400000.0,1,2021.0,Plans cancelled,1,Gas grid
+Cavendish,Uniper SE,1,Blue,183960.0,1,2021.0,Plans cancelled,1,Power & heat
+Baglan Energy Park Wales H2,,0,Green,10.0,0,2006.0,Fully commissioned,0,Other
+Arbikie Distillery H2,,0,Green,142.0,0,2021.0,On-hold (assumed),1,Power & heat
+Tees Green Hydrogen,,0,Green,1283.0,0,2022.0,Permitted,0,Industry (other)
+Aberdeen Hydrogen Hub,,0,Green,292.0,0,2021.0,Financed,0,Transport (road)
+H100 Fife,,0,Green,764.0,0,2022.0,Under construction,0,Power & heat
+H2H Saltend,Equinor ASA,1,Blue,160000.0,1,2020.0,Permitted,0,Power & heat
+Acorn Aberdeenshire H2,Storegga Norge AS,1,Blue,52560.0,0,2022.0,Design,0,Gas grid
+"Aberdeen, Hydrogen bus project",,0,Green,171.0,0,2013.0,Decommissioned,1,Transport (road)
