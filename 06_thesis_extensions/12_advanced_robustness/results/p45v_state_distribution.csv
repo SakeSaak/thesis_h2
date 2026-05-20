@@ -1,0 +1,6 @@
+state,NonUS_Blue,NonUS_Green,US_Blue,US_Green
+cancelled,16,17,8,8
+decommissioned,4,80,1,6
+on_hold,69,123,23,12
+operational,28,341,10,27
+still_active,71,441,43,26
