@@ -46,3 +46,19 @@ Thumbs.db
 # Large binary archives
 backup_*.tar.gz
 *.zip
+
+# === Commercial / copyrighted data — NOOIT op GitHub ===
+# S&P Global Market Intelligence — commercial license
+01_data/raw/Hydrogen_projects_master_data_table*.xlsx
+# IEA publications — restrictive copyright
+01_data/raw/Renewables2025.pdf
+
+# === Optioneel: persoonlijke supervisor-communicatie ===
+# Deze regels uitcommentariëren als je dit WEL wilt committen
+# 08_communicatie/
+# 05_supervisor/
+
+# === Python compiled / data caches (extra) ===
+*.pkl
+.cache/
+.pytest_cache/

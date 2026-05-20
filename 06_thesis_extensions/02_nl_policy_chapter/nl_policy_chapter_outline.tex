@@ -1,0 +1,482 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[expansion=false,protrusion=false]{microtype}
+\usepackage{parskip}
+\usepackage[bookmarks=false,colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!70!black,citecolor=blue!50!black]{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{boxbg}{rgb}{0.96,0.97,0.99}
+\definecolor{boxborder}{rgb}{0.35,0.45,0.65}
+\definecolor{noteborder}{rgb}{0.55,0.40,0.20}
+\definecolor{notebg}{rgb}{0.99,0.97,0.93}
+\definecolor{openbg}{rgb}{0.97,0.93,0.93}
+\definecolor{openborder}{rgb}{0.65,0.30,0.30}
+\definecolor{srcbg}{rgb}{0.93,0.96,0.93}
+\definecolor{srcborder}{rgb}{0.30,0.55,0.35}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{boxborder}NL Policy Chapter --- Outline}
+\fancyhead[R]{\small\color{boxborder}Thesis Extension --- Working Document}
+\fancyfoot[C]{\small\color{boxborder}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{{\color{boxborder}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+\newtcolorbox{rationale}{
+  colback=boxbg, colframe=boxborder, boxrule=0.6pt,
+  arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title=\textbf{Rationale},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=boxborder
+}
+
+\newtcolorbox{keysources}{
+  colback=srcbg, colframe=srcborder, boxrule=0.5pt,
+  arc=1.5mm, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title=\textbf{Key sources},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=srcborder
+}
+
+\newtcolorbox{technote}{
+  colback=notebg, colframe=noteborder, boxrule=0.5pt,
+  arc=1.5mm, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title=\textbf{Connection to paper},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=noteborder
+}
+
+\newtcolorbox{openquestion}{
+  colback=openbg, colframe=openborder, boxrule=0.6pt,
+  arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title=\textbf{Open question for supervisor},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=openborder
+}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{1.5cm}
+  {\color{boxborder}\rule{\linewidth}{1.5pt}}\\[0.3cm]
+  {\Huge\bfseries Dutch Policy Context Chapter}\\[0.3cm]
+  {\Large Outline and Working Plan for Thesis Extension}\\[0.3cm]
+  {\color{boxborder}\rule{\linewidth}{1pt}}\\[1.5cm]
+
+  {\large Thesis Extension --- Working Document}\\[0.3cm]
+  {\normalsize Sake Saakstra}\\[0.2cm]
+  {\normalsize MSc EOR Financial Track, Vrije Universiteit Amsterdam}\\[2cm]
+
+  \begin{tcolorbox}[colback=boxbg, colframe=boxborder, boxrule=0.6pt, arc=2mm, width=0.85\textwidth]
+    \textbf{Purpose.} This document specifies the structure, sources, and analytical framing for a Dutch policy context chapter as part of the thesis extension. The chapter serves as a bridge between the empirical findings of the paper (carbon-conditional implementation risk for blue hydrogen) and the policy environment in which Dutch hydrogen investments are being made. Importantly, this chapter is \emph{descriptive and analytical} rather than \emph{normative}: it documents how Dutch policy instruments interact with the empirical patterns observed in the data, without advocating for specific policy choices. This positioning is methodologically defensible and reduces the risk of overclaiming policy relevance from observational empirical work.
+  \end{tcolorbox}
+
+  \vfill
+  {\normalsize Version 0.1 --- working draft for supervisor discussion --- \today}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Motivation: why include a Dutch policy chapter}
+
+The paper documents an empirical regularity --- a carbon-price-conditional implementation risk differential between blue and green hydrogen projects --- that has direct relevance to the policy environment in which Dutch hydrogen investments are being decided. Three considerations motivate including a dedicated chapter on Dutch policy context in the thesis:
+
+\begin{enumerate}
+  \item \textbf{Empirical relevance.} The current EUA price ($\approx \!\!\,$\euro 72/tCO$_2$e in mid-2026), the CBAM definitive phase (since January 2026), the free-allocation phase-out (2026--2034), and ETS2 introduction (2028) are all unfolding during the observation window of the data and the policy-implementation horizon of the findings. A reader of the thesis benefits from understanding what these instruments are and how they interact with the empirical patterns.
+  \item \textbf{Audience expansion.} A thesis defended at VU Amsterdam will be read by examiners with a broad social-science background. A Dutch policy chapter --- written in English but anchored in Dutch institutional realities --- demonstrates the candidate's ability to connect econometric work to actual policy questions, a skill the EOR Financial Track explicitly cultivates.
+  \item \textbf{Differentiation from the journal paper.} The journal paper (Energy Economics target) keeps its policy commentary brief and disciplined. The thesis can afford a more substantive policy-context discussion, expanding what the paper compresses.
+\end{enumerate}
+
+\begin{rationale}
+This chapter is \emph{not} a separate empirical analysis on Dutch projects only. It is an interpretive layer on top of the global empirical findings, focused on how Dutch-specific policy instruments affect the carbon-conditional risk mechanism documented in the paper. The chapter does not claim that ``policy X causes outcome Y''; it claims that ``the empirical patterns we observe interact with policy instruments X, Y, Z in the following ways.''
+\end{rationale}
+
+\newpage
+
+\section{Chapter structure (proposed)}
+
+The chapter is organised in five sections, designed to flow from broader EU framework $\to$ Dutch overlay $\to$ analytical concepts $\to$ connection to findings $\to$ forward-looking questions.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lp{10cm}}
+\toprule
+\textbf{Section} & \textbf{Purpose} \\
+\midrule
+1. EU policy architecture & ETS1, ETS2, CBAM: what they are, current state, trajectory \\
+2. Dutch overlays & CO$_2$-heffing, SDE++, hydrogen strategy, free-allocation effects \\
+3. Beprijzingstekort framework & PBL methodology and effective vs headline carbon prices \\
+4. Mapping to paper findings & How Dutch policy specifics interact with carbon-conditional hazard \\
+5. Forward-looking analytical questions & Open research directions, including thesis-data implications \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Total length target: 20--30 pages in the final thesis (this outline is the scaffolding).
+
+\newpage
+
+\section{Section 1: EU policy architecture}
+
+\subsection{ETS1 --- the long-running system}
+
+The EU Emissions Trading System (ETS) is the principal carbon-pricing instrument in the European Union, operating since 2005. It covers roughly 10,000 installations in heavy industry, electricity generation, and (since 2012) intra-EU aviation, and (since 2024) maritime shipping. The current EUA price is approximately \euro 72/tCO$_2$e (mid-2026), having ranged \euro 60--95 over 2025--26.
+
+\textbf{Key dynamics relevant to the thesis:}
+\begin{itemize}
+  \item \emph{Free allocation phase-out 2026--2034}: large industrial installations historically received a substantial portion of their emission rights for free, to prevent carbon leakage. This is being phased out over the period 2026--2034 in conjunction with CBAM implementation. Blue hydrogen producers using steam methane reforming (SMR) currently fall under this free allocation regime; as the phase-out progresses, their effective carbon-price exposure rises.
+  \item \emph{Market Stability Reserve (MSR)}: strengthened through 2030 to absorb surpluses and maintain price levels. Implicitly serves a price-floor function during demand shocks.
+  \item \emph{Annual cap reduction}: 4.3\% per year from 2024 onward, accelerating the system's tightening.
+\end{itemize}
+
+\begin{keysources}
+\begin{itemize}
+  \item European Commission, Directive 2003/87/EC and subsequent revisions (most recently the EU ``Fit for 55'' package)
+  \item ICAP (\emph{International Carbon Action Partnership}) ETS Status Report 2025
+  \item EU ETS Handbook (2024 edition)
+  \item EEA reports on EU ETS effectiveness
+\end{itemize}
+\end{keysources}
+
+\subsection{ETS2 --- the new system for buildings and transport}
+
+ETS2 is the new EU emissions trading system for road transport and buildings (heating), scheduled to start operations in 2028, with the possibility of a 2027 start depending on energy price evolution. It is structurally similar to ETS1 but with key differences:
+
+\begin{itemize}
+  \item \emph{Upstream design}: the obligation falls on \emph{fuel suppliers} (e.g., Shell, BP, gas distributors), not on individual consumers. Suppliers will likely pass through the carbon cost but are not required to do so dollar-for-dollar.
+  \item \emph{Lower initial price expected}: approximately \euro 45/tCO$_2$e at launch, vs current ETS1 of \euro 72.
+  \item \emph{Social Climate Fund}: a portion of revenues funds energy-poverty mitigation, in particular insulation for vulnerable households.
+\end{itemize}
+
+\begin{technote}
+ETS2 does not directly affect blue hydrogen production economics (which fall under ETS1). However, it affects \emph{demand-side} dynamics: higher heating-gas prices may increase the substitutability case for hydrogen heating, with second-order effects on hydrogen pipeline investment economics. Worth noting in the chapter; not part of the paper's direct empirical claim.
+\end{technote}
+
+\begin{keysources}
+\begin{itemize}
+  \item European Commission, ETS2 implementing regulations (adopted 2023, in force 2027/28)
+  \item PBL (2025), \emph{ETS2 en Nederlandse huishoudens}, May 2026 release
+  \item European Parliament briefing on ETS2 (May 2025)
+  \item Rabobank (Feb 2025), pass-through analysis of fuel CO$_2$ pricing
+\end{itemize}
+\end{keysources}
+
+\subsection{CBAM --- the carbon border adjustment mechanism}
+
+The Carbon Border Adjustment Mechanism (CBAM) entered its definitive phase on 1 January 2026. CBAM imposes a carbon price on imports of selected products (cement, steel, aluminium, fertilisers, electricity, hydrogen) equivalent to the EUA price, less any carbon price already paid in the country of origin.
+
+\textbf{Hydrogen-specific implications:}
+\begin{itemize}
+  \item Imported hydrogen carries a CBAM cost; this protects EU-based hydrogen producers from imports without equivalent carbon pricing.
+  \item The interaction with the ETS1 free-allocation phase-out is symmetric by design: as EU producers lose free allocation, importers gain CBAM exposure on the equivalent emissions.
+\end{itemize}
+
+\begin{technote}
+CBAM and free-allocation phase-out together create the policy infrastructure under which the carbon-conditional hazard mechanism documented in the paper becomes \emph{progressively more binding} over the period 2026--2034. This is an empirically testable hypothesis for future thesis vintages.
+\end{technote}
+
+\begin{keysources}
+\begin{itemize}
+  \item Regulation (EU) 2023/956 establishing CBAM
+  \item Implementing Regulation (EU) 2025/486 on CBAM definitive phase
+  \item European Commission, CBAM transitional period report (2024--2025)
+\end{itemize}
+\end{keysources}
+
+\newpage
+
+\section{Section 2: Dutch policy overlays}
+
+\subsection{Nederlandse CO$_2$-heffing industrie}
+
+The Netherlands has implemented a national CO$_2$ levy on top of the EU ETS for industrial emitters, designed to ensure that Dutch industry pays at least a target price per tonne CO$_2$ even if the EUA market price falls below it. The levy is structured as a top-up: emitters pay the maximum of (a) the ETS price or (b) the Dutch national target price.
+
+\textbf{Mechanism:} firms receive \emph{dispensatierechten} (dispensation rights) covering a portion of their emissions; emissions above this threshold attract the national levy. The dispensation threshold declines over time, increasing effective carbon-price exposure for Dutch industry.
+
+\begin{technote}
+For blue hydrogen producers operating in the Netherlands, the effective carbon price they face is the maximum of (ETS1 marketprice, Dutch national levy target). This is materially different from the headline EUA price used in the paper's empirical analysis. A future analytical extension --- once granular Dutch-specific data is available via S\&P Global Commodity Insights --- could test whether Dutch-located blue hydrogen projects show a different cancellation hazard pattern than projects in jurisdictions without national carbon-price floors.
+\end{technote}
+
+\begin{keysources}
+\begin{itemize}
+  \item Wet CO$_2$-heffing industrie (Wet van 24 december 2020)
+  \item PBL (2024), \emph{Fors hogere CO$_2$-heffing industrie reduceert emissies met enkele megatonnen; maatwerkafspraken lijken geschikter}
+  \item Nederlandse Emissieautoriteit (NEa), guidance on CO$_2$-heffing
+\end{itemize}
+\end{keysources}
+
+\subsection{SDE++ --- the Dutch transition subsidy scheme}
+
+SDE++ (Stimulering Duurzame Energieproductie en Klimaattransitie) is the main Dutch subsidy instrument for transition technologies, including hydrogen production. It operates as a feed-in premium: subsidising the difference between the cost of low-emissions production and the market reference price, up to a ceiling per kg CO$_2$ avoided.
+
+\textbf{Hydrogen-relevant features:}
+\begin{itemize}
+  \item Both blue (SMR + CCS) and green (electrolysis) hydrogen production are eligible
+  \item Subsidy levels are calibrated per technology category, with electrolysis typically receiving higher per-kg support
+  \item Competitive auction structure with subsidy budget caps
+\end{itemize}
+
+\begin{technote}
+SDE++ functions as a partial implementation of the ``transition-period insurance'' interpretation proposed in the paper's conclusion. Specifically: it offsets implementation risk by providing revenue certainty for a portion of expected output, effectively reducing the effective cancellation hazard from a project-finance perspective. A thesis-extension could examine whether SDE++-supported Dutch projects show different cancellation rates than non-supported peers (subject to data availability).
+\end{technote}
+
+\begin{keysources}
+\begin{itemize}
+  \item RVO, SDE++ jaarrapporten 2023--2025
+  \item PBL, advisering aan ministerie EZK over SDE++-tarieven (jaarlijks)
+  \item Nationaal Waterstofprogramma jaarrapportage
+\end{itemize}
+\end{keysources}
+
+\subsection{HyNetwork Services and infrastructure planning}
+
+Gasunie's subsidiary HyNetwork Services is developing the Dutch hydrogen backbone --- a national pipeline network repurposed and extended from existing natural gas infrastructure. The first 525 km is targeted for 2025--2026, with the full network targeted by 2030.
+
+\begin{technote}
+This is an important institutional context for the thesis: HyNetwork Services is Gasunie's hydrogen-infrastructure arm, and the author works at Gasunie. The thesis can acknowledge this context transparently while maintaining methodological independence. The empirical work uses global project data and does not single out Dutch or Gasunie-affiliated projects.
+\end{technote}
+
+\begin{keysources}
+\begin{itemize}
+  \item Gasunie, HyNetwork Services annual updates 2024--2026
+  \item Ministerie van Economische Zaken en Klimaat, \emph{Nationaal Plan Energiesysteem 2050}
+  \item TNO (2024), \emph{Hydrogen Network Infrastructure Outlook NL}
+\end{itemize}
+\end{keysources}
+
+\newpage
+
+\section{Section 3: The beprijzingstekort framework}
+
+\subsection{PBL methodology}
+
+The Planbureau voor de Leefomgeving (PBL) publishes annual reports on the effective carbon pricing across Dutch sectors, under the title \emph{Klimaatverandering in de Prijzen}. The 2024 edition (using 2024 data) documents that the effective per-tonne CO$_2$ price varies by orders of magnitude across sectors and energy carriers in the Netherlands:
+
+\begin{itemize}
+  \item Households (via electricity tax + indirect ETS1): effectively \euro 100--200/tCO$_2$
+  \item Large electricity users: approximately \euro 0.3/kWh of tax burden, $\sim$30$\times$ lower than households
+  \item Industry under ETS1 with free allocation: effectively \euro 10--30/tCO$_2$
+  \item Transport (gasoline accijns): high effective rate but not explicitly CO$_2$-labelled
+  \item Agriculture (especially livestock): largely untaxed
+  \item International shipping/aviation: largely untaxed (ETS expansion in progress)
+\end{itemize}
+
+\subsection{The ``beprijzingstekort'' concept}
+
+PBL introduces the \emph{beprijzingstekort} (under-pricing gap) by comparing the effective carbon price to an estimate of the external (social) cost of carbon. Where the effective price is below the social cost, there is a beprijzingstekort. Conversely, some sectors (notably households via electricity tax) face effective rates above the estimated social cost.
+
+\begin{rationale}
+The beprijzingstekort framework is not directly used in the paper's empirical analysis, but it provides the conceptual scaffolding for understanding why the headline EUA price (used in the paper) systematically overstates the actual carbon price faced by hydrogen-producing firms. This nuance matters for the interpretation of the paper's carbon-conditional findings, and the thesis chapter is where this nuance can be developed.
+\end{rationale}
+
+\subsection{The Dutch policy debate, May 2026}
+
+Two articles from May 2026 illustrate the active Dutch debate on this topic:
+
+\begin{itemize}
+  \item \textbf{Kraan (\emph{nu.nl}, May 2026)}: argues that ETS2 worsens the existing inequality by adding CO$_2$ costs to already-heavily-taxed sectors (consumer gas, transport), while the truly under-taxed sectors (industry with free allocation, agriculture, shipping) escape the increase. Calls for action on the under-taxed sectors.
+  \item \textbf{FD columnist (May 2026)}: counter-argues that ETS2 corrects an old anomaly --- consumers using electricity already paid indirectly via ETS1, while gas and petrol users paid no CO$_2$ price at all. ETS2 makes the systems parallel, not unequal. Criticises PBL's framing and citation chain.
+\end{itemize}
+
+These two articles bracket the policy debate and represent both ends of the Dutch discussion. The thesis chapter can describe both without taking a normative position.
+
+\begin{keysources}
+\begin{itemize}
+  \item PBL (2024), \emph{Klimaatverandering in de Prijzen 2024} 
+  \item CPB (2025), \emph{Wat CO$_2$ (ons) mag kosten}
+  \item Kraan, J.\ (May 2026), nu.nl ``De Broeikas'' column
+  \item FD columnist (May 2026), \emph{CO$_2$-prijs voor gas en benzine is logisch en broodnodig}
+\end{itemize}
+\end{keysources}
+
+\newpage
+
+\section{Section 4: Connection to paper findings}
+
+This is the analytical heart of the chapter --- where the Dutch policy specifics meet the empirical findings of the paper.
+
+\subsection{Why effective EUA differs from headline EUA for blue hydrogen}
+
+The paper's carbon-conditional analysis uses the standardised headline EUA price (the EEX market price for EUA spot or near-month futures). For a Dutch blue hydrogen producer under ETS1 with current free allocation, the effective carbon price actually faced on their production emissions is materially lower:
+
+\begin{itemize}
+  \item Roughly 70--80\% of SMR emissions are currently covered by free allocation
+  \item The carbon-capture portion of CCS reduces the un-allocated remaining emissions
+  \item The Dutch CO$_2$-heffing top-up applies only when ETS1 falls below the national target
+\end{itemize}
+
+Effectively, a Dutch blue hydrogen producer in 2026 might face an effective per-tonne CO$_2$ cost in the range \euro 10--30, even with headline EUA at \euro 72. As free allocation phases out toward 2034, the effective and headline prices converge.
+
+\begin{technote}
+This convergence has direct implications for the carbon-conditional hazard structure documented in the paper. If the headline-effective gap closes between 2026 and 2034, the paper's empirical patterns (which use headline EUA) become \emph{more accurate} as a representation of producer-facing prices. The carbon-conditional risk mechanism we document should become \emph{more pronounced} over this period, not less.
+\end{technote}
+
+\subsection{The terminal-cancellation finding in Dutch policy context}
+
+The paper's Fine-Gray decomposition shows that blue hydrogen projects in difficulty are 13$\times$ more likely to be terminally cancelled than green hydrogen projects, with no significant difference on on-hold/delay outcomes. This empirical regularity has direct implications for Dutch policy design:
+
+\begin{itemize}
+  \item Subsidy instruments that provide \emph{revenue certainty} (e.g., SDE++) target the cancellation mechanism: by reducing the variance of expected returns, they reduce the probability of project-finance unwind that drives terminal cancellation.
+  \item Subsidy instruments that provide \emph{capital support} (e.g., grant-funded electrolyser deployment) address upfront cost barriers but do not address the carbon-price-conditional cancellation risk.
+\end{itemize}
+
+The empirical pattern is consistent with --- but does not by itself prove --- that revenue-certainty instruments are particularly valuable for blue hydrogen in low-carbon-price environments. This is a substantive interpretation that the chapter can develop carefully.
+
+\subsection{The blue-first strategy in Dutch policy context}
+
+Several major actors (including Gasunie via HyNetwork Services, and the Dutch government via the Nationaal Waterstofprogramma) have explicitly endorsed a ``blue-first, then green'' transition strategy: develop blue hydrogen at scale in the late 2020s, transition to green hydrogen in the 2030s as electrolyser costs decline and renewable generation expands.
+
+The paper's findings have three direct implications for this strategy:
+
+\begin{enumerate}
+  \item The blue-first phase is \emph{carbon-price-stability-dependent}. Below a critical EUA level, blue projects face dramatically elevated cancellation hazards. Strategic planning should account for this conditionality.
+  \item The terminal-cancellation pattern means blue projects cannot easily be ``paused'' to wait for better conditions. Capital committed is at risk of permanent loss.
+  \item The segmented-ecosystems finding means blue and green operate in structurally different investment ecosystems. The blue-to-green transition is therefore not a simple technology swap but a portfolio rebuild.
+\end{enumerate}
+
+These are observational implications, not policy recommendations. The chapter develops them as empirical-pattern-conditional considerations for strategy formation.
+
+\begin{openquestion}
+Q1. How explicit should the chapter be about Gasunie's blue-first position and its implications? On the one hand, transparency about institutional context is important. On the other hand, the thesis should avoid being read as either advocacy for or critique of Gasunie's strategy. The author's working position: describe the strategy factually, present the empirical-pattern-conditional implications, decline to take a normative position. Bos's view?
+\end{openquestion}
+
+\newpage
+
+\section{Section 5: Forward-looking analytical questions}
+
+The chapter closes with a forward-looking section that identifies open research questions emerging from the intersection of the paper's findings and the Dutch policy environment. These questions are also signals for potential PhD-trajectory research.
+
+\subsection{Empirically testable hypotheses for thesis (or vintage update)}
+
+\begin{enumerate}
+  \item As free allocation phases out 2026--2034, do blue hydrogen cancellation rates show a steepening upward trend? Testable in future IEA vintage updates and via cross-vintage event detection.
+  \item Do Dutch-located blue hydrogen projects (which face the additional national CO$_2$-heffing floor) show systematically lower cancellation hazards than non-Dutch blue projects in low-EUA periods? Testable with granular project-location data via S\&P Global.
+  \item Do SDE++-supported projects show systematically lower cancellation hazards than unsupported peers? Requires linking SDE++ award data to project records.
+\end{enumerate}
+
+\subsection{Questions that exceed thesis scope but inform PhD trajectory}
+
+\begin{enumerate}
+  \item Structural model of technology choice under carbon-price uncertainty: develop a real-options framework that generates the empirical predictions we document, then estimate it on the data.
+  \item Identification via regional policy variation: use IRA 45V state-level eligibility variation as instrumental variation for blue hydrogen support, with survival-analysis estimation.
+  \item Demand-side effects of ETS2 on hydrogen investment: examine whether projects in regions with announced ETS2-driven gas-price increases show different cancellation patterns.
+\end{enumerate}
+
+\begin{openquestion}
+Q2. Are these forward-looking hypotheses appropriate for the thesis chapter, or should they be moved to a separate ``research agenda'' section / left out entirely to keep the chapter focused on what is empirically established? My working preference: include them briefly to signal continuity, but keep the chapter's centre of gravity on the descriptive-analytical content. Bos's view?
+\end{openquestion}
+
+\subsection{The data-access dimension}
+
+Several of the testable hypotheses above require data access beyond what the IEA public databases provide:
+
+\begin{itemize}
+  \item S\&P Global Commodity Insights for granular project-level financing and ownership data
+  \item S\&P Global Platts Hydrogen Price Assessments for regional production-cost time series
+  \item RVO for SDE++ award and disbursement records
+  \item Possibly BloombergNEF for cross-validation on event coverage
+\end{itemize}
+
+The thesis chapter can be honest about which questions are currently answerable with available data and which require additional data access. This positioning matters strategically: it signals that the work is data-limited rather than ambition-limited, and points to natural extension paths.
+
+\newpage
+
+\section{Implementation roadmap}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lp{9cm}}
+\toprule
+\textbf{Phase} & \textbf{Activity} \\
+\midrule
+1. Source review (Week 1--2) & Read PBL 2024 report, ICAP 2025, CBAM implementing regs, SDE++ documentation \\
+2. Section 1 draft (Week 2--3) & EU policy architecture (ETS1, ETS2, CBAM) \\
+3. Section 2 draft (Week 3--4) & Dutch overlays (CO$_2$-heffing, SDE++, HyNetwork) \\
+4. Section 3 draft (Week 4--5) & Beprijzingstekort framework and policy debate \\
+5. Section 4 draft (Week 5--6) & Mapping to paper findings (heart of chapter) \\
+6. Section 5 draft (Week 6--7) & Forward-looking analytical questions \\
+7. Integration (Week 7--8) & Revise, integrate with thesis main text \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This roadmap is independent of the Bayesian-methodology and S\&P-data extensions. The chapter can be written in parallel with the methodological work.
+
+\section{Open questions for supervisor discussion}
+
+\begin{openquestion}
+Q1. (Restated from §4.3) How explicit about Gasunie's institutional context? Transparency vs neutrality balance.
+\end{openquestion}
+
+\begin{openquestion}
+Q2. (Restated from §5.2) Forward-looking hypotheses: include in chapter or separate research-agenda section?
+\end{openquestion}
+
+\begin{openquestion}
+Q3. Chapter length: 20--30 pages target. Is this appropriate or should we go longer/shorter? Some MSc thesis policy chapters run 40+ pages.
+\end{openquestion}
+
+\begin{openquestion}
+Q4. Language register: stay descriptive-analytical throughout, or is it acceptable to develop a more explicit normative interpretation in a single section? My current preference: stay descriptive-analytical.
+\end{openquestion}
+
+\begin{openquestion}
+Q5. Does the chapter belong in the thesis main body or in an extended appendix? My preference: main body (a substantive chapter, not supplementary material) but supervisor input welcome.
+\end{openquestion}
+
+\section{References (working list, to be expanded)}
+
+\subsection{EU policy documents}
+\begin{itemize}
+  \item Directive 2003/87/EC and amendments (EU ETS)
+  \item Regulation (EU) 2023/956 (CBAM)
+  \item Directive (EU) 2023/959 (ETS2 establishment)
+  \item European Commission ``Fit for 55'' package documents
+\end{itemize}
+
+\subsection{Nederlandse beleidsbronnen}
+\begin{itemize}
+  \item PBL (2024), \emph{Klimaatverandering in de Prijzen 2024}
+  \item PBL (2025), \emph{ETS2 en Nederlandse huishoudens} (May 2026 release)
+  \item CPB (2025), \emph{Wat CO$_2$ (ons) mag kosten}
+  \item Wet CO$_2$-heffing industrie (2020)
+  \item RVO, SDE++ regelingen 2023--2025
+  \item Ministerie EZK, \emph{Nationaal Plan Energiesysteem 2050}
+\end{itemize}
+
+\subsection{Internationale analyses}
+\begin{itemize}
+  \item ICAP (2025), \emph{Status Report on the EU ETS}
+  \item IEA (2025), \emph{Global Hydrogen Review 2025}
+  \item IRENA (2025), \emph{Hydrogen Cost and Outlook}
+  \item BloombergNEF (2025), \emph{Hydrogen Insight 2025}
+\end{itemize}
+
+\subsection{Academische literatuur}
+\begin{itemize}
+  \item Bolton, P., \& Kacperczyk, M. (2021). Do investors care about carbon risk? \emph{JFE}.
+  \item Mac Dowell, N., et al.\ (2017). The role of CO$_2$ capture and utilization. \emph{Nature Climate Change}.
+  \item Odenweller, A., et al.\ (2022). Probabilistic feasibility space of scaling up green hydrogen. \emph{Nature Energy}.
+  \item Mercure, J.-F., et al.\ (2018). Macroeconomic impact of stranded fossil fuel assets. \emph{Nature Climate Change}.
+\end{itemize}
+
+\subsection{Krant en commentaar}
+\begin{itemize}
+  \item Kraan, J.\ (May 2026), ``De kosten van CO$_2$-uitstoot blijven extreem ongelijk verdeeld'', nu.nl
+  \item FD columnist (May 2026), ``CO$_2$-prijs voor gas en benzine is logisch en broodnodig'', Het Financieele Dagblad
+\end{itemize}
+
+\end{document}

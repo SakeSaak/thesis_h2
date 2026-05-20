@@ -1,0 +1,47 @@
+\documentclass[11pt,a4paper]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[expansion=false,protrusion=false]{microtype}
+\usepackage{hyperref}
+\usepackage{parskip}
+\setlength{\parskip}{4pt}
+\renewcommand{\baselinestretch}{1.0}
+
+\signature{Sake Saakstra \\ Vrije Universiteit Amsterdam --- Department of Econometrics and Operations Research \\ Gasunie --- Business Line Waterstof Nederland \\ \texttt{s.saakstra@vu.nl}}
+\address{Sake Saakstra \\ De Boelelaan 1105 \\ 1081 HV Amsterdam \\ The Netherlands}
+
+\begin{document}
+
+\begin{letter}{Editorial Office \\ Energy Economics \\ Elsevier B.V.}
+
+\opening{Dear Editors,}
+
+I am pleased to submit the manuscript ``\emph{Implementation-Risk Differentials in Hydrogen Technology Pathways: Evidence from a Segmented Investment Ecosystem and Carbon-Price-Conditional Risk}'' for consideration for publication in \emph{Energy Economics}.
+
+The paper documents a structural feature of the global hydrogen project landscape that, to my knowledge, has not been previously analysed in the energy economics literature: blue hydrogen projects with carbon capture (Blue\_CCS) and green hydrogen projects based on PEM electrolysis (PEM) operate in measurably distinct investment ecosystems, within which implementation risk concentrates on terminal project cancellation rather than reversible delay, and is conditional on carbon-price exposure.
+
+The paper makes two primary contributions, supported by convergent empirical evidence and a mechanistic interpretation. \emph{Methodologically}, the two hydrogen technology populations are shown to be non-exchangeable in a strong sense: the propensity model achieves McFadden $R^2 = 0.70$; propensity score matching retains only 29 unique PEM controls for 147 Blue\_CCS matches; entropy balancing collapses to an effective sample size of 8. I argue that this non-exchangeability is itself substantive content about hydrogen investment structure rather than a methodological problem to be reweighted away. \emph{Substantively}, using Fine-Gray competing-risks analysis, I decompose the Blue\_CCS implementation-risk differential into terminal cancellation (HR $= 13.19$, 95\% CI $[5.28, 32.91]$) versus real-option delay (HR $= 1.20$, indistinguishable from one). The differential is mechanistically conditional on the EUA carbon-price environment, with a Blue\_CCS $\times$ EUA interaction of $-2.51$ ($p < 0.0001$) and statistically insignificant interactions with TTF gas, the VIX, and policy uncertainty. The findings are consistent, conceptually, with fiscal support for blue hydrogen (the IRA 45V tax credit, EU REPowerEU support, RFNBO Delegated Acts) being interpretable as transition-period insurance.
+
+The paper is a natural fit for \emph{Energy Economics} in three respects. (i) The hydrogen transition is among the most prominent topics in current energy economics research, and the IEA Hydrogen Projects Database is the canonical microdata source for project-level analysis. (ii) The methodological approach --- eleven hazard estimators across four classes of identifying assumptions, including doubly robust estimation, entropy balancing, Firth penalisation, Fine-Gray competing risks, and shared frailty Cox --- is at the frontier of empirical survival analysis applied to energy transition data. (iii) The carbon-price-conditional risk framework links the findings to the broader transition-finance literature published in \emph{Energy Economics} and adjacent outlets (Bolton \& Kacperczyk, 2021; Mercure et al., 2018; Caldecott, 2018).
+
+The manuscript is single-authored and has not been published, nor is it under consideration, elsewhere. All data sources are public; all analysis code (Python and R) is publicly available at \url{https://github.com/sakesaakstra/blueCCS-hydrogen}. A Data Availability statement and a detailed Data Sources appendix are included.
+
+I suggest the following potential reviewers as having expertise that maps directly onto the paper's contributions:
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item \textbf{Adrian Odenweller} --- Potsdam Institute for Climate Impact Research; hydrogen project realisation and electrolyser deployment forecasting.
+\item \textbf{Niall Mac Dowell} --- Imperial College London; CCS economics and blue hydrogen production systems.
+\item \textbf{Marcin Kacperczyk} --- Imperial College Business School; carbon transition risk in financial markets.
+\end{itemize}
+
+I confirm that I have no conflicts of interest with the above reviewers; I have not co-authored work with any of them, and none has been involved in the preparation of this manuscript.
+
+Thank you for considering this submission. I look forward to your response.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

@@ -1,0 +1,32 @@
+# Python dependencies for blueCCS-hydrogen replication package
+# Tested with Python 3.10 and 3.11 on macOS and Linux.
+# To install:  pip install -r requirements.txt
+
+# Core scientific stack
+numpy>=1.24,<2.0
+pandas>=2.0,<2.3
+scipy>=1.11,<1.14
+matplotlib>=3.7,<3.10
+seaborn>=0.13,<0.14
+
+# Econometrics
+statsmodels>=0.14,<0.15
+lifelines>=0.27,<0.30
+
+# Causal inference / matching helpers
+scikit-learn>=1.3,<1.6
+
+# Data ingestion
+yfinance>=0.2.40
+openpyxl>=3.1,<4.0
+xlsxwriter>=3.1,<4.0
+xlrd>=2.0,<3.0
+requests>=2.31,<3.0
+
+# Optional but useful
+tqdm>=4.66,<5.0
+python-dotenv>=1.0,<2.0     # for loading API keys from .env
+
+# Notebooks (development convenience, not required for replication)
+jupyter>=1.0,<2.0
+ipykernel>=6.27,<7.0

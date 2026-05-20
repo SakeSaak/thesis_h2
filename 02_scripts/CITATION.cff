@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: >-
+  Implementation-Risk Differentials in Hydrogen Technology Pathways:
+  Evidence from a Segmented Investment Ecosystem and
+  Carbon-Price-Conditional Risk
+message: >-
+  If you use this software or replication package, please cite the
+  associated working paper.
+type: software
+authors:
+  - given-names: Sake
+    family-names: Saakstra
+    email: s.saakstra@vu.nl
+    affiliation: Vrije Universiteit Amsterdam --- Department of Econometrics
+repository-code: 'https://github.com/sakesaakstra/blueCCS-hydrogen'
+abstract: >-
+  Replication package for Saakstra (2026). The repository contains the
+  full computational pipeline (Python + R) for an eleven-estimator
+  robustness battery analysing the determinants of hydrogen project
+  cancellation, with a focus on the carbon-price-conditional hazard
+  differential between Blue_CCS and PEM technologies. Includes data
+  ingestion, panel construction, propensity-based corrections, Fine-Gray
+  competing-risks decomposition, shared-frailty Cox estimation,
+  delta-method marginal effects, and leave-one-region-out robustness
+  checks.
+keywords:
+  - hydrogen
+  - carbon capture
+  - project cancellation
+  - transition risk
+  - Fine-Gray competing risks
+  - marginal effects
+  - propensity score
+  - doubly robust estimation
+  - entropy balancing
+  - carbon-price-conditional risk
+license: MIT
+version: 1.0.0
+date-released: 2026-05-13
+preferred-citation:
+  type: unpublished
+  authors:
+    - given-names: Sake
+      family-names: Saakstra
+  title: >-
+    Implementation-Risk Differentials in Hydrogen Technology Pathways:
+    Evidence from a Segmented Investment Ecosystem and
+    Carbon-Price-Conditional Risk
+  notes: Working Paper, Vrije Universiteit Amsterdam
+  year: 2026
+  url: 'https://github.com/sakesaakstra/blueCCS-hydrogen'

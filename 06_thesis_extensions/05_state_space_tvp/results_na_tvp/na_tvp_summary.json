@@ -1,0 +1,12 @@
+{
+  "static_beta_int": -1.17,
+  "static_lo95": -2.4,
+  "static_hi95": -0.086,
+  "gas_omega": -1.88,
+  "gas_phi": 0.804,
+  "gas_alpha": 0.119,
+  "blocks_divergences": 0.0,
+  "gas_divergences": 0.0,
+  "n_blue_events": 12.0,
+  "n_pem_events": 2.0
+}

@@ -1,0 +1,20 @@
+{
+  "WUI_REGION_MAP": {
+    "EU": "Europe",
+    "Other_Europe": "Europe",
+    "North_America": "Western Hemisphere",
+    "Asia": "Asia and the Pacific",
+    "ANZ": "Asia and the Pacific",
+    "MENA": "Middle East and Central Asia",
+    "Other": "Global (GDP weighted average)"
+  },
+  "ICAP_REGION_MAP": {
+    "EU": "European Union Emissions Trading System (from 2019, download)",
+    "Other_Europe": "European Union Emissions Trading System (from 2019, download)",
+    "North_America": null,
+    "Asia": "China National Emissions Trading System",
+    "ANZ": "New Zealand Emissions Trading System (From 2024)",
+    "MENA": null,
+    "Other": null
+  }
+}

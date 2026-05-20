@@ -1,0 +1,311 @@
+# ============================================================================
+# 01_bayesian_cox_baseline.R
+#
+# Bayesian Cox proportional hazards model voor Blue_CCS vs PEM hydrogen
+# project cancellation, met sensitivity grid over prior specificaties.
+#
+# Dit is het hoofdscript voor Spoor 1 van de thesis-extensie:
+# Bayesian survival met informatieve priors.
+#
+# Inputs:
+#   01_data/intermediate/blueccs_project_level_for_R.csv  (v7 project-level data)
+#
+# Outputs:
+#   results/fits/cox_<prior_label>.rds       (gecachede brms model fits)
+#   results/tables/posterior_summary.csv     (vergelijkingstabel)
+#   results/tables/sensitivity_grid.csv      (alle priors x parameters)
+#   results/figures/trace_plots.pdf          (MCMC diagnostiek)
+#   results/figures/posterior_HR.pdf         (posterior intervallen voor HR)
+#
+# Auteur: Sake Saakstra
+# Versie: 0.1 (baseline implementatie)
+# ============================================================================
+
+# ============================================================================
+# CONFIGURATIE
+# ============================================================================
+PROJECT_ROOT <- "/Users/sakesaakstra/Desktop/thesis_h2"
+EXT_ROOT     <- file.path(PROJECT_ROOT, "06_thesis_extensions/01_bayesian_methodology")
+DATA_CSV     <- file.path(PROJECT_ROOT, "01_data/intermediate/blueccs_project_level_for_R.csv")
+RESULTS_DIR  <- file.path(EXT_ROOT, "results")
+
+# Mode: "quick" voor snelle test (~5 min totaal), "full" voor productie (~45 min totaal)
+RUN_MODE <- "quick"   # change to "full" voor finale runs
+
+if (RUN_MODE == "quick") {
+  N_CHAINS   <- 2
+  N_ITER     <- 1000
+  N_WARMUP   <-  500
+  ADAPT_DELTA <- 0.90
+} else {
+  N_CHAINS   <- 4
+  N_ITER     <- 4000
+  N_WARMUP   <- 2000
+  ADAPT_DELTA <- 0.95
+}
+
+# Of je gecachede fits opnieuw wil gebruiken (TRUE = sneller bij re-run)
+USE_CACHE <- TRUE
+
+# Maak output directories
+dir.create(file.path(RESULTS_DIR, "fits"),    showWarnings = FALSE, recursive = TRUE)
+dir.create(file.path(RESULTS_DIR, "tables"),  showWarnings = FALSE, recursive = TRUE)
+dir.create(file.path(RESULTS_DIR, "figures"), showWarnings = FALSE, recursive = TRUE)
+
+# ============================================================================
+# LIBRARIES
+# ============================================================================
+suppressPackageStartupMessages({
+  library(brms)
+  library(rstan)
+  library(survival)
+  library(posterior)
+  library(bayesplot)
+  library(dplyr)
+  library(tibble)
+  library(readr)
+  library(ggplot2)
+  library(tidyr)
+})
+
+rstan::rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+
+cat("================================================================\n")
+cat("Bayesian Cox PH - Hydrogen Project Cancellation\n")
+cat(sprintf("RUN_MODE = '%s' (%d chains x %d iter)\n", RUN_MODE, N_CHAINS, N_ITER))
+cat("================================================================\n\n")
+
+# ============================================================================
+# DATA LADEN EN VOORBEREIDEN
+# ============================================================================
+cat("--- Data laden ---\n")
+df <- read_csv(DATA_CSV, show_col_types = FALSE)
+
+df <- df |>
+  mutate(
+    is_blue_ccs = as.integer(is_blue_ccs),
+    region       = factor(region,
+                          levels = c("EU","Other_Europe","North_America",
+                                     "Asia","ANZ","MENA","Other")),
+    sponsor_type = factor(sponsor_type,
+                          levels = c("Oil_major","Utility","Industrial_gas",
+                                     "Steel","Pure_play","Government",
+                                     "Other","Unknown")),
+    # brms cens conventie: 0 = observed event, 1 = right-censored
+    censored = as.integer(event_any == 0),
+    duration = pmax(1L, duration)
+  )
+
+cat(sprintf("  N totaal     = %d\n", nrow(df)))
+cat(sprintf("  Blue_CCS     = %d  (%.1f%%)\n",
+            sum(df$is_blue_ccs == 1), 100*mean(df$is_blue_ccs == 1)))
+cat(sprintf("  PEM          = %d  (%.1f%%)\n",
+            sum(df$is_blue_ccs == 0), 100*mean(df$is_blue_ccs == 0)))
+cat(sprintf("  Event (any)  = %d  (%.1f%% events)\n",
+            sum(df$event_any == 1), 100*mean(df$event_any == 1)))
+cat(sprintf("  Cancelled    = %d\n", sum(df$event_type == 1)))
+cat(sprintf("  On-hold      = %d\n", sum(df$event_type == 2)))
+
+# ============================================================================
+# FREQUENTIST BASELINE (sanity check)
+# ============================================================================
+cat("\n--- Frequentist Cox PH (sanity check) ---\n")
+freq_fit <- coxph(
+  Surv(duration, event_any) ~ is_blue_ccs + log_capacity_mw + region + sponsor_type,
+  data = df
+)
+freq_summary <- summary(freq_fit)$coefficients
+freq_blue <- freq_summary["is_blue_ccs", ]
+cat(sprintf("  Frequentist coef on is_blue_ccs: %.3f (SE %.3f)\n",
+            freq_blue["coef"], freq_blue["se(coef)"]))
+cat(sprintf("  Frequentist HR:                  %.2f (95%% CI [%.2f, %.2f])\n",
+            exp(freq_blue["coef"]),
+            exp(freq_blue["coef"] - 1.96*freq_blue["se(coef)"]),
+            exp(freq_blue["coef"] + 1.96*freq_blue["se(coef)"])))
+
+freq_row <- tibble(
+  prior_spec = "Frequentist MLE",
+  beta1_est  = freq_blue["coef"],
+  beta1_se   = freq_blue["se(coef)"],
+  HR_med     = exp(freq_blue["coef"]),
+  HR_lo      = exp(freq_blue["coef"] - 1.96*freq_blue["se(coef)"]),
+  HR_hi      = exp(freq_blue["coef"] + 1.96*freq_blue["se(coef)"]),
+  rhat_max   = NA_real_,
+  ess_min    = NA_real_
+)
+
+# ============================================================================
+# PRIOR SPECIFICATIES
+# ============================================================================
+# Vier specificaties volgens methodology design (zie bayesian_methodology_design.pdf)
+# Iedere specificatie definieert b_is_blue_ccs en gemene priors op andere coefs.
+
+prior_specs <- list(
+  vague = c(
+    prior(normal(0, 5),   class = "b", coef = "is_blue_ccs"),
+    prior(normal(0, 5),   class = "b")  # alles anders
+  ),
+  weakly_informative = c(
+    prior(normal(0, 2),   class = "b", coef = "is_blue_ccs"),
+    prior(normal(0, 1.5), class = "b")
+  ),
+  skeptical = c(
+    prior(normal(0, 1),   class = "b", coef = "is_blue_ccs"),
+    prior(normal(0, 1.5), class = "b")
+  ),
+  informative = c(
+    prior(normal(1.5, 0.7), class = "b", coef = "is_blue_ccs"),
+    prior(normal(0, 1.5),   class = "b")
+  )
+)
+
+# ============================================================================
+# BAYESIAN FITS - één per prior spec
+# ============================================================================
+bayes_results <- list()
+
+for (spec_name in names(prior_specs)) {
+  cat(sprintf("\n--- Bayesian Cox PH met prior: %s ---\n", spec_name))
+  
+  cache_file <- file.path(RESULTS_DIR, "fits", sprintf("cox_%s_%s.rds", spec_name, RUN_MODE))
+  
+  if (USE_CACHE && file.exists(cache_file)) {
+    cat(sprintf("  Cache gevonden, laden: %s\n", basename(cache_file)))
+    fit <- readRDS(cache_file)
+  } else {
+    cat(sprintf("  Fitting (dit duurt ongeveer %s)...\n",
+                ifelse(RUN_MODE == "quick", "2-5 min", "10-15 min")))
+    
+    fit <- brm(
+      duration | cens(censored) ~ is_blue_ccs + log_capacity_mw + region + sponsor_type,
+      data    = df,
+      family  = cox(),
+      prior   = prior_specs[[spec_name]],
+      chains  = N_CHAINS,
+      iter    = N_ITER,
+      warmup  = N_WARMUP,
+      cores   = N_CHAINS,
+      control = list(adapt_delta = ADAPT_DELTA, max_treedepth = 12),
+      refresh = 0,
+      seed    = 20260518
+    )
+    
+    saveRDS(fit, cache_file)
+    cat(sprintf("  Opgeslagen: %s\n", basename(cache_file)))
+  }
+  
+  # Posterior summary voor is_blue_ccs
+  post <- as_draws_df(fit, variable = "b_is_blue_ccs")
+  beta1_draws <- post$b_is_blue_ccs
+  hr_draws    <- exp(beta1_draws)
+  
+  # Diagnostiek
+  rhat_vals <- brms::rhat(fit)
+  ess_vals  <- as_draws_df(fit) |>
+    posterior::summarise_draws() |>
+    pull(ess_bulk)
+  
+  bayes_row <- tibble(
+    prior_spec = spec_name,
+    beta1_est  = median(beta1_draws),
+    beta1_se   = sd(beta1_draws),
+    HR_med     = median(hr_draws),
+    HR_lo      = quantile(hr_draws, 0.025, names = FALSE),
+    HR_hi      = quantile(hr_draws, 0.975, names = FALSE),
+    rhat_max   = max(rhat_vals, na.rm = TRUE),
+    ess_min    = min(ess_vals, na.rm = TRUE)
+  )
+  
+  bayes_results[[spec_name]] <- list(
+    fit = fit,
+    row = bayes_row,
+    beta1_draws = beta1_draws,
+    hr_draws = hr_draws
+  )
+  
+  cat(sprintf("  Posterior median beta1: %.3f (SD %.3f)\n",
+              bayes_row$beta1_est, bayes_row$beta1_se))
+  cat(sprintf("  Posterior median HR:    %.2f (95%% CrI [%.2f, %.2f])\n",
+              bayes_row$HR_med, bayes_row$HR_lo, bayes_row$HR_hi))
+  cat(sprintf("  Diagnostics: max Rhat = %.3f, min ESS = %.0f\n",
+              bayes_row$rhat_max, bayes_row$ess_min))
+}
+
+# ============================================================================
+# SAMENVATTINGSTABEL
+# ============================================================================
+cat("\n================================================================\n")
+cat("SENSITIVITY GRID - Vergelijking over prior specificaties\n")
+cat("================================================================\n\n")
+
+summary_table <- bind_rows(
+  freq_row,
+  bind_rows(lapply(bayes_results, function(x) x$row))
+)
+
+print(summary_table |>
+        mutate(across(c(beta1_est, beta1_se), \(x) round(x, 3)),
+               across(c(HR_med, HR_lo, HR_hi, rhat_max), \(x) round(x, 2)),
+               ess_min = round(ess_min)),
+      n = Inf)
+
+write_csv(summary_table, file.path(RESULTS_DIR, "tables/posterior_summary.csv"))
+cat(sprintf("\nOpgeslagen: %s\n",
+            file.path("results/tables", "posterior_summary.csv")))
+
+# ============================================================================
+# FIGUREN - posterior intervallen voor HR
+# ============================================================================
+cat("\n--- Genereren posterior HR plot ---\n")
+
+hr_data <- bind_rows(lapply(names(bayes_results), function(spec) {
+  tibble(prior_spec = spec, hr = bayes_results[[spec]]$hr_draws)
+}))
+hr_data$prior_spec <- factor(hr_data$prior_spec,
+                              levels = c("vague","weakly_informative",
+                                         "skeptical","informative"))
+
+p_hr <- ggplot(hr_data, aes(x = hr, fill = prior_spec)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(xintercept = exp(freq_blue["coef"]),
+             linetype = "dashed", color = "black") +
+  scale_x_log10() +
+  annotate("text", x = exp(freq_blue["coef"]), y = 0,
+           label = "Frequentist MLE", angle = 90, vjust = -0.5,
+           hjust = 0, size = 3) +
+  labs(title = "Posterior verdeling Blue_CCS hazard ratio",
+       subtitle = "Vergelijking over vier prior specificaties",
+       x = "Hazard ratio Blue_CCS vs PEM (log schaal)",
+       y = "Posterior densiteit",
+       fill = "Prior") +
+  theme_minimal(base_size = 11)
+
+ggsave(file.path(RESULTS_DIR, "figures/posterior_HR.pdf"),
+       p_hr, width = 8, height = 5)
+cat("Opgeslagen: results/figures/posterior_HR.pdf\n")
+
+# ============================================================================
+# DIAGNOSTIEK - trace plots
+# ============================================================================
+cat("\n--- Trace plots voor weakly_informative fit ---\n")
+fit_wi <- bayes_results$weakly_informative$fit
+
+pdf(file.path(RESULTS_DIR, "figures/trace_plots.pdf"), width = 9, height = 6)
+plot(fit_wi, ask = FALSE)
+dev.off()
+cat("Opgeslagen: results/figures/trace_plots.pdf\n")
+
+# ============================================================================
+# AFRONDEN
+# ============================================================================
+cat("\n================================================================\n")
+cat("KLAAR\n")
+cat("================================================================\n")
+cat(sprintf("Run mode: %s\n", RUN_MODE))
+cat(sprintf("Resultaten in: %s\n", RESULTS_DIR))
+cat("\nVolgende stappen:\n")
+cat(" 1. Inspecteer posterior_summary.csv en posterior_HR.pdf\n")
+cat(" 2. Controleer Rhat < 1.01 en ESS > 400 in alle fits\n")
+cat(" 3. Voor productie: zet RUN_MODE = 'full' en draai opnieuw\n")
+cat(" 4. Volgende script: 02_bayesian_finegray_competing.R\n")

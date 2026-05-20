@@ -1,0 +1,6 @@
+Region minor,n_total,n_cancelled,n_cbam_exp,n_cbam_cancelled,cancel_rate,cancel_rate_cbam
+Germany,82,20,8,1,24.4,12.5
+Rest of Europe (EU-27),77,23,14,7,29.9,50.0
+France,27,5,0,0,18.5,
+Netherlands,18,4,4,2,22.2,50.0
+Spain,17,6,6,4,35.3,66.7

@@ -1,0 +1,3 @@
+Model A1: PH test failed: shapes (1066,0) and (14,) not aligned: 0 (dim 1) != 14 (dim 0)
+
+Model A2: PH test failed: shapes (342,0) and (8,) not aligned: 0 (dim 1) != 8 (dim 0)

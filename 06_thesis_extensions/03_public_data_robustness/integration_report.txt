@@ -1,0 +1,25 @@
+Public IEA Data Integration Report
+==================================================
+
+Datum gegenereerd: 2026-05-18 13:29
+
+BRON: IEA CCUS Projects Database 2026
+FILTER: Subsector contains 'Hydrogen' or 'ammonia'
+
+Sample statistieken:
+  Totaal hydrogen/ammonia CCUS projecten: 103
+  Analysable sample (na filter): 98
+  Total events: 17
+  Cancelled (terminal): 16
+  Suspended (reversibel): 1
+
+Vergelijking met v7 (S&P data):
+  v7 Blue_CCS cancellations: 31
+  CCUS public cancellations: 16
+  Onafhankelijke event-pool, weinig name-overlap
+
+Geografische verdeling van events:
+    Other_Europe: 7
+    North_America: 6
+    EU: 2
+    ANZ: 2

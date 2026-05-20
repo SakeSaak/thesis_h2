@@ -1,0 +1,65 @@
+{
+  "3block": {
+    "n_divergences": 0,
+    "blocks": [
+      {
+        "block": 0,
+        "mean": -1.59
+      },
+      {
+        "block": 1,
+        "mean": -0.61
+      },
+      {
+        "block": 2,
+        "mean": -2.03
+      }
+    ]
+  },
+  "4block": {
+    "n_divergences": 0,
+    "blocks": [
+      {
+        "block": 0,
+        "mean": -1.52
+      },
+      {
+        "block": 1,
+        "mean": -1.74
+      },
+      {
+        "block": 2,
+        "mean": -0.75
+      },
+      {
+        "block": 3,
+        "mean": -2.06
+      }
+    ]
+  },
+  "5block": {
+    "n_divergences": 0,
+    "blocks": [
+      {
+        "block": 0,
+        "mean": -1.02
+      },
+      {
+        "block": 1,
+        "mean": -1.66
+      },
+      {
+        "block": 2,
+        "mean": -1.79
+      },
+      {
+        "block": 3,
+        "mean": -0.75
+      },
+      {
+        "block": 4,
+        "mean": -2.09
+      }
+    ]
+  }
+}

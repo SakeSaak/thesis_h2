@@ -1,0 +1,24 @@
+project_name,sponsor,sponsor_type,region,country,tech,is_blue_ccs,capacity_mw,end_use,cbam_end_use,event_year,event_month,event_date,source,notes
+H2T Teesside Blue Hydrogen,BP plc,Oil_major,Other_Europe,UK,Blue_CCS,1,1200,Power_industrial,1,2025,12,2025-12-01,IOM3 news,Formal withdrawal DCO application; CBAM coverage indirect via UK ETS
+Baytown Blue Hydrogen,Exxon Mobil,Oil_major,North_America,US,Blue_CCS,1,2400,Ammonia_fertilizer_export,1,2025,11,2025-11-24,Reuters/H2View,Paused; offtake struggle; ammonia export to EU CBAM-affected
+H2M Eemshaven,Equinor+Linde,Oil_major,EU,Netherlands,Blue_CCS,1,1000,Industrial_steel_chemicals,1,2026,2,2026-02-15,gasworld,Equinor low-carbon retreat; Netherlands; CBAM-covered downstream
+Aukra Blue Hydrogen,Shell,Oil_major,Other_Europe,Norway,Blue_CCS,1,1000,Power_export,0,2024,9,2024-09-26,Maritime Executive,German power export market; pre-CBAM
+Norway-Germany H2 pipeline,Equinor+Shell+RWE,Oil_major,Other_Europe,Norway,Blue_CCS,1,500,Power_export,0,2024,9,2024-09-26,Maritime Executive,Pipeline project
+ArcelorMittal Germany green H2 steel,ArcelorMittal,Steel,EU,Germany,PEM,0,250,Steel_direct_reduction,1,2025,6,2025-06-15,Reuters/Chemistry World,EUR 2.5bn shelved despite EUR 1.3bn subsidy; explicit CBAM context cited March 2026
+Hunter Valley Hydrogen Hub,Origin Energy,Other,ANZ,Australia,PEM,0,100,Industrial_export,0,2024,10,2024-10-15,Reuters,Australian green H2 exit
+Port Pirie green hydrogen,Trafigura,Other,ANZ,Australia,PEM,0,440,Industrial,0,2024,3,2024-03-15,Reuters,A$750m abandoned
+Massena Hydrogen Plant,Air Products,Industrial_gas,North_America,US,PEM,0,35,Industrial,0,2025,2,2025-02-10,Mugglehead,Cited 45V tax credit uncertainty
+Hy Stor Mississippi Hub,Hy Stor Energy,Other,North_America,US,PEM,0,110,Industrial,0,2024,12,2024-12-10,Mugglehead,Federal funding didnt arrive
+Plug Power New York facility,Plug Power,Other,North_America,US,PEM,0,45,Industrial,0,2025,3,2025-03-15,Mugglehead,Tax credit uncertainty
+E.ON Essen 20MW green H2,E.ON,Utility,EU,Germany,PEM,0,20,Industrial,0,2025,7,2025-07-07,TXF News,Restructured deprioritising hydrogen
+H2.Ruhr pipeline,E.ON,Utility,EU,Germany,Blue_CCS,1,100,Industrial,1,2025,7,2025-07-07,TXF News,Pipeline cancellation
+Green Ammonia Linz,Verbund+LAT Nitrogen,Utility,EU,Austria,PEM,0,60,Fertilizer,1,2025,9,2025-09-15,TXF News,Direct fertilizer CBAM-covered
+Repsol Spain green H2 (350MW),Repsol,Oil_major,EU,Spain,PEM,0,350,Industrial,0,2024,10,2024-10-15,Mugglehead,Windfall tax cited
+EU Hydrogen Bank withdrawal 1 Spain,EU Innovation Fund award winners,Unknown,EU,Spain,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,From 7 projects withdrawn from EU H2 Bank Auction 2
+EU Hydrogen Bank withdrawal 2 Spain,EU Innovation Fund award winners,Unknown,EU,Spain,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+EU Hydrogen Bank withdrawal 3 Spain,EU Innovation Fund award winners,Unknown,EU,Spain,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+EU Hydrogen Bank withdrawal 4 Spain,EU Innovation Fund award winners,Unknown,EU,Spain,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+EU Hydrogen Bank withdrawal 5 Germany,EU Innovation Fund award winners,Unknown,EU,Germany,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+EU Hydrogen Bank withdrawal 6 Germany,EU Innovation Fund award winners,Unknown,EU,Germany,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+EU Hydrogen Bank withdrawal 7 Netherlands,EU Innovation Fund award winners,Unknown,EU,Netherlands,PEM,0,270,Industrial,0,2025,9,2025-09-22,pv-magazine/S&P,
+Topsoe First Ammonia electrolyser order,Topsoe (supplier),Industrial_gas,EU,Denmark,PEM,0,100,Fertilizer,1,2026,3,2026-03-26,Hydrogen Insight,Fertilizer-end-use; CBAM-covered downstream; cited US delays as cause but EU-located

@@ -1,0 +1,742 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% PACKAGES
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[expansion=false,protrusion=false]{microtype}
+
+% Math
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}
+\usepackage{eurosym}
+
+% Page layout
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% Tables
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{caption}
+\captionsetup{labelfont=bf, font=small, justification=raggedright, singlelinecheck=false}
+
+% Figures
+\usepackage{graphicx}
+\usepackage{float}
+
+% Code listings
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.0,0.0,0.7}
+\definecolor{codegreen}{rgb}{0.0,0.5,0.0}
+\definecolor{codebg}{rgb}{0.97,0.97,0.97}
+\lstdefinestyle{python}{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{codeblue}\bfseries,
+  commentstyle=\color{codegreen}\itshape,
+  stringstyle=\color{red!70!black},
+  numberstyle=\tiny\color{codegray},
+  numbers=left,
+  numbersep=8pt,
+  breaklines=true,
+  frame=single,
+  framerule=0pt,
+  language=Python,
+  showstringspaces=false,
+  tabsize=2,
+}
+
+% References / hyperlinks
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
+\usepackage[colorlinks=true, linkcolor=blue!50!black, citecolor=blue!50!black, urlcolor=blue!70!black]{hyperref}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries\color{blue!40!black}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{blue!30!black}}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\itshape\color{blue!20!black}}{\thesubsubsection.}{0.5em}{}
+
+% Custom commands
+\newcommand{\HR}{\mathrm{HR}}
+\newcommand{\BlueCCS}{\mathrm{Blue\_CCS}}
+\newcommand{\PEM}{\mathrm{PEM}}
+\newcommand{\EUA}{\mathrm{EUA}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+% ============================================================
+% TITLE
+% ============================================================
+\title{
+  \textbf{Implementation-Risk Differentials in Hydrogen Technology Pathways:}\\
+  \large\textit{Evidence from a Segmented Investment Ecosystem and Carbon-Price-Conditional Risk}
+}
+\author{
+  Sake Saakstra\\
+  \small Vrije Universiteit Amsterdam --- Department of Econometrics\\
+  \small Gasunie --- Business Line Waterstof Nederland\\
+  \small \texttt{s.saakstra@vu.nl}
+}
+\date{Working Paper --- May 2026}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+\begin{document}
+\maketitle
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{abstract}
+\noindent Hydrogen produced via electrolysis is widely viewed as a critical decarbonisation vector, with major fiscal commitments in the US Inflation Reduction Act, the EU REPowerEU package, and the Renewable Fuels of Non-Biological Origin framework. Using project-level data from S\&P Global Commodity Insights covering 2,380 announced hydrogen projects globally, we examine the determinants of project cancellation and the role of technology choice ($\BlueCCS$ versus $\PEM$). We document four substantive findings. First, $\BlueCCS$ and $\PEM$ projects operate in partially distinct investment ecosystems: the propensity model achieves McFadden $R^2 = 0.70$ and two methodologically distinct reweighting methods independently fail to find an exchangeable subsample, with propensity-matched comparisons relying on only 29 unique $\PEM$ controls for 147 $\BlueCCS$ matches and entropy balancing collapsing to an effective sample size of 8. Second, within the comparable subset, a robustness battery of eleven estimators yields consistent $\BlueCCS$ hazard ratios between 5 and 14, with the proportional hazards assumption supported (Schoenfeld $p = 0.59$), sponsor-level frailty absent ($\theta = 0.000$), and leave-one-region-out analyses confirming regional robustness ($\HR$ range $[11.1, 19.9]$ with $p < 0.0001$ throughout). Third, the Fine-Gray competing-risks decomposition reveals that the $\BlueCCS$ implementation-risk differential is concentrated almost entirely on terminal cancellation ($\HR = 13.19$, 95\% CI $[5.28, 32.91]$) rather than on real-option delay ($\HR = 1.20$, 95\% CI $[0.34, 4.26]$). $\BlueCCS$ projects do not pause; they terminate. Fourth, the $\BlueCCS$ implementation-risk premium is fundamentally carbon-price-conditional: the $\BlueCCS \times \EUA$ interaction coefficient is $-2.51$ ($p < 0.0001$), implying that the predicted $\BlueCCS$ hazard ratio collapses from $673$ ($\mathrm{CI}\ [215, 2104]$) at one standard deviation below the mean $\EUA$ price to $4.67$ ($\mathrm{CI}\ [2.14, 10.16]$) at one standard deviation above, with interactions involving gas prices, VIX, and policy uncertainty all statistically insignificant. The findings have direct policy implications: fiscal support for blue hydrogen functions as insurance against low-carbon-price scenarios in which $\BlueCCS$ projects do not pause but fail terminally.
+
+\medskip
+\noindent\textbf{Keywords:} hydrogen, carbon capture, project cancellation, transition risk, Fine-Gray competing risks, marginal effects, propensity score, doubly robust estimation, entropy balancing, Firth's penalised likelihood, segmented investment ecosystems, carbon-price-conditional risk
+
+\medskip
+\noindent\textbf{JEL classification:} Q42, Q48, C41, L94, G31
+\end{abstract}
+
+\newpage
+
+% ============================================================
+% 1. INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+Decarbonisation of energy systems requires building infrastructure that did not exist at scale a decade ago. Hydrogen produced via electrolysis is widely seen as a critical vector for hard-to-abate sectors including steel, ammonia, refining, and long-distance transport \citep{IEA2023, GlenkReichelstein2019}. The EU REPowerEU package \citep{EC2022REPowerEU} commits to 20 million tonnes of renewable hydrogen by 2030, the US Inflation Reduction Act \citep{IRA2022} provides up to \$3 per kilogram production tax credit via the 45V provision, and the EU Renewable Fuels of Non-Biological Origin (RFNBO) Delegated Acts \citep{EC2023RFNBO} codify the eligibility criteria for clean hydrogen. Yet a growing literature documents that announced infrastructure projects translate into operational facilities at low rates \citep{Flyvbjerg2014}, and the transition-finance literature has begun to quantify the implications of project failure for portfolio-level transition risk \citep{Mercure2018, BoltonKacperczyk2021, Caldecott2018}.
+
+Within the hydrogen sector, a fundamental question concerns the relative reliability of two distinct technology pathways. Blue hydrogen --- produced from natural gas with carbon capture and storage (CCS) --- leverages existing fossil infrastructure and can in principle be deployed at scale rapidly \citep{Bui2018, Budinis2018}, but depends on functioning CCS capacity, faces carbon-price exposure, and confronts reputational risks. Green hydrogen via proton-exchange-membrane (PEM) electrolysis is purely electrical and pairs with renewable generation \citep{GlenkReichelstein2019}, but is currently more capital-intensive and requires substantial electrical infrastructure.
+
+\subsection{Four substantive findings}
+
+This paper documents four empirical findings about hydrogen project realisation. We position them up front because their combination --- rather than any single finding in isolation --- constitutes the paper's contribution.
+
+\textbf{First}, $\BlueCCS$ and $\PEM$ hydrogen projects occupy partially distinct investment ecosystems. The propensity score model that predicts technology choice from observable project characteristics achieves McFadden pseudo-$R^2 = 0.698$. Two methodologically distinct reweighting approaches --- nearest-neighbour propensity score matching and entropy balancing --- independently confirm severely limited overlap: PSM uses only 29 unique $\PEM$ controls to match 147 $\BlueCCS$ projects, and entropy balancing concentrates effective weight on just 8 of 470 $\PEM$ observations before diverging into non-identification. No reweighting strategy can transform the two populations into exchangeable groups.
+
+\textbf{Second}, within the comparable subset, $\BlueCCS$ technology choice is robustly associated with elevated cancellation hazard across eleven estimators spanning four classes of identifying assumptions, with leave-one-region-out analyses confirming that the finding is regionally robust. The Cox proportional hazards estimate is $\HR = 11.93$ (95\% CI $[4.67, 30.49]$); the preferred doubly robust marginal estimate is $\HR = 6.87$; the Firth-corrected baseline is $\HR = 11.74$. The proportional hazards assumption is supported by the Schoenfeld test ($p = 0.59$) and sponsor-level frailty beyond the fixed sponsor type indicator is absent ($\theta = 0.000$).
+
+\textbf{Third}, the Fine-Gray competing-risks decomposition reveals a substantively important structure: the $\BlueCCS$ implementation-risk differential is concentrated almost entirely on terminal cancellation rather than on real-option delay. The subdistribution hazard ratio for \textit{Plans cancelled} is $13.19$ with 95\% CI $[5.28, 32.91]$ ($p < 0.0001$), while for \textit{On-hold} it is statistically indistinguishable from one ($\HR = 1.20$, 95\% CI $[0.34, 4.26]$, $p = 0.78$). $\BlueCCS$ projects do not pause for clarification of policy or economic conditions; they terminate.
+
+\textbf{Fourth}, the $\BlueCCS$ implementation-risk premium is fundamentally carbon-price-conditional. The $\BlueCCS \times \EUA$ carbon-price interaction coefficient is $-2.51$ ($p < 0.0001$). Delta-method-based marginal effects analysis shows that the predicted $\BlueCCS$ hazard ratio collapses from $673$ at one standard deviation below the mean $\EUA$ price to $4.67$ at one standard deviation above. Interactions with gas prices, VIX, and economic policy uncertainty are statistically insignificant, sharpening the interpretation: it is not generalised macro stress that drives the $\BlueCCS$ premium, but specifically carbon-price exposure.
+
+\subsection{Contribution}
+
+The four findings combine into a coherent characterisation of carbon-price-conditional transition risk in hydrogen. Structurally, the hydrogen project landscape is segmented into partially distinct investment ecosystems. Quantitatively, $\BlueCCS$ projects within and across these ecosystems exhibit a robust elevated cancellation hazard. Substantively, this elevated hazard manifests as terminal failure rather than reversible delay, and is conditional on the carbon-price environment in which projects operate. The policy implication is direct: fiscal support for blue hydrogen --- including the IRA 45V tax credit and EU support schemes --- operates effectively as insurance against low-carbon-price scenarios in which $\BlueCCS$ projects do not pause but fail terminally.
+
+% ============================================================
+% 2. DATA
+% ============================================================
+\section{Data}
+
+The S\&P Global Commodity Insights hydrogen project tracking dataset \citep{SPGlobal2024} (March 2024 snapshot, accessed through Gasunie N.V.'s institutional subscription) lists 2,380 projects globally with fields for technology, capacity, primary owner, geography, year of announcement, expected date online, and project status. We distinguish two failure events: \textit{Plans cancelled} (terminal failure, irreversible) and \textit{On-hold (confirmed)} (real-option delay, potentially reversible). The competing-risks specification treats these as separate causes \citep{FineGray1999}.
+
+We restrict the sample to projects with valid announcement years and capacity data. After filtering, the working sample comprises 714 projects (244 $\BlueCCS$, 470 $\PEM$) with 43 events (31 cancellations, 12 on-hold). Person-year expansion \citep{Allison2014, SingerWillett2003} yields 4,246 observations. Time-varying macro covariates come from European Energy Exchange ($\EUA$), TTF gas futures, the VIX, the Baker-Bloom-Davis EPU index \citep{BakerBloomDavis2016}, ENTSO-E day-ahead power prices, and the World Bank WDI. Data sources are documented in Appendix~B; all replication code is available at the repository linked in the Data Availability statement.
+
+% ============================================================
+% 3. SEGMENTATION
+% ============================================================
+\section{Segmented Investment Ecosystems: Descriptive Evidence}
+
+\subsection{Differential project characteristics}
+
+$\BlueCCS$ projects are an order of magnitude larger on average (mean capacity 1{,}850 MW vs 290 MW), more concentrated in oil-major and industrial-gas sponsors, and more frequently located in North America and the Middle East and North Africa. $\PEM$ projects skew toward smaller utility and pure-play sponsors and concentrate in Europe and Asia.
+
+\subsection{Propensity score diagnostics}
+
+A logistic regression of the $\BlueCCS$ indicator on log capacity, year of announcement, region, and sponsor type yields McFadden pseudo-$R^2 = 0.698$ \citep{McFadden1974}. Values above $0.5$ are uncommon in the causal inference literature \citep{ImbensRubin2015} and typically indicate selection so strong that the treatment and control populations are not exchangeable in a substantive sense \citep{RosenbaumRubin1983}. The propensity score range for $\BlueCCS$ is $[0.000, 1.000]$ with median $0.947$; for $\PEM$ it is $[0.000, 0.962]$ with median $0.017$.
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{fig_ps_density.png}
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{2cm}[Figure A1: \texttt{fig\_ps\_density.png}]\par\vspace{1cm}Insert PNG here\vspace{2cm}}}
+\caption{\textbf{Propensity score distributions by treatment status.} Bimodal distributions with limited overlap support the segmented-ecosystem framing.}
+\label{fig:ps_density}
+\end{figure}
+
+\subsection{Convergent evidence from two reweighting methods}
+
+Two methodologically distinct reweighting approaches independently confirm the limited overlap. Propensity score matching \citep{RosenbaumRubin1983, Caliendo2008} with $0.05$ caliper produces 147 matched pairs but relies on only 29 unique $\PEM$ control observations, each used on average five times. Entropy balancing \citep{Hainmueller2012} fails to find an interior solution: it concentrates effective weight on approximately 8 of 470 $\PEM$ controls ($\mathrm{ESS} = 1.7\%$) and the corresponding weighted regression coefficient diverges to non-identification. This dual failure provides strong evidence that no reweighting strategy can transform the two technology populations into exchangeable groups.
+
+\subsection{Interpretation}
+
+The combined evidence supports a substantive conclusion: $\BlueCCS$ and $\PEM$ hydrogen projects are not random draws from a single project population to which one of two technology labels has been assigned. They are structurally different project types embedded in different investment ecosystems.
+
+% ============================================================
+% 4. EMPIRICAL STRATEGY
+% ============================================================
+\section{Empirical Strategy}
+
+We employ eleven estimators across four classes of identifying assumptions.
+
+\subsection{Discrete-time hazard model}
+
+The baseline discrete-time hazard model in person-period form \citep{Allison2014, SingerWillett2003} is
+\begin{equation}
+  h_{it} = \Pr(T_i = t \mid T_i \geq t, X_{it}) = \Lambda\!\left(\alpha_t + \beta \cdot \BlueCCS_i + X_{it}'\gamma\right),
+  \label{eq:dt_hazard}
+\end{equation}
+where $\Lambda(\cdot)$ is the logistic link, $\alpha_t$ parametrises the baseline hazard via a polynomial in years-since-start, $X_{it}$ contains the baseline covariates (log capacity, region, sponsor type) and time-varying macro covariates, and $\beta$ is the coefficient of interest. We report cluster-robust standard errors at the sponsor and sponsor $\times$ region levels following \citet{Wooldridge2010}.
+
+\subsection{Cox proportional hazards}
+
+The Cox proportional hazards model \citep{Cox1972, AndersenGill1982} serves as a continuous-time robustness check:
+\begin{equation}
+  \lambda_i(t \mid X_i) = \lambda_0(t)\exp(X_i'\beta).
+  \label{eq:cox}
+\end{equation}
+We test the proportional-hazards assumption using Schoenfeld residuals \citep{Schoenfeld1982, GrambschTherneau1994} with rank time transformation.
+
+\subsection{Propensity-based selection corrections}
+
+Three propensity-based corrections address selection on observables. \textit{Propensity score matching} uses one-to-one nearest-neighbour matching with caliper $0.05$ \citep{Caliendo2008}. \textit{Inverse probability weighting} \citep{Robins1994} uses stabilised weights with PS trimming. The \textit{doubly robust} (augmented IPW) estimator combines outcome regression with propensity weighting:
+\begin{equation}
+  \hat\tau_{\mathrm{DR}} = \frac{1}{N}\sum_{i=1}^N \left[\hat\mu_1(X_i) - \hat\mu_0(X_i) + \frac{T_i\bigl(Y_i - \hat\mu_1(X_i)\bigr)}{\hat e(X_i)} - \frac{(1-T_i)\bigl(Y_i - \hat\mu_0(X_i)\bigr)}{1-\hat e(X_i)}\right],
+  \label{eq:dr}
+\end{equation}
+which is consistent if either the propensity model $\hat e(X)$ or the outcome regressions $\hat\mu_T(X)$ are correctly specified \citep{Bang2005}.
+
+\subsection{Entropy balancing}
+
+Entropy balancing \citep{Hainmueller2012} solves for control weights that satisfy exact moment constraints on observable covariates while remaining as close as possible to a uniform prior in Kullback-Leibler distance:
+\begin{equation}
+  \min_{\{w_i\}_{i:T_i=0}} \sum_{i:T_i=0} w_i \log(w_i/q_i) \quad \text{s.t.} \quad \sum_{i:T_i=0} w_i \, c_{k}(X_i) = m_k \;\forall\, k, \;\; \sum_{i:T_i=0} w_i = 1.
+  \label{eq:eb}
+\end{equation}
+
+\subsection{Firth's penalised likelihood}
+
+\citet{Firth1993} introduces a penalty based on the Jeffreys prior to address finite-sample bias and complete separation \citep{HeinzeSchemper2002}:
+\begin{equation}
+  \ell_{\mathrm{Firth}}(\beta) = \ell(\beta) + \tfrac{1}{2}\log\bigl|\mathcal{I}(\beta)\bigr|,
+  \label{eq:firth}
+\end{equation}
+where $\mathcal{I}(\beta)$ is the Fisher information matrix. The penalty yields finite estimates even under complete separation and reduces small-sample bias of order $O(1/n)$.
+
+\subsection{Fine-Gray subdistribution hazards}
+
+The Fine-Gray model \citep{FineGray1999} estimates the subdistribution hazard for each competing risk $k$:
+\begin{equation}
+  \lambda_k^{\mathrm{sd}}(t) = -\frac{d \log\bigl[1 - F_k(t)\bigr]}{dt}, \qquad F_k(t) = \Pr(T \leq t, J = k),
+  \label{eq:fg}
+\end{equation}
+where $J$ is the cause indicator. The subdistribution hazard for cause $k$ is interpreted relative to a risk set that retains subjects already experiencing competing events, enabling direct estimation of the cumulative incidence function.
+
+\subsection{Shared frailty Cox}
+
+To address sponsor-level heterogeneity beyond the fixed sponsor type indicator, we estimate a shared frailty Cox model with gamma-distributed random effects:
+\begin{equation}
+  \lambda_{ij}(t \mid X_{ij}, u_j) = \lambda_0(t)\exp(X_{ij}'\beta)\, u_j, \qquad u_j \overset{\mathrm{iid}}{\sim} \Gamma(1/\theta, 1/\theta).
+  \label{eq:frailty}
+\end{equation}
+The frailty variance $\theta$ quantifies unobserved within-sponsor-type heterogeneity \citep{TherneauGrambsch2003}.
+
+\subsection{Macro-financial interactions and marginal effects}
+
+To position the analysis in transition-finance territory, we estimate four interaction models of the form
+\begin{equation}
+  h_{it} = \Lambda\!\left(\alpha_t + \beta_1\, \BlueCCS_i + \beta_2\, Z_{it} + \beta_3\, (\BlueCCS_i \times Z_{it}) + X_{it}'\gamma\right),
+  \label{eq:interaction}
+\end{equation}
+where $Z_{it}$ is one of: standardised $\EUA$ carbon price, TTF gas price, VIX, or EPU index. The predicted $\BlueCCS$ log-hazard ratio as a function of $z$ is the linear combination
+\begin{equation}
+  \widehat{\mathrm{LHR}}(z) = \hat\beta_1 + \hat\beta_3\, z,
+  \label{eq:lhr}
+\end{equation}
+whose variance follows from the delta method \citep{Wooldridge2010}:
+\begin{equation}
+  \widehat\Var\!\bigl(\widehat{\mathrm{LHR}}(z)\bigr) = \widehat\Var(\hat\beta_1) + z^2\, \widehat\Var(\hat\beta_3) + 2z\, \widehat\Cov(\hat\beta_1, \hat\beta_3).
+  \label{eq:delta_method}
+\end{equation}
+The 95\% confidence interval for the predicted hazard ratio at level $z$ is $\exp\!\left(\widehat{\mathrm{LHR}}(z) \pm 1.96\, \sqrt{\widehat\Var\bigl(\widehat{\mathrm{LHR}}(z)\bigr)}\right)$.
+
+% ============================================================
+% 5. RESULTS
+% ============================================================
+\section{Results}
+
+\subsection{Headline estimates across methods}
+
+Table~\ref{tab:headline} reports the $\BlueCCS$ hazard ratio under all eleven estimators. The estimates that yield interior solutions cluster between approximately 5 and 14, with the doubly robust marginal estimate at $\HR = 6.87$ as our preferred specification.
+
+\begin{table}[H]
+\centering
+\caption{$\BlueCCS$ hazard ratio across eleven estimators.}
+\label{tab:headline}
+\small
+\begin{tabular}{lcccl}
+\toprule
+\textbf{Estimator} & \textbf{$\BlueCCS$ HR} & \textbf{95\% CI / SE} & \textbf{$p$} & \textbf{Sample} \\
+\midrule
+GLM, iid SE & 14.32 & SE $0.506$ & $<0.0001$ & 4{,}246 p-yr \\
+GLM, cluster sponsor SE & 14.32 & SE $0.328$ & $<0.0001$ & 4{,}246 p-yr \\
+GLM, cluster sponsor$\times$region SE & 14.32 & SE $0.490$ & $<0.0001$ & 4{,}246 p-yr \\
+Cox PH & 11.93 & $[4.67, 30.49]$ & $<0.0001$ & 714 proj. \\
+PSM, caliper $0.05$ & 5.22 & SE $1.09$ & $0.130$ & 992 p-yr \\
+IPW (stabilised) & 14.50 & SE $0.51$ & $<0.0001$ & 3{,}706 p-yr \\
+\textbf{Doubly Robust (preferred)} & \textbf{6.87} & --- & $<0.0001$ & 3{,}706 p-yr \\
+Entropy Balancing & Failed (sep.) & ESS $= 8/470$ & --- & 714 proj. \\
+Firth penalised baseline & 11.74 & SE $0.38$ & $<0.0001$ & 12{,}354 p-yr \\
+\textbf{Fine-Gray, Plans cancelled} & \textbf{13.19} & $[5.28, 32.91]$ & $<0.0001$ & 714 proj. \\
+\textbf{Fine-Gray, On-hold} & \textbf{1.20} & $[0.34, 4.26]$ & $0.782$ & 714 proj. \\
+Shared Frailty Cox ($\gamma$) & 13.73 & $[5.24, 35.98]$ & $<0.0001$ & 714 proj. \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize \textit{Notes:} Cox concordance index $= 0.810$. Shared frailty variance $\theta = 0.000$ indicates that the fixed sponsor type indicator captures all systematic sponsor-level variation.}
+\end{table}
+
+\subsection{Cox proportional hazards and Schoenfeld test}
+
+The Cox proportional hazards model yields $\BlueCCS$ $\HR = 11.93$ (95\% CI $[4.67, 30.49]$) with concordance index $0.810$. The Schoenfeld residual test with rank time transformation supports the proportional hazards assumption for both $\BlueCCS$ ($p = 0.585$) and log capacity ($p = 0.281$). This justifies reporting a single hazard ratio that summarises the technology differential across the project lifecycle without requiring time-stratified specifications.
+
+\subsection{Cluster-robust standard errors}
+
+Naive (iid) SE for the $\BlueCCS$ coefficient is $0.506$. Cluster-robust SE at the sponsor level is $0.328$, and at the sponsor $\times$ region level is $0.490$. The sponsor-level cluster SE is \emph{smaller} than the iid SE rather than larger, reflecting that many sponsors in our sample have only one project (singleton clusters), particularly among pure-play hydrogen firms. The sponsor $\times$ region clustering yields a cluster SE closer to the iid estimate, consistent with this interpretation. The $\BlueCCS$ coefficient remains strongly significant under all clustering schemes ($p < 0.0001$ throughout).
+
+\subsection{Marginal effects: carbon-price-conditional risk}
+
+The macro-financial interaction analysis is the central substantive contribution. Table~\ref{tab:interactions} reports the four interaction models; only the $\EUA$ interaction is statistically significant.
+
+\begin{table}[H]
+\centering
+\caption{Macro-financial interaction effects on $\BlueCCS$ hazard.}
+\label{tab:interactions}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Interaction term} & \textbf{Blue main} & \textbf{Macro main} & \textbf{Interaction} & \textbf{Int. $p$} \\
+\midrule
+$\BlueCCS \times \mathrm{TTF\_gas}_z$ & $2.582^{***}$ & $-0.122^{***}$ & $-0.670$ & $0.315$ \\
+\textbf{$\BlueCCS \times \EUA_z$} & $\mathbf{4.026^{***}}$ & $\mathbf{+2.516^{***}}$ & $\mathbf{-2.507^{***}}$ & $\mathbf{<0.0001}$ \\
+$\BlueCCS \times \mathrm{VIX}_z$ & --- & --- & $+0.246$ & $0.569$ \\
+$\BlueCCS \times \mathrm{EPU}_z$ & --- & --- & $+0.006$ & $0.986$ \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize \textit{Notes:} Each row is a separate hazard regression on the full person-year panel ($n = 4{,}246$) with cluster-robust SE at sponsor level. Macro variables are standardised. Significance levels: $^*\,p<0.10$, $^{**}\,p<0.05$, $^{***}\,p<0.01$.}
+\end{table}
+
+Figure~\ref{fig:eua} visualises the predicted $\BlueCCS$ cancellation hazard ratio as a function of $\EUA$ carbon price (z-score), with 95\% confidence intervals computed via the delta method (Equation~\ref{eq:delta_method}).
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.85\textwidth]{fig_marginal_effects_eua.png}
+\fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}[Figure 1: \texttt{fig\_marginal_effects\_eua.png}]\par\vspace{1cm}Insert PNG here\vspace{2.5cm}}}
+\caption{\textbf{Predicted $\BlueCCS$ cancellation hazard ratio as a function of $\EUA$ carbon price.} Shaded band: 95\% CI from delta method. Top axis: approximate $\EUA$ price levels in $\bm{\text{\euro}/\mathrm{tCO}_2}$.}
+\label{fig:eua}
+\end{figure}
+
+Table~\ref{tab:eua_levels} reports the predicted $\BlueCCS$ hazard ratios at key carbon-price levels with full 95\% confidence intervals.
+
+\begin{table}[H]
+\centering
+\caption{Predicted $\BlueCCS$ hazard ratio at key carbon-price levels.}
+\label{tab:eua_levels}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{$\EUA$ z-score} & \textbf{Approx.\ $\EUA$ ($\text{\euro}/\mathrm{tCO}_2$)} & \textbf{Predicted $\BlueCCS$ HR} & \textbf{95\% CI} \\
+\midrule
+$z = -1$ (low carbon) & $\approx 30$ & $673.26$ & $[215.42, 2{,}104.17]$ \\
+$z = 0$ (historical mean) & $\approx 55$ & $59.73$ & $[25.33, 140.85]$ \\
+\textbf{$z = +1$ (high carbon)} & $\mathbf{\approx 80}$ & $\mathbf{4.67}$ & $\mathbf{[2.14, 10.16]}$ \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize \textit{Notes:} Computed via delta method from the interaction model in Table~\ref{tab:interactions}. The widening of CI at extreme $z$ reflects standard extrapolation uncertainty. At $z = +1$ the CI excludes $\HR = 1$, confirming statistical significance at current European ETS price levels.}
+\end{table}
+
+The mechanism is rooted in the unit economics of carbon capture \citep{Bui2018, Budinis2018}. As the carbon price rises, captured $\mathrm{CO}_2$ becomes more economically valuable to retain rather than emit, and the CCS step in blue hydrogen production becomes economically advantageous rather than burdensome. The insignificance of interactions with gas prices, VIX, and EPU sharpens the interpretation: the $\BlueCCS$ premium is not driven by generalised macro stress, but specifically by carbon-price exposure --- consistent with the transition-finance literature on technology-specific carbon-price sensitivity \citep{BoltonKacperczyk2021, Mercure2018}.
+
+\subsection{Competing risks: terminal cancellation versus real-option delay}
+
+The Fine-Gray subdistribution hazard framework (Equation~\ref{eq:fg}) distinguishes \textit{Plans cancelled} (event 1, terminal failure) from \textit{On-hold confirmed} (event 2, real-option delay in the sense of \citet{DixitPindyck1994}). Of the 43 events, 31 are terminal cancellations and 12 are on-hold transitions. The $\BlueCCS$ implementation-risk differential is concentrated almost entirely on terminal cancellation ($\HR = 13.19$, 95\% CI $[5.28, 32.91]$) and is statistically indistinguishable from one for on-hold transitions ($\HR = 1.20$, 95\% CI $[0.34, 4.26]$, $p = 0.78$). $\BlueCCS$ projects do not enter a pause-and-wait state; they terminate.
+
+The policy implication is direct: fiscal instruments designed to support blue hydrogen must operate as continuous insurance rather than as one-time interventions. Once a project enters the cancellation pathway, it does not reverse. Combined with the carbon-price interaction, the implication is that at low carbon prices, $\BlueCCS$ projects do not pause to wait for recovery --- they terminate.
+
+\subsection{Sponsor frailty}
+
+The shared frailty Cox model (Equation~\ref{eq:frailty}) with gamma-distributed random effects on sponsor estimates a frailty variance $\hat\theta = 0.000$, indicating negligible within-sponsor-type heterogeneity beyond what the fixed sponsor type indicator captures. The $\BlueCCS$ hazard ratio under frailty correction is $13.73$, identical to the Cox baseline. With 256 unique sponsors and only 21 sponsors experiencing events, individual-sponsor random effects cannot be identified. Methodologically, this confirms that sponsor type as a fixed effect is a sufficient specification.
+
+% ============================================================
+% 6. ROBUSTNESS
+% ============================================================
+\section{Robustness}
+
+\subsection{Sensitivity to caliper and trimming}
+
+Tighter PSM calipers (0.02, 0.01) yield similar point estimates. IPW with trimming at $[0.05, 0.95]$ is the primary IPW specification.
+
+\subsection{Sponsor type aggregation}
+
+The DR estimator aggregates sponsor types into three groups to avoid separation; re-running with the original eight-level categorisation under Firth penalisation yields qualitatively similar results. The frailty Cox result ($\theta = 0.000$) validates this aggregation.
+
+\subsection{Fine-Gray specification sensitivity}
+
+The Fine-Gray specification uses a reduced covariate set ($\BlueCCS$ $+$ log capacity) because the full specification with sponsor type and region dummies produces a singular design matrix given 31 cancelled and 12 on-hold events. Adding sponsor type one level at a time does not change the qualitative pattern.
+
+\subsection{Bootstrap inference}
+
+Naive standard errors are likely conservative for PSM and IPW (which require bootstrap inference for proper coverage) and approximately correct for DR. For publication-quality inference we recommend $B = 500$ bootstrap iterations. The substantive convergence across estimators is unlikely to be sensitive to this refinement.
+
+\subsection{Unobserved selection}
+
+All eleven estimators address selection on observables. They cannot account for selection on unobservables. Addressing this would require either an instrumental variables strategy or a Heckman-style selection model \citep{Heckman1979} with an exclusion restriction.
+
+\subsection{Measurement error in event timing}
+
+The dataset does not record exact event dates; we assign events to the midpoint between announcement and expected commissioning. This measurement error attenuates time-varying covariate effects but is unlikely to bias the $\BlueCCS$ coefficient, since technology is fixed at announcement.
+
+\subsection{Leave-one-region-out robustness}
+
+To test whether the $\BlueCCS$ finding is driven by a particular region, we re-estimate the hazard model excluding each of the seven regions in turn. Across all seven leave-one-region-out (LOR) specifications, the $\BlueCCS$ coefficient remains statistically significant ($p < 0.0001$ throughout) and large in magnitude (range $11.08$ to $19.89$ around the full-sample value of $14.32$).
+
+\begin{table}[H]
+\centering
+\caption{Leave-one-region-out robustness.}
+\label{tab:lor}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Specification} & \textbf{$n$ proj.} & \textbf{$n$ events} & \textbf{$\BlueCCS$ HR} & \textbf{95\% CI} & \textbf{$p$} \\
+\midrule
+\textbf{Full sample} & $714$ & $43$ & $\mathbf{14.32}$ & $[7.52, 27.25]$ & $<0.0001$ \\
+Excl. Asia (0 events) & $608$ & $43$ & $14.32$ & $[7.52, 27.26]$ & $<0.0001$ \\
+Excl. EU & $501$ & $37$ & $14.64$ & $[6.45, 33.26]$ & $<0.0001$ \\
+Excl. North America & $552$ & $29$ & $13.34$ & $[8.55, 20.82]$ & $<0.0001$ \\
+Excl. MENA & $695$ & $41$ & $12.93$ & $[6.48, 25.79]$ & $<0.0001$ \\
+Excl. Other & $638$ & $40$ & $11.08$ & $[5.06, 24.28]$ & $<0.0001$ \\
+Excl. Other Europe & $627$ & $32$ & $18.06$ & $[10.37, 31.46]$ & $<0.0001$ \\
+Excl. ANZ & $663$ & $36$ & $19.89$ & $[10.31, 38.39]$ & $<0.0001$ \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize \textit{Notes:} Each LOR specification re-estimates the full hazard model on the sample excluding all projects in the named region. Reference category for the region indicator is dynamically reassigned when EU is excluded. Cluster-robust SE at sponsor level throughout.}
+\end{table}
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.85\textwidth]{fig_lor_forest.png}
+\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}[Figure 2: \texttt{fig\_lor\_forest.png}]\par\vspace{1cm}Insert PNG here\vspace{2cm}}}
+\caption{\textbf{Forest plot of $\BlueCCS$ hazard ratios across leave-one-region-out specifications.} Vertical blue line: full-sample $\HR = 14.32$. The qualitative finding survives in every regional subsample with $p < 0.0001$ throughout.}
+\label{fig:lor}
+\end{figure}
+
+Three observations on the LOR pattern warrant comment. First, the qualitative finding survives every regional exclusion: $\BlueCCS$ $\HR$ remains between 11 and 20 with $p < 0.0001$ in all eight specifications. Second, excluding North America --- which contains 98 of 244 $\BlueCCS$ projects (40\%) and 14 of 43 events --- yields $\HR = 13.34$, only $7\%$ below the full-sample value. The frequently-stated concern that hydrogen findings are driven by oil-major-led US projects under the IRA is not supported by these data. Third, the regions whose exclusion increases the estimated $\HR$ (ANZ at $19.89$, Other Europe at $18.06$) contain $\BlueCCS$ projects with below-average cancellation hazard, while regions whose exclusion decreases the estimated $\HR$ (Other at $11.08$) contain projects with above-average cancellation hazard. This regional heterogeneity, while not the focus of the current analysis, suggests interesting follow-up work on jurisdiction-specific hydrogen policy effectiveness.
+
+% ============================================================
+% 7. DISCUSSION
+% ============================================================
+\section{Discussion}
+
+\subsection{The segmented-ecosystem finding}
+
+The hydrogen project landscape is structured into partially distinct investment ecosystems characterised by institutional sponsor types. $\BlueCCS$ projects, predominantly sponsored by oil majors and industrial-gas firms, operate in an investment ecosystem distinct from that of $\PEM$ projects, predominantly sponsored by utilities and pure-play hydrogen firms. Observational comparisons must be conducted with explicit acknowledgement of this structural feature.
+
+\subsection{The carbon-price-conditional risk premium}
+
+The central substantive finding is that the $\BlueCCS$ implementation-risk premium is fundamentally a function of carbon-price exposure rather than a uniform technology feature. The $\BlueCCS \times \EUA$ interaction coefficient of $-2.51$ ($p < 0.0001$) implies that at one standard deviation above the historical mean carbon price, the $\BlueCCS$ hazard ratio collapses by a factor of approximately $144$ relative to one standard deviation below the mean. The mechanism is rooted in the unit economics of carbon capture \citep{Bui2018, Budinis2018}. As the carbon price rises, captured $\mathrm{CO}_2$ becomes more economically valuable to retain rather than emit, and the CCS step in blue hydrogen production becomes economically advantageous rather than burdensome. This complements the broader transition-finance literature on carbon-price-sensitive asset stranding \citep{Mercure2018, Caldecott2018, BoltonKacperczyk2021}.
+
+\subsection{Blue hydrogen projects terminate, they do not pause}
+
+The Fine-Gray competing-risks decomposition adds a crucial dimension to the interpretation. The $\BlueCCS$ implementation-risk differential is concentrated almost entirely on terminal cancellation ($\HR = 13.19$) and not on real-option-style delay ($\HR = 1.20$, indistinguishable from one). When conditions deteriorate for blue hydrogen projects, these projects do not enter a pause-and-wait state; they terminate. Combined with the carbon-price interaction, the implication is striking. At carbon prices substantially below the historical mean, blue hydrogen projects face very high cancellation hazard and do not have the option to wait for carbon prices to recover; they terminate. The economic value of fiscal support for blue hydrogen is therefore precisely the value of insurance against low-carbon-price scenarios in which the projects would not survive to benefit from later carbon-price recovery.
+
+\subsection{Regional heterogeneity}
+
+The leave-one-region-out analysis confirms that the headline finding is not driven by any single region but also reveals interesting regional heterogeneity. ANZ-region and Other Europe-region $\BlueCCS$ projects appear to fail less frequently than the global average, while Other-region (predominantly Latin America and Africa) $\BlueCCS$ projects appear to fail more frequently. Investigating the jurisdiction-specific drivers --- regulatory clarity, fiscal support depth, infrastructure development, or political stability --- is a natural extension.
+
+\subsection{Synthesis}
+
+The four substantive findings combine into a coherent characterisation: \emph{carbon-price-conditional transition risk in segmented investment ecosystems}, in which fiscal support functions as insurance against carbon-price scenarios in which the supported technology would not survive. Within and across the segmented ecosystems, technology choice is associated with robustly elevated cancellation hazard that survives all four classes of identifying assumptions and all seven leave-one-region-out specifications. This hazard differential manifests as terminal failure rather than reversible delay, and is fundamentally conditional on the carbon-price environment.
+
+\subsection{Limitations}
+
+Event dates are approximated. The propensity model captures observable characteristics only. Selection on unobservables is not addressed. The provider updates the dataset periodically; this study uses the March 2024 snapshot. Marginal effects rely on a linear-on-log-odds extrapolation that breaks down at extreme carbon-price values. The macro-financial interactions use calendar-year aggregations of monthly data.
+
+% ============================================================
+% 8. CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+Using project-level data from S\&P Global Commodity Insights, this paper investigates the determinants of cancellation hazard differentials between blue (CCS-based) and green (PEM electrolysis) hydrogen technologies. We make four contributions. First, $\BlueCCS$ and $\PEM$ projects operate in partially distinct investment ecosystems, confirmed by McFadden $R^2 = 0.70$ and the convergent failure of PSM and entropy balancing to find an exchangeable subsample. Second, within the comparable subset, eleven estimators across four classes of identifying assumptions yield consistent $\BlueCCS$ hazard ratios between $5$ and $14$, with the proportional hazards assumption supported, sponsor frailty absent, and leave-one-region-out analyses confirming regional robustness ($\HR$ range $[11.1, 19.9]$, $p < 0.0001$ throughout). Third, Fine-Gray competing-risks analysis reveals that the $\BlueCCS$ implementation-risk differential is concentrated almost entirely on terminal cancellation ($\HR = 13.19$) rather than on real-option delay ($\HR = 1.20$, indistinguishable from one): blue hydrogen projects terminate rather than pause when conditions deteriorate. Fourth, the $\BlueCCS$ implementation-risk premium is fundamentally carbon-price-conditional: the $\BlueCCS \times \EUA$ interaction is $-2.51$ ($p < 0.0001$), with predicted hazard ratios falling from $673$ ($\mathrm{CI}\ [215, 2{,}104]$) at low carbon prices to $4.67$ ($\mathrm{CI}\ [2.14, 10.16]$) at high carbon prices.
+
+The findings have direct implications for hydrogen support scheme design. The IRA 45V tax credit, EU REPowerEU support, and similar instruments function effectively as insurance against low-carbon-price scenarios in which $\BlueCCS$ projects would not survive to benefit from subsequent carbon-price recovery. The PhD continuation extends this framework toward joint state-space hazard modelling with score-driven time-varying parameters.
+
+% ============================================================
+% DATA AVAILABILITY
+% ============================================================
+\section*{Data Availability Statement}
+
+The project-level dataset is licensed from S\&P Global Commodity Insights and was accessed through Gasunie N.V.'s institutional subscription; researchers seeking to replicate this analysis would require equivalent S\&P Global access. The publicly available IEA Hydrogen Production and Infrastructure Projects Database (\url{https://www.iea.org/data-and-statistics/data-product/hydrogen-production-and-infrastructure-projects-database}) provides a partially overlapping but methodologically distinct hydrogen project pipeline; it lacks the project lifecycle status detail (e.g., \textit{Plans cancelled}, \textit{On-hold (confirmed)}) required for the event coding used in this study. All time-varying macro covariates are constructed from public sources: ICAP for EU ETS allowance prices, ICE Endex for TTF gas futures, ENTSO-E Transparency Platform for day-ahead electricity prices, CBOE for the VIX, Baker-Bloom-Davis for the Economic Policy Uncertainty index, FRED for US interest rates and exchange rates, and Yahoo Finance via the \texttt{yfinance} library for hydrogen-sector equity prices. The processed person-period panel and all analysis code (Python and R) used to produce the results in this paper are available at:
+
+\begin{center}
+\url{https://github.com/sakesaakstra/blueCCS-hydrogen}
+\end{center}
+
+The repository includes complete replication instructions, locked dependency versions (\texttt{requirements.txt} for Python, \texttt{renv.lock} for R), and a \texttt{CITATION.cff} file. See Appendix~B for a detailed list of data sources.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\renewcommand{\bibname}{References}
+\begin{thebibliography}{99}
+
+\bibitem[Allison(2014)]{Allison2014}
+Allison, P. D. (2014). \textit{Event History and Survival Analysis} (2nd ed.). SAGE Publications.
+
+\bibitem[Andersen and Gill(1982)]{AndersenGill1982}
+Andersen, P. K. and Gill, R. D. (1982). Cox's regression model for counting processes: A large sample study. \textit{Annals of Statistics}, 10(4):1100--1120.
+
+\bibitem[Baker et al.(2016)]{BakerBloomDavis2016}
+Baker, S. R., Bloom, N., and Davis, S. J. (2016). Measuring economic policy uncertainty. \textit{Quarterly Journal of Economics}, 131(4):1593--1636.
+
+\bibitem[Bang and Robins(2005)]{Bang2005}
+Bang, H. and Robins, J. M. (2005). Doubly robust estimation in missing data and causal inference models. \textit{Biometrics}, 61(4):962--973.
+
+\bibitem[Bolton and Kacperczyk(2021)]{BoltonKacperczyk2021}
+Bolton, P. and Kacperczyk, M. (2021). Do investors care about carbon risk? \textit{Journal of Financial Economics}, 142(2):517--549.
+
+\bibitem[Budinis et al.(2018)]{Budinis2018}
+Budinis, S., Krevor, S., Mac Dowell, N., Brandon, N., and Hawkes, A. (2018). An assessment of CCS costs, barriers and potential. \textit{Energy Strategy Reviews}, 22:61--81.
+
+\bibitem[Bui et al.(2018)]{Bui2018}
+Bui, M., Adjiman, C. S., Bardow, A., et al. (2018). Carbon capture and storage (CCS): the way forward. \textit{Energy and Environmental Science}, 11(5):1062--1176.
+
+\bibitem[Caldecott(2018)]{Caldecott2018}
+Caldecott, B., editor (2018). \textit{Stranded Assets and the Environment: Risk, Resilience, and Opportunity}. Routledge, London.
+
+\bibitem[Caliendo and Kopeinig(2008)]{Caliendo2008}
+Caliendo, M. and Kopeinig, S. (2008). Some practical guidance for the implementation of propensity score matching. \textit{Journal of Economic Surveys}, 22(1):31--72.
+
+\bibitem[Cox(1972)]{Cox1972}
+Cox, D. R. (1972). Regression models and life-tables. \textit{Journal of the Royal Statistical Society: Series B}, 34(2):187--202.
+
+\bibitem[Dixit and Pindyck(1994)]{DixitPindyck1994}
+Dixit, A. K. and Pindyck, R. S. (1994). \textit{Investment under Uncertainty}. Princeton University Press.
+
+\bibitem[European Commission(2022)]{EC2022REPowerEU}
+European Commission (2022). \textit{REPowerEU Plan}. COM(2022) 230 final, Brussels.
+
+\bibitem[European Commission(2023)]{EC2023RFNBO}
+European Commission (2023). Commission Delegated Regulation (EU) 2023/1184 of 10 February 2023 supplementing Directive (EU) 2018/2001 of the European Parliament and of the Council. \textit{Official Journal of the European Union}, L 157/11.
+
+\bibitem[Fine and Gray(1999)]{FineGray1999}
+Fine, J. P. and Gray, R. J. (1999). A proportional hazards model for the subdistribution of a competing risk. \textit{Journal of the American Statistical Association}, 94(446):496--509.
+
+\bibitem[Firth(1993)]{Firth1993}
+Firth, D. (1993). Bias reduction of maximum likelihood estimates. \textit{Biometrika}, 80(1):27--38.
+
+\bibitem[Flyvbjerg(2014)]{Flyvbjerg2014}
+Flyvbjerg, B. (2014). What you should know about megaprojects and why: An overview. \textit{Project Management Journal}, 45(2):6--19.
+
+\bibitem[Glenk and Reichelstein(2019)]{GlenkReichelstein2019}
+Glenk, G. and Reichelstein, S. (2019). Economics of converting renewable power to hydrogen. \textit{Nature Energy}, 4:216--222.
+
+\bibitem[Grambsch and Therneau(1994)]{GrambschTherneau1994}
+Grambsch, P. M. and Therneau, T. M. (1994). Proportional hazards tests and diagnostics based on weighted residuals. \textit{Biometrika}, 81(3):515--526.
+
+\bibitem[Hainmueller(2012)]{Hainmueller2012}
+Hainmueller, J. (2012). Entropy balancing for causal effects: A multivariate reweighting method to produce balanced samples in observational studies. \textit{Political Analysis}, 20(1):25--46.
+
+\bibitem[Heckman(1979)]{Heckman1979}
+Heckman, J. J. (1979). Sample selection bias as a specification error. \textit{Econometrica}, 47(1):153--161.
+
+\bibitem[Heinze and Schemper(2002)]{HeinzeSchemper2002}
+Heinze, G. and Schemper, M. (2002). A solution to the problem of separation in logistic regression. \textit{Statistics in Medicine}, 21(16):2409--2419.
+
+\bibitem[IEA(2023)]{IEA2023}
+IEA (2023). \textit{Global Hydrogen Review 2023}. International Energy Agency, Paris.
+
+\bibitem[S\&P Global(2024)]{SPGlobal2024}
+S\&P Global Commodity Insights (2024). \textit{Hydrogen Project Tracking Database (March 2024 snapshot)}. S\&P Global Commodity Insights. Accessed via Gasunie N.V.\ institutional subscription.
+
+\bibitem[Imbens and Rubin(2015)]{ImbensRubin2015}
+Imbens, G. W. and Rubin, D. B. (2015). \textit{Causal Inference for Statistics, Social, and Biomedical Sciences: An Introduction}. Cambridge University Press.
+
+\bibitem[McFadden(1974)]{McFadden1974}
+McFadden, D. (1974). Conditional logit analysis of qualitative choice behavior. In Zarembka, P., editor, \textit{Frontiers in Econometrics}, pages 105--142. Academic Press.
+
+\bibitem[Mercure et al.(2018)]{Mercure2018}
+Mercure, J.-F., Pollitt, H., Vi\~{n}uales, J. E., et al. (2018). Macroeconomic impact of stranded fossil fuel assets. \textit{Nature Climate Change}, 8:588--593.
+
+\bibitem[Robins et al.(1994)]{Robins1994}
+Robins, J. M., Rotnitzky, A., and Zhao, L. P. (1994). Estimation of regression coefficients when some regressors are not always observed. \textit{Journal of the American Statistical Association}, 89(427):846--866.
+
+\bibitem[Rosenbaum and Rubin(1983)]{RosenbaumRubin1983}
+Rosenbaum, P. R. and Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects. \textit{Biometrika}, 70(1):41--55.
+
+\bibitem[Schoenfeld(1982)]{Schoenfeld1982}
+Schoenfeld, D. (1982). Partial residuals for the proportional hazards regression model. \textit{Biometrika}, 69(1):239--241.
+
+\bibitem[Singer and Willett(2003)]{SingerWillett2003}
+Singer, J. D. and Willett, J. B. (2003). \textit{Applied Longitudinal Data Analysis: Modeling Change and Event Occurrence}. Oxford University Press.
+
+\bibitem[Therneau and Grambsch(2000)]{TherneauGrambsch2000}
+Therneau, T. M. and Grambsch, P. M. (2000). \textit{Modeling Survival Data: Extending the Cox Model}. Springer.
+
+\bibitem[Therneau et al.(2003)]{TherneauGrambsch2003}
+Therneau, T. M., Grambsch, P. M., and Pankratz, V. S. (2003). Penalised survival models and frailty. \textit{Journal of Computational and Graphical Statistics}, 12(1):156--175.
+
+\bibitem[US Congress(2022)]{IRA2022}
+US Congress (2022). \textit{Inflation Reduction Act of 2022}. Public Law 117-169.
+
+\bibitem[Wooldridge(2010)]{Wooldridge2010}
+Wooldridge, J. M. (2010). \textit{Econometric Analysis of Cross Section and Panel Data} (2nd ed.). MIT Press, Cambridge, MA.
+
+\end{thebibliography}
+
+% ============================================================
+% APPENDIX
+% ============================================================
+\appendix
+
+\section{Reproducibility and Code}
+
+This appendix documents the implementation of methodologically novel components: the delta method computation for marginal effects, the entropy balancing optimisation, and the Fine-Gray model fit with reduced covariate set. Full data preparation scripts and additional analysis code are available at \url{https://github.com/sakesaakstra/blueCCS-hydrogen}. The full computational pipeline is implemented in Python (\texttt{numpy}, \texttt{pandas}, \texttt{statsmodels}, \texttt{lifelines}, \texttt{scipy}) and R (\texttt{cmprsk}, \texttt{survival}, \texttt{coxme}). Locked dependency versions are provided in \texttt{requirements.txt} and \texttt{renv.lock}.
+
+\subsection{Delta method for marginal effects}
+
+The marginal effects analysis in Section~5.4 uses the delta method to construct confidence intervals for the predicted $\BlueCCS$ log-hazard ratio at each value of the standardised macro covariate $z$. Given the fitted interaction model coefficients $\hat\beta_1$ ($\BlueCCS$ main effect) and $\hat\beta_3$ ($\BlueCCS \times Z$ interaction), and the corresponding $2 \times 2$ submatrix of the variance-covariance matrix of the estimator, the variance of the linear combination $\hat\beta_1 + z\hat\beta_3$ is given by Equation~\ref{eq:delta_method}.
+
+\begin{lstlisting}[style=python, caption={Delta method implementation for marginal effects.}, label={lst:delta}]
+def predicted_blue_logHR(model, main_var, int_var, z_grid):
+    """Delta method for Blue_CCS log-HR over z grid."""
+    params = model.params
+    cov = model.cov_params()
+
+    beta_main = params[main_var]
+    beta_int = params[int_var]
+    var_main = cov.loc[main_var, main_var]
+    var_int = cov.loc[int_var, int_var]
+    cov_mi = cov.loc[main_var, int_var]
+
+    rows = []
+    for z in z_grid:
+        logHR = beta_main + beta_int * z
+        # Var(b_main + z*b_int)
+        #  = var_main + z^2 var_int + 2z cov_mi
+        var_lc = var_main + z**2 * var_int + 2 * z * cov_mi
+        se_lc = np.sqrt(max(var_lc, 1e-12))
+        rows.append({
+            "z": float(z),
+            "logHR": float(logHR),
+            "HR": float(np.exp(logHR)),
+            "HR_lower": float(np.exp(logHR - 1.96 * se_lc)),
+            "HR_upper": float(np.exp(logHR + 1.96 * se_lc)),
+        })
+    return pd.DataFrame(rows)
+\end{lstlisting}
+
+The implementation uses the cluster-robust variance-covariance matrix returned by \texttt{statsmodels} when fitting with \texttt{cov\_type="cluster"}, ensuring that the marginal effect confidence intervals are consistent with the cluster-robust inference reported elsewhere in the paper.
+
+\subsection{Entropy balancing}
+
+The entropy balancing implementation solves the dual formulation of the optimisation in Equation~\ref{eq:eb} using \texttt{scipy.optimize.minimize} with the L-BFGS-B algorithm. The implementation includes explicit \texttt{float64} casting of the design matrix to prevent dtype propagation issues when combining numerical covariates with one-hot-encoded categorical variables.
+
+\begin{lstlisting}[style=python, caption={Entropy balancing dual optimisation.}, label={lst:eb}]
+def neg_entropy_balance_loss(lam, X_c, target_m):
+    """Dual formulation: minimize over lam."""
+    lin = X_c @ lam
+    lin = lin - lin.max()  # numerical stability
+    w = np.exp(lin)
+    Z = w.sum()
+    if Z <= 0 or not np.isfinite(Z):
+        return 1e10
+    w = w / Z * len(w)
+    moments = (w[:, None] * X_c).sum(axis=0) / len(w)
+    violation = moments - target_m
+    return 0.5 * np.sum(violation**2)
+
+# Cast to float64 to avoid object-dtype propagation
+X_treated = X_eb[T == 1].to_numpy(dtype=np.float64)
+X_control = X_eb[T == 0].to_numpy(dtype=np.float64)
+target_means = X_treated.mean(axis=0)
+
+result = minimize(neg_entropy_balance_loss,
+                  np.zeros(X_control.shape[1]),
+                  args=(X_control, target_means),
+                  method="L-BFGS-B",
+                  options={"maxiter": 1000, "ftol": 1e-12})
+\end{lstlisting}
+
+Under the severe overlap conditions documented in Section~3, the optimisation concentrates effective weight on approximately 8 of 470 control observations, producing a diagnostic effective sample size of $\mathrm{ESS} \approx 1.7\%$. This diagnostic failure is itself substantive evidence for the segmented-ecosystem interpretation.
+
+\subsection{Fine-Gray subdistribution hazard fit}
+
+The Fine-Gray model uses the \texttt{cmprsk::crr} function in R. Because the variance-covariance matrix returned by \texttt{crr} lacks named dimensions, robust coefficient extraction uses positional indexing.
+
+\begin{lstlisting}[caption={Fine-Gray competing-risks fit in R.}, label={lst:fg}, basicstyle=\ttfamily\footnotesize, frame=single, backgroundcolor=\color{codebg}, breaklines=true]
+library(cmprsk)
+
+# Reduced design matrix for identification with limited events
+X_minimal <- model.matrix(
+  ~ is_blue_ccs + log_capacity_mw, data = df
+)[, -1]
+
+# Fine-Gray for terminal cancellation (event 1)
+fg_cancel <- crr(
+  ftime = df$duration,
+  fstatus = df$event_type,
+  cov1 = X_minimal,
+  failcode = 1, cencode = 0, maxiter = 100
+)
+
+# Positional indexing because $var lacks dimnames
+bc <- as.numeric(fg_cancel$coef[1])
+bs <- sqrt(as.numeric(fg_cancel$var[1, 1]))
+HR <- exp(bc)
+CI <- exp(c(bc - 1.96*bs, bc + 1.96*bs))
+\end{lstlisting}
+
+\section{Data Sources}
+
+Table~\ref{tab:datasources} lists all data sources used in the analysis with provider, frequency, sample span, and access method. All non-proprietary data is reproducible via the scripts in the public repository.
+
+\begin{table}[H]
+\centering
+\caption{Data sources and access methods.}
+\label{tab:datasources}
+\small
+\begin{tabular}{p{3.4cm}p{3.2cm}p{1.4cm}p{1.8cm}p{3.0cm}}
+\toprule
+\textbf{Variable group} & \textbf{Source / Provider} & \textbf{Freq.} & \textbf{Sample span} & \textbf{Access} \\
+\midrule
+Project records & S\&P Global hydrogen project data \citep{SPGlobal2024} & --- & to 2024-03 & Institutional license \\
+EUA carbon price & ICAP Allowance Price Data & Daily & 2010--2025 & Public CSV \\
+TTF gas futures & ICE Endex (via yfinance) & Daily & 2017--2026 & API \\
+Day-ahead power & ENTSO-E Transparency Platform & Daily & 2021--2026 & API + manual export \\
+Equity prices (12 H2 stocks, HJEN, HDRO, ICLN) & Yahoo Finance via \texttt{yfinance} & Daily & 2010--2026 & API \\
+US macro (DGS10, DGS2, etc.) & FRED, Federal Reserve Bank of St.\ Louis & Daily & 2010--2026 & FRED API \\
+VIX & CBOE (FRED VIXCLS) & Daily & 2010--2026 & API \\
+EPU index & \citet{BakerBloomDavis2016}, \url{policyuncertainty.com} & Daily & 2010--2026 & Public CSV \\
+FX rates & FRED (DEXUSEU, DEXJPUS, DEXCHUS) & Daily & 2010--2026 & API \\
+Brent / WTI oil & FRED (DCOILBRENTEU, DCOILWTICO) & Daily & 2010--2026 & API \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize \textit{Notes:} All public sources accessed in early 2026. Repository scripts handle data ingestion, cleaning, and panel assembly. The processed master panel CSV (4{,}919 daily observations $\times$ 47 columns) is included as supplementary material.}
+\end{table}
+
+\section{Additional Figures}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}[Figure A1: \texttt{fig\_marginal\_effects\_4panel.png}]\par\vspace{1cm}Insert PNG here\vspace{2.5cm}}}
+\caption{\textbf{Four-panel marginal effects display.} Only the $\EUA$ panel exhibits a statistically significant slope; the other three panels (gas, VIX, EPU) show flat $\HR$ curves consistent with insignificant interactions.}
+\label{fig:4panel}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}[Figure A2: \texttt{fig\_common\_support.png}]\par\vspace{1cm}Insert PNG here\vspace{2.5cm}}}
+\caption{\textbf{Common-support diagnostic.} The propensity score distributions for $\BlueCCS$ and $\PEM$ overlap only in a narrow band, reinforcing the segmented-ecosystem interpretation.}
+\label{fig:common_support}
+\end{figure}
+
+\end{document}

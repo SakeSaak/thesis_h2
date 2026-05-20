@@ -1,0 +1,379 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[expansion=false,protrusion=false]{microtype}
+\usepackage{parskip}
+\usepackage[bookmarks=false,colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!70!black,citecolor=blue!50!black]{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{boxbg}{rgb}{0.96,0.97,0.99}
+\definecolor{boxborder}{rgb}{0.35,0.45,0.65}
+\definecolor{noteborder}{rgb}{0.55,0.40,0.20}
+\definecolor{notebg}{rgb}{0.99,0.97,0.93}
+\definecolor{openbg}{rgb}{0.97,0.93,0.93}
+\definecolor{openborder}{rgb}{0.65,0.30,0.30}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{boxborder}Bayesian Survival Methodology Design}
+\fancyhead[R]{\small\color{boxborder}Thesis Extension --- Working Document}
+\fancyfoot[C]{\small\color{boxborder}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{{\color{boxborder}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+\newtcolorbox{rationale}{
+  colback=boxbg, colframe=boxborder, boxrule=0.6pt,
+  arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title=\textbf{Rationale},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=boxborder
+}
+
+\newtcolorbox{technote}{
+  colback=notebg, colframe=noteborder, boxrule=0.5pt,
+  arc=1.5mm, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title=\textbf{Technical note},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=noteborder
+}
+
+\newtcolorbox{openquestion}{
+  colback=openbg, colframe=openborder, boxrule=0.6pt,
+  arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title=\textbf{Open question for supervisor},
+  fonttitle=\bfseries\color{white},
+  colbacktitle=openborder
+}
+
+\newcommand{\HR}{\mathrm{HR}}
+\newcommand{\BlueCCS}{\mathrm{Blue\_CCS}}
+\newcommand{\PEM}{\mathrm{PEM}}
+\newcommand{\EUA}{\mathrm{EUA}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\HalfN}{\mathcal{N}^{+}}
+\newcommand{\HalfC}{\mathrm{HalfCauchy}}
+\newcommand{\Beta}{\mathrm{Beta}}
+\newcommand{\Gam}{\mathrm{Gamma}}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{1.5cm}
+  {\color{boxborder}\rule{\linewidth}{1.5pt}}\\[0.3cm]
+  {\Huge\bfseries Bayesian Survival Methodology Design}\\[0.3cm]
+  {\Large with Informative Priors for Hydrogen Project Implementation Risk}\\[0.3cm]
+  {\color{boxborder}\rule{\linewidth}{1pt}}\\[1.5cm]
+
+  {\large Thesis Extension --- Working Document}\\[0.3cm]
+  {\normalsize Sake Saakstra}\\[0.2cm]
+  {\normalsize MSc EOR Financial Track, Vrije Universiteit Amsterdam}\\[2cm]
+
+  \begin{tcolorbox}[colback=boxbg, colframe=boxborder, boxrule=0.6pt, arc=2mm, width=0.85\textwidth]
+    \textbf{Purpose.} This document specifies a Bayesian survival analysis design that extends the frequentist Cox-and-Fine-Gray framework used in the paper. It targets three improvements: (i) principled treatment of small-event-count uncertainty through informative priors, (ii) coherent propagation of uncertainty across the carbon-conditional structure, and (iii) explicit incorporation of adjacent-literature evidence into the inferential framework. The document is intentionally structured around \emph{prior choices that can be defended} rather than purely model implementation. Reviewers and supervisors should be able to evaluate each prior independently.
+  \end{tcolorbox}
+
+  \vfill
+  {\normalsize Version 0.1 --- working draft for supervisor discussion --- \today}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Motivation: why Bayesian, why now}
+
+The frequentist analysis in the working paper relies on 43 cancellation/on-hold events across 714 Blue\_CCS and PEM projects. Several open issues arise from this sample structure:
+
+\begin{enumerate}
+  \item \textbf{Wide confidence intervals on higher-order parameters.} The Fine-Gray on-hold HR (1.20, 95\% CI [0.46, 3.11]) is informative about the absence of effect on delay but is too imprecise to support strong inferential claims. The carbon-conditional interaction (Blue $\times$ EUA $= -2.51$) has tight standard errors at the mean but extrapolates substantially at $z = \pm 1$ (HR $= 673$ vs $4.67$), where the data is sparser.
+  \item \textbf{Information from adjacent literature is currently discarded.} The frequentist framework treats each estimate as if no prior knowledge exists. In practice, the literature on hydrogen project realization (Odenweller et al., 2022), CCS economics (Budinis et al., 2018; Mac Dowell et al., 2017), and transition-risk asset pricing (Bolton \& Kacperczyk, 2021) all contain quantitative information that informs reasonable parameter ranges.
+  \item \textbf{Sensitivity to model specification is not transparent.} Frequentist robustness across eleven estimators demonstrates qualitative convergence, but does not give a single posterior that integrates all sources of uncertainty.
+\end{enumerate}
+
+A Bayesian survival framework with informative priors addresses all three issues simultaneously. Importantly, it does so while remaining \emph{methodologically conservative}: with weakly informative priors as the reference specification, the posterior collapses toward the frequentist MLE when data is sufficient and toward the prior only when data is genuinely uninformative.
+
+\begin{rationale}
+The case for Bayesian is not primarily about ``better estimates'' --- it is about \emph{transparent uncertainty propagation} and \emph{principled use of prior knowledge}. In a setting with 43 events and explicit identification limitations, both properties have direct analytical value.
+\end{rationale}
+
+\section{Model specification}
+
+The target model extends the carbon-conditional Cox formulation from the working paper:
+\[
+\lambda_{ij}(t \mid \bm{X}_i, \EUA_t, \nu_j) =
+\lambda_0(t)
+\exp\!\bigl(\beta_1 \BlueCCS_i + \beta_2 \widetilde{\EUA}_t + \beta_3 (\BlueCCS_i \times \widetilde{\EUA}_t) + \bm{\gamma}^\top \bm{Z}_i + \nu_j \bigr),
+\]
+where $\nu_j$ is a sponsor-level frailty (sponsor index $j$), $\bm{Z}_i$ contains controls (region fixed effects, sponsor-type categorical, log-scale), and all macro-financial covariates are standardized.
+
+For the competing-risks extension, we apply the same structure separately to the subdistribution hazards $\bar\lambda_k(t \mid \cdot)$ for $k \in \{\text{cancelled}, \text{on-hold}\}$ in the Fine-Gray framework.
+
+\begin{technote}
+Three implementation options for Bayesian fitting:
+\begin{itemize}
+  \item \texttt{brms} (R wrapper around Stan) --- supports Cox and Fine-Gray-like models via \texttt{family = cox}; good for accessible specification but limited customization of priors for the baseline hazard.
+  \item \texttt{rstanarm} --- pre-compiled Stan models, faster but less flexible.
+  \item \texttt{Stan} direct --- maximum flexibility, requires explicit hazard specification (piecewise or Weibull). Required for non-standard frailty structures.
+\end{itemize}
+Initial recommendation: start with \texttt{brms} for the Cox specification, move to direct Stan when implementing the Fine-Gray competing-risks model with shared frailty.
+\end{technote}
+
+\section{Prior specification, parameter by parameter}
+
+This section is the substantive content of the document. Each parameter receives:
+(a) a rationale for the chosen prior family,
+(b) a default \emph{weakly informative} prior to be used as the reference specification,
+(c) an \emph{informative} prior alternative, with literature backing,
+(d) explicit sensitivity analyses to be reported.
+
+\subsection{$\beta_1$ --- main effect of Blue\_CCS technology indicator}
+
+The frequentist Cox PH estimate is $\hat\beta_1 \approx 2.48$ ($\HR \approx 11.9$, 95\% CI on HR $[4.67, 30.49]$). On the log-HR scale, the standard error is approximately 0.45.
+
+\begin{rationale}
+The literature suggests \emph{some} expectation that blue hydrogen projects face higher realization risk than green, but quantitative anchoring is scarce.
+\begin{itemize}
+  \item Odenweller et al. (2022) estimates electrolyser project realization rates around 30--40\%, with no parallel estimate for blue hydrogen with CCS. Inference: blue hydrogen has \emph{at least} comparable risk, plausibly higher.
+  \item Budinis et al. (2018) and Mac Dowell et al. (2017) document well-known barriers to CCS deployment (cost overruns, CCS infrastructure unavailability, public acceptance). These translate into elevated project cancellation risk relative to renewable-electricity-based pathways.
+  \item Bolton \& Kacperczyk (2021) and Caldecott (2018) frame fossil-derivative projects as carrying ``transition risk'' that is partially priced into firm valuations, suggesting some prior on a non-zero blue-disadvantage.
+\end{itemize}
+None of this literature gives a precise quantitative anchor. We therefore use moderately informative priors centered away from zero but with substantial uncertainty.
+\end{rationale}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Prior} & \textbf{Specification} & \textbf{Implies HR (median, 95\% range)} \\
+\midrule
+Vague (reference 1)    & $\beta_1 \sim \N(0, 5)$    & 1, [0.0001, 22000] \\
+Weakly informative (default) & $\beta_1 \sim \N(0, 2)$    & 1, [0.02, 50] \\
+Skeptical              & $\beta_1 \sim \N(0, 1)$    & 1, [0.14, 7.4] \\
+Informative            & $\beta_1 \sim \N(1.5, 0.7)$ & 4.5, [1.1, 18.5] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The informative prior is centered at HR $\approx 4.5$, somewhat below the frequentist point estimate of HR $\approx 12$. This is deliberate: it represents the strength of the literature-based expectation prior to seeing the IEA data. Posterior updating will move toward higher HR if the data supports it.
+
+\subsection{$\beta_2$ --- main effect of standardized EUA carbon price}
+
+The frequentist estimate is approximately $\hat\beta_2 \approx -0.3$, with mild precision. On its own, this coefficient captures the marginal effect of EUA on the PEM baseline (since the interaction with Blue\_CCS is separate).
+
+\begin{rationale}
+Theoretical priors:
+\begin{itemize}
+  \item PEM economics are dominated by electricity costs, not EUA exposure directly. Therefore the EUA main effect on PEM is plausibly small.
+  \item Indirect channels exist: higher EUA $\to$ higher industrial gas prices $\to$ higher demand for hydrogen substitutes (helps PEM) $\to$ lower cancellation risk.
+  \item Plausible prior expectation: slightly negative effect (higher EUA $\to$ slightly lower cancellation hazard), small magnitude.
+\end{itemize}
+\end{rationale}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Prior} & \textbf{Specification} & \textbf{Implies HR per 1 SD EUA increase} \\
+\midrule
+Vague & $\beta_2 \sim \N(0, 5)$ & 1, [0.0001, 22000] \\
+Weakly informative (default) & $\beta_2 \sim \N(0, 1)$ & 1, [0.14, 7.4] \\
+Informative & $\beta_2 \sim \N(-0.2, 0.5)$ & 0.82, [0.31, 2.18] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{$\beta_3$ --- the Blue $\times$ EUA interaction (key parameter)}
+
+This is the parameter that drives the carbon-conditional hazard finding. The frequentist estimate is $\hat\beta_3 \approx -2.51$, $p < 0.0001$.
+
+\begin{rationale}
+This is methodologically the most consequential prior. Two considerations:
+\begin{itemize}
+  \item \textbf{Skeptical prior is the conservative choice.} A prior centered at zero (``no interaction effect'') requires the data to overcome the prior. With the strong frequentist signal ($p < 0.0001$), this prior would lead to posterior estimates somewhat attenuated toward zero, which is methodologically defensible.
+  \item \textbf{Informative prior risks circular reasoning.} The informative prior should be set based on \emph{ex-ante} reasoning, not on the data we have already analyzed. The ex-ante literature does suggest carbon-conditional effects on transition technology (Bolton \& Kacperczyk; insurance interpretations in Caldecott), but does not anchor magnitude.
+\end{itemize}
+We recommend the \emph{skeptical prior} as the default reference, and a \emph{vague prior} as one robustness check. We do \emph{not} use a strongly informative prior on this parameter because of the circularity concern.
+\end{rationale}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Prior} & \textbf{Specification} & \textbf{Implies interaction effect range} \\
+\midrule
+Vague (robustness) & $\beta_3 \sim \N(0, 5)$ & Wide; lets data dominate \\
+Weakly informative (default 1) & $\beta_3 \sim \N(0, 2)$ & 95\% in $[-4, 4]$ \\
+Skeptical (default 2) & $\beta_3 \sim \N(0, 1)$ & 95\% in $[-2, 2]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{openquestion}
+Should we report \emph{both} the weakly informative and the skeptical prior as primary specifications, or pick one? My current view is that reporting both transparently (as primary + sensitivity) is the most honest --- it shows readers how much the conclusion depends on prior choice. Bos's view?
+\end{openquestion}
+
+\subsection{$\bm{\gamma}$ --- control variable effects (region, sponsor type, log-scale)}
+
+These are nuisance parameters in our setting; we just need them not to soak up parameter mass we want to allocate elsewhere.
+
+\begin{itemize}
+  \item Region fixed effects: $\gamma_r \sim \N(0, 1.5)$ each. Implies effects $\le$ HR $\approx 20$ vs base region with 95\% mass.
+  \item Sponsor-type categorical (e.g., supermajor, mid-cap, public utility, JV): $\gamma_s \sim \N(0, 1.5)$ each.
+  \item Log-scale (continuous): $\gamma_{\text{scale}} \sim \N(0, 1)$.
+\end{itemize}
+
+\subsection{Sponsor-level frailty variance $\theta$}
+
+In the frequentist specification, the shared frailty Cox estimated $\hat\theta \approx 0$, suggesting no detectable sponsor-level heterogeneity beyond observable covariates. This is plausible given that sponsor-type is included as a fixed effect, and most sponsors have a small number of projects.
+
+\begin{rationale}
+With limited within-sponsor variation, the frailty variance is weakly identified. The prior choice matters less for the headline result but matters for whether the model converges sensibly.
+\end{rationale}
+
+\begin{itemize}
+  \item Default: $\theta \sim \HalfN(0, 1)$ --- weakly informative, allows up to $\theta \approx 2.5$ within 95\% mass.
+  \item Robustness 1: $\theta \sim \HalfC(0, 1)$ --- heavier tails, more conservative.
+  \item Robustness 2: $\theta \sim \HalfN(0, 0.3)$ --- more concentrated on near-zero values, encoding the frequentist finding of negligible frailty.
+\end{itemize}
+
+\subsection{Baseline hazard $\lambda_0(t)$}
+
+In a fully Bayesian Cox model we need to specify the baseline hazard. Several options:
+
+\begin{enumerate}
+  \item \textbf{Weibull parametric}: $\lambda_0(t) = \alpha \lambda t^{\alpha-1}$. Smooth, two parameters. Implies hazard is monotonic in $t$ (decreasing if $\alpha < 1$, increasing if $\alpha > 1$). Project cancellation hazard is likely \emph{not} monotonic --- it tends to peak in early years.
+  \item \textbf{Piecewise constant}: split observation period into $K$ intervals, with $\lambda_{0,k}$ for each interval. Flexible, popular default for Bayesian survival.
+  \item \textbf{Spline-based}: smooth nonparametric baseline. More flexible but harder to interpret.
+\end{enumerate}
+
+Recommendation: piecewise constant with $K = 5$ intervals (yearly bins from project announcement to data cutoff), with each $\lambda_{0,k} \sim \Gam(0.5, 0.5)$. This is the \texttt{brms} default for piecewise hazards.
+
+\begin{openquestion}
+The choice of $K$ (number of intervals) is a hyperparameter. Larger $K$ gives more flexibility but worse identifiability. With 43 events, $K = 5$ feels right --- about 8 events per interval. Bos: thoughts on whether this should be tuned more carefully, perhaps via cross-validation on out-of-sample log-likelihood?
+\end{openquestion}
+
+\section{Competing-risks extension}
+
+For the Fine-Gray competing-risks model, the structure replicates but with two parameter vectors:
+
+\begin{itemize}
+  \item $\bm\beta^{(\text{cancel})}$ for the cancellation subdistribution hazard
+  \item $\bm\beta^{(\text{on-hold})}$ for the on-hold subdistribution hazard
+\end{itemize}
+
+A natural prior structure couples the two parameter vectors via a shared baseline expectation, while allowing them to differ where the data supports it. This can be implemented as:
+\[
+\beta_1^{(\text{cancel})} \sim \N(\mu, \tau_1^2), \quad \beta_1^{(\text{on-hold})} \sim \N(\mu, \tau_1^2),
+\]
+with $\mu, \tau_1$ themselves hierarchical hyperpriors. Alternatively, we use independent priors as in the cancellation-only specification, and let the data show whether the two are different.
+
+\begin{rationale}
+The frequentist Fine-Gray results show $\HR^{(\text{cancel})} = 13.19$, $\HR^{(\text{on-hold})} = 1.20$. The difference is the substantive finding (terminal vs delay). In a Bayesian setting we want to test whether this difference is robust to prior choice. Coupling the priors would tend to pull them toward each other; independent priors let the data decide.
+
+Initial recommendation: \textbf{independent priors} for primary specification; \textbf{coupled hierarchical priors} as one sensitivity analysis.
+\end{rationale}
+
+\section{Sensitivity analysis plan}
+
+For each parameter $\beta_j$ in the model, we plan to report posterior summaries under three prior specifications:
+
+\begin{enumerate}
+  \item \textbf{Reference (weakly informative)} --- the default specification listed above.
+  \item \textbf{Skeptical} --- tighter priors centered at zero.
+  \item \textbf{Informative} --- centered at literature-based expectations (where defensible).
+\end{enumerate}
+
+For the headline interaction $\beta_3$ specifically, we will also report under the \textbf{vague} prior to show that the data overwhelms even very loose priors. The full sensitivity table will be a $3 \times K$ grid (specification by parameter), reported as the central result.
+
+\begin{rationale}
+This is a stronger transparency move than typical frequentist sensitivity tables, which are usually limited to ``add/drop covariate.'' Bayesian sensitivity over prior choice is the more methodologically defensible analog of frequentist robustness over model specification.
+\end{rationale}
+
+\section{Prior predictive checks}
+
+Before fitting models to data, we will perform \emph{prior predictive simulation}:
+generate hypothetical project-cancellation patterns from each prior specification (with no data), and check whether they are reasonable.
+
+Specifically: for each prior set, draw $S = 1000$ values of $(\beta_1, \beta_2, \beta_3, \bm\gamma, \theta, \lambda_0)$, and simulate hypothetical IEA-like project histories. Check that:
+
+\begin{itemize}
+  \item The implied range of cancellation rates is plausible (say, 1\%--50\% over 5 years).
+  \item The implied range of HR values is plausible (say, 0.1--100).
+  \item The carbon-conditional HR at $z = \pm 1$ is finite and plausible.
+\end{itemize}
+
+If a prior fails these checks (e.g., implies most projects cancel within months, or implies HR $> 10^6$), it is rejected on prior-predictive-validity grounds.
+
+\section{Posterior diagnostics}
+
+For each fitted model we will report:
+
+\begin{itemize}
+  \item Trace plots and effective sample size for all parameters
+  \item $\hat{R}$ (Gelman-Rubin) convergence statistic; target $\hat{R} < 1.01$
+  \item Pairs plots for parameter correlations (especially $\beta_1, \beta_3$)
+  \item Posterior predictive checks: simulate from posterior, compare to observed cancellation patterns
+  \item Leave-one-out cross-validation (LOO-CV) for model comparison
+\end{itemize}
+
+\section{Implementation roadmap}
+
+\begin{enumerate}
+  \item \textbf{Week 1--2.} Replicate frequentist Cox PH and Fine-Gray in \texttt{brms} with weakly informative priors. Verify that posterior modes align with frequentist MLEs (sanity check).
+  \item \textbf{Week 3--4.} Add informative-prior specifications. Implement sensitivity grid. Run prior predictive checks.
+  \item \textbf{Week 5--6.} Implement competing-risks Bayesian Fine-Gray (likely via direct Stan code, as \texttt{brms} support is limited).
+  \item \textbf{Week 7--8.} Run on extended IEA September 2025 dataset (if available). Write methodology chapter for thesis.
+  \item \textbf{Week 9--10.} Sensitivity analyses, posterior diagnostics, write-up.
+\end{enumerate}
+
+\section{Open questions for supervisor discussion}
+
+\begin{openquestion}
+\textbf{Q1.} For the headline interaction $\beta_3$, should we present skeptical and weakly informative priors as co-primary, or choose one?
+\end{openquestion}
+
+\begin{openquestion}
+\textbf{Q2.} Baseline hazard: piecewise constant with $K = 5$ vs Weibull vs spline? The right choice may depend on whether the thesis emphasizes interpretability or flexibility.
+\end{openquestion}
+
+\begin{openquestion}
+\textbf{Q3.} Should the Fine-Gray competing-risks Bayesian model use independent priors per event type, or coupled hierarchical priors? Substantive tradeoff vs methodological elegance.
+\end{openquestion}
+
+\begin{openquestion}
+\textbf{Q4.} Is the planned sensitivity grid (3 priors $\times$ K parameters) appropriately scoped, or should we add specific extra priors (e.g., priors elicited from industry experts at Gasunie or S\&P)?
+\end{openquestion}
+
+\begin{openquestion}
+\textbf{Q5.} Implementation: \texttt{brms} vs direct Stan. \texttt{brms} is faster to set up but limited for competing-risks. Direct Stan gives full flexibility but more development time. Recommendation?
+\end{openquestion}
+
+\begin{openquestion}
+\textbf{Q6.} Should we explore state-space versions where $\beta_3(t)$ is itself time-varying (Koopman-style), or is that scope creep for the MSc thesis (and better reserved for PhD)?
+\end{openquestion}
+
+\section{References (working list, to be expanded)}
+
+\begin{itemize}
+  \item Bolton, P., \& Kacperczyk, M. (2021). Do investors care about carbon risk? \emph{Journal of Financial Economics}, 142(2), 517--549.
+  \item Budinis, S., et al. (2018). An assessment of CCS costs, barriers and potential. \emph{Energy Strategy Reviews}, 22, 61--81.
+  \item Caldecott, B. (2018). Stranded assets: the role of climate disclosure. \emph{Journal of Sustainable Finance \& Investment}.
+  \item Fine, J. P., \& Gray, R. J. (1999). A proportional hazards model for the subdistribution of a competing risk. \emph{JASA}, 94(446), 496--509.
+  \item Gelman, A., et al. (2017). The prior can often only be understood in the context of the likelihood. \emph{Entropy}, 19(10), 555.
+  \item Mac Dowell, N., et al. (2017). The role of CO$_2$ capture and utilization in mitigating climate change. \emph{Nature Climate Change}, 7, 243--249.
+  \item Odenweller, A., et al. (2022). Probabilistic feasibility space of scaling up green hydrogen supply. \emph{Nature Energy}, 7(9), 854--865.
+  \item Vehtari, A., et al. (2021). Rank-normalization, folding, and localization: an improved $\hat{R}$ for assessing convergence of MCMC. \emph{Bayesian Analysis}, 16(2), 667--718.
+  \item Bauwens, L., Bos, C., \& Van Dijk, H. (1999). Adaptive Polar Sampling with an Application to a Bayes Measure of Value-at-Risk. \emph{Tinbergen Institute Discussion Paper}.
+  \item Creal, D., Koopman, S. J., \& Lucas, A. (2013). Generalized autoregressive score models with applications. \emph{Journal of Applied Econometrics}, 28(5), 777--795.
+\end{itemize}
+
+\end{document}

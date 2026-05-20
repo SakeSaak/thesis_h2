@@ -1,0 +1,3 @@
+model,beta_int_median,beta_int_lo95,beta_int_hi95
+Pooled (multi-tech),1.43,-0.77,3.7
+Sponsor RE (causal),1.45,-0.65,3.7

@@ -1,0 +1,5 @@
+analysis,dataset,n_obs,n_events,HR,HR_lo,HR_hi,p_value,comparator
+v7 (S&P data),Blue_CCS vs PEM,714,43,11.93,4.67,30.49,<0.001,Green PEM hydrogen
+v7 Bayesian (weakly informative),Blue_CCS vs PEM,714,43,4.93,2.19,11.12,CrI excludes 1,Green PEM hydrogen
+Public A1: broad CCUS,H2-CCUS vs all other CCUS,1066,79,2.019640331088533,1.149292889388632,3.549092754875739,0.0145,"All CCUS (DAC, T&S, Power, etc.)"
+Public A2: industrial only,H2-CCUS vs industrial CCUS,342,37,1.6269953377920237,0.8384258830379346,3.157242497816843,0.1502,"Industrial CCUS (steel, refining, etc.)"
