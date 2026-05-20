@@ -1,0 +1,45 @@
+policy,moderator,p_value
+US 45Q,log_capacity,3.497914055721806e-20
+US 45Q,is_mega,6.262127352981757e-22
+US 45Q,is_blue,3.0465033640024694e-06
+US 45Q,sp_oil_major,0.008665863456848612
+US 45Q,sp_industrial_gas,0.4717397417344047
+US 45Q,sect_chemical,0.016119014379728413
+US 45Q,sect_power_heat,0.6435687716282246
+US 45Q,sect_transport,0.009039949874981504
+US 45Q,sect_industry,0.04696517314704199
+US 45Q,sect_gas_grid,0.8340026926875541
+US 45Q,announce_year,2.369317971435338e-21
+UK Track-1/HAR1,log_capacity,8.338692595272982e-14
+UK Track-1/HAR1,is_mega,1.5560425626521226e-10
+UK Track-1/HAR1,is_blue,4.798340046644134e-13
+UK Track-1/HAR1,sp_oil_major,8.720063695729696e-10
+UK Track-1/HAR1,sp_industrial_gas,9.275592162412609e-06
+UK Track-1/HAR1,sect_chemical,1.6352471891471893e-10
+UK Track-1/HAR1,sect_power_heat,1.332952304139246e-05
+UK Track-1/HAR1,sect_transport,0.07395799517232335
+UK Track-1/HAR1,sect_industry,1.4860172626631788e-11
+UK Track-1/HAR1,sect_gas_grid,0.0889474490690087
+UK Track-1/HAR1,announce_year,0.46583325919632257
+China 14th FYP,log_capacity,0.394160226666435
+China 14th FYP,is_mega,0.0001707257273248459
+China 14th FYP,is_blue,0.14161447108397743
+China 14th FYP,sp_oil_major,0.045817652608874535
+China 14th FYP,sp_industrial_gas,0.051621890777312184
+China 14th FYP,sect_chemical,0.17029060917979683
+China 14th FYP,sect_power_heat,0.9863023888082669
+China 14th FYP,sect_transport,0.016214008703972688
+China 14th FYP,sect_industry,0.5276036460844588
+China 14th FYP,sect_gas_grid,0.0033045349607695408
+China 14th FYP,announce_year,4.086901135375835e-47
+EU IF eligible,log_capacity,1.2221940017937775e-27
+EU IF eligible,is_mega,0.006272045917119968
+EU IF eligible,is_blue,0.027449119899424158
+EU IF eligible,sp_oil_major,0.03560259945799441
+EU IF eligible,sp_industrial_gas,0.43067014079410637
+EU IF eligible,sect_chemical,0.011223554910086083
+EU IF eligible,sect_power_heat,0.00014293939893632646
+EU IF eligible,sect_transport,0.6182111667325776
+EU IF eligible,sect_industry,1.4651948305557004e-17
+EU IF eligible,sect_gas_grid,0.3132044697245493
+EU IF eligible,announce_year,1.1161848503709016e-56

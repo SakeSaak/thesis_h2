@@ -1,0 +1,45 @@
+policy,feature,importance
+US 45Q,log_capacity,0.4131457563948694
+US 45Q,is_mega,0.006760118036975293
+US 45Q,is_blue,0.08952245517340991
+US 45Q,sp_oil_major,0.0
+US 45Q,sp_industrial_gas,0.0
+US 45Q,sect_chemical,0.005982858090087746
+US 45Q,sect_power_heat,0.004008856485936947
+US 45Q,sect_transport,0.008214481778677467
+US 45Q,sect_industry,0.0
+US 45Q,sect_gas_grid,0.0
+US 45Q,announce_year,0.4723654740400433
+UK Track-1/HAR1,log_capacity,0.4075220979593186
+UK Track-1/HAR1,is_mega,0.0
+UK Track-1/HAR1,is_blue,0.0018782720471842975
+UK Track-1/HAR1,sp_oil_major,0.0
+UK Track-1/HAR1,sp_industrial_gas,0.0
+UK Track-1/HAR1,sect_chemical,0.035414766242271585
+UK Track-1/HAR1,sect_power_heat,0.009236659288932436
+UK Track-1/HAR1,sect_transport,0.05509654708052785
+UK Track-1/HAR1,sect_industry,0.004162702999459731
+UK Track-1/HAR1,sect_gas_grid,0.004837128183886539
+UK Track-1/HAR1,announce_year,0.4818518261984188
+China 14th FYP,log_capacity,0.3461331653775526
+China 14th FYP,is_mega,0.0
+China 14th FYP,is_blue,0.0
+China 14th FYP,sp_oil_major,0.0
+China 14th FYP,sp_industrial_gas,0.0
+China 14th FYP,sect_chemical,0.004324884747892967
+China 14th FYP,sect_power_heat,0.00310367088096952
+China 14th FYP,sect_transport,0.008943182540669723
+China 14th FYP,sect_industry,0.004413459427194522
+China 14th FYP,sect_gas_grid,0.003574042571758007
+China 14th FYP,announce_year,0.6295075944539626
+EU IF eligible,log_capacity,0.44738808517008916
+EU IF eligible,is_mega,0.0
+EU IF eligible,is_blue,0.024539542009588432
+EU IF eligible,sp_oil_major,0.0
+EU IF eligible,sp_industrial_gas,0.0
+EU IF eligible,sect_chemical,0.022308272693769754
+EU IF eligible,sect_power_heat,0.013083529573306926
+EU IF eligible,sect_transport,0.021851308976652686
+EU IF eligible,sect_industry,0.01980668824219252
+EU IF eligible,sect_gas_grid,0.02090957483707075
+EU IF eligible,announce_year,0.4301129984973297
