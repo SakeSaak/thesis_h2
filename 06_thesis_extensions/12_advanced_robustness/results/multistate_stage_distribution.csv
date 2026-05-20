@@ -1,0 +1,15 @@
+stage_label,0,1,Total
+01_Announced_early,13,19,32
+02_Announced_advanced,59,19,78
+03_Feasibility,69,24,93
+04_Design,109,32,141
+05_Permitted,58,8,66
+06_Financed,17,3,20
+07_Construction,142,9,151
+08_PartialCommission,1,2,3
+09_Operational,367,36,403
+A_Cancelled,25,24,49
+B_OnHold_assumed,123,89,212
+C_OnHold_confirmed,12,3,15
+D_Decommissioned,86,5,91
+Total,1081,273,1354
