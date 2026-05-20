@@ -1,0 +1,2 @@
+method,n_panel_rows,n_events,static_estimate_p22,sliding_window_mean,sliding_window_sd,sliding_window_min,sliding_window_max,pymc_success,pymc_sigma_eta_mean
+Pijler 24: TVP β_int(t) state-space on S&P,7871,367,-0.325,-6.012012685458351,9.967017264051364,-26.060218799968776,3.4288186417385087,True,1.1089586878085076
