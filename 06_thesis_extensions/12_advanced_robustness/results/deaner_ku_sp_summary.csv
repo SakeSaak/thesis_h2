@@ -1,0 +1,3 @@
+test,treatment_year,n_projects,n_treated_EU27,n_control_nonEU,n_cancellations,pretrend_slope,pretrend_slope_p,tau_H_first_post,tau_H_first_post_p,tau_F_last
+2A_anticipation,2024,3247,1003,2244,103,0.00594142097297857,0.036,-0.0003143680622850441,0.64,-0.0020919762806724806
+2B_actual,2026,3247,1003,2244,103,0.0036502577619671127,0.036,-0.000457772289686271,0.244,-0.003996698277830335
