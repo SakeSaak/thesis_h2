@@ -1,0 +1,2 @@
+method,rw_divergences,rw_total,rw_divergence_pct,rw_sigma_eta_mean,ar1_divergences,ar1_total,ar1_divergence_pct,ar1_phi_mean,ar1_phi_ci_lo,ar1_phi_ci_hi,ar1_sigma_mean,ar1_mu_mean,loo_rw_elpd,loo_ar1_elpd
+Pijler 24c: Publication-grade TVP,0,8000,0.0,0.1342310175663514,0,8000,0.0,0.6638757049173964,0.2768877283314221,0.9329440852685055,1.1328595875925311,0.4709267248548421,,
