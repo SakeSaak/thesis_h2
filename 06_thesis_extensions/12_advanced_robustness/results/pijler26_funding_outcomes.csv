@@ -1,0 +1,6 @@
+funding_type,N,n_cancel,n_onhold,n_any_failure,cancel_rate,failure_rate
+ERDF,1,0,0,0,0.0,0.0
+EU_Innovation_Fund,14,0,2,2,0.0,0.143
+Germany_ELY,7,0,0,0,0.0,0.0
+National_Recovery,3,0,1,1,0.0,0.333
+No_explicit_funding,433,11,54,126,0.025,0.291

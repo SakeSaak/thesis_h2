@@ -1,0 +1,2 @@
+method,n_eu_total,n_eu_funded,n_innovation_fund,funded_cancel_rate,unfunded_cancel_rate,naive_diff_cancel,naive_diff_failure,matched_att_cancel,matched_ci_lo,matched_ci_hi,matched_p_boot,cox_HR_eu_funding,cox_p_eu_funding,logrank_chi2,logrank_p,did_aggregate_eu_vs_noneu,comparison_p25_45q
+Pijler 26: EU Innovation Fund effect,458,25,14,0.0,0.025404157043879907,-0.025404157043879907,-0.1709930715935335,-0.08,-0.2,0.0,0.232,0.6786679239035194,0.513980200477939,0.48599045708886607,0.48572134234530695,0.014650632160919361,-0.147
