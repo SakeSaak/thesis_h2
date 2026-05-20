@@ -1,0 +1,2 @@
+method,reference,n_projects,n_treated_EU,n_control_nonEU,n_cancellations_total,time_range,treatment_year,pretrend_slope,pretrend_slope_p,pretrend_slope_se,tau_H_2024,tau_H_2024_p,tau_H_2025,tau_H_2025_p,tau_H_2026,tau_H_2026_p,tau_F_2026,b_bootstrap
+Deaner-Ku Hazard-DiD,arXiv:2405.05220 (2024),714,213,501,31,2018–2026,2024,0.00818725877580079,0.072,0.005075931203643964,-0.0001871948399296097,0.844,0.0004313504644140385,0.82,0.001462009395441513,0.38,0.012934116823992259,500
