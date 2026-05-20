@@ -1,0 +1,2 @@
+method,V_star_blue_pre2020,V_star_blue_post2020,mu_blue_pre,sigma_blue_pre,mu_blue_post,sigma_blue_post,p1_beta_blue_x_logcap,p1_p_value,p1_prediction,p1_supported,p3_hr_blue_decomm,p3_p_value,p3_prediction,p3_supported,V_star_typical_blue,V_star_typical_green
+Pijler 29: Real Options framework empirical test,2.2177280405582422,6.266891371003589,0.01,0.20617816287761506,0.04,0.14592704362704986,-0.011798262664975677,0.6644901055864505,beta_int < 0,True,0.16355850673147165,0.0001003914511704073,HR_blue_decomm < 1,True,3.7184514058623823,6.335838466541725
