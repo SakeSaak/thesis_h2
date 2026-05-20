@@ -1,0 +1,8 @@
+feature,importance,rank
+years_since_announce,0.5064981789641785,1
+log_capacity,0.3419593089039497,2
+region_eu,0.06555532399696459,3
+region_na,0.05474696180516633,4
+post_cbam_proposal,0.01788225753815149,5
+region_asia,0.013357968791589188,6
+sponsor_corporate,0.0,7
