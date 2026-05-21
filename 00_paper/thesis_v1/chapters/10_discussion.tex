@@ -1,0 +1,76 @@
+\chapter{Discussion}
+\label{ch:discussion}
+
+This chapter discusses the broader interpretation of the findings, situates them within the literature, addresses limitations, and identifies avenues for further research.
+
+\section{Substantive interpretation}
+
+Three substantive contributions emerge from the integrated empirical and theoretical work of Chapters \ref{ch:results_did}--\ref{ch:counterfactual}.
+
+\subsection{Offtake as the binding constraint}
+
+The most consequential single finding is the magnitude and robustness of the offtake-commitment effect: a reduction of 11--13 percentage points in project-failure probability, with Oster $\delta_{\text{null}} = 20.23$. This finding has not previously appeared in the academic hydrogen-policy literature. The closest precedents are the descriptive industry analyses that emphasise ``bankable offtake'' as a discriminator between surviving and cancelled projects \citep{decarbonizeweekly2026,bucklebridge2026}, but these are not based on systematic causal-inference methods.
+
+The substantive implication is that, at current market conditions, \emph{the binding constraint on hydrogen-project survival is not the cost of capital but the certainty of revenue}. This reframes the policy debate in two important ways. First, capex-grants of the Innovation Fund type, while well-intentioned, do not address the binding constraint and predictably fail to alter survival outcomes (as confirmed by the EU IF null effect in Chapter \ref{ch:results_did}). Second, demand-side instruments --- offtake-mandates, Carbon Contracts for Difference, aggregation tenders --- can be expected to be more effective per unit of policy intensity.
+
+\subsection{Mechanism design matters more than subsidy magnitude}
+
+Our four carrot-policy estimates demonstrate that mechanism design --- whether the subsidy is an output credit (US 45Q), capex grant (EU IF), cluster tender (UK Track-1), or state-coordinated mandate (China FYP) --- shapes the effectiveness in ways that subsidy magnitude alone does not capture. The EU Innovation Fund disburses approximately ten billion euros over multi-year auctions and produces no detectable effect on project survival. China's 14th Five-Year Plan, with arguably less direct fiscal cost, produces a substantial protective effect.
+
+The real-options framework developed in Chapter \ref{ch:theory} provides a rationale: $V/I$-boost mechanisms (output credits, capex grants) and $\sigma$-attack mechanisms (offtake-mandates, cluster-tenders) operate through fundamentally different channels. Their relative effectiveness depends on which channel is binding in the target sector. The empirical sectoral heterogeneity in offtake effects (Chapter \ref{ch:results_offtake}, Section \ref{sec:offtake_sectoral}) confirms this prediction: $\sigma$-attack mechanisms dominate in high-volatility sectors, $V/I$-boost mechanisms dominate in low-volatility sectors.
+
+This recommendation runs counter to a strand of climate-policy discussion that emphasises overall subsidy levels (e.g., the IRA-vs-EU race-to-the-top framing). The present findings suggest that an EU policy package matching IRA's overall fiscal intensity but maintaining the current capex-grant mechanism design would underperform a smaller-intensity but mechanism-redesigned package.
+
+\subsection{The structural break and the speculative-announcement era}
+
+The TVP-DiD analysis (Chapter \ref{ch:results_tvp}) documents a sign-shift in policy effectiveness around 2020. Before 2020, projects subject to identified carrot-policies were more likely to survive than the average non-treated project. After 2020, the relationship attenuates and partially reverses.
+
+The substantive interpretation is that the post-2020 ``announcement boom'' attracted projects of substantially lower expected quality. The pipeline tripled to 422 GW \citep{odenweller2025green}, but the share reaching FID did not. By 2024, only $\sim$7\% of 2023-announced capacity reached scheduled FID. Projects entering this expanded pipeline were systematically more speculative --- pursuing announcement value rather than genuine investment intent. Carrot-policies designed for the pre-2020 environment (small set of serious project sponsors) were ill-suited to the post-2020 environment (large set of speculative entrants).
+
+This finding has direct implications for policy reform. Mechanisms that filter for genuine commercial intent (pre-FID offtake-commitments, binding capacity declarations) are more valuable in the current environment than they would have been in 2019. The 2024--2026 cancellation wave is not a failure of hydrogen as a technology --- it is a market correction toward bankable projects.
+
+\section{Theoretical contribution}
+
+The unified real-options $\times$ mechanism-design framework developed in Chapter \ref{ch:theory} contributes to the irreversible-investment literature by extending the Dixit-Pindyck (1994) framework to the policy-design problem. Where prior work has applied the framework to investment timing under exogenous uncertainty, the present extension formalises how policies endogenously alter the $(V/I, \sigma)$ pair.
+
+The four mechanism types --- output credit, capex grant, cluster tender, offtake mandate --- are shown to map onto distinct parameter modifications. The framework yields cross-sector testable predictions (Section \ref{sec:offtake_sectoral}) that are confirmed empirically. This provides what \citet{rambachan2023more} might call a \emph{theory-justified} causal interpretation: not only do we have multi-method convergent estimates, but the estimates align with prior theoretical predictions about which sectors should respond to which mechanisms.
+
+\section{Methodological contribution}
+
+Two methodological choices are worth highlighting.
+
+\subsection{Layered transparency over universal robustness}
+
+Our reporting strategy reflects the recent econometric-inference literature's emphasis on \emph{layered transparency} \citep{rambachan2023more,roth2022pretest}. Rather than claiming uniform robustness across all four policy effects, we report explicit sensitivity profiles. The China 14th FYP estimate survives Rambachan-Roth honest-DiD at $M^* = 1.50$; the US 45Q estimate is sensitivity-bounded at $M^* = 0.20$. Both findings are useful, but they differ in identification strength.
+
+This contrasts with the older norm of seeking a single ``preferred'' specification with universal robustness claims. The present approach is more conservative and arguably more credible for top-tier econometric outlets.
+
+\subsection{Multi-method triangulation}
+
+The combination of (i) modern DiD estimators (TWFE + Sun-Abraham + BJS-imputation) for the carrot-policies, (ii) TVP-DiD via three state-space methods (threshold + AR(1) + random walk) for structural-break detection, (iii) five-strategy identification (LPM + PSM + IPWRA + Oster + sector-LPM) for the offtake-effect, and (iv) Rambachan-Roth + Oster sensitivity analyses, provides a degree of identification triangulation that is rare in the applied policy-evaluation literature. The pattern of convergent estimates across methods with distinct identifying assumptions is itself substantive evidence: it would be unusual for multiple methods with non-overlapping assumption sets to all yield similar misleading estimates by chance.
+
+\section{Limitations}
+
+Five honest limitations apply to the findings.
+
+\paragraph{1. Selection in the S\&P Global sample.} The S\&P database tracks publicly announced projects. Pre-announcement attrition (projects that are conceived but never publicly disclosed) is unobserved. Our population is therefore announced projects, and inference is conditional on having entered the announcement stage.
+
+\paragraph{2. The S\&P snapshot date.} The database analysed is the 24 March 2024 snapshot. Post-snapshot cancellations (BP Teesside, ArcelorMittal, etc.) are not in our estimation sample, although they corroborate our findings ex post. A more recent snapshot would presumably yield even larger failure rates and possibly larger ATE magnitudes for protective mechanisms.
+
+\paragraph{3. The annual-hazard outcome.} The DiD analysis uses annual-hazard as the outcome. While substantively appropriate, this generates absolute-magnitude effects ($\sim 0.04$) that are vulnerable to Rambachan-Roth-type honest sensitivity bounds, even when cumulative effects ($\sim 0.13$ over three years) are substantively large. A more powerful interpretation of the same data treats the cumulative outcome as primary, but this is less natural for staggered-treatment DiD.
+
+\paragraph{4. Theoretical $\sigma$ is unobserved.} The Dixit-Pindyck $\sigma$ is not directly observed; we proxy via sector-level revenue volatility under prior assumptions about which sectors have stable vs.\ volatile demand. A sharper test would use project-level $\sigma$ estimates derived from external data (e.g., commodity-price implied volatilities for downstream products).
+
+\paragraph{5. Reverse causality with offtake.} Strong sponsors may both attract offtake-commitments and avoid failure for unmeasured reasons. The Oster sensitivity ($\delta_{\text{null}} = 20.23$) addresses this for general unobserved confounders, and the sectoral pattern is hard to explain via sponsor selection (which should be similar across sectors). However, the design is observational, not experimental, and definitive causal identification would require external instruments or natural experiments not available in our data.
+
+\section{Avenues for further research}
+
+Four research avenues are particularly promising.
+
+\paragraph{Project-level $\sigma$ estimation.} Combining our project-level dataset with downstream-commodity price data (e.g., ammonia and methanol spot prices for chemical-sector projects, electricity prices for power-and-heat-sector projects) would allow direct estimation of project-specific $\sigma$ and provide a sharper test of the real-options theoretical framework.
+
+\paragraph{Pre-FID announcement quality.} The structural break around 2020 invites a follow-up analysis of \emph{which characteristics} of post-2020 announcements differ from pre-2020. This could illuminate the speculative-announcement hypothesis and inform pre-FID screening mechanisms.
+
+\paragraph{Demand-side aggregation instruments.} The success of the China FYP and the offtake-effect's magnitude suggest that demand-side aggregation (whether via state-mandate, cluster-tender with offtake-coordination, or contracts-for-difference) is promising. Detailed institutional analysis of the most successful European demand-aggregation experiments (e.g., German H2Global, Dutch HyNetwork) could provide design lessons.
+
+\paragraph{Post-snapshot ex-post evaluation.} A 2026 update of the S\&P data, including the 2024--2026 cancellation wave, would allow ex-post evaluation of our scenario predictions. If our offtake-mandate scenario predictions are borne out by the 2025--2026 EU Hydrogen Bank reforms (which already are moving in the direction of stricter offtake requirements), this would constitute strong external-validity evidence.

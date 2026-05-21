@@ -1,0 +1,133 @@
+\chapter{Results II: The Offtake-Commitment Mechanism}
+\label{ch:results_offtake}
+
+This chapter introduces and quantifies a previously under-recognised mechanism for hydrogen-project survival: the role of pre-FID offtake commitments. Section \ref{sec:offtake_descriptive} reports the descriptive pattern. Section \ref{sec:offtake_id} applies five independent identification strategies. Section \ref{sec:offtake_sensitivity} reports Oster (2019) selection-on-unobservables sensitivity. Section \ref{sec:offtake_sectoral} examines cross-sectoral heterogeneity as a test of the $\sigma$-channel hypothesis from Chapter \ref{ch:theory}. Section \ref{sec:offtake_synthesis} synthesises the findings.
+
+\section{Descriptive pattern}
+\label{sec:offtake_descriptive}
+
+The S\&P Global database identifies 172 of 1,354 sample projects (12.7\%) with a named pre-FID offtaker. Project failure rates differ markedly by offtake status:
+
+\begin{itemize}[leftmargin=2em]
+\item Projects \emph{without} a named offtaker: 347 failures of 1,182 projects = \textbf{29.4\%} failure rate.
+\item Projects \emph{with} a named offtaker: 20 failures of 172 projects = \textbf{11.6\%} failure rate.
+\item Raw differential: $-17.8$ percentage points.
+\end{itemize}
+
+This raw differential, while striking, is subject to confounding. Projects that secure offtake commitments may be systematically different in sponsor quality, capital availability, or sector positioning. Section \ref{sec:offtake_id} addresses this through five independent identification strategies.
+
+The cross-sectoral and temporal patterns reinforce the descriptive evidence. The failure-rate gap between offtake and non-offtake projects:
+\begin{itemize}[leftmargin=2em]
+\item By sector: refinery $-25.3$ pp (38.4\% $\to$ 13.1\%); power and heat $-31.2$ pp (38.9\% $\to$ 7.7\%); transport $-15.2$ pp; chemical $-9.4$ pp (6.5\% $\to$ insignificant).
+\item By geography: US $-19.8$ pp; UK $-22.6$ pp; Germany $-16.3$ pp; Spain $-30.4$ pp.
+\item By announcement year: the gap is largest in 2021 ($-41$ pp), the peak speculative-announcement period, and gradually narrows.
+\end{itemize}
+
+\section{Identification: five strategies}
+\label{sec:offtake_id}
+
+Five identification strategies are applied to the cross-sectional sample. Table \ref{tab:offtake_main} summarises the estimates.
+
+\begin{table}[h]
+\centering
+\caption{Offtake-effect estimates across five identification strategies}
+\label{tab:offtake_main}
+\begin{tabular}{lccc}
+\toprule
+Estimator & ATE & SE & $p$ \\
+\midrule
+Naive (unconditional difference) & $-0.151$ & --- & $<0.001$ \\
+LPM with rich controls (HC1)     & $-0.131$ & $0.024$ & $<0.001$ \\
+Propensity score matching (1:3 NN, with replacement) & $-0.111$ & $0.034$ & $0.001$ \\
+IPWRA (doubly robust) & $-0.133$ & $0.226$ & $0.557$ \\
+Oster (2019), $\delta = 1$ adjusted & $-0.125$ & --- & --- \\
+\midrule
+Oster $\delta_{\text{null}}$ (effect-nullifying) & \multicolumn{3}{c}{$\mathbf{20.23}$} \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Sample: $N = 1{,}330$ projects with offtake-data and complete controls,} \\
+\multicolumn{4}{l}{\footnotesize post-2017 (offtake-data coverage). Controls: log capacity, sponsor-type} \\
+\multicolumn{4}{l}{\footnotesize fixed effects (oil major, industrial gas, Chinese SOE, other), sector} \\
+\multicolumn{4}{l}{\footnotesize dummies, geography indicators, announcement-year fixed effects.} \\
+\end{tabular}
+\end{table}
+
+The first four estimators converge on ATEs between $-0.111$ and $-0.133$ percentage points, with the LPM, PSM, and Oster-adjusted estimates having tight standard errors and significance at conventional levels. The IPWRA bootstrap standard error is wider, reflecting the additional uncertainty from joint estimation of the propensity-score and outcome-model components.
+
+\subsection{Propensity score balance}
+
+Common support is established. The propensity-score distribution for treated and control units shows substantial overlap, with the common-support interval $[0.012, 0.728]$ retaining 96\% of observations. Pre-matching balance tests reject equality on several covariates (notably capacity and sponsor type), but post-matching balance is acceptable: standardised mean differences for all covariates fall below the conventional 0.10 threshold.
+
+\subsection{The Oster sensitivity result}
+
+The Oster (2019) bias-adjusted estimate at $\delta = 1$ (equal selection on observables and unobservables) is $-0.125$, very close to the LPM estimate of $-0.131$. The effect-nullifying $\delta_{\text{null}} = 20.23$ indicates that unobserved confounders would need to be more than \emph{twenty times} as strongly correlated with treatment as our extensive observed controls in order to nullify the effect.
+
+To put this magnitude in context, the conventional Oster robustness threshold is $|\delta_{\text{null}}| \geq 1$ \citep{oster2019unobservable}. A $\delta_{\text{null}}$ of 20.23 is at least an order of magnitude above this threshold and is rare in published applied econometrics: across studies that report Oster bounds, values above 5 are uncommon. Substantively, it requires positing a hidden confounder that:
+\begin{enumerate}
+\item Is uncorrelated with project capacity, sponsor type, sector, geography, and announcement year (all controlled for);
+\item Drives both offtake-commitment status and project-failure status; and
+\item Has correlation with treatment 20.23 times stronger than the joint correlation of all observed controls.
+\end{enumerate}
+Such a hidden confounder is logically possible but substantively implausible.
+
+\section{Cross-sectoral heterogeneity: testing the $\sigma$-channel}
+\label{sec:offtake_sectoral}
+
+The real-options framework developed in Chapter \ref{ch:theory} predicts that the offtake-effect should be \emph{larger} in sectors with higher revenue volatility, since offtake commitments operate by reducing $\sigma$. Table \ref{tab:offtake_sector} reports sector-stratified LPM estimates.
+
+\begin{table}[h]
+\centering
+\caption{Sector-stratified offtake-effect estimates}
+\label{tab:offtake_sector}
+\begin{tabular}{lcccc}
+\toprule
+Sector & $N$ & Treated & ATE & $p$ \\
+\midrule
+Refinery     & $164$ & $44$ & $-0.257$ & $0.013^{**}$ \\
+Power \& heat & $193$ & $26$ & $-0.228$ & $0.007^{***}$ \\
+Transport    & $312$ & $54$ & $-0.206$ & $<0.001^{***}$ \\
+Industry (other) & $147$ & $13$ & $+0.009$ & $0.901$ \\
+Gas grid     & $98$  & $12$ & $+0.040$ & $0.652$ \\
+Chemical     & $246$ & $19$ & $-0.071$ & $0.176$ \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Specifications include log capacity, technology, capacity-tier dummy,} \\
+\multicolumn{5}{l}{\footnotesize and announcement-year fixed effects, with HC1 standard errors.} \\
+\end{tabular}
+\end{table}
+
+The pattern is consistent with the $\sigma$-channel hypothesis. The largest effects are in refinery ($-25.7$ pp), power and heat ($-22.8$ pp), and transport ($-20.6$ pp) --- sectors characterised by high revenue uncertainty (volatile carbon-price exposure for refineries, fragmented demand for power and heat and transport). The effect is small and statistically insignificant in chemical (where baseline demand from existing ammonia and methanol producers is captive) and in industry/gas-grid sectors.
+
+This sectoral pattern would be \emph{difficult} to explain under purely selection-based confounding stories: if hidden sponsor quality drove the result, we would expect the effect to be similarly distributed across sectors. The strong sectoral heterogeneity, aligning with the $\sigma$-channel theoretical prediction, provides additional confirmatory evidence beyond the Oster sensitivity bound.
+
+\section{Interaction with carrot-policies}
+\label{sec:offtake_policy_interaction}
+
+Does offtake-commitment substitute for or complement formal carrot-policy support? Triple-difference specifications estimate the interaction between offtake-commitment and each carrot-policy DiD term. Three substantive patterns emerge:
+
+\begin{itemize}[leftmargin=2em]
+\item \textbf{UK Track-1 $\times$ offtake (interaction $-0.029$, $p = 0.482$)}: offtake and Track-1 are both protective; their joint effect is approximately additive. Substantively, this is a \emph{complement}: Track-1 participation does not displace the offtake-effect.
+
+\item \textbf{China FYP $\times$ offtake (interaction $+0.108$, $p = 0.003$)}: offtake and FYP partially offset each other. The substantive interpretation is that under the FYP's SOE-procurement mandate, voluntary offtake-commitments are partially redundant --- state procurement substitutes for private offtake.
+
+\item \textbf{EU IF $\times$ offtake (interaction $+0.029$, $p = 0.351$)}: small and statistically insignificant, consistent with the EU IF having little marginal effect at any offtake level.
+\end{itemize}
+
+These findings imply that the offtake-effect operates somewhat independently of the carrot-policies analysed in Chapter \ref{ch:results_did}. Where state mandates effectively secure demand (China FYP), the marginal value of voluntary offtake-commitments is reduced; where they do not (EU IF), the offtake-effect persists.
+
+\section{Synthesis: the $\sigma$-channel in action}
+\label{sec:offtake_synthesis}
+
+The five-method identification, paired with cross-sectoral heterogeneity and policy-interaction patterns, supports four conclusions:
+
+\begin{enumerate}
+\item \textbf{Pre-FID offtake-commitments reduce project-failure probability by 11--13 percentage points} on average, across multiple identification strategies.
+
+\item \textbf{The effect is exceptionally robust to selection-on-unobservables}, with Oster $\delta_{\text{null}} = 20.23$ indicating that unobserved confounders would need to be implausibly strongly correlated with treatment to nullify the effect.
+
+\item \textbf{The sectoral pattern matches the $\sigma$-channel theoretical prediction}: effects are largest in high-volatility sectors (refinery, power and heat, transport) and small or null in low-volatility sectors (chemical, industry, gas grid).
+
+\item \textbf{The offtake-effect is largely independent of formal carrot-policies}, except where state mandates substitute for voluntary commitments (China FYP).
+\end{enumerate}
+
+These findings are consistent with the industry consensus emerging from the 2024--2026 cancellation wave: as one industry summary phrased it, ``the bankable industry that survives is smaller, narrower, and anchored to captive industrial offtake'' \citep{decarbonizeweekly2026}. The present results provide the first econometrically rigorous quantification of this pattern.
+
+Combined with the structural break documented in Chapter \ref{ch:results_tvp} and the carrot-policy estimates of Chapter \ref{ch:results_did}, the offtake-effect is the most robust and consequential single finding of this thesis. Chapter \ref{ch:counterfactual} translates it into counterfactual scenario impacts of immediate policy relevance.

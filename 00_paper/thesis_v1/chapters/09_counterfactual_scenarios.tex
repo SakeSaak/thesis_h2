@@ -1,0 +1,103 @@
+\chapter{Counterfactual Scenarios}
+\label{ch:counterfactual}
+
+This chapter translates the causal estimates of Chapters \ref{ch:results_did}--\ref{ch:results_offtake} into counterfactual policy-scenario impacts. Section \ref{sec:counterfactual_methods} sketches the scenario construction. Section \ref{sec:counterfactual_results} presents five scenarios with bootstrap confidence intervals. Section \ref{sec:counterfactual_aggregation} discusses aggregation. Section \ref{sec:counterfactual_caveats} states limitations.
+
+\section{Scenario construction}
+\label{sec:counterfactual_methods}
+
+For each counterfactual scenario $s$, the impact is computed as:
+\begin{equation}
+\widehat{\Delta\text{FID}}_s = -\hat{\beta}_s \cdot H \cdot |\mathcal{N}_s|,
+\label{eq:cf_delta_fid}
+\end{equation}
+where $\hat{\beta}_s$ is the annual-hazard ATE under the relevant mechanism (sourced from Chapters \ref{ch:results_did}--\ref{ch:results_offtake}), $H = 3$ is the cumulative horizon in years, and $\mathcal{N}_s$ is the target subpopulation of projects to which the mechanism would be applied.
+
+Capacity-weighted impacts are computed by multiplying $\widehat{\Delta\text{FID}}_s$ by the average per-project capacity:
+\begin{itemize}[leftmargin=2em]
+\item For Blue projects, the relevant capacity measure is CO\textsubscript{2} capture in tonnes per year (S\&P field \texttt{Co2 capture (t/y)}), aggregated to Mt/y.
+\item For Green projects, the relevant capacity is hydrogen output in tonnes per year (derived from the S\&P field \texttt{Output capacity per year}, standardised to t/y H\textsubscript{2}), aggregated to kt/y.
+\end{itemize}
+
+Confidence intervals are constructed via 500-iteration bootstrap with joint project-level resampling and Gaussian perturbation of the ATE (Section \ref{sec:methods_counterfactual}). Reported intervals are 2.5\%--97.5\% percentiles.
+
+\section{Five counterfactual scenarios}
+\label{sec:counterfactual_results}
+
+\begin{table}[h]
+\centering
+\caption{Counterfactual scenario impacts (3-year horizon, 95\% bootstrap CI)}
+\label{tab:counterfactual_main}
+\small
+\begin{tabular}{p{6cm}cccc}
+\toprule
+Scenario & $|\mathcal{N}_s|$ & ATE source & $\widehat{\Delta\text{FID}}_s$ & Capacity impact \\
+\midrule
+\textbf{S1: EU adopts 45Q-equivalent (Blue)} & 26 & 45Q (BJS) & $+4\,[2, 5]$ & $+3.40\,[1.5, 5.8]$ Mt/y CO\textsubscript{2} \\
+\textbf{S2: EU IF $\to$ offtake mandate (Green)} & 250 & Offtake (PSM) & $\mathbf{+83\,[39, 128]}$ & $\mathbf{+858\,[355, 1459]}$ kt/y H\textsubscript{2} \\
+\textbf{S3: UK switch Track-1 $\to$ 45Q (Blue)} & 28 & 45Q $-$ UK Track & $+7\,[4, 10]$ & $+12.25\,[5.6, 20.3]$ Mt/y CO\textsubscript{2} \\
+\textbf{S4: OECD China-FYP-equivalent (Green)} & 729 & China FYP (BJS) & $+98\,[32, 160]$ & $+976\,[315, 1610]$ kt/y H\textsubscript{2} \\
+\textbf{S5: EU sector-optimal carrot mix} & 337 & Sector-specific & $\mathbf{+113\,[82, 141]}$ & $\mathbf{+7.83\,[3.0, 15.7]}$ Mt/y CO\textsubscript{2} \\
+                                              &     &           &                & $+1.76\,[0.7, 3.1]$ Mt/y H\textsubscript{2} \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize ATEs sourced from BJS-imputation (Pijler 32) for policy effects, PSM 1:3 (Pijler 34) for offtake.} \\
+\multicolumn{5}{l}{\footnotesize Three-year horizon reflects typical post-FID stabilisation window.} \\
+\end{tabular}
+\end{table}
+
+\subsection{S1: EU adopts a 45Q-equivalent for Blue projects}
+
+The target population is the 26 EU Blue (fossil-with-CCS) projects in the database. Applying the BJS-imputation 45Q ATE of $-0.045$ per year over the three-year horizon yields a cumulative effect of approximately $-0.135$ in failure probability. This corresponds to roughly four additional FIDs and 3.40 Mt/y of additional CO\textsubscript{2} capture --- a modest but non-trivial contribution to EU decarbonisation targets.
+
+\subsection{S2: EU IF eligibility linked to offtake-commitment}
+
+The target population is the 250 EU Green projects announced post-2017 \emph{without} a named offtaker. Applying the offtake PSM ATE of $-0.111$ over three years yields $-0.333$ in cumulative failure probability, corresponding to approximately 83 additional FIDs and 858 kt/y of additional green-hydrogen output. The 95\% bootstrap CI spans 39 to 128 additional FIDs.
+
+This is the \emph{largest single-policy scenario impact} for Green hydrogen. The mechanism is straightforward: rather than disbursing additional EU funds, the reform repurposes existing IF eligibility by adding a binding pre-FID offtake-commitment requirement. The substantive prediction is that this reform would convert a substantial share of currently-cancellation-prone announcements into bankable FID-attainable projects.
+
+\subsection{S3: UK switches from Track-1 to a 45Q-equivalent}
+
+For the 28 UK Blue projects, the swap effect is the difference between the 45Q ATE and the UK Track-1 effect, $-0.081$ per year. Over three years, this yields approximately seven additional FIDs and 12.25 Mt/y additional CO\textsubscript{2} capture --- a disproportionate CO\textsubscript{2} impact given the small project count, driven by the large average capture capacity of UK Blue projects (CCS-anchored to North Sea sequestration).
+
+\subsection{S4: OECD adopts a China-FYP-equivalent state-mandate}
+
+The target population is 729 OECD Green projects (EU + UK + US + Japan + South Korea + Canada + Australia + Norway + Switzerland), excluding China. Applying the China FYP BJS ATE of $-0.045$ --- the most robust of the four policy estimates under honest sensitivity --- yields approximately 98 additional FIDs and 976 kt/y of additional H\textsubscript{2} capacity. This is the most aggressive scenario in terms of target-population size.
+
+The political feasibility of an OECD-wide state-mandate is questionable, but the scenario illustrates the upper-bound impact if OECD economies were willing to deploy comparable industrial-policy intensity. The narrower interpretation is that the scenario quantifies the magnitude of the gap between OECD and Chinese hydrogen-policy effectiveness.
+
+\subsection{S5: EU sector-optimal carrot mix}
+
+The final scenario applies sector-specific mechanism choice to all 337 EU projects announced post-2017:
+\begin{itemize}[leftmargin=2em]
+\item Chemical and industry sectors: 45Q-style output credit ($\hat{\beta} = -0.045$).
+\item Refinery, power and heat sectors: offtake-mandate ($\hat{\beta} = -0.228$ from sector-stratified LPM).
+\item Transport, gas grid: offtake-mandate at average sector level ($\hat{\beta} = -0.111$).
+\end{itemize}
+
+Aggregated, this yields approximately 113 additional FIDs over three years, with a combined impact of 7.83 Mt/y additional CO\textsubscript{2} capture and 1.76 Mt/y additional H\textsubscript{2} output. This is the \emph{integrated optimal policy} prediction, implementing the mechanism-design theory of Chapter \ref{ch:theory}.
+
+\section{Aggregation and discussion}
+\label{sec:counterfactual_aggregation}
+
+Three observations on the aggregate pattern. \emph{First}, the scenarios are not additive --- some target overlapping subpopulations (e.g., S2 and S5 both include EU Green projects without offtake). Aggregating to a single ``maximum-feasible'' impact requires careful coordination of policy design and is beyond the scope of this analysis.
+
+\emph{Second}, the largest impacts (S2, S5) come from mechanisms that operate via the $\sigma$-channel (offtake-mandate, sector-optimal mix). This is consistent with the theoretical prediction in Chapter \ref{ch:theory} that, at current market conditions, $\sigma$-attack mechanisms dominate $V/I$-boost mechanisms for the marginal Green project.
+
+\emph{Third}, the bootstrap intervals are wide, particularly for offtake-based scenarios. This reflects two sources of uncertainty: the underlying ATE standard error (offtake PSM SE $\approx 0.03$) and the bootstrap project-level variation. The conservative interpretation is that the \emph{lower} bound of each CI represents a reasonable expectation of impact under unfavourable conditions; the point estimate represents the most-likely impact; and the upper bound is plausible under favourable conditions.
+
+\section{Caveats and limitations}
+\label{sec:counterfactual_caveats}
+
+Five qualifications apply to the counterfactual results.
+
+\paragraph{1. ATE extrapolation to non-treated subpopulations.} The counterfactual assumes that the estimated ATEs apply to the target subpopulations $\mathcal{N}_s$ rather than the original treated sample. This is justified if the relevant treatment-effect heterogeneity is captured by observed covariates (sector, capacity, sponsor type) and the counterfactual scenarios apply within similar covariate distributions. Where this is not the case (e.g., S4's OECD-Green population includes Japan and South Korea, distinct from our China sample), the estimates are best interpreted as illustrative orders of magnitude.
+
+\paragraph{2. No concurrence effects.} The counterfactual treats each target $\mathcal{N}_s$ independently. In reality, an EU-wide 45Q-equivalent (S1) might draw projects away from competitor regions, partially offsetting the gross impact. The estimates are gross, not net.
+
+\paragraph{3. Scale-dependence.} The ATEs are estimated from a sample of moderate intervention scale. Scaling up may encounter diminishing returns: the marginal new project under a counterfactual is plausibly of lower quality than the average project in our sample.
+
+\paragraph{4. Three-year horizon.} The horizon is chosen to reflect a typical post-FID stabilisation window. Longer horizons would increase the cumulative impact under linear extrapolation but may overstate effects if treatment-effect persistence weakens.
+
+\paragraph{5. Honest sensitivity downstream.} For scenarios drawing on US 45Q, EU IF, or UK Track-1 ATEs (S1, S3, S4 to a lesser extent), the Rambachan-Roth honest sensitivity bounds (Chapter \ref{ch:results_did}, Section \ref{sec:honest_did}) imply that the underlying ATE is sensitivity-bounded. The scenarios using offtake (S2, S5) and China FYP (S4) are anchored to estimates with stronger robustness profiles (Oster $\delta_{\text{null}} = 20.23$ and honest $M^* = 1.5$ respectively).
+
+Despite these qualifications, the counterfactual scenarios provide a quantitative bridge from the empirical estimates to ongoing policy debate. The S2 (offtake-mandate) and S5 (sector-optimal mix) scenarios in particular have direct implications for current EU Innovation Fund reform discussions.

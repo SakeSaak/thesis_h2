@@ -1,0 +1,87 @@
+\chapter{Literature Review}
+\label{ch:literature}
+
+This chapter situates the thesis within three intersecting literatures: (i) the empirical evaluation of clean-energy policy, with a focus on hydrogen; (ii) the real-options theory of irreversible investment; and (iii) recent advances in causal inference, particularly modern difference-in-differences and honest sensitivity analysis.
+
+\section{Empirical evaluation of hydrogen and clean-energy policy}
+\label{sec:lit_hydrogen}
+
+\subsection{The hydrogen implementation gap}
+
+The empirical literature on hydrogen-project realisation is dominated by descriptive tracking of capacity announcements versus delivered FIDs. \citet{odenweller2025green} construct what they term the \emph{ambition gap} (the difference between announced 2030 capacity and 1.5\textdegree C-consistent demand) and the \emph{implementation gap} (the difference between announced and realised capacity at scheduled launch dates). Tracking 190 projects over three years, they document a 2023 implementation gap of approximately 93\%: only 7\% of capacity announcements were on schedule. Their projection requires global subsidies of US\$1.3 trillion (range: \$0.8--2.6 trillion) to realise the announced project pipeline, far exceeding announced subsidies.
+
+\citet{ueckerdt2024cost} provide a complementary cost-competitiveness analysis. Under current natural-gas prices, green hydrogen is initially more than eight times as expensive as natural gas; even under an ambitious carbon-price pathway, it remains 3.5 times more expensive in 2024, with cost parity not reached before 2045. These cost gaps imply that voluntary uptake without policy support is unlikely.
+
+\citet{hydrogen2024insights} and the IEA \citep{iea2024hydrogen} provide industry-side tracking with broader capacity coverage but less methodological rigour. The S\&P Global Commodity Insights team maintains the dataset used in this thesis, including project-level status updates that have not been previously exploited for causal evaluation.
+
+\subsection{Policy-evaluation studies}
+
+Direct empirical evaluation of specific hydrogen-policy mechanisms remains limited. \citet{neuwirth2023industry} simulate the EU Innovation Fund's projected impact on industrial hydrogen adoption but rely on bottom-up cost modelling rather than ex-post causal estimates. \citet{ricks2023minimizing} analyse the additionality and temporal-matching requirements of the US 45V production credit but stop short of project-survival outcomes. The closest predecessors to the present analysis are \citet{hosseini2022real} and \citet{lloyd2022maritime}, who apply real-options frameworks to specific electrolysis and maritime-shipping cases but do not exploit cross-jurisdictional variation.
+
+To the author's knowledge, no prior study comparatively evaluates the four carrot-policy archetypes considered here within a unified causal framework.
+
+\subsection{Adjacent literature: solar and wind policy evaluation}
+
+The broader clean-energy policy-evaluation literature provides useful methodological precedent. \citet{bento2018solar} use a panel difference-in-differences design to identify solar-subsidy effects on installed capacity, finding heterogeneous effects across US states. \citet{aldy2016environment} review feed-in-tariff versus renewable-portfolio-standard designs, concluding that mechanism design matters as much as subsidy intensity --- a finding that motivates the present focus on \emph{mechanism-type} rather than \emph{subsidy-magnitude} comparison. \citet{popp2010innovation} examine the patenting response to clean-energy R\&D subsidies, finding pronounced country-specific heterogeneity that anticipates our cross-jurisdictional approach.
+
+\section{Real options and irreversible investment}
+\label{sec:lit_realoptions}
+
+\subsection{The Dixit-Pindyck framework}
+
+The canonical framework for analysing irreversible investment under uncertainty is \citet{dixit1994investment}. A project of present value $V$ (stochastic) and sunk cost $I$ (fixed) has positive option value to delay investment whenever the underlying $V_t$ follows geometric Brownian motion with non-zero volatility $\sigma$. The optimal exercise (FID) rule is to invest when $V \geq V^*$, where
+
+\begin{equation}
+\frac{V^*}{I} = \frac{\beta_1}{\beta_1 - 1}, \quad
+\beta_1 = \frac{1}{2} - \frac{r-\delta}{\sigma^2}
+       + \sqrt{\left(\frac{r-\delta}{\sigma^2} - \frac{1}{2}\right)^2 + \frac{2r}{\sigma^2}}
+\label{eq:lit_dixit_pindyck}
+\end{equation}
+
+with $r$ the risk-free rate and $\delta$ the convenience-yield-like dividend. Higher $\sigma$ raises $V^*/I$ monotonically: greater uncertainty makes waiting more valuable, suppressing investment.
+
+\subsection{Applications to energy investment}
+
+\citet{pindyck1991irreversibility} provides the foundational application of real-options theory to energy. \citet{fuss2012impact} apply the framework to carbon-pricing uncertainty in power-sector investment, showing that policy-volatility itself can suppress investment even when expected returns are positive. \citet{barradale2014investing} document that wind-investment cycles are driven primarily by policy-uncertainty timing rather than by underlying renewable economics.
+
+For hydrogen specifically, \citet{hosseini2022real} apply a binomial-tree real-options model to electrolyser projects, finding that early subsidies can shift optimal-exercise timing forward by 2--4 years. \citet{lloyd2022maritime} extend the framework to maritime ammonia, demonstrating that demand-aggregation can functionally reduce $\sigma$.
+
+Our theoretical contribution (Chapter \ref{ch:theory}) extends this literature by formalising the mechanism-design implication: different policy types attack different parameters of the Dixit-Pindyck framework, and their relative effectiveness depends on the sector-specific $(V/I, \sigma)$ distribution.
+
+\section{Causal inference: difference-in-differences and beyond}
+\label{sec:lit_did}
+
+\subsection{The two-way fixed effects (TWFE) problem}
+
+The classical difference-in-differences (DiD) estimator with two-way fixed effects \citep[TWFE;][]{ashenfelter1985using} has been the workhorse of policy-evaluation research for four decades. However, recent literature has documented serious identification problems when treatment timing is staggered and effects are heterogeneous across cohorts \citep{goodman2021difference,dechaisemartin2020two,callaway2021difference}. Under heterogeneous effects, TWFE can produce coefficients with the wrong sign relative to any individual treatment effect.
+
+\subsection{Modern DiD estimators}
+
+\citet{sun2021estimating} develop an interaction-weighted estimator that uses only never-treated or last-treated units as controls, eliminating the "forbidden comparison" problem of staggered TWFE. \citet{callaway2021difference} (CS) propose group-time average treatment effects $ATT(g,t)$ that can be aggregated under various weighting schemes. \citet{borusyak2024revisiting} (BJS) develop an imputation estimator that, under a parallel-trends assumption on untreated potential outcomes, achieves efficiency bounds and is robust to heterogeneous effects.
+
+The present thesis applies all three (TWFE, Sun-Abraham, and BJS-imputation) and assesses convergence as a robustness check. When all three estimators agree in sign and approximate magnitude, the substantive conclusion is strengthened.
+
+\subsection{Honest sensitivity analysis}
+
+A separate strand of recent work addresses the limitation that parallel-trends pretest power is low \citep{roth2022pretest}. \citet{rambachan2023more} (RR) propose a framework for \emph{honest} inference: rather than testing parallel trends and conditionally proceeding, the researcher imposes a bound on the magnitude of permissible parallel-trends violations and constructs partial-identification intervals for the average treatment effect.
+
+The RR framework offers two restriction classes. The \emph{relative-magnitudes} restriction (RM) bounds post-treatment trend violations by $M$ times the maximum (or median) observed pre-treatment violation:
+\begin{equation}
+|\text{bias}^{\text{post}}_t| \leq M \cdot \max_s |\text{bias}^{\text{pre}}_s|.
+\label{eq:lit_rr_rm}
+\end{equation}
+The \emph{smoothness} restriction (SD) bounds the second difference of trends. Both yield identified-set bounds on the ATT.
+
+The breakdown $M^*$ --- the smallest $M$ at which the identified set contains zero --- summarises sensitivity in a single number. Our application of RR (Chapter \ref{ch:results_did}, Section \ref{sec:honest_did}) finds heterogeneous robustness across our four policy comparisons, with substantive interpretive implications.
+
+\subsection{Sensitivity to unobservables}
+
+For cross-sectional causal estimates (as in our offtake-effect analysis, Chapter \ref{ch:results_offtake}), the relevant sensitivity framework is selection-on-unobservables. \citet{oster2019unobservable} extends the \citet{altonji2005selection} approach by jointly bounding bias from two parameters: the coefficient-stability ratio $\delta = \text{cov}(W, \text{unobs}) / \text{cov}(W, \text{obs})$ (how much the unobservables co-vary with treatment relative to observables) and an upper bound $R^2_{\max}$ for the explanatory power of the full set of confounders.
+
+A key diagnostic is the \emph{null-effect} $\delta_{\text{null}}$: the value of $\delta$ at which the treatment effect becomes zero. Conventional thresholds suggest robustness when $|\delta_{\text{null}}| \geq 1$. Our offtake-effect estimate (Chapter \ref{ch:results_offtake}) yields $\delta_{\text{null}} = 20.23$, indicating that unobserved confounders would need to be more than twenty times as strongly correlated with treatment as our extensive observed controls to nullify the effect --- a substantively implausible condition.
+
+\section{Synthesis and positioning}
+
+The present thesis sits at the intersection of three literatures. Methodologically, it inherits modern DiD identification (Sun-Abraham, BJS) and honest sensitivity (Rambachan-Roth, Oster) tools from the causal-inference literature. Theoretically, it extends the real-options literature by linking carrot-policy mechanism design to the Dixit-Pindyck $(V/I, \sigma)$ parameters. Substantively, it provides the first cross-jurisdictional causal evaluation of hydrogen policies, addressing a clear gap in the implementation-gap literature.
+
+The empirical findings (Chapters \ref{ch:results_did}--\ref{ch:results_offtake}) will be shown to converge on the theoretical predictions and to be externally corroborated by the 2024--2026 industry cancellation pattern.

@@ -1,0 +1,40 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Motivation: the implementation gap}
+
+In 2024, more than sixty major green hydrogen projects were cancelled globally, removing approximately 4.9 million tonnes per year of would-have-been capacity from public 2030 timelines. BP exited its Australian, Omani, and UK clean hydrogen portfolio. Air Products halted three large US projects. ArcelorMittal walked away from its Bremen and Eisenhüttenstadt plants despite \euro 1.3 billion in committed European Innovation Fund subsidies. In September 2025, seven winners of the EU Hydrogen Bank auction --- representing a combined 1.88 GW of electrolysis capacity --- withdrew from grant negotiations before the security-deposit deadline.\footnote{Sources: industry reporting compiled in \citet{decarbonizeweekly2026,ing2026,bucklebridge2026}; corroborated by S\&P Global Commodity Insights coverage.}
+
+This cancellation wave exposes what \citet{odenweller2025green} term the \emph{green hydrogen implementation gap}: the difference between announced project ambition and realised capacity. Tracking 190 projects over three years, the authors document that only 7\% of 2023 announced capacity reached scheduled Final Investment Decision (FID). Yet the announced pipeline continues to grow --- the global project portfolio nearly tripled to 422 GW over the same period --- creating a widening discrepancy between political ambition and on-the-ground delivery.
+
+The policy response has been substantial. The US Inflation Reduction Act of 2022 introduced a production-tax-credit-style subsidy (Section 45Q) of up to \$85 per tonne of captured CO\textsubscript{2}. The European Union's Innovation Fund disburses over \euro 10 billion in capex grants. The United Kingdom launched the Hydrogen Allocation Round 1 (HAR-1) and Track-1 cluster-tender architecture. China's 14th Five-Year Plan (2021--2025), succeeded by the 15th Five-Year Plan, elevates hydrogen to a strategic priority within national industrial policy. These four policy archetypes --- output credit, capex grant, cluster tender, and state-coordinated mandate --- represent distinct mechanism-design choices, but their relative effectiveness in moving projects from announcement to FID has not been comparatively evaluated.
+
+\section{Research questions}
+
+This thesis addresses three primary research questions:
+
+\begin{enumerate}[label=\textbf{RQ\arabic*.}, leftmargin=*]
+\item \textbf{Which carrot-policy mechanisms causally reduce project failure probability, and by how much?} Specifically, do the four policy archetypes identified above produce statistically and economically significant reductions in project cancellation or on-hold status, and how robust are these estimates to alternative identification strategies and parallel-trends violations?
+
+\item \textbf{Through which channels do effective policies operate?} The Dixit-Pindyck (1994) real-options literature suggests two distinct pathways: subsidies can either raise the value-to-investment ratio $V/I$ (making FID more attractive at a fixed uncertainty level) or attack the revenue-volatility component $\sigma$ (lowering the FID threshold itself). Can we empirically distinguish these channels using sector-level heterogeneity in policy effects?
+
+\item \textbf{What is the role of pre-FID offtake commitments?} The 2024--2026 cancellation pattern strongly suggests that subsidies without secured offtake are insufficient. Can we identify a causal effect of pre-FID offtake-commitment on project survival, and does its magnitude approximate or exceed the effects of formal carrot-policies?
+\end{enumerate}
+
+A fourth, supplementary question concerns external validity: \textbf{RQ4. What is the quantitative impact of plausible counterfactual policy reforms?} Using estimated treatment effects, we construct five counterfactual scenarios with bootstrap-validated confidence intervals to inform ongoing policy debate.
+
+\section{Contribution}
+
+This thesis advances the literature on hydrogen-policy evaluation in four ways.
+
+\paragraph{Empirical.} It provides the first cross-jurisdictional causal evaluation of carrot-policy mechanisms for low-carbon hydrogen project survival. The four policy comparisons (US 45Q, EU Innovation Fund, UK Track-1, China FYP) are estimated within a unified econometric framework, allowing direct comparison of mechanism effectiveness. Beyond formal policy, it identifies and quantifies the previously under-recognised role of pre-FID offtake commitments.
+
+\paragraph{Methodological.} It combines three complementary identification strategies that have not previously been jointly applied in this field: (i) modern difference-in-differences estimators that address heterogeneous timing (Sun-Abraham 2021; Borusyak-Jaravel-Spiess 2024); (ii) time-varying-parameter difference-in-differences via three state-space specifications (threshold, AR(1), random walk) to detect structural breaks in policy effectiveness; and (iii) Rambachan-Roth (2023) honest sensitivity bounds to assess robustness to parallel-trends violations. The convergence of point estimates across methods, paired with transparent reporting of method-specific robustness, exemplifies what the literature terms \emph{layered transparency} \citep{rambachan2023more}.
+
+\paragraph{Theoretical.} It develops a Dixit-Pindyck (1994) real-options framework that characterises when each carrot-mechanism type dominates, as a function of project-level revenue uncertainty $\sigma$ and value-to-investment ratio $V/I$. The framework yields testable cross-sector predictions --- $\sigma$-attack mechanisms should be more effective in high-volatility sectors (power and heat, transport) than in low-volatility sectors (chemical, refinery) --- which are then validated empirically.
+
+\paragraph{Policy.} It quantifies counterfactual scenarios with concrete numerical implications: an EU-wide hard-link between Innovation Fund eligibility and demonstrable offtake-commitments could deliver an estimated +83 additional FIDs and +858 kt/y of additional green hydrogen capacity over a three-year horizon, and a full sector-optimal carrot mix could add +113 FIDs, +7.83 Mt/y of CO\textsubscript{2} capture, and +1.76 Mt/y of H\textsubscript{2} output.
+
+\section{Structure of the thesis}
+
+Chapter \ref{ch:literature} reviews the existing literature on hydrogen-policy evaluation, real-options approaches to irreversible investment, and modern causal-inference advances in difference-in-differences. Chapter \ref{ch:theory} develops the theoretical framework, formalising the four mechanism types within a real-options model. Chapter \ref{ch:data} describes the project-level S\&P Global dataset, complementary macro variables, and the construction of the analysis panel. Chapter \ref{ch:methodology} presents the econometric methodology, including the rationale for combining static DiD, time-varying DiD, and sensitivity-based identification. Chapters \ref{ch:results_did}--\ref{ch:results_offtake} present the empirical results. Chapter \ref{ch:counterfactual} translates these into counterfactual scenarios. Chapter \ref{ch:discussion} discusses interpretation, limitations, and theoretical implications. Chapter \ref{ch:conclusion} concludes with policy recommendations and avenues for further research.

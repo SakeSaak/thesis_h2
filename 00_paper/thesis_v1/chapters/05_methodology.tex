@@ -1,0 +1,191 @@
+\chapter{Methodology}
+\label{ch:methodology}
+
+This chapter presents the econometric methodology of the thesis. Three identification strategies are deployed in complementary fashion: (i) modern difference-in-differences estimators for the four carrot-policies (Section \ref{sec:methods_did}); (ii) time-varying-parameter DiD via state-space methods to detect structural breaks (Section \ref{sec:methods_tvp}); and (iii) cross-sectional matching estimators for the offtake-effect (Section \ref{sec:methods_offtake}). Honest sensitivity analysis is applied to each estimand class (Section \ref{sec:methods_sensitivity}).
+
+\section{Outcome variable: project failure}
+\label{sec:methods_outcome}
+
+The primary outcome of interest is a binary indicator of \emph{project failure}, defined as a project entering one of the following S\&P Global \texttt{project\_status} categories: \texttt{Plans cancelled}, \texttt{On-hold (assumed)}, \texttt{On-hold (confirmed)}, or \texttt{Decommissioned}. Projects in \texttt{Announced}, \texttt{Feasibility study}, \texttt{Front-End Engineering Design (FEED)}, \texttt{FID/Final investment decision}, \texttt{Construction}, or \texttt{Operational} status are coded as non-failed.
+
+Two outcome representations are used:
+
+\begin{enumerate}
+\item \textbf{Cross-sectional failure indicator} $Y_i \in \{0,1\}$ for project $i$ as of the database snapshot (24 March 2024). This is used for the offtake-effect analysis (Chapter \ref{ch:results_offtake}) and Oster sensitivity bounds.
+
+\item \textbf{Annual hazard rate} via project-year panel: for each project $i$ active in year $t$, $Y_{it} = 1$ if the project enters failure status in year $t$, $0$ otherwise. This is used for the modern DiD analysis (Section \ref{sec:methods_did}) and TVP-DiD (Section \ref{sec:methods_tvp}).
+\end{enumerate}
+
+The panel is constructed by expanding each project's announcement-to-status timeline. For non-failed projects, the panel extends to 2024 (database snapshot year). For failed projects, the panel terminates in the year of failure, conservatively estimated as the midpoint between announcement year and (where available) the expected operational year, or as $\text{announcement year} + 3$ otherwise.
+
+\section{Difference-in-differences for carrot-policy evaluation}
+\label{sec:methods_did}
+
+\subsection{Treatment definition and policy timing}
+
+Four carrot-policies are evaluated. Treatment is defined by the intersection of geography, technology eligibility, and policy timing:
+
+\begin{itemize}[leftmargin=2em]
+\item \textbf{US Section 45Q}: project located in the United States, Blue technology (fossil with CCS), post-treatment year 2023 (Inflation Reduction Act enhancement of pre-existing 45Q).
+\item \textbf{EU Innovation Fund (IF)}: project located in EU-27 member state, any clean H\textsubscript{2} technology, post-treatment year 2020 (first IF call).
+\item \textbf{UK Track-1 / HAR-1}: project located in the United Kingdom, any clean H\textsubscript{2} technology, post-treatment year 2022 (HAR-1 launch).
+\item \textbf{China 14th FYP}: project located in China, Green technology (electrolysis), post-treatment year 2022 (full operational period of 14th FYP).
+\end{itemize}
+
+\subsection{Two-way fixed effects (TWFE) specification}
+
+The baseline specification is the standard staggered-treatment TWFE:
+
+\begin{equation}
+Y_{it} = \alpha_i + \gamma_t + \beta \cdot D_{it} + X_{it}' \boldsymbol{\pi} + \varepsilon_{it},
+\label{eq:methods_twfe}
+\end{equation}
+
+where $\alpha_i$ are project fixed effects, $\gamma_t$ year fixed effects, $D_{it} = 1$ if project $i$ is in the post-treatment period of its respective policy, and $X_{it}$ a vector of time-varying controls (log capacity, sponsor type indicators, sector dummies). Standard errors are clustered at the project level.
+
+The coefficient $\beta$ is interpreted as the average treatment effect on the treated (ATT) under the conventional parallel-trends assumption. However, as discussed in Section \ref{sec:lit_did}, TWFE produces biased estimates under heterogeneous treatment effects and staggered timing. Three modern alternatives are therefore applied as robustness checks.
+
+\subsection{Sun-Abraham interaction-weighted estimator}
+
+\citet{sun2021estimating} eliminate "forbidden comparisons" by using event-time-specific cohort weights:
+
+\begin{equation}
+\hat{\delta}_e = \sum_{g} \omega(g) \cdot \widehat{ATT}(g, g+e),
+\label{eq:methods_sa}
+\end{equation}
+
+where $e$ is event time (relative to treatment start), $g$ is treatment cohort (year of treatment onset), and $\widehat{ATT}(g, g+e)$ is the cohort-specific ATT at event time $e$. The weights $\omega(g)$ are cohort sample shares within each event time.
+
+\subsection{Borusyak-Jaravel-Spiess imputation estimator}
+
+\citet{borusyak2024revisiting} (BJS) propose an imputation approach: fit a model to never-treated and pre-treated observations only,
+\begin{equation}
+Y_{it} = \alpha_i + \gamma_t + X_{it}' \boldsymbol{\pi} + \varepsilon_{it} \quad \text{for } (i,t) \in \mathcal{U} \cup \mathcal{P},
+\label{eq:methods_bjs}
+\end{equation}
+
+where $\mathcal{U}$ is the never-treated set and $\mathcal{P}$ is the pre-treatment set of eventually-treated units. Predict potential outcomes $\hat{Y}_{it}^0$ for treated observations, and compute
+\begin{equation}
+\widehat{ATT}^{\text{BJS}} = \frac{1}{|\mathcal{T}|} \sum_{(i,t) \in \mathcal{T}} \left( Y_{it} - \hat{Y}_{it}^0 \right),
+\label{eq:methods_bjs_att}
+\end{equation}
+where $\mathcal{T}$ is the treated set. Under correctly-specified parallel trends, BJS attains the semiparametric efficiency bound \citep[Theorem 3]{borusyak2024revisiting}.
+
+\subsection{Convergence as triangulation}
+
+The three estimators rely on overlapping but distinct identifying assumptions. TWFE requires homogeneous effects (most restrictive). Sun-Abraham requires only no-anticipation and parallel trends conditional on observables. BJS-imputation is robust to heterogeneous timing under correct specification of the never-treated outcome equation. When all three estimators yield similar point estimates and signs, the substantive conclusion is strengthened; when they diverge, we report the divergence and investigate sources.
+
+\section{Time-varying parameter DiD}
+\label{sec:methods_tvp}
+
+To detect structural breaks in policy effectiveness, three state-space specifications are estimated for the time-varying carrot-policy coefficient $\beta_t$.
+
+\paragraph{Threshold specification.} The simplest break-detection model is the two-regime threshold
+\begin{equation}
+\beta_t = \begin{cases} \beta_{\text{pre}} & t \leq \tau^* \\ \beta_{\text{post}} & t > \tau^* \end{cases}
+\label{eq:methods_threshold}
+\end{equation}
+with $\tau^*$ estimated endogenously by maximising the log-likelihood across candidate break years.
+
+\paragraph{AR(1) state-space.} A continuous-time formulation allows the coefficient to drift:
+\begin{equation}
+\beta_t = \rho \beta_{t-1} + \nu_t, \quad \nu_t \sim N(0, \sigma_\nu^2).
+\label{eq:methods_ar1}
+\end{equation}
+The Kalman filter is used to obtain filtered and smoothed estimates of $\beta_t$.
+
+\paragraph{Random-walk specification.} Imposing $\rho = 1$ in (\ref{eq:methods_ar1}) yields the random-walk specification, which is more flexible but less efficient under stable regimes.
+
+The empirical finding (Chapter \ref{ch:results_tvp}) is that all three specifications converge on a sign-shift around $\tau^* = 2020$, providing strong evidence of a structural break independent of the chosen state-space parameterisation.
+
+\section{Cross-sectional matching for the offtake-effect}
+\label{sec:methods_offtake}
+
+Five identification strategies are applied to the binary offtake-commitment indicator $T_i$:
+
+\paragraph{LPM with rich controls.} A linear probability model with project-level controls (log capacity, sponsor-type fixed effects, sector dummies, geography indicators, announcement-year dummies) is estimated by ordinary least squares with HC1 heteroskedasticity-robust standard errors:
+\begin{equation}
+Y_i = \alpha + \beta T_i + X_i'\boldsymbol{\pi} + u_i.
+\label{eq:methods_lpm}
+\end{equation}
+
+\paragraph{Propensity score matching.} A propensity score $\hat{e}(X_i) = P(T_i = 1 | X_i)$ is estimated via logistic regression. One-to-three nearest-neighbour matching with replacement is performed on the estimated propensity score. The ATT is the average within-pair outcome difference, with standard errors via 500-iteration bootstrap.
+
+\paragraph{Inverse-probability-weighted regression adjustment.} \citet{robins2000marginal} (IPWRA): outcome models are estimated separately for treated and control units with inverse-probability weights, then the ATE is computed as the average difference in predicted potential outcomes:
+\begin{equation}
+\widehat{ATE}^{\text{IPWRA}} = \frac{1}{n} \sum_{i=1}^{n} \left( \hat{y}_i^{(1)} - \hat{y}_i^{(0)} \right).
+\label{eq:methods_ipwra}
+\end{equation}
+The estimator is \emph{doubly robust}: consistent if either the propensity-score model or the outcome model is correctly specified.
+
+\paragraph{Oster (2019) sensitivity.} The bias-adjusted coefficient is
+\begin{equation}
+\beta^{\text{adj}} = \beta_c - \delta \cdot (\beta_{\text{unc}} - \beta_c) \cdot \frac{R^2_{\max} - R^2_c}{R^2_c - R^2_{\text{unc}}},
+\label{eq:methods_oster}
+\end{equation}
+where $\beta_{\text{unc}}$ and $\beta_c$ are the uncontrolled and controlled coefficient estimates, with corresponding $R^2$ values. The \emph{null-effect} $\delta_{\text{null}}$ is the solution to $\beta^{\text{adj}} = 0$, interpreted as the relative magnitude of unobserved-confounder correlation with treatment (vs.\ observables) at which the effect would vanish.
+
+\paragraph{Sector-stratified estimation.} The LPM is re-estimated separately for each sector $s$:
+\begin{equation}
+Y_i = \alpha_s + \beta_s T_i + X_i'\boldsymbol{\pi}_s + u_i, \quad i \in s.
+\label{eq:methods_sector_lpm}
+\end{equation}
+The pattern of $\hat{\beta}_s$ across sectors is the empirical test of the $\sigma$-channel hypothesis developed in Chapter \ref{ch:theory}.
+
+\section{Sensitivity analysis}
+\label{sec:methods_sensitivity}
+
+Two distinct sensitivity frameworks are applied.
+
+\subsection{Rambachan-Roth honest DiD bounds}
+
+For each DiD specification, event-study coefficients $\hat{\delta}_e$ are computed for $e \in \{-4, -3, -2, 0, 1, 2\}$ with $e = -1$ as reference. Define the average post-treatment ATT
+\begin{equation}
+\widehat{ATT}^{\text{avg}} = \frac{1}{3}(\hat{\delta}_0 + \hat{\delta}_1 + \hat{\delta}_2),
+\label{eq:methods_avg_att}
+\end{equation}
+and the median absolute pre-treatment deviation
+\begin{equation}
+\overline{\text{pre}} = \text{median}\left( |\hat{\delta}_{-2}|, |\hat{\delta}_{-3}|, |\hat{\delta}_{-4}| \right).
+\label{eq:methods_median_pre}
+\end{equation}
+
+The Relative Magnitudes (RM) restriction of order $M$ assumes that the post-treatment bias is bounded by $M \cdot \overline{\text{pre}}$. The honest 95\% confidence interval for the ATT is
+\begin{equation}
+\text{CI}^{\text{RM}}(M) = \left[ \widehat{ATT}^{\text{avg}} - M \cdot \overline{\text{pre}} - 1.96 \cdot \text{SE}(\widehat{ATT}^{\text{avg}}),\ \widehat{ATT}^{\text{avg}} + M \cdot \overline{\text{pre}} + 1.96 \cdot \text{SE}(\widehat{ATT}^{\text{avg}}) \right].
+\label{eq:methods_rr_ci}
+\end{equation}
+
+The \emph{breakdown $M^*$} is defined as the smallest $M$ at which $0 \in \text{CI}^{\text{RM}}(M)$. Conventional interpretation \citep{rambachan2023more}:
+\begin{itemize}[leftmargin=2em]
+\item $M^* < 0.5$: \emph{fragile} --- small pre-trend violations suffice to nullify the effect.
+\item $0.5 \leq M^* < 1$: \emph{moderately robust}.
+\item $1 \leq M^* < 2$: \emph{robust} under equal-magnitude post-bias.
+\item $M^* \geq 2$: \emph{very robust} under doubled-magnitude post-bias.
+\end{itemize}
+
+\subsection{Oster selection-on-unobservables}
+
+As discussed in Section \ref{sec:lit_did}, $\delta_{\text{null}}$ captures the relative magnitude of unobservable-treatment correlation (vs.\ observable-treatment correlation) at which the effect vanishes. The conventional robustness threshold is $|\delta_{\text{null}}| \geq 1$ \citep{oster2019unobservable}.
+
+\section{Counterfactual scenarios and bootstrap inference}
+\label{sec:methods_counterfactual}
+
+Counterfactual scenarios are constructed by applying the estimated ATEs to target subpopulations of the existing project pipeline. For scenario $s$ with target population $\mathcal{N}_s$, the expected number of additional FIDs over a three-year horizon is
+\begin{equation}
+\widehat{\Delta\text{FID}}_s = -\hat{\beta}_s \cdot H \cdot |\mathcal{N}_s|,
+\label{eq:methods_counterfactual}
+\end{equation}
+where $H = 3$ is the horizon length in years and $\hat{\beta}_s$ is the annual hazard ATE under the relevant mechanism. Capacity-weighted impacts (CO\textsubscript{2} capture for Blue projects, H\textsubscript{2} output for Green projects) are computed by multiplying $\widehat{\Delta\text{FID}}_s$ by the average per-project capacity in $\mathcal{N}_s$.
+
+Bootstrap confidence intervals are constructed via 500 iterations of joint project-level resampling and ATE Gaussian perturbation:
+\begin{enumerate}
+\item Sample $\tilde{\mathcal{N}}_s$ from $\mathcal{N}_s$ with replacement.
+\item Draw $\tilde{\beta} \sim N(\hat{\beta}_s, \widehat{\text{SE}}(\hat{\beta}_s)^2)$.
+\item Compute $\widetilde{\Delta\text{FID}}^{(b)} = -\tilde{\beta} \cdot H \cdot |\tilde{\mathcal{N}}_s|$.
+\end{enumerate}
+The 95\% CI is the 2.5\%--97.5\% percentile interval of $\{\widetilde{\Delta\text{FID}}^{(b)}\}_{b=1}^{500}$.
+
+\section{Implementation}
+
+All analyses are implemented in Python 3.13.9 using \texttt{pandas} 2.x, \texttt{numpy} 1.26+, \texttt{statsmodels} 0.14.4, and \texttt{scikit-learn} 1.6.1. State-space TVP-DiD uses \texttt{PyMC} 5.10+ for Bayesian inference. Causal-forest heterogeneity analysis (used in supporting robustness checks) uses \texttt{econml} 0.16.0. All code is publicly archived at \href{https://github.com/SakeSaak/thesis_h2}{github.com/SakeSaak/thesis\_h2}.

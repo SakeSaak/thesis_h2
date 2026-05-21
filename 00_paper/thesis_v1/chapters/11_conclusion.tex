@@ -1,0 +1,44 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+This thesis has provided the first cross-jurisdictional causal evaluation of carrot-policy mechanisms for low-carbon hydrogen project survival. Using a project-level dataset of 1,354 Blue and Green hydrogen projects (S\&P Global, 2010--2024) with 367 documented failures, the analysis combines modern difference-in-differences estimators, time-varying-parameter state-space methods, five-strategy cross-sectional identification for the offtake-effect, and honest sensitivity analysis.
+
+\section{Summary of findings}
+
+Six main findings emerge.
+
+\begin{enumerate}
+\item \textbf{Pre-FID offtake-commitments reduce project-failure probability by 11--13 percentage points}, with Oster $\delta_{\text{null}} = 20.23$ indicating exceptional robustness to selection on unobservables.
+
+\item \textbf{China's 14th Five-Year Plan reduces annual project-failure hazard by approximately 4.5 percentage points}, with Rambachan-Roth honest-DiD breakdown $M^* = 1.50$ indicating robustness under moderate parallel-trends violation. This is the most robustly identified of the four formal carrot-policy effects.
+
+\item \textbf{The US Section 45Q has a robust associative effect on Blue-project survival} ($-3.8$ to $-4.5$ pp annual hazard across estimators), though the causal claim under strictest honest-sensitivity is bounded ($M^* = 0.20$).
+
+\item \textbf{The EU Innovation Fund produces a well-identified null effect} (all six methods agree on no detectable effect), corroborated externally by the 2024--2026 wave of grant-eligible project withdrawals.
+
+\item \textbf{The UK Track-1 / HAR-1 positive coefficient is a selection-funnel artefact}, supported by qualitative case-study evidence and post-database cancellations of the largest Track-1 announcements.
+
+\item \textbf{A structural break in policy effectiveness occurs around 2020}, detected by three independent TVP state-space methods, consistent with the post-2020 announcement-boom attracting lower-quality speculative entrants.
+\end{enumerate}
+
+\section{Policy implications}
+
+Three policy implications follow.
+
+\paragraph{Reform EU Innovation Fund to include offtake-mandate.} Linking EU IF eligibility to demonstrable pre-FID offtake-commitments is estimated to deliver +83 additional FIDs and +858 kt/y additional green-hydrogen output over a three-year horizon, without additional fiscal cost beyond existing IF budgets.
+
+\paragraph{Differentiate mechanism by sector.} Output-credit mechanisms (US 45Q-style) should be preserved for chemical and refinery sectors (low-$\sigma$, $V/I$-boost channel). Offtake-mandate or cluster-tender mechanisms should be deployed for power and heat, transport, and gas-grid sectors (high-$\sigma$, $\sigma$-attack channel).
+
+\paragraph{Pre-FID screening should match the post-2020 environment.} Carrot-policies designed for the pre-2020 small-set serious-sponsor environment are mis-calibrated for the post-2020 large-set speculative-entrant environment. Pre-FID screening mechanisms --- binding capacity declarations, verified offtake LOIs, sponsor-track-record requirements --- should be strengthened.
+
+\section{Theoretical and methodological contributions}
+
+The thesis advances both theory and methodology. The Dixit-Pindyck (1994) real-options framework is extended to mechanism-design, formalising how four carrot-policy types map onto distinct $(V/I, \sigma)$ parameter modifications, with empirically falsifiable cross-sector predictions that are confirmed in the data.
+
+Methodologically, the combination of (i) three modern DiD estimators with convergent estimates, (ii) three TVP state-space methods detecting a common structural break, (iii) five cross-sectional identification strategies for the offtake-effect, and (iv) explicit Rambachan-Roth and Oster sensitivity analyses, exemplifies layered transparency in causal-policy evaluation.
+
+\section{External corroboration and final remarks}
+
+The findings of this thesis are externally corroborated by the unprecedented 2024--2026 wave of hydrogen-project cancellations. ArcelorMittal's withdrawal from Bremen and Eisenhüttenstadt despite \euro 1.3 billion in committed EU Innovation Fund subsidies, the September 2025 withdrawal of seven EU Hydrogen Bank auction winners representing 1.88 GW of combined capacity, BP's exits from HyGreen Teesside and H2Teesside, and the broader $\sim$60 major-project cancellations of 2025 alone all align with the substantive interpretation developed here: capex-grants without offtake-commitment are insufficient; mechanism design matters as much as subsidy magnitude; and the speculative-announcement era requires stronger pre-FID screening than was needed pre-2020.
+
+The hydrogen industry is currently undergoing what one analyst termed a transition ``from speculative tail to bankable core'' \citep{decarbonizeweekly2026}. The substantive contribution of this thesis is to provide the first rigorous econometric characterisation of which policy mechanisms can accelerate this transition --- and which cannot.

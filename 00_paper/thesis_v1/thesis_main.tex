@@ -1,0 +1,114 @@
+% =============================================================================
+% MSc Thesis - Sake Saakstra
+% Implementation-Risk Differentials in Hydrogen Technology Pathways
+% Vrije Universiteit Amsterdam, MSc Econometrics & Operations Research
+% Supervisor: prof. dr. Siem Jan Koopman | Second reader: dr. Nadine Ketel
+% =============================================================================
+
+\documentclass[12pt,a4paper,oneside]{report}
+
+% --- Geometry & spacing ---
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Fonts & encoding ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Math ---
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+
+% --- Tables & figures ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+% \usepackage{multirow}  % not used
+\usepackage{caption}
+\usepackage{subcaption}
+% \usepackage{adjustbox}  % not used
+\usepackage{array}
+
+% --- References & links ---
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{plainnat}
+\usepackage[hidelinks,colorlinks=false]{hyperref}
+\usepackage{url}
+
+% --- Misc ---
+\usepackage{enumitem}
+\usepackage{xcolor}
+% \usepackage{titlesec}  % not used
+% \usepackage{tocloft}  % not used
+
+% Theorem-like environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% =============================================================================
+% TITLE PAGE
+% =============================================================================
+\title{
+  \vspace*{-2cm}
+  \textsc{\large Vrije Universiteit Amsterdam}\\[0.2em]
+  \textsc{\normalsize School of Business and Economics}\\[2.5cm]
+  \LARGE\textbf{Implementation-Risk Differentials in\\Hydrogen Technology Pathways}\\[0.5em]
+  \large\textit{A Cross-Jurisdictional Causal Evaluation of\\Carrot-Policy Mechanisms}
+}
+\author{
+  Sake Saakstra\\
+  \texttt{sake.saakstra@student.vu.nl}\\[1.5em]
+  \begin{tabular}{rl}
+  \textit{Supervisor:}    & prof.\ dr.\ Siem Jan Koopman \\
+  \textit{Second reader:} & dr.\ Nadine Ketel \\
+  \textit{Programme:}     & MSc Econometrics \& Operations Research\\
+                          & (Financial Track) \\
+  \end{tabular}
+}
+\date{July 2026}
+
+% =============================================================================
+% DOCUMENT
+% =============================================================================
+\begin{document}
+
+\maketitle
+
+% --- Abstract ---
+\input{chapters/00_abstract}
+\clearpage
+
+% --- Table of contents ---
+\tableofcontents
+\clearpage
+
+% --- Chapters ---
+\input{chapters/01_introduction}
+\input{chapters/02_literature_review}
+\input{chapters/03_theoretical_framework}
+\input{chapters/04_data}
+\input{chapters/05_methodology}
+\input{chapters/06_results_main_did}
+\input{chapters/07_results_tvp_state_space}
+\input{chapters/08_results_offtake_mechanism}
+\input{chapters/09_counterfactual_scenarios}
+\input{chapters/10_discussion}
+\input{chapters/11_conclusion}
+
+% --- References ---
+\bibliography{references}
+
+% --- Appendix ---
+\appendix
+\input{chapters/A_appendix}
+
+\end{document}
