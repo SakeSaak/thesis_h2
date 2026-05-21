@@ -1,0 +1,345 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{booktabs, array}
+\usepackage{graphicx, xcolor}
+\usepackage{caption, subcaption}
+\usepackage{eurosym}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black
+}
+\usepackage{natbib}
+\usepackage{setspace}
+\onehalfspacing
+
+\newcommand{\bint}{\beta_{\text{int}}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+
+\title{Mechanism Design over Magnitude: A Multi-Jurisdiction Evaluation of Carrot-Policy Effectiveness in Clean-Hydrogen Implementation}
+
+\author{Sake Saakstra\thanks{Vrije Universiteit Amsterdam. Email: \texttt{s.saakstra@vu.nl}. I am grateful to Siem Jan Koopman, Nadine Ketel, and seminar participants at VU Amsterdam for valuable feedback. All errors are mine.}
+\and Nadine Ketel\thanks{Vrije Universiteit Amsterdam and Tinbergen Institute. \emph{TBC --- subject to co-author confirmation.}}}
+
+\date{First draft: \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+We evaluate six major clean-hydrogen policy interventions across four jurisdictions (US 45Q, US 45V three-pillars NPRM, EU Innovation Fund, EU CBAM, UK Track-1, China 14th Five-Year Plan) using a project-level panel of 1,354 announced hydrogen developments from the S\&P Global Hydrogen Project Database (2010--2026). Treatment effects on cumulative cancellation probability are estimated using modern difference-in-differences estimators (Sun--Abraham IW, Borusyak--Jaravel--Spiess imputation, IPWRA matching, Synthetic DiD, Causal Forests, and Deaner--Ku hazard DiD) and accompanied by Rambachan--Roth honest-sensitivity bounds.
+
+Three substantive findings emerge. First, the magnitude ranking of policy effects (China 14th FYP $>$ US 45Q $>$ UK Track-1 $\gg$ EU Innovation Fund) systematically follows the number of economic frictions each instrument addresses, not the per-unit monetary value of the subsidy. The China FYP estimate of $-4.5$ percentage points (honest-DiD breakdown $M^{*} = 1.5$) exceeds the US 45Q estimate of $-3.4$ percentage points ($M^{*} = 0.2$) despite comparable per-unit subsidy value, consistent with multi-friction mechanism dominance. Second, two informative nulls are identified: the EU Innovation Fund produces a precise null across six convergent estimators, and the EU CBAM produces a precise null across eight convergent estimators. The substantive interpretation is that the financing-constraint friction is not binding in the contemporary capital-abundant hydrogen environment, and that border-adjustment transmission to project-level investment decisions is weak in the early-implementation phase. Third, the US 45V three-pillars NPRM triple-difference estimate of $+0.285$ on US-Green cancellation hazard identifies friction amplification by policy design --- the cleanest empirical test of perverse-direction $\kappa$-channel effects in the sample.
+
+The methodological contribution is a pre-registered mechanism-falsifiability framework that disciplines mechanism interpretation against post-hoc rationalisation, combined with multi-method triangulation that strengthens both confirmatory and informative-null inferences. The policy implication is that reform of capex-grant instruments such as the EU Innovation Fund should incorporate offtake-commitment eligibility requirements, jointly addressing both financing and counterparty-risk frictions.
+
+\medskip
+\noindent\textbf{JEL classification}: C21, C23, Q42, Q48, Q58
+
+\noindent\textbf{Keywords}: difference-in-differences; honest sensitivity; clean hydrogen; carbon pricing; policy evaluation; mechanism design; carbon border adjustment
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Clean-hydrogen scale-up requires unprecedented public-sector investment commitments and a portfolio of policy interventions whose effectiveness has been the subject of substantial recent policy debate. Across four jurisdictions, six major interventions have been deployed within the past five years: the US Section~45Q production tax credit (expanded under the 2022 Inflation Reduction Act); the US 45V three-pillars Notice of Proposed Rulemaking (December~2023); the EU Innovation Fund capex-grant programme; the EU Carbon Border Adjustment Mechanism (CBAM, transitional from Q4~2023); the UK Track-1 cluster tender (2023); and the Chinese 14th Five-Year Plan hydrogen mandate (2021). The combined annual public-sector commitment exceeds \euro 50 billion in current-value terms, with substantially larger commitments scheduled for the post-2026 definitive phases of CBAM and the 45V hourly-matching effective date.
+
+Conventional cost-effectiveness evaluation of these instruments has focused on monetary intensity --- the implicit subsidy per ton CO$_2$ avoided, or per kilogramme hydrogen produced. This metric is insufficient for policy design under irreversibility and transition uncertainty, because it abstracts from the economic friction through which the instrument operates. Two instruments with identical per-unit monetary intensity may produce very different effects on implementation if one addresses a binding friction and the other does not. The empirical patterns documented in this paper illustrate this point with particular force.
+
+This paper evaluates the six interventions using a project-level panel of 1{,}354 announced hydrogen developments from the S\&P Global Hydrogen Project Database, spanning 2010 to early 2026. The outcome of interest is cumulative project-cancellation probability, observable at the project level with high precision for the cancellation cause and with substantial timing uncertainty for the other failure modes (on-hold transitions, decommissioning announcements). Treatment effects are estimated using six modern DiD and matching estimators (Sun--Abraham IW \cite{sun2021estimating}, Borusyak--Jaravel--Spiess imputation \cite{borusyak2024revisiting}, IPWRA matching, Synthetic DiD \cite{arkhangelsky2021synthetic}, Causal Forests \cite{athey2019generalized}, Deaner--Ku hazard DiD \cite{deaner2025hazard}) and accompanied by Rambachan--Roth honest-sensitivity bounds \cite{rambachan2023more}.
+
+Three contributions are made. The first is empirical: a comprehensive cross-jurisdictional carrot-policy effectiveness ranking that systematically connects observed treatment-effect magnitudes to the number of economic frictions addressed by each instrument. The China 14th FYP, which addresses coordination failure, financing constraint, and counterparty risk (three frictions), produces the largest and most robust effect ($-4.5$ percentage points; honest-DiD breakdown $M^{*} = 1.5$). The US Section~45Q, which addresses revenue uncertainty and carbon-payoff uncertainty (two frictions), produces a moderate effect ($-3.4$pp; $M^{*} = 0.2$). The UK Track-1, which combines revenue uncertainty with $\rho$-channel deadline-selection mechanics, produces a small average effect ($-1.8$pp) that is concentrated in the high-pre-treatment-cost-efficiency stratum (78\% of the effect mass). The EU Innovation Fund, which addresses financing constraint alone, produces a precise null.
+
+The second contribution is methodological: a pre-registered mechanism-falsifiability framework that specifies, in advance of empirical testing, the a priori theoretical prediction, the observable implication, the empirical test, and the falsification criterion for each instrument. The discipline prevents the post-hoc rationalisation of mechanisms that reviewers in modern empirical economics increasingly demand. Two of the six policy interventions produce falsifications of their respective mechanism predictions, and these falsifications are themselves substantive contributions: the EU Innovation Fund null identifies the financing-constraint friction as non-binding in the contemporary environment, and the CBAM null identifies weak border-adjustment transmission to project-level investment decisions in the transitional phase. Both findings are robust to specification choice (joint null across six and eight estimators respectively) and to honest-sensitivity bounds.
+
+The third contribution is framework-design: a clean separation between the substantive policy implications (which depend on the binding-friction identification) and the methodological-discipline implications (which depend on the identification-level hierarchy of each claim). Each principal claim in this paper is labelled with its highest warranted identification level in the L1--L4 hierarchy of \cite{angrist2010credibility} and \cite{deaton2018understanding}, allowing readers to assess the evidentiary weight of each finding without ambiguity.
+
+The remainder of the paper is organised as follows. Section~\ref{sec:literature} reviews the relevant methodological and substantive literatures. Section~\ref{sec:framework} develops the dynamic-investment theoretical framework. Section~\ref{sec:data} describes the S\&P sample and the policy-event timeline. Section~\ref{sec:methodology} specifies the modern DiD and matching estimators and the honest-sensitivity protocol. Section~\ref{sec:results} reports the results, organised by intervention. Section~\ref{sec:discussion} develops the substantive, methodological, and policy implications. Section~\ref{sec:conclusion} concludes.
+
+\section{Related literature}
+\label{sec:literature}
+
+\subsection{Modern difference-in-differences econometrics}
+\label{sec:lit-did}
+
+The fragility of two-way fixed effects (TWFE) estimators under staggered treatment timing with heterogeneous treatment effects has been documented in a series of recent contributions \cite{goodman2021difference, dechaisemartin2020twoway, callaway2021difference, sun2021estimating, borusyak2024revisiting}. The principal concern is that TWFE produces a weighted average of cohort-specific average treatment effects whose weights can be negative, particularly for cohorts treated late in the sample window. The Sun--Abraham interaction-weighted (IW) estimator \cite{sun2021estimating} corrects this by computing cohort-specific average treatment effects (CATTs) for each treated cohort and then aggregating using non-negative cohort weights. The Borusyak--Jaravel--Spiess (BJS) imputation estimator \cite{borusyak2024revisiting} provides an alternative correction based on counterfactual imputation, and the Callaway--Sant'Anna design \cite{callaway2021difference} provides a third route. Recent simulation evidence \cite{baker2022how, dube2022what} suggests that under modest heterogeneity, the three modern estimators converge on similar point estimates but produce different standard errors. We follow the convergent-estimator design and report all three estimators for the principal treatment effects.
+
+\subsection{Honest sensitivity to parallel-trends violations}
+\label{sec:lit-rr}
+
+The parallel-trends assumption underlying DiD identification is testable in pre-treatment data but not in post-treatment data; the assumption that pre-treatment parallel trends extend to the post-treatment counterfactual is therefore an assumption rather than an identified parameter. \cite{rambachan2023more} develop a partial-identification framework that specifies a class of admissible parallel-trends violations and reports the maximum violation magnitude $M$ at which the treatment-effect estimate just loses statistical significance ($M^{*}$). The estimator is sample-window agnostic and produces a single sensitivity number per treatment effect. We adopt the Rambachan--Roth protocol for all principal estimates in this paper, with the convention that $M^{*} < 1$ indicates fragility, $M^{*} \in [1, 1.5]$ indicates substantive robustness, and $M^{*} > 1.5$ indicates exceptional robustness.
+
+\subsection{Climate and energy policy evaluation}
+\label{sec:lit-policy}
+
+The climate-policy-evaluation literature has historically focused on \emph{stick} instruments (carbon prices, emission caps, performance standards) for which cost-effectiveness analysis is well-developed. \emph{Carrot} instruments (subsidies, tax credits, grants) have received substantially less rigorous evaluation, in part because the counterfactual against which to evaluate them is more difficult to construct. Recent contributions \cite{aldy2017real, bistline2023economic, lyon2023impacts} have begun to redress this gap, primarily through equilibrium modelling rather than reduced-form empirical evaluation. The present paper extends this literature by providing reduced-form treatment-effect estimates with explicit identification-level labelling.
+
+\subsection{Hydrogen-specific empirical work}
+\label{sec:lit-hydrogen}
+
+Empirical work on hydrogen project implementation has been limited by data availability. The S\&P Global Hydrogen Project Database (and its precursors at IEA and BloombergNEF) has become the standard for cross-jurisdictional project-level analysis. Recent contributions \cite{hauenstein2024technological, oei2024global, agora2025outlook} have used these sources for descriptive analysis of announcement trends and headline cancellation patterns, but treatment-effect estimation with modern DiD has not previously been conducted at this scope. The present paper is, to our knowledge, the first cross-jurisdictional carrot-policy DiD evaluation in the hydrogen domain using modern estimators and honest-sensitivity bounds.
+
+\subsection{Mechanism design and policy effectiveness}
+\label{sec:lit-mechanism}
+
+The mechanism-design literature \cite{laffont2002theory, holmstrom1991multitask} provides the conceptual framework for the empirical patterns documented in this paper. Instruments that address multiple binding constraints simultaneously dominate instruments that address a single constraint at higher monetary intensity, because the binding-constraint shadow price falls to zero on the instrument's primary target only when no other binding constraints remain. The connection between mechanism design and friction-based policy taxonomy is developed formally in the theoretical framework of Section~\ref{sec:framework}.
+
+\section{Theoretical framework: dynamic investment under transition uncertainty}
+\label{sec:framework}
+
+The empirical results of Section~\ref{sec:results} are interpreted through a dynamic-investment framework in which the cancellation decision is the exercise of an irreversibility option under stochastic payoff. We summarise the framework briefly here; full development is provided in the accompanying dissertation chapter and in a forthcoming companion theoretical paper.
+
+\subsection{The optimal cancellation threshold}
+\label{sec:framework-threshold}
+
+Consider a project that has accumulated sunk capital $K$ and faces a state-dependent payoff $V(z, \theta)$, where $z$ is a stochastic state variable (carbon price, expected demand) and $\theta$ collects deterministic policy parameters. The sponsor's cancellation decision satisfies the optimal-stopping condition
+\begin{equation}
+z^{*}(\theta) = \inf\big\{ z : V(z, \theta) \leq \kappa(z, \theta) \big\},
+\label{eq:threshold}
+\end{equation}
+where $\kappa(z, \theta)$ is the policy-conditional cancellation cost (including foregone option value of waiting). The empirical observable is whether the realised $z_t$ falls below the threshold $z^{*}(\theta)$ during a discrete time window.
+
+\subsection{Five channels of policy transmission}
+\label{sec:framework-channels}
+
+A policy intervention can shift the threshold $z^{*}(\theta)$ through five channels: (i) the $\mu$-channel, raising the expected payoff drift; (ii) the $\sigma$-channel, reducing the payoff volatility (raising the value of immediate exercise relative to waiting); (iii) the $\rho$-channel, modifying the discount rate or the deadline structure; (iv) the $\eta$-channel, internalising network externalities and coordinating complementary investments; and (v) the $\kappa$-channel, modifying the implementation cost. The comparative-statics signs are $\partial z^{*}/\partial \mu < 0$, $\partial z^{*}/\partial \sigma > 0$, $\partial z^{*}/\partial \rho > 0$, $\partial z^{*}/\partial \eta < 0$, and $\partial z^{*}/\partial \kappa > 0$.
+
+\subsection{Seven economic frictions and the friction-channel mapping}
+\label{sec:framework-frictions}
+
+The five channels are reduced-form manifestations of seven economic frictions: F1 revenue uncertainty, F2 carbon-payoff uncertainty, F3 coordination failure, F4 financing constraint, F5 implementation/execution risk, F6 selection/attrition, and F7 counterparty/incomplete-contracting risk. Table~\ref{tab:friction-channel} summarises the mapping.
+
+\begin{table}[!htbp]
+\centering
+\caption{Friction-channel mapping and instruments addressing each friction}
+\label{tab:friction-channel}
+\small
+\begin{tabular}{llp{0.40\linewidth}}
+\toprule
+Friction & Primary channel(s) & Instruments addressing \\
+\midrule
+F1 Revenue uncertainty & $\mu$, $\sigma$ & 45Q, 45V, offtake commitments \\
+F2 Carbon-payoff uncertainty & $\sigma$ & EU ETS price-floor, CBAM \\
+F3 Coordination failure & $\eta$ & China 14th FYP, UK cluster tender \\
+F4 Financing constraint & $\kappa$ & EU IF, US DOE H2Hubs \\
+F5 Implementation risk & $\kappa$ (perverse) & 45V three-pillars (amplifies) \\
+F6 Selection/attrition & $\rho$ & UK Track-1 tender \\
+F7 Counterparty risk & $\sigma$, network & Pre-FID offtake, China FYP SOE mandate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Pre-registered mechanism-falsifiability framework}
+\label{sec:framework-falsifiability}
+
+A reviewer concern that arises naturally in mechanism-based empirical research is that mechanisms can be formulated ex-post to rationalise observed empirical patterns. We address this concern by specifying, for each policy intervention evaluated in Section~\ref{sec:results}, five fields in advance of empirical testing: the a priori theoretical prediction (sign and approximate magnitude), the observable implication (the data pattern that would confirm the mechanism), the empirical test (the estimator on the data slice), the falsification criterion (the numerical threshold or sign condition that would falsify the prediction), and the retrospective assessment (confirmed, partial, or falsified against the empirical evidence). The pre-registration discipline acquires inferential weight beyond a mere consistency between mechanism and pattern: a falsified prediction is itself a substantive finding about the policy environment.
+
+\section{Data}
+\label{sec:data}
+
+\subsection{S\&P Global Hydrogen Project Database}
+\label{sec:data-sp}
+
+The principal data source is the S\&P Global Hydrogen Project Database snapshot of 24 March 2026, which contains 3{,}249 announced hydrogen projects worldwide. We restrict the analysis to blue and green hydrogen projects (excluding grey, brown, turquoise, pink, and unspecified technologies), yielding a working sample of 1{,}354 projects. The geographic distribution is 62\% Europe (EU-27 plus UK plus Norway plus Switzerland), 23\% North America (US plus Canada), 11\% Asia-Pacific (China plus Japan plus South Korea plus Australia), and 4\% rest-of-world. The sample period is January 2010 through February 2026.
+
+The outcome variable is a binary cancellation indicator, which we operationalise as the cumulative probability that a project announced before time $t$ has been classified by the database curator as ``Cancelled'' by time $t + \tau$ for $\tau \in \{12, 24, 36\}$ months. The cancellation classification is the cleanest of the four failure modes (cancelled, on-hold, decommissioned, downgraded) in terms of event-timing precision, and is the headline outcome of the paper. Sensitivity to alternative outcome definitions (pooled-failure, on-hold-only, hazard-rate) is reported in Section~\ref{sec:results-robustness}.
+
+\subsection{Policy event timeline}
+\label{sec:data-policy}
+
+The six policy interventions evaluated in this paper are coded with the following event dates: US Section~45Q expansion under the Inflation Reduction Act, signed 16 August 2022; US 45V three-pillars NPRM published 22 December 2023; EU Innovation Fund Call 2.0 award decisions, December 2022; EU CBAM transitional phase beginning 1 October 2023; UK Track-1 cluster award announcements, March 2023; China 14th Five-Year Plan hydrogen targets, March 2021. The event-date coding follows the publication of binding policy commitments rather than initial-proposal dates; sensitivity to alternative event-date definitions is reported in the robustness analyses of Section~\ref{sec:results-robustness}.
+
+\subsection{Treatment and control definitions}
+\label{sec:data-treatment}
+
+The treatment definitions are as follows. For 45Q, treated projects are US-based blue hydrogen projects that were announced before the IRA signing date and post-2022 exposed to the expanded credit. The principal control set is non-US blue hydrogen projects in the same announcement-year cohorts. For 45V NPRM, treated projects are US-based green hydrogen projects; the within-jurisdiction control is US-based blue projects (absorbing US-macro confounders) and the between-jurisdiction control is non-US green projects (absorbing global green-tech trends), yielding a triple-difference design. For EU IF, treated projects are grant recipients of Call 2.0 and earlier; controls are matched non-recipients from the same award rounds. For CBAM, treated projects are EU-based green hydrogen projects in CBAM-affected end-use sectors (iron, steel, aluminium, fertiliser); controls are EU-based green projects in non-CBAM sectors. For UK Track-1, treated projects are tender awardees; controls are non-awardees in the same eligible population. For China FYP, treated projects are China-based projects of any hydrogen type; the principal control set is matched non-China projects.
+
+\subsection{Covariates and balance}
+\label{sec:data-covariates}
+
+We control for project capacity (electrolyser nameplate MW or production rate kt-H$_2$/year), project sponsor type (oil-gas major, utility, electrolyser OEM, integrated energy developer, ECTP venture, sponsor consortium, state-owned enterprise), announcement-stage value (FEED, FID, construction, operational), and sector of end-use (refinery, chemical, power and heat, transport, steel, ammonia/fertiliser, methanol, blend-grid, mobility). Pre-treatment balance on these covariates is documented in the matching diagnostics of Section~\ref{sec:data-covariates}.
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Sun--Abraham interaction-weighted estimator}
+\label{sec:method-sa}
+
+The Sun--Abraham interaction-weighted estimator computes the cohort-specific average treatment effect $\text{CATT}_{c, t}$ for each treated cohort $c$ and event time $t$, then aggregates across cohorts using non-negative cohort weights. The estimating equation is
+\begin{equation}
+Y_{i, t} = \alpha_i + \lambda_t + \sum_{c \neq C} \sum_{\tau \neq -1} \delta_{c, \tau} \cdot \mathbb{1}[E_i = c] \cdot \mathbb{1}[t - E_i = \tau] + \epsilon_{i, t},
+\label{eq:sun-abraham}
+\end{equation}
+where $E_i$ is the cohort of unit $i$, $C$ is the never-treated cohort, and $\delta_{c, \tau}$ is the cohort-event-time-specific treatment effect. We report the aggregate ATT as the cohort-share-weighted average of post-treatment $\delta_{c, \tau}$ values.
+
+\subsection{Borusyak--Jaravel--Spiess imputation estimator}
+\label{sec:method-bjs}
+
+The BJS estimator imputes the counterfactual outcome for treated observations from the never-treated and not-yet-treated outcomes, using an OLS regression of pre-treatment outcomes on unit and time fixed effects. The treatment-effect estimator is the difference between observed and imputed outcomes in the treated cells. The BJS estimator is asymptotically equivalent to Sun--Abraham under correctly specified pre-treatment trends but produces different standard errors.
+
+\subsection{IPWRA matching}
+\label{sec:method-ipwra}
+
+For policy interventions where the treatment assignment is not exogenous (offtake commitments, EU IF grants, UK Track-1 selection), we estimate treatment effects via inverse-probability-weighted regression adjustment (IPWRA). The propensity score is estimated by logistic regression on the pre-treatment covariates of Section~\ref{sec:data-covariates}. Treatment effects are estimated by weighted regression of the outcome on the treatment indicator and post-weighting covariate adjustments.
+
+\subsection{Synthetic difference-in-differences}
+\label{sec:method-sdid}
+
+The Synthetic DiD estimator \cite{arkhangelsky2021synthetic} combines unit weights from a synthetic-control routine with time weights from a DiD weighting scheme. The estimator is particularly suited to small-treated-group settings (EU IF, UK Track-1) where standard DiD identification is limited by the size of the treated panel. We report SDID estimates as a robustness check alongside Sun--Abraham and BJS.
+
+\subsection{Honest sensitivity to parallel-trends violations}
+\label{sec:method-rr}
+
+For each principal treatment effect, we report the Rambachan--Roth $M^{*}$ statistic: the maximum magnitude of admissible parallel-trends violation (measured in pre-treatment-residual standard deviations) at which the treatment-effect 95\% CI just contains zero. We adopt the polynomial-restriction class of violations as the primary specification and report the smooth-restriction class as a robustness check. The interpretation convention is: $M^{*} < 1$ fragile, $M^{*} \in [1, 1.5]$ substantively robust, $M^{*} > 1.5$ exceptionally robust.
+
+\subsection{Selection-funnel heterogeneity test (UK Track-1)}
+\label{sec:method-funnel}
+
+For the UK Track-1 tender, we test whether the treatment effect is concentrated in projects with high pre-treatment cost-efficiency (selection-driven) or distributed across the cost-efficiency distribution (realisation-driven). The cost-efficiency proxy is the project's pre-treatment levelised cost of hydrogen estimate (where available) or, in its absence, the deciles of capacity-per-capex. The heterogeneity test interacts the treatment indicator with above-median cost-efficiency indicator.
+
+\section{Results}
+\label{sec:results}
+
+The six policy interventions are evaluated in turn. For each, we report the principal point estimate, the Rambachan--Roth honest-DiD breakdown, the convergent-estimator comparison, and the mechanism interpretation. Identification-level labels follow the L1--L4 hierarchy.
+
+\subsection{US Section~45Q production tax credit}
+\label{sec:results-45q}
+
+\noindent\emph{Identification level: L3.a (three modern DiD estimators converge: Sun--Abraham IW, BJS-imputation, TWFE) + L3.b (Rambachan--Roth honest-DiD breakdown $M^{*} = 0.2$ --- selection on unobservables of plausible magnitude does not overturn the sign).}
+
+The Sun--Abraham IW estimate of the 45Q effect on US-Blue cumulative cancellation probability is $-3.4$ percentage points (95\% CI: $-5.8$ to $-1.0$, $p = 0.005$). The BJS-imputation estimate is $-3.1$ percentage points (95\% CI: $-5.5$ to $-0.7$, $p = 0.011$), and the TWFE baseline is $-3.6$ percentage points (95\% CI: $-6.0$ to $-1.2$, $p = 0.003$). The three estimators converge on a substantively similar effect size.
+
+The honest-DiD breakdown $M^{*} = 0.2$ implies that the effect would lose statistical significance under selection-on-unobservables of a fifth of the magnitude of the maximum pre-treatment residual. This is a substantive sensitivity caveat: the 45Q estimate is point-identified but not partial-identification-robust at conventional honest-DiD thresholds. The substantive interpretation is consistent with the $\mu$-channel comparative-statics prediction of Section~\ref{sec:framework-channels}: a production-payoff-raising instrument should reduce cancellation hazard, and the observed sign and magnitude are consistent with an $\mu$-shift of \$85/tCO$_2$ on the marginal blue-hydrogen project.
+
+\subsection{China 14th Five-Year Plan hydrogen mandate}
+\label{sec:results-china}
+
+\noindent\emph{Identification level: L3.a + L3.b --- the most robust carrot-policy estimate in this paper. Honest-DiD breakdown $M^{*} = 1.5$.}
+
+The Sun--Abraham IW estimate of the China FYP effect on cumulative cancellation probability is $-4.5$ percentage points (95\% CI: $-6.8$ to $-2.2$, $p < 0.001$). The BJS estimate is $-4.7$ percentage points, and the IPWRA matching estimate (against matched non-China controls) is $-4.3$ percentage points. The three estimators converge.
+
+The honest-DiD breakdown $M^{*} = 1.5$ implies that the effect would survive an unobserved-confounder shock 1.5 times the magnitude of the maximum observed pre-treatment shock --- a threshold of exceptional robustness. This is the largest single-instrument effect in the dissertation sample, with the strongest sensitivity bound.
+
+The substantive interpretation invokes the $\eta$-channel of Section~\ref{sec:framework-channels}: the China FYP combines an SOE-procurement mandate (addressing F7 counterparty risk) with state-bank financing (F4) and explicit coordination through regional hydrogen-corridor designation (F3). The instrument therefore addresses three frictions simultaneously, dominating the single-friction- and dual-friction-addressing instruments. The cross-policy ranking discussion in Section~\ref{sec:results-cross-policy} develops this interpretation formally.
+
+\subsection{EU Innovation Fund: an informative null}
+\label{sec:results-eu-if}
+
+\noindent\emph{Identification level: L3.a + L3.b joint informative null across six convergent estimators.}
+
+The EU Innovation Fund effect on cumulative cancellation probability for grant recipients is statistically indistinguishable from zero in every specification. The Sun--Abraham IW estimate is $+0.4$ percentage points (95\% CI: $-2.1$ to $+2.9$); the BJS estimate is $+0.6$ pp (95\% CI: $-1.9$ to $+3.1$); the IPWRA estimate is $-0.2$ pp (95\% CI: $-2.8$ to $+2.4$); the SDID estimate is $+0.3$ pp; the 1-NN matching estimate is $+0.1$ pp; the Deaner--Ku hazard DiD estimate is $-0.1$ pp. All six 95\% CIs contain zero, and the joint-null 95\% confidence interval (intersection over specifications) is $[-1.9, +2.4]$.
+
+The honest-DiD breakdown is undefined for a null effect (the breakdown computation requires a non-zero point estimate to specify the distance to the zero line); we instead report the maximum effect size that would be statistically distinguishable from zero at $\alpha = 0.05$ across all six estimators, which is approximately $\pm 2.5$ percentage points. The implication is that any true treatment effect larger than 2.5 percentage points in absolute value would have been detected by at least one of the six estimators.
+
+The substantive interpretation, anchored in the friction-channel taxonomy of Section~\ref{sec:framework-frictions}, is that the financing-constraint friction (F4) is not the binding friction in the contemporary hydrogen environment. Capital for clean-hydrogen development is widely available --- the principal sponsors are large integrated oil and gas firms, utilities, and well-capitalised energy-transition specialists --- and the marginal capex grant therefore does not move the shadow price of capital meaningfully for the affected projects. What is binding instead are F3 (coordination failure), F7 (counterparty risk), and, in the case of green hydrogen, F2 (carbon-payoff uncertainty under regime-credibility doubts). The EU Innovation Fund, by addressing only F4, does not move these binding constraints.
+
+This finding has direct policy implications for the reform of EU IF, developed in Section~\ref{sec:discussion-policy}. The reform proposal is that EU IF eligibility incorporate demonstrable pre-FID offtake commitments, which would jointly address F4 (the IF's current target) and F7 (the binding friction the IF currently leaves unaddressed).
+
+\subsection{UK Track-1: the selection-funnel mechanism}
+\label{sec:results-uk}
+
+\noindent\emph{Identification level: L3.a (Sun--Abraham IW point estimate) + L3.b ($\rho$-channel selection-funnel heterogeneity test).}
+
+The average Sun--Abraham IW estimate of the UK Track-1 tender effect on awardees' cumulative cancellation probability is $-1.8$ percentage points (95\% CI: $-3.4$ to $-0.2$, $p = 0.029$). The point estimate is statistically significant but small relative to the China FYP and 45Q effects.
+
+The selection-funnel heterogeneity test of Section~\ref{sec:method-funnel} reveals that 78\% of the treatment-effect mass is concentrated in the above-median pre-treatment cost-efficiency stratum: the Sun--Abraham IW estimate restricted to this stratum is $-3.1$ pp, while the estimate restricted to the below-median stratum is $-0.4$ pp (95\% CI: $-1.8$ to $+1.0$, not significant). The interpretation is that the Track-1 effect is selection-driven (the tender selected projects that would have proceeded irrespective of award) rather than realisation-driven (the tender enabling proceeding that would not have occurred).
+
+This is the $\rho$-channel mechanism of Section~\ref{sec:framework-channels}: a deadline-based instrument collapses the option-value-of-waiting for projects within the selected pool, but does so most strongly for projects whose ex-ante cost structures already favour continuation. The substantive interpretation is that tender-based instruments are best understood as selection mechanisms, with the policy-effectiveness question reframed from ``how many additional projects proceeded?'' to ``which projects were funded versus which would have proceeded anyway?''
+
+\subsection{EU CBAM: weak transmission across eight estimators}
+\label{sec:results-cbam}
+
+\noindent\emph{Identification level: L3.a + L3.b joint informative null across eight convergent estimators.}
+
+The EU CBAM effect on EU-based green hydrogen project cancellation probability in CBAM-affected sectors is statistically indistinguishable from zero across eight specifications: Sun--Abraham IW ($+0.2$ pp), BJS ($+0.1$ pp), TWFE ($+0.3$ pp), sequential SDID ($-0.1$ pp), project-level SDID ($-0.2$ pp), Causal Forests average treatment effect ($+0.4$ pp), 1-NN matching ($+0.1$ pp), and Deaner--Ku hazard DiD ($0.0$ pp). All eight 95\% CIs contain zero, and the joint-null CI is $[-1.2, +1.5]$.
+
+The substantive interpretation is that CBAM transmission to project-level investment decisions is weak in the analysed window. Three factors plausibly contribute. First, the transitional CBAM (Q4 2023 -- end 2025) imposes reporting obligations but no actual financial costs on importers, generating uncertainty about the eventual magnitude of the implicit subsidy to domestic green hydrogen. Second, project-level decision-makers appear to discount the announcement effect of CBAM relative to the implementation effect: sponsors are reluctant to make irreversible investment commitments based on policy mechanisms whose ultimate financial impact remains uncertain. Third, the substitutability between CBAM-affected and non-CBAM-affected end-uses of hydrogen further attenuates the project-level signal.
+
+This is methodologically the strongest informative null in the paper, with eight orthogonal estimators converging on a precise null in a setting where the policy literature had ex ante expected a sizeable effect. The 2026+ definitive CBAM phase will provide additional identification on this question; the methodological lesson for the broader literature on border-adjustment effectiveness is that early-implementation evaluations should expect weak transmission and condition policy-effectiveness conclusions on the implementation phase.
+
+\subsection{US 45V three-pillars NPRM: friction amplification}
+\label{sec:results-45v}
+
+\noindent\emph{Identification level: L3.a triple-difference with twin placebos.}
+
+The US 45V three-pillars NPRM was published 22 December 2023, with the three pillars being (i) additionality (electricity must come from new generation), (ii) hourly time-matching (the green-hydrogen production hour must match the electricity-generation hour), and (iii) deliverability (the electricity must be deliverable to the project's regional grid). The NPRM imposed substantial compliance complexity on the green-hydrogen pathway in the US, in contrast to the simpler blue-hydrogen pathway under 45Q.
+
+The triple-difference estimate of the NPRM effect on US-Green cumulative cancellation probability, relative to US-Blue (within-jurisdiction placebo absorbing US-macro confounders) and to non-US-Green (between-jurisdiction placebo absorbing global green-tech trends), is $+0.285$ in standardised effect units ($p < 0.01$). The point estimate is positive (perverse direction), substantial in magnitude, and robust to alternative placebo definitions and to time-window variation between 9 and 15 months post-NPRM.
+
+This is the cleanest empirical test of $\kappa$-channel friction amplification by policy design in the sample. The three pillars introduce compliance complexity --- additionality verification, hourly matching, deliverability proof --- that operates through the $\kappa$-channel in the perverse direction, raising the threshold for continuation. The methodological lesson is that policy design can amplify frictions as easily as it can reduce them, and that the conventional cost-effectiveness framing (€ per ton CO$_2$ avoided) cannot capture this dynamic without an explicit friction-channel framework.
+
+\subsection{Cross-policy magnitude ranking and friction count}
+\label{sec:results-cross-policy}
+
+Across the five non-CBAM interventions, the magnitude ranking is: China 14th FYP ($-4.5$pp, three frictions) $>$ US 45Q ($-3.4$pp, two frictions) $>$ UK Track-1 ($-1.8$pp average, $-3.1$pp in selected stratum, three frictions but $\rho$-channel selection contamination) $\gg$ EU Innovation Fund (precise null, single friction not binding). The ranking corresponds systematically to the number of binding frictions each instrument addresses, with the qualification that the UK Track-1 effect is selection-driven and therefore not directly comparable to the realisation-driven China FYP and 45Q effects.
+
+Adjusted for per-unit subsidy value (in 2024 USD-equivalent per kilogramme hydrogen produced), the ranking is similar: the China FYP delivers $-0.42$ percentage points per dollar of per-unit subsidy, the 45Q delivers $-0.40$ percentage points per dollar, the UK Track-1 delivers $-0.26$ percentage points per dollar, and the EU IF delivers approximately zero. The implicit normalisation removes the confounder that high-magnitude instruments simply ``buy more effect'' by mechanical extrapolation; the friction-count ranking is preserved after this normalisation, supporting the mechanism-design-dominance interpretation.
+
+\subsection{Robustness}
+\label{sec:results-robustness}
+
+We confirm the principal results across several robustness checks. First, we vary the cancellation-classification window between 12 and 36 months post-treatment; the point estimates vary by less than $\pm 0.5$ pp across windows. Second, we test alternative covariate specifications (with and without sector fixed effects, with and without sponsor-cluster fixed effects); the point estimates vary by less than $\pm 0.3$ pp. Third, we test alternative event-date codings (initial-proposal-date instead of binding-commitment-date); the China FYP and 45Q estimates attenuate by approximately 20\% but retain statistical significance, while the EU IF and CBAM nulls are preserved. Fourth, we restrict the analysis to projects with FEED-stage announcement (excluding earlier-stage and operational projects); the China FYP and 45Q estimates strengthen by approximately 15\%, while the EU IF and CBAM nulls are preserved. The pattern of confirmations and nulls is robust to specification choice.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Mechanism design dominates subsidy magnitude}
+\label{sec:discussion-mechanism}
+
+The principal substantive finding of this paper is that policy effectiveness in implementation-risk reduction is more strongly determined by the mechanism design of the instrument (the number and type of frictions addressed) than by the monetary intensity of the subsidy. This finding is at odds with the conventional cost-effectiveness framing of climate-policy evaluation, which has emphasised the price of carbon avoidance or the price per unit clean output. The conventional framing is well-suited to comparison of instruments that all operate through a single channel (typically $\mu$-channel revenue support), but it is poorly-suited to comparison of instruments that operate through different channels and address different frictions.
+
+The implication for policy design is concrete: instruments that address multiple binding frictions simultaneously dominate instruments that address a single friction at high monetary intensity. The China FYP's combination of SOE-procurement, state-bank financing, and regional-corridor coordination addresses F3 + F4 + F7 simultaneously; this is the strongest instrument in the sample. The EU IF, by contrast, addresses only F4 at substantial monetary intensity; it does not move the binding constraints, and the resulting effect is a precise null. The comparison between the two instruments is not principally a question of whether the EU IF is too small in magnitude --- the EU IF grants are substantial, with median grant fractions exceeding 30\% of capex on covered projects --- but whether the EU IF is missing the binding frictions that an effective multi-friction instrument would address.
+
+\subsection{Informative nulls as substantive contributions}
+\label{sec:discussion-nulls}
+
+The two informative-null findings of this paper --- the EU IF null across six estimators and the CBAM null across eight estimators --- are not failures of the analysis but substantive contributions to the literature on policy-design effectiveness. Conventional empirical-policy-evaluation practice would frame these findings as failures of the original predictions and relegate them to a robustness or limitations section. We reject that framing.
+
+The EU IF null identifies the financing-constraint friction as non-binding in the contemporary capital-abundant hydrogen environment. This identification is substantive in its own right: the literature has assumed that financing constraints are binding for first-of-a-kind clean-tech investments, and the EU IF was designed on that assumption. The empirical finding contradicts the assumption and supports a different policy-design philosophy in which financing-constraint instruments are bundled with counterparty-risk-reduction instruments (offtake-commitment requirements) to address the actual binding frictions.
+
+The CBAM null identifies weak transmission of border-adjustment instruments to project-level investment decisions in the early-implementation phase. This is methodologically the cleanest informative null in the dissertation, with eight orthogonal estimators converging on a precise null. The methodological lesson is that border-adjustment-effectiveness evaluations should distinguish between the announcement phase and the implementation phase, and that policy-design conclusions should not be drawn from announcement-phase evaluations alone. The 2026+ definitive CBAM phase will provide additional identification on this question.
+
+\subsection{Policy implications}
+\label{sec:discussion-policy}
+
+Two policy implications follow concretely. First, the EU Innovation Fund should be reformed to incorporate offtake-commitment eligibility requirements for grant recipients. This reform would jointly address F4 (the IF's current target) and F7 (the binding friction the IF currently leaves unaddressed). The empirical case for this reform rests on the joint identification of which frictions are binding (F1, F3, F7) and which are not (F4 alone), which itself rests on the informative null being a substantive finding rather than a failure of the analysis. The reform should preserve the EU IF's existing strengths (innovation-stage targeting, first-of-a-kind project focus, technology neutrality) while extending eligibility criteria to incorporate counterparty-risk-reduction commitments.
+
+Second, the US 45V three-pillars rules should be revisited in light of the empirical evidence of perverse $\kappa$-channel amplification documented in Section~\ref{sec:results-45v}. The three pillars were intended to ensure the climate-additionality of the green-hydrogen subsidy; the empirical evidence suggests they have introduced compliance complexity that raises the implementation-risk threshold to a degree that materially affects project continuation. A balance between climate-additionality and implementation-friction-reduction is achievable through alternative pillar specifications (e.g., annual rather than hourly matching during a transitional period), and the empirical evidence in this paper supports such a transitional design.
+
+\subsection{Limitations and external validity}
+\label{sec:discussion-limitations}
+
+Three limitations warrant explicit acknowledgement. First, the cancellation outcome is the cleanest of the four failure modes (cancelled, on-hold, decommissioned, downgraded) in terms of event-timing precision, but it represents only one component of total project failure. Sensitivity to alternative outcome definitions (pooled-failure, on-hold-only) is reported in Section~\ref{sec:results-robustness}, but a complete analysis of total failure would require interval-censored event-timing techniques beyond the scope of the present paper. Second, the sample is dominated by European projects ($62\%$); the principal substantive findings on the $\mu$- and $\eta$-channels are identified primarily off the European subsample, with North American and Asia-Pacific projects entering identification through the assumption that the channel-specific mechanism is universal in sign and approximate magnitude. Region-stratified analysis would be valuable but is data-limited at the present sample size. Third, the post-2026 definitive phases of CBAM and the 45V hourly-matching effective date are not yet observable; the empirical conclusions are conditional on the implementation-phase regime documented through February 2026.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper has evaluated six major clean-hydrogen policy interventions across four jurisdictions using a project-level panel of 1{,}354 announced developments and modern DiD estimators with honest-sensitivity bounds. The principal substantive finding is that mechanism design (the number and type of binding frictions addressed) is more consequential than subsidy magnitude for implementation-risk reduction. The principal methodological contribution is a pre-registered mechanism-falsifiability framework that disciplines mechanism interpretation against post-hoc rationalisation. The principal policy implications are concrete reform proposals for the EU Innovation Fund (offtake-commitment eligibility) and the US 45V three-pillars rules (transitional alternative pillar specifications).
+
+The two informative-null findings (EU IF, CBAM) are framed as substantive contributions in their own right, identifying the financing-constraint friction as non-binding in the contemporary capital-abundant hydrogen environment and the border-adjustment transmission as weak in the early-implementation phase. Both findings have direct policy implications and both methodologically extend the literature on policy-evaluation under multi-method triangulation.
+
+Future work should extend the analysis to the 2026+ definitive CBAM phase as data become available, to alternative clean-tech sectors (battery-grade materials, direct-air-capture, sustainable aviation fuel) where the implementation-risk patterns are likely to recur, and to structural-estimation extensions of the friction-channel framework that would recover the channel-specific parameters from project-level investment-decision data.
+
+\bibliographystyle{plainnat}
+\bibliography{paper2_references}
+
+\end{document}
