@@ -282,3 +282,93 @@ The carbon-conditional Blue/Green hazard mechanism of Chapter~\ref{ch:results_tv
 
 The CBAM-on-Green-hydrogen \emph{informative null} is the inverse case: across eight orthogonal estimators (TWFE, Sun-Abraham, BJS, Honest DiD, standard SDID, sequential SDID, project-level SDID, 1-NN matching, Deaner-Ku hazard-DiD, Causal Forest feature importance) spanning L3.a, L3.b, and L2, no estimator at any level produces a treatment effect statistically distinguishable from zero. The substantive interpretation is therefore as strong as the joint informativeness of the eight independent identifying assumptions allows --- which is materially stronger than a single null-result point estimate from any one of them in isolation.
 
+
+\section{Interval-censored event-timing sensitivity}
+\label{app:interval_censored}
+
+The S\&P database registers \texttt{project\_status} but does not consistently record the exact date at which a project transitioned to cancellation, on-hold, or decommissioning status. The Cox proportional-hazards specification of Section~\ref{app:master_cox} uses the midpoint approximation
+\[
+\text{event\_year} = \lceil(\text{announce\_year} + \text{est\_year\_online})/2\rceil \quad \text{if event}=1
+\]
+with fallback to $\text{announce} + 3$ when the expected online year is not recorded. The reviewer feedback discussed in Section~11.5 identified this approximation as a methodological concern for survival modelling with sparse-event data. This section reports a formal interval-censored sensitivity analysis under three event-timing scenarios.
+
+The three scenarios are: (i) \emph{earliest} --- $\text{event\_year} = \text{announce\_year} + 0.5$, the lower bound of any possible event time; (ii) \emph{midpoint} --- the current approximation; and (iii) \emph{latest} --- $\min(\text{est\_year\_online}, 2026)$, the upper bound. Under each scenario, the master Cox proportional-hazards model of Section~\ref{app:master_cox} is re-estimated and the principal coefficient $\text{HR}_{\text{Blue}}$ is reported.
+
+\subsection*{Pooled-failure HR is timing-sensitive}
+
+\begin{table}[!htbp]
+\centering
+\caption{Pooled-failure Cox PH under three event-timing scenarios}
+\label{tab:app-pijler48-pooled}
+\begin{tabular}{lcccc}
+\toprule
+Scenario & $\text{HR}_{\text{Blue}}$ & 95\% CI & $p$-value & Decision \\
+\midrule
+Earliest & $1.482$ & $[1.209, 1.817]$ & $0.0002$ & Reject H$_0$ \\
+Midpoint & $1.098$ & $[0.898, 1.342]$ & $0.361$ & Fail to reject H$_0$ \\
+Latest & $0.947$ & $[0.774, 1.159]$ & $0.596$ & Fail to reject H$_0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The pooled $\text{HR}_{\text{Blue}}$ varies by 45.5\% (range $0.95$--$1.48$) across the three scenarios, with statistical significance achieved only under the earliest specification. This timing-fragility implies that the pooled-failure outcome cannot bear an unqualified causal interpretation under interval-censored uncertainty.
+
+\subsection*{Cancellation-specific HR is timing-robust}
+
+Decomposing the pooled outcome into cancellation-only ($n_{\text{events}} = 100$), on-hold-only ($n = 852$), and decommissioned-only ($n = 48$) yields a substantially richer pattern.
+
+\begin{table}[!htbp]
+\centering
+\caption{Cancellation-only Cox PH under three event-timing scenarios}
+\label{tab:app-pijler48-cancel}
+\begin{tabular}{lcccc}
+\toprule
+Scenario & $\text{HR}_{\text{Blue}}$ & 95\% CI & $p$-value & Decision \\
+\midrule
+Earliest & $2.677$ & $[1.603, 4.470]$ & $0.0002$ & Reject H$_0$ \\
+Midpoint & $2.276$ & $[1.368, 3.787]$ & $0.002$ & Reject H$_0$ \\
+Latest & $1.889$ & $[1.124, 3.173]$ & $0.016$ & Reject H$_0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Cancellation-specific $\text{HR}_{\text{Blue}}$ remains in the range $[1.89, 2.68]$ across all three scenarios, with $p < 0.05$ uniformly. The sign-direction and statistical significance of the Blue-versus-Green cancellation hazard differential are therefore \emph{robust} to event-timing uncertainty.
+
+\begin{table}[!htbp]
+\centering
+\caption{On-hold-only Cox PH under three event-timing scenarios}
+\label{tab:app-pijler48-onhold}
+\begin{tabular}{lcccc}
+\toprule
+Scenario & $\text{HR}_{\text{Blue}}$ & 95\% CI & $p$-value & Substantive direction \\
+\midrule
+Earliest & $1.235$ & $[0.981, 1.554]$ & $0.072$ & Blue $>$ Green (borderline) \\
+Midpoint & $0.901$ & $[0.718, 1.131]$ & $0.370$ & Null \\
+Latest & $0.773$ & $[0.615, 0.972]$ & $0.027$ & Green $>$ Blue (significant) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On-hold-specific $\text{HR}_{\text{Blue}}$ exhibits a sign-flip between the earliest and latest scenarios, with the latter producing a statistically significant differential in the opposite direction from the former. The on-hold component, which accounts for 85\% of the pooled failure events, is therefore the source of the pooled HR's timing-fragility.
+
+\subsection*{Substantive implications}
+
+The interval-censored decomposition supports three substantive qualifications of the thesis-narrative:
+
+First, the principal empirical claim of Section~\ref{app:master_cox} --- that blue hydrogen projects exhibit a higher cancellation hazard than green hydrogen projects --- survives the timing-sensitivity test. The cancellation-specific $\text{HR}_{\text{Blue}}$ is at least $1.89$ under the most conservative latest assumption and reaches $2.68$ under the earliest assumption, with $p < 0.05$ uniformly.
+
+Second, the cause-specific Cox decomposition of Section~\ref{app:competing_risks} is methodologically not optional but \emph{required}. Without it, the pooled hazard would suggest no Blue-vs-Green differential under the midpoint assumption, while the underlying competing risks contain a robust effect on cancellation and a timing-fragile effect on on-hold that approximately cancel in the pooled estimate.
+
+Third, the v7 working-paper claim that ``blue projects don't pause, they terminate'' --- which relies on the on-hold component being null --- must be qualified. Under the earliest assumption, $\text{HR}_{\text{Blue,on-hold}} = 1.235$ is borderline positive; under the latest assumption, it is significantly negative. The original claim was identified under a specific timing assumption that the broader interval-censored analysis cannot uniformly defend.
+
+\subsection*{Methodological note for downstream papers}
+
+For publication-grade replication of any of the thesis's hazard-model results, three reporting standards are recommended:
+\begin{enumerate}
+\item Always report the cause-specific decomposition alongside any pooled-failure outcome.
+\item For any pooled-failure point estimate, accompany it with the earliest/midpoint/latest sensitivity range.
+\item Where the substantive interpretation depends on the on-hold component or its complement, explicitly state that under interval-censored timing uncertainty the on-hold-specific estimate is fragile, and qualify the interpretation accordingly.
+\end{enumerate}
+
+A formal interval-censored Cox proportional-hazards specification, as developed in \cite{sun2006statistical}, would replace the point-sensitivity reported here with a joint inference incorporating the full timing-interval. This is a natural extension for the publication paper version of the present analysis but is beyond the scope of the present thesis.
+

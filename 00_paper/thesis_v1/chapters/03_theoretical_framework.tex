@@ -182,6 +182,91 @@ EUA price is itself partly a function of policy uncertainty (ETS cap revisions, 
 Project sponsors may strategically time their cancellations to influence policy formation (e.g., cancellations that signal infeasibility to motivate stronger carbon pricing). Our model assumes price-taking behaviour. An extension with sponsor-policy interaction would be of independent interest.
 
 % =========================================================================
+\section{Policy mechanism taxonomy: which friction does each instrument reduce?}
+\label{sec:ch3-mechanism-taxonomy}
+
+The real-options framework of Sections~\ref{sec:ch3-setup}--\ref{sec:ch3-comparative} characterises the optimal cancellation policy under a single source of uncertainty (the EUA price). Realistic policy environments contain multiple economic frictions simultaneously, and the central empirical observation that policy effects are heterogeneous across instruments (the carrot-policy findings of Chapter~\ref{ch:results_did}) is best understood as different instruments reducing different subsets of these frictions. This section develops an explicit taxonomy that makes the friction-to-instrument mapping operational and links it to the empirical estimates.
+
+The framework follows the mechanism-design tradition of \cite{laffont1993theory} and the financial-frictions literature of \cite{holmstrom1997financial,holmstrom1998private}, supplemented with the directed-technical-change perspective of \cite{acemoglu2012environment}. The taxonomy is not exhaustive of the broader environmental-economics literature, but it is sufficiently complete to classify each policy instrument analysed in this thesis.
+
+\subsection{Seven economic frictions in clean-hydrogen investment}
+\label{sec:ch3-frictions}
+
+The decision to commit capital to a hydrogen project faces seven distinct frictions, each of which can in principle be reduced by an appropriately designed policy instrument:
+
+\paragraph{F1 --- Revenue uncertainty.} The mark-to-market revenue of the hydrogen output is unknown at the moment of FID. The buyer side of the market is thin, there are no liquid spot or futures prices for low-carbon hydrogen as of the sample window, and revenue depends on bilateral negotiation with industrial offtakers. This is the friction that production tax credits (US Section 45V, US Section 45Q) address by guaranteeing a per-unit payment indexed to output, conditional on eligibility verification.
+
+\paragraph{F2 --- Carbon-payoff uncertainty.} The marginal economic value of clean hydrogen relative to its fossil counterpart depends on the difference between the carbon cost of fossil hydrogen and the carbon cost of clean hydrogen. In the EU ETS, this differential is driven by the EUA price and is the state variable of the Chapter~\ref{ch:theory} real-options model. Carbon-payoff uncertainty is the friction addressed by carbon-price-floor proposals, by long-term EUA auction reserve guarantees, and indirectly by border-adjustment mechanisms such as CBAM.
+
+\paragraph{F3 --- Coordination failure.} Hydrogen requires complementary investments in production, transport, storage, and end-use facilities. A single sponsor cannot internalise the network externality that arises when multiple actors must invest simultaneously for any of them to recover the investment. Cluster-tender mechanisms (UK Track-1, UK HAR-2, Dutch HEAVENN), state-coordinated procurement (China 14th FYP), and IPCEI-style multilateral funding are the canonical instruments addressing coordination failure.
+
+\paragraph{F4 --- Financing constraint.} \cite{holmstrom1997financial} establish that under information frictions, the price of external finance exceeds the price of internal finance, generating capital rationing for new technologies without established cashflow track records. The first-best instrument is a direct capex grant that substitutes external for internal finance one-for-one. The EU Innovation Fund, US DOE H2Hubs, and Japan's NEDO subsidies are pure F4-addressing instruments.
+
+\paragraph{F5 --- Implementation and execution risk.} Even with secured revenue, complete coordination, and adequate financing, projects face technological-learning risk, regulatory-permit risk, and construction-cost overrun risk. The 45V three-pillars rules (additionality, hourly time matching, geographic deliverability) constitute a particular kind of implementation friction: the policy itself adds compliance complexity that materially raises F5 for eligible projects. The triple-difference result of Section~\ref{sec:results_did_45v} ($\delta_{DDD} = +0.285$) quantifies this perverse F5-amplifying effect of the December 2023 NPRM.
+
+\paragraph{F6 --- Selection and attrition.} Subsidy auctions and tender-based allocation generate adverse selection: when the policy criterion does not perfectly align with the social-welfare criterion, winners may be projects whose private cost structure is favourable but whose social value is moderate, while higher-value projects are screened out (the \cite{myerson1981optimal} optimal-auction logic in reverse). The UK Track-1 selection-funnel evidence (Chapter~\ref{ch:results_did}, Appendix~\ref{app:case_uk_track}) is a clean illustration: the positive headline coefficient on Track-1 is consistent with the policy selecting projects that would have proceeded irrespective of the Track-1 award, rather than with Track-1 causing additional realisations.
+
+\paragraph{F7 --- Counterparty risk and incomplete contracting.} \cite{grossman1986costs} formalise the inefficiencies that arise when contracts cannot specify all relevant contingencies. In hydrogen specifically, a long-term offtake contract may not be enforceable at the bilateral level if the offtaker's plant becomes economically obsolete or if regulatory changes alter the offtaker's compliance needs. Pre-FID offtake-commitment reduces F7 by establishing a credible counterparty arrangement before the irreversible production investment is made. The 11--13 percentage-point survival premium documented in Chapter~\ref{ch:results_offtake} is the empirical magnitude of F7-reduction by voluntary contracting.
+
+\subsection{Friction-to-instrument mapping}
+\label{sec:ch3-friction-mapping}
+
+Table~\ref{tab:ch3-friction-instrument} maps each policy instrument analysed in this thesis to its primary and secondary frictions reduced. The matrix is rectangular by design: most real-world instruments address more than one friction, but always with a clear primary target. Reading the table down a column reveals which frictions are heavily addressed (financing, revenue) versus under-addressed (coordination, counterparty) in current hydrogen policy. Reading across a row reveals which combinations of frictions are jointly tackled by each instrument.
+
+\begin{table}[!htbp]
+\centering
+\caption{Policy instruments and the economic frictions they reduce}
+\label{tab:ch3-friction-instrument}
+\small
+\begin{tabular}{lccccccc}
+\toprule
+Instrument & F1 Rev & F2 Carb & F3 Coord & F4 Fin & F5 Impl & F6 Sel & F7 Counter \\
+\midrule
+US Section 45Q & $\bullet$ & $\bullet$ & --- & $\circ$ & --- & --- & --- \\
+US Section 45V (PTC) & $\bullet$ & --- & --- & $\circ$ & --- & --- & --- \\
+US 45V three-pillars NPRM & $\circ$ & --- & --- & --- & $\Box$ & --- & --- \\
+EU Innovation Fund (capex grants) & --- & --- & --- & $\bullet$ & --- & $\Box$ & --- \\
+EU Innovation Fund Auction (Hydrogen Bank) & $\bullet$ & --- & --- & $\bullet$ & --- & $\Box$ & --- \\
+EU CBAM (transitional 2023--2025) & --- & $\bullet$ & --- & --- & --- & --- & --- \\
+EU CBAM (definitive 2026+) & --- & $\bullet$ & --- & --- & --- & --- & --- \\
+UK Track-1 / HAR-1 & $\bullet$ & --- & $\bullet$ & $\bullet$ & --- & $\Box$ & $\circ$ \\
+UK HAR-2 (CfD-based) & $\bullet$ & --- & --- & --- & --- & $\Box$ & --- \\
+China 14th Five-Year Plan & $\circ$ & --- & $\bullet$ & $\bullet$ & --- & --- & $\bullet$ \\
+Pre-FID offtake commitments & $\bullet$ & --- & $\circ$ & --- & --- & --- & $\bullet$ \\
+\bottomrule
+\multicolumn{8}{l}{\footnotesize $\bullet$ Primary friction reduced; $\circ$ Secondary friction reduced; $\Box$ Friction \emph{amplified} by instrument design.} \\
+\multicolumn{8}{l}{\footnotesize F1: Revenue uncertainty; F2: Carbon-payoff uncertainty; F3: Coordination failure; F4: Financing constraint;} \\
+\multicolumn{8}{l}{\footnotesize F5: Implementation/execution risk; F6: Selection/attrition; F7: Counterparty/incomplete contracting.} \\
+\end{tabular}
+\end{table}
+
+\subsection{Linking friction reduction to identified treatment effects}
+\label{sec:ch3-friction-effects}
+
+The taxonomy delivers two testable predictions that are confirmed by the empirical analysis of Chapters~\ref{ch:results_did} and~\ref{ch:results_offtake}.
+
+The first prediction is that \emph{instruments addressing multiple binding frictions should generate larger and more robust treatment effects than instruments addressing a single friction}. The China FYP (F3+F4+F7) is the only carrot-policy with breakdown $M^* = 1.5$ in the honest-DiD sensitivity analysis (Section~\ref{sec:honest_did}); it is also the instrument reducing the largest set of frictions in Table~\ref{tab:ch3-friction-instrument}. The EU Innovation Fund (F4 only) yields the cleanest informative null (six convergent methods); it addresses the one friction least binding in the contemporary hydrogen environment, where capital is available but counterparty commitments and coordination are missing. The 45Q effect (F1+F2) is point-identified at L3.a but bounded at L3.b ($M^* = 0.2$); it addresses an intermediate set of frictions.
+
+The second prediction is that \emph{instruments that amplify rather than reduce frictions should produce treatment effects with the opposite sign of protective effects}. The US 45V three-pillars NPRM converts the F1-reducing 45V tax credit into an F5-amplifying compliance regime via the additionality, hourly matching, and deliverability requirements. The DDD estimate of $+0.285$ in Section~\ref{sec:results_did_45v} is the empirical magnitude of this friction-amplifying effect: a 28.5 percentage point increase in US-Green hydrogen cancellation rate relative to the within-jurisdiction blue placebo.
+
+\subsection{The offtake mechanism and the $\sigma$-channel}
+\label{sec:ch3-offtake-sigma}
+
+The Chapter~\ref{ch:results_offtake} offtake-commitment effect occupies a distinct position in the taxonomy. It is not a government policy but a contractual instrument; nonetheless it reduces F7 (counterparty risk) and partially F1 (revenue uncertainty). The cross-sectoral heterogeneity test --- the offtake-effect is concentrated in high-revenue-volatility sectors (power and heat, transport) and small or null in low-volatility sectors (chemical, industry) --- provides a direct empirical confirmation of the F1+F7 channel: offtake-commitment is most valuable where revenue volatility is highest, which is what the $\sigma$-channel of Chapter~\ref{ch:theory} predicts.
+
+The substantive interpretation is that the offtake-commitment mechanism is a private-contracting analogue of public-policy instruments addressing the same friction pair. Where the China FYP achieves F3+F4+F7 reduction through state procurement mandates, voluntary offtake commitments achieve F1+F7 reduction through bilateral contracting. The two are partial substitutes: the China FYP $\times$ offtake interaction in Section~\ref{sec:offtake_policy_interaction} of Chapter~\ref{ch:results_offtake} ($+0.108$, $p = 0.003$) shows that the marginal value of voluntary offtake-commitment is reduced where state procurement mandates already exist.
+
+\subsection{Implications for instrument design}
+\label{sec:ch3-design-implications}
+
+The taxonomy supports three design implications, formalised in Chapter~\ref{ch:conclusion}.
+
+First, \emph{capex grants without complementary offtake mechanisms address only F4}, which is not the binding friction in the contemporary hydrogen environment. The empirical EU IF null is the consequence: with capital available at low cost, the marginal grant does not change the F4-shadow price meaningfully, while leaving F1+F7 unaddressed. Reform of EU IF to require demonstrable pre-FID offtake commitments would address F7 jointly with F4 and is the policy proposal of Section~11.2.
+
+Second, \emph{output-credit mechanisms (US 45Q-style) are F1-reducers but are vulnerable to F5-amplifying compliance designs}. The 45V three-pillars NPRM is the canonical illustration of how an F1-reducing instrument can be functionally transformed into an F5-amplifier by overly stringent verification requirements. The 45V Final Rules of January 2025 partially walked back these provisions; the resulting effect-size attenuation is a natural-experiment test of the friction-classification.
+
+Third, \emph{coordination-failure instruments (cluster tenders, state procurement) are subject to F6 selection effects} that can produce apparent positive treatment effects which on closer inspection reflect the selection process rather than additional realisations. The UK Track-1 selection-funnel analysis is the canonical illustration. Mechanism-design treatments of subsidy auctions \cite{laffont1993theory, myerson1981optimal} suggest that scoring rules favouring marginal-additionality projects rather than highest-bid projects would partially address F6.
+
 \section{Connection to Empirical Findings}
 \label{sec:ch3-empirical-connection}
 

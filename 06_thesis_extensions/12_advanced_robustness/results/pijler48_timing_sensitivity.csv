@@ -1,0 +1,7 @@
+scenario,n_obs,n_events,HR_Blue,CI_lo,CI_hi,p_Blue,PH_p_Blue,concordance,error
+earliest,2989.0,1000.0,1.4819665284272734,1.2088147187847589,1.8168415367962139,0.00015409050337862254,,0.565851684263449,
+earliest,,,,,,,,,Invalid format specifier '.4f if not np.isnan(ph_blue_p) else 'NA'' for object of type 'float'
+midpoint,2989.0,1000.0,1.0981423770313667,0.898376855574551,1.3423283032607338,0.36078552074035897,,0.5442018706739332,
+midpoint,,,,,,,,,Invalid format specifier '.4f if not np.isnan(ph_blue_p) else 'NA'' for object of type 'float'
+latest,2989.0,1000.0,0.9467661241892479,0.7735307931293495,1.158798204123259,0.5957333625153279,,0.5489738505107339,
+latest,,,,,,,,,Invalid format specifier '.4f if not np.isnan(ph_blue_p) else 'NA'' for object of type 'float'
