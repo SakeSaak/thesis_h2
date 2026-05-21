@@ -1,7 +1,73 @@
 \chapter{Methodology}
 \label{ch:methodology}
 
-This chapter presents the econometric methodology of the thesis. Three identification strategies are deployed in complementary fashion: (i) modern difference-in-differences estimators for the four carrot-policies (Section \ref{sec:methods_did}); (ii) time-varying-parameter DiD via state-space methods to detect structural breaks (Section \ref{sec:methods_tvp}); and (iii) cross-sectional matching estimators for the offtake-effect (Section \ref{sec:methods_offtake}). Honest sensitivity analysis is applied to each estimand class (Section \ref{sec:methods_sensitivity}).
+This chapter presents the econometric methodology of the thesis. The presentation begins with an explicit \emph{identification hierarchy} (Section~\ref{sec:methods_identification_hierarchy}) that situates each empirical analysis on a four-level taxonomy of claim types --- descriptive, predictive, quasi-causal, and structural. This framework, adopted from \cite{imbens2015causal, pearl2009causality}, organises the remainder of the chapter and makes explicit which identifying assumptions are required for each claim made in Chapters~\ref{ch:results_did}--\ref{ch:counterfactual}. Three principal identification strategies are then deployed: (i) modern difference-in-differences estimators for the four carrot-policies and the US 45V three-pillars NPRM event (Section~\ref{sec:methods_did}); (ii) time-varying-parameter DiD via state-space methods to detect structural breaks (Section~\ref{sec:methods_tvp}); and (iii) cross-sectional matching estimators for the offtake-effect (Section~\ref{sec:methods_offtake}). Honest sensitivity analysis is applied at each level (Section~\ref{sec:methods_sensitivity}).
+
+\section{Identification hierarchy and claim structure}
+\label{sec:methods_identification_hierarchy}
+
+The empirical evidence assembled in this thesis spans estimators with substantially different identifying content. A descriptive Kaplan-Meier survival curve documents a pattern; a modern difference-in-differences estimator identifies an average treatment effect on the treated under parallel-trends restrictions; a Bayesian state-space GAS model identifies the parameters of a generative process under both functional-form and distributional assumptions. The substantive claims warranted by each of these are materially different. To prevent the conflation of evidence levels that can occur when many estimators are stacked into a single narrative, this section establishes an explicit hierarchy of claim types and assigns each empirical analysis to one of four levels.
+
+The framework follows the potential-outcomes formulation of \cite{rubin1974estimating, holland1986statistics}, formalised at book length by \cite{imbens2015causal}. The hierarchy of intervention-counterfactual claims further draws on \cite{pearl2009causality}'s three-level ``ladder of causation'' --- associational, interventional, counterfactual --- as elaborated in the econometric translation by \cite{imbens2020potential}. Partial identification under weakened assumptions follows \cite{manski2003partial}. The structural-versus-reduced-form distinction follows \cite{heckman2007econometric}.
+
+\subsection{Four-level taxonomy}
+\label{sec:methods_four_levels}
+
+\paragraph{Level 1 (L1) --- Descriptive.} A descriptive claim documents patterns in observed data without invoking a counterfactual or interventional comparison. Formally, an L1 claim asserts a property of the joint distribution $P(Y, X)$ of outcome $Y$ and covariates $X$ in the realised sample. The Kaplan-Meier survival curves of Chapter~\ref{ch:results_offtake}, the multistate transition counts of Appendix~\ref{app:multistate}, and the cumulative cancellation-rate tables of Chapter~\ref{ch:results_did} are all L1 claims. They require no identifying assumption beyond accurate data measurement and are not falsifiable by any sensitivity analysis other than data-quality verification. The substantive value of L1 claims is the establishment of stylised facts that motivate higher-level identification analyses; they are not themselves causal claims.
+
+\paragraph{Level 2 (L2) --- Predictive.} A predictive claim concerns the out-of-sample forecast accuracy of a fitted statistical model, independent of any causal interpretation of the model's parameters. The L2 axis is orthogonal to causal identification: a model may have strong predictive accuracy without any causal interpretability (a black-box machine-learning forecaster), and a model with weak predictive accuracy may nonetheless identify a causal parameter (an under-powered randomised trial). Formally, an L2 claim asserts a property of the conditional expectation $E[Y \mid X]$ as evaluated on a test partition disjoint from the training partition. Diebold-Mariano forecast comparisons \cite{diebold1995comparing, harvey1997testing} and the Hansen-Lunde-Nason Model Confidence Set \cite{hansen2011model} are the canonical L2 inference procedures. The TVP forecast comparison in Section~\ref{sec:ch7-dm-test} is the principal L2 claim of the thesis.
+
+\paragraph{Level 3 (L3) --- Quasi-causal.} A quasi-causal claim identifies, point or partially, an average treatment effect on the treated (ATT) or related counterfactual functional, under explicit identifying assumptions on a non-randomised treatment-assignment mechanism. Formally, an L3 claim asserts that $\tau = E[Y_i(1) - Y_i(0) \mid D_i = 1] = \theta$, where $Y_i(d)$ are potential outcomes under treatment status $d$ and $\tau$ is identified via the observed-data functional $\theta$ under specified assumptions. The L3 level encompasses both point-identified estimators (parallel trends \emph{in expectation} for difference-in-differences; conditional independence for matching) and partially-identified estimators (Manski-type bounds, honest difference-in-differences). Within L3, we distinguish two sub-levels:
+\begin{itemize}[leftmargin=2em]
+\item \textbf{L3.a Point identification}: $\tau$ is identified to a single value under canonical assumptions. Examples: TWFE DiD with strict parallel trends \cite{sun2021estimating, borusyak2024revisiting, callaway2021difference, dechaisemartin2024intertemporal}; conditional-independence matching estimators including IPWRA \cite{santanna2020doubly, robins2000marginal}.
+\item \textbf{L3.b Partial identification}: $\tau$ is bounded $[\tau_L, \tau_U]$ under weakened or set-valued assumptions. Examples: Rambachan-Roth honest DiD bounds under restricted parallel-trends violations \cite{rambachan2023more}; Oster bounds under restricted selection on unobservables \cite{oster2019unobservable}; partial-identification analysis under endogenous selection \cite{manski2003partial}.
+\end{itemize}
+The four carrot-policy estimates of Chapter~\ref{ch:results_did}, the offtake-commitment effect of Chapter~\ref{ch:results_offtake}, the US 45V triple-difference of Section~\ref{sec:results_did_45v}, and all CBAM-related synthetic-control estimates are L3 claims. Their substantive credibility depends entirely on the plausibility of the relevant identifying assumption(s).
+
+\paragraph{Level 4 (L4) --- Structural.} A structural claim identifies parameters of an explicit generative model that admits counterfactual computation under interventions not observed in the sample. Formally, an L4 claim asserts that the data-generating process is characterised by $f(Y \mid X, \theta)$ for a specified functional form $f$ and parameter vector $\theta$, where identification of $\theta$ supports the construction of counterfactual outcome distributions $P(Y(d=d') \mid X)$ for arbitrary intervention $d'$. L4 claims require strictly more restrictive assumptions than L3 (functional form + distributional structure on top of any L3-style exogeneity), but in return support claims that L3 cannot: extrapolation outside the policy-shock support actually observed in the sample, simulation of counterfactual policy regimes, and quantification of mechanism magnitudes. The Bayesian state-space carbon-conditional hazard model with GAS-driven $\beta_{\mathrm{int}}(t)$ in Chapter~\ref{ch:results_tvp} is the principal L4 claim of the thesis. The real-options framework of Chapter~\ref{ch:theory} and the counterfactual scenarios of Chapter~\ref{ch:counterfactual} also operate at L4. Critically, L4 claims are vulnerable to the \cite{lucas1976econometric} critique: parameters estimated under one policy regime need not be invariant to interventions of fundamentally different character, and L4 claims must therefore be accompanied by explicit statement of the structural invariance assumed.
+
+\subsection{Operational implications}
+\label{sec:methods_operational}
+
+Three operational implications of the hierarchy structure the remainder of the thesis.
+
+First, \emph{the substantive interpretation of each estimate is explicitly conditioned on its level}. An L1 claim about which countries observed the highest cancellation rates in 2023 does not imply that those countries' policies caused the cancellations. An L3.b honest-DiD breakdown at $M^* = 1.5$ does not imply that the point estimate is true; it implies that the point estimate is robust to parallel-trends violations of bounded magnitude. An L4 GAS-TVP posterior estimate of $\beta_{\mathrm{int}}(t)$ does not imply that the carbon-conditional mechanism is causally established by the time-varying-parameter pattern alone; it implies that, under the specified state-space generative model, the parameter governing the mechanism evolves in the way the posterior identifies.
+
+Second, \emph{robustness across levels is the strongest form of evidence}. Where an L1 pattern (e.g.\ the 2023--2024 cancellation wave being concentrated in European blue hydrogen) is corroborated by an L3.a point estimate (e.g.\ the BJS-imputation carrot-policy DiD), reinforced by L3.b breakdown analyses (e.g.\ Rambachan-Roth $M^*$ values), and rationalised by an L4 structural mechanism (e.g.\ the GAS-TVP trajectory of $\beta_{\mathrm{int}}(t)$ intensifying from $-0.46$ in 2010 to $-1.49$ in 2024), the substantive claim is materially stronger than any single-level evidence could establish. The principal findings of the thesis (carrot-policy effects, offtake-commitment effect, 2020 structural break) are robust across at least three levels of the hierarchy.
+
+Third, \emph{the hierarchy disciplines forward extrapolation}. The thesis-identified DDD effect of the US 45V three-pillars NPRM at $+0.285$ (Section~\ref{sec:results_did_45v}) is an L3.a quasi-causal estimate identified under the assumption that US blue hydrogen serves as a within-jurisdiction placebo absorbing US-specific macroeconomic confounds during the NPRM window. The substantive interpretation that the 45V Final Rules of January 2025 will produce a smaller magnitude effect, discussed in Chapter~\ref{ch:conclusion}, is an L4 extrapolation conditional on the structural invariance of the mechanism --- not a direct L3 estimate, because the relevant Final-Rules-period data are not yet sufficiently mature for analysis. The hierarchy makes this transition from L3 estimation to L4 extrapolation explicit, rather than allowing it to occur implicitly through narrative continuity.
+
+\subsection{Assignment of analyses to levels}
+\label{sec:methods_assignment}
+
+Table~\ref{tab:methods_identification_hierarchy} assigns each of the thesis's principal empirical analyses to its identification level. The full assignment for all 80+ supporting analyses in \texttt{06\_thesis\_extensions/} is reported in Appendix~\ref{app:identification_table}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Identification hierarchy: principal empirical analyses}
+\label{tab:methods_identification_hierarchy}
+\begin{tabular}{lp{0.30\linewidth}lp{0.28\linewidth}}
+\toprule
+Analysis & Question identified & Level & Principal identifying assumption \\
+\midrule
+Multistate lifecycle (App.~\ref{app:multistate}) & Status distribution by technology & L1 & Accurate status coding at 24 March 2024 \\
+Kaplan-Meier curves (App.~\ref{app:master_cox}) & Conditional survival by group & L1 & Independent censoring \\
+Diebold-Mariano forecast (\S\ref{sec:ch7-dm-test}) & M3 superior 1-step-ahead accuracy & L2 & Stationarity over rolling test windows \\
+TWFE/SA/BJS DiD (\S\ref{sec:results_did_main}) & Carrot-policy ATT & L3.a & Parallel trends in annual hazard \\
+IPWRA matching (\S\ref{sec:offtake_id}) & Offtake-commitment ATT & L3.a & Conditional independence + overlap \\
+45V three-pillars DDD (\S\ref{sec:results_did_45v}) & Effect on US-Green cancellation hazard & L3.a & Common US-macro shocks via Blue placebo \\
+Sequential SDID (\S\ref{sec:results_did_sdid}) & US-IRA and EU-CBAM ATT & L3.a & Doubly-weighted balancing \\
+Honest DiD bounds (\S\ref{sec:honest_did}) & $\tau$ under bounded PT-violation & L3.b & Bounded post-period drift \\
+Oster sensitivity (\S\ref{sec:offtake_sensitivity}) & $\tau$ under bounded selection-on-unobservables & L3.b & Bounded selection ratio $\delta$ \\
+Project-level SDID + matching (\S\ref{sec:offtake_project_sdid}) & Disaggregated CBAM effect & L3.a \& L3.b & Cell-level balancing + 1-NN matching \\
+TVP GAS state-space (Ch.~\ref{ch:results_tvp}) & $\beta_{\mathrm{int}}(t)$ generative parameter & L4 & GAS recursion + Bernoulli likelihood \\
+Real-options framework (Ch.~\ref{ch:theory}) & Optimal cancellation policy & L4 & Brownian motion of EUA + irreversibility \\
+Counterfactual scenarios (Ch.~\ref{ch:counterfactual}) & Policy-counterfactual outcomes & L4 & Structural invariance under intervention \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The empirical strategy of the thesis is to establish each principal finding across multiple levels of the hierarchy where possible. The four carrot-policy effects of Chapter~\ref{ch:results_did} are identified at L3.a (modern DiD), assessed for robustness at L3.b (honest DiD bounds), and triangulated at L1 (descriptive cancellation-rate patterns) and L4 (structural-break detection via TVP). The offtake-commitment effect of Chapter~\ref{ch:results_offtake} is identified at L3.a (five matching strategies), bounded at L3.b (Oster $\delta_{\text{null}} = 20.23$), and substantively rationalised at L4 (the $\sigma$-channel mechanism of the real-options framework). The carbon-conditional Blue/Green hazard mechanism of Chapter~\ref{ch:results_tvp} is identified at L4 (GAS-TVP) and supported at L2 (Diebold-Mariano forecast superiority of L4 over L3.a-equivalent specifications).
 
 \section{Outcome variable: project failure}
 \label{sec:methods_outcome}

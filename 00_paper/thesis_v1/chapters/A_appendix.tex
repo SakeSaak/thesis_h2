@@ -70,7 +70,7 @@ The operational-transition contrast is the more striking finding: green hydrogen
 \section{Competing-risks Cox proportional hazards decomposition}
 \label{app:competing_risks}
 
-A complementary analysis to the multistate lifecycle estimates the cause-specific Cox proportional hazards model \citep{cox1972regression} for each of the three principal failure modes: plans-cancelled, decommissioned, and on-hold. The estimator follows the cause-specific formulation rather than the Fine-Gray subdistribution formulation \citep{fine1999proportional}, which is more appropriate when the substantive interest is in the etiologic effect of blue technology on each failure mode separately rather than in the cumulative incidence function.
+A complementary analysis to the multistate lifecycle estimates the cause-specific Cox proportional hazards model \cite{cox1972regression} for each of the three principal failure modes: plans-cancelled, decommissioned, and on-hold. The estimator follows the cause-specific formulation rather than the Fine-Gray subdistribution formulation \cite{fine1999proportional}, which is more appropriate when the substantive interest is in the etiologic effect of blue technology on each failure mode separately rather than in the cumulative incidence function.
 
 \begin{table}[!htbp]
 \centering
@@ -105,7 +105,7 @@ Two specifications are estimated: Pillar 14 applies the Deaner-Ku estimator to t
 \section{Causal Forests on the S\&P sample}
 \label{app:causal_forests}
 
-The cross-sectional heterogeneity analysis reported in Chapter \ref{ch:results_offtake} (Section 8.3) used a Causal Forest specification \citep{wager2018estimation,athey2019generalized} to estimate conditional average treatment effects (CATEs) of the offtake-commitment treatment across sectoral subgroups. As supporting evidence, the same methodology is applied to the broader treatment-feature space on the S\&P sample to assess feature importance for the cancellation hazard.
+The cross-sectional heterogeneity analysis reported in Chapter \ref{ch:results_offtake} (Section 8.3) used a Causal Forest specification \cite{wager2018estimation,athey2019generalized} to estimate conditional average treatment effects (CATEs) of the offtake-commitment treatment across sectoral subgroups. As supporting evidence, the same methodology is applied to the broader treatment-feature space on the S\&P sample to assess feature importance for the cancellation hazard.
 
 The seven features in the causal-forest specification, in order of estimated importance, are: project announcement year (importance $\approx 0.451$), $\log$ capacity ($\approx 0.368$), end-use sector indicator, jurisdiction indicator, technology indicator (blue versus green), the CBAM-transitional-period exposure indicator ($\approx 0.009$, ranked seventh of seven), and the offtake-commitment indicator. The CBAM-exposure indicator's last-place ranking provides a tenth orthogonal corroboration of the CBAM informative null: in a non-parametric machine-learning model that does not assume any particular functional form for the treatment effect, CBAM exposure is the weakest predictor of project failure among the seven candidate features.
 
@@ -145,4 +145,140 @@ A careful re-estimation of the v7 cohort with cleaned status definitions, matche
 The reduction to $2.30$ on the broader S\&P sample is therefore not a v7-paper error: it reflects a population of $640$ additional projects in S\&P that were not in the v7 cohort and that exhibit a much weaker blue-versus-green cancellation differential. This is itself an empirical finding worth highlighting: the v7 sample frame oversampled projects from periods (2010--2017) and jurisdictions (predominantly North America) where the technology contrast was sharpest. The broader S\&P sample, which includes more recent and more globally distributed projects, contains substantial blue-hydrogen project survival that the v7 frame missed.
 
 The substantive implication for the present thesis is that the blue-versus-green narrative inherited from v7 must be qualified: the cancellation differential exists but is smaller in magnitude under broader sampling, and the principal interpretive emphasis of the thesis correctly shifts from the technology contrast (Chapter \ref{ch:results_tvp}) to the policy-and-offtake mechanisms (Chapters \ref{ch:results_did} and \ref{ch:results_offtake}) that drive implementation differentially across both technologies.
+
+
+\section{Full identification hierarchy: classification of all supporting analyses}
+\label{app:identification_table}
+
+The principal empirical analyses are assigned to identification levels in Table~\ref{tab:methods_identification_hierarchy} of Chapter~\ref{ch:methodology}. This appendix presents the full inventory of supporting analyses in the \texttt{06\_thesis\_extensions/} corpus, each classified to one of the four levels of the identification hierarchy. The table is intended to be referenced selectively rather than read linearly: it documents which analyses warrant which type of substantive claim, and which sensitivity tests were applied at each level.
+
+\subsection*{Notation}
+
+The level codes follow the framework of Section~\ref{sec:methods_identification_hierarchy}: L1 descriptive, L2 predictive, L3.a quasi-causal point-identification, L3.b quasi-causal partial-identification, L4 structural. The ``Identifying assumption'' column states the canonical assumption under which the analysis identifies its target quantity; the ``Sensitivity test'' column documents the principal robustness check applied within the same level (e.g.\ alternative parallel-trends restrictions for L3.b) or at a stricter level (e.g.\ L3.b bounds applied to an L3.a estimate).
+
+\subsection*{Descriptive analyses (L1)}
+
+\begin{table}[!htbp]
+\centering
+\caption{L1 descriptive analyses}
+\label{tab:app-id-L1}
+\small
+\begin{tabular}{lp{0.30\linewidth}p{0.30\linewidth}}
+\toprule
+Pijler / analysis & Question documented & Sensitivity test \\
+\midrule
+Multistate transitions (Pijler 16) & Status distribution by Blue/Green at snapshot & Status-definition robustness across alternative groupings \\
+Kaplan-Meier curves (master Cox) & Conditional survival, unadjusted & Log-rank test only \\
+Cumulative cancellation rates (per region, per year) & Regional time series of failure & Sample window restrictions \\
+v7-S\&P sample dependence (Pijler 11) & Magnitude attenuation of $\text{HR}_{\text{Blue}}$ across samples & Re-estimation on intersection-of-samples subsample \\
+EUA-loading event study (script 07) & Asset-return pattern around EUA shocks & Window-length robustness \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Predictive analyses (L2)}
+
+\begin{table}[!htbp]
+\centering
+\caption{L2 predictive analyses}
+\label{tab:app-id-L2}
+\small
+\begin{tabular}{lp{0.30\linewidth}p{0.30\linewidth}}
+\toprule
+Pijler / analysis & Forecast target & Inference procedure \\
+\midrule
+Diebold-Mariano test (Pijler 47) & 1-step-ahead per-obs log-loss, M1/M2/M3 & Newey-West HAC + HLN small-sample correction \\
+Out-of-sample CV (script 06) & Rolling-window AUC degradation & K-fold within-project block CV \\
+Model Confidence Set (Pijler 47) & Best-loss model at $\alpha = 0.10$ & Hansen-Lunde-Nason simplified MCS heuristic \\
+Causal Forest feature importance (Pijler 19) & Importance ranking of seven features & Bootstrap resampling on trees \\
+LOO-CV / WAIC (TVP block) & Posterior predictive density on held-out observations & Pareto-smoothed importance sampling \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Quasi-causal point-identified analyses (L3.a)}
+
+\begin{table}[!htbp]
+\centering
+\caption{L3.a quasi-causal point-identified analyses}
+\label{tab:app-id-L3a}
+\small
+\begin{tabular}{lp{0.27\linewidth}p{0.32\linewidth}}
+\toprule
+Pijler / analysis & ATT identified & Identifying assumption \\
+\midrule
+TWFE DiD (Pijlers 32, 42) & Four carrot-policy effects on annual hazard & Strict parallel trends \\
+Sun-Abraham IW (Pijler 32) & Carrot-policy ATT under staggered timing & Parallel trends $+$ no anticipation \\
+BJS-imputation (Pijler 32) & Carrot-policy ATT, efficient & Parallel trends on untreated potentials \\
+Standard SDID (Pijler 5/12) & EU-CBAM ATT, regional panel & Doubly-weighted balancing \\
+Sequential SDID (Pijler 17) & US-IRA and EU-CBAM ATT under staggered & Sequential balancing + spillover-purge \\
+Project-level SDID (Pijler 21) & EU-Green CBAM ATT, disaggregated & Subgroup-panel doubly-weighted balancing \\
+1-NN matching (Pijler 21) & EU-Green CBAM ATT, project-level & Conditional independence on $\{\log\text{cap}, \text{year}\}$ \\
+IPWRA (Pijler 34) & Offtake-commitment ATT & CIA $+$ overlap; doubly robust \\
+45V triple-difference DDD (Pijler 18) & US-Green NPRM effect on cancellation hazard & US-macro common via Blue placebo \\
+Deaner-Ku hazard DiD (Pijlers 14, 15) & CBAM ATT on hazard rather than means & Parallel trends in time-average hazard \\
+Within-sponsor analysis (script 07) & Carbon-conditional ATT controlling for sponsor fixed effects & Sponsor-invariant pre-trend \\
+Innovation Fund effect (Pijler 31) & EU IF ATT & Parallel trends + IF-eligibility exogeneity \\
+UK Track-1 effect (Pijler 27) & UK Track-1 ATT & Parallel trends + Track-1 selection exogeneity \\
+China FYP effect (Pijler 28) & China 14th FYP ATT & Parallel trends + FYP-jurisdiction exogeneity \\
+Triple-difference sectoral (Pijler 31) & Sectoral heterogeneity of carrot-policy effects & Sectoral parallel trends within jurisdiction \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Quasi-causal partial-identified analyses (L3.b)}
+
+\begin{table}[!htbp]
+\centering
+\caption{L3.b quasi-causal partial-identified analyses}
+\label{tab:app-id-L3b}
+\small
+\begin{tabular}{lp{0.27\linewidth}p{0.32\linewidth}}
+\toprule
+Pijler / analysis & ATT bound identified & Bounding assumption \\
+\midrule
+Honest DiD bounds (Pijler 39) & $[\tau_L, \tau_U]$ at breakdown $M^*$ for each carrot-policy & Post-period violation bounded by $M \times$ pre-period worst \\
+Honest DiD smoothness (Pijler 44) & $[\tau_L, \tau_U]$ under smoothness-restricted PT violations & Bounded second-derivative of trend differential \\
+Oster bounds (Pijler 10) & $[\tau_L, \tau_U]$ under bounded selection-on-unobservables & Selection ratio $\delta \leq \delta^*$ \\
+Wild cluster bootstrap (Pijler 02) & Inference under cluster dependence at $G < 10$ & Rademacher resampling within cluster \\
+Permutation/randomisation (Pijler 03) & Exact distribution of test statistic under sharp null & Random treatment assignment under H$_0$ \\
+Sample-window robustness (Pijler 03) & $[\tau_L, \tau_U]$ across pre-period start dates & Pre-period window between 2010 and 2018 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Structural analyses (L4)}
+
+\begin{table}[!htbp]
+\centering
+\caption{L4 structural analyses}
+\label{tab:app-id-L4}
+\small
+\begin{tabular}{lp{0.27\linewidth}p{0.32\linewidth}}
+\toprule
+Pijler / analysis & Parameter identified & Identifying restrictions \\
+\midrule
+GAS state-space TVP (Ch.~\ref{ch:results_tvp}, M3) & $\omega, \phi, \alpha_{\mathrm{gas}}$ governing $\beta_{\mathrm{int}}(t)$ & GAS recursion + Bernoulli likelihood + Bayesian prior \\
+Random-walk TVP (Ch.~\ref{ch:results_tvp}, M2) & Block-specific $\beta_{\mathrm{int}}^{(b)}$ & Block boundaries + Gaussian RW innovations \\
+Score-Driven SV (Pijler 17, robustness) & Time-varying $\sigma^2(t)$ of $\beta_{\mathrm{int}}(t)$ & Score-driven log-variance dynamics \\
+Bayesian Cox PH (Pijler 01) & Hazard-ratio coefficients under Bayesian model & Cox PH model + informative prior \\
+Real-options model (Ch.~\ref{ch:theory}) & Optimal cancellation threshold $z^*$ & Brownian motion of EUA + irreversibility + risk-neutral pricing \\
+Real-options numerical (Pijler 6) & Comparative statics of $z^*$ in $(\mu, \sigma)$ & Calibration to v7 carbon-conditional estimates \\
+Counterfactual scenarios (Ch.~\ref{ch:counterfactual}) & Counterfactual project-failure outcomes under intervention & Structural invariance under intervention $+$ resampled bootstrap \\
+Mechanism design framework (Pijler 40) & Optimal policy instrument for given frictional structure & Holmstr\"om-Tirole-style risk-allocation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Cross-level robustness: how findings are layered}
+
+The substantive findings of the thesis derive their credibility from multi-level corroboration rather than single-level identification. Three principal patterns illustrate the design.
+
+The carrot-policy effects of Chapter~\ref{ch:results_did} are identified at L3.a by three convergent DiD estimators (TWFE, Sun-Abraham, BJS-imputation), bounded at L3.b by Rambachan-Roth honest sensitivity ($M^* = 1.5$ for China FYP; $M^* = 0.5$ for US 45Q, EU IF, UK Track-1), supported at L1 by descriptive cumulative-cancellation patterns showing the predicted policy-specific divergence, triangulated at L3.a by the Sequential SDID alternative identification design, and rationalised at L4 by the structural-break detection of the TVP state-space model around 2020.
+
+The offtake-commitment effect of Chapter~\ref{ch:results_offtake} is identified at L3.a by five matching strategies (IPW, IPWRA, OLS-adjustment, regression-adjusted matching, doubly-robust), bounded at L3.b by Oster $\delta_{\text{null}} = 20.23$, disaggregated at L3.a by sectoral heterogeneity, and substantively rationalised at L4 by the $\sigma$-channel mechanism of the real-options framework.
+
+The carbon-conditional Blue/Green hazard mechanism of Chapter~\ref{ch:results_tvp} is identified at L4 (GAS-TVP state-space), supported at L2 by Diebold-Mariano superiority over L3.a-equivalent specifications, validated at L3.a by the within-sponsor analysis, and motivated at L1 by the regional cumulative-cancellation pattern divergence between Blue and Green technologies.
+
+The CBAM-on-Green-hydrogen \emph{informative null} is the inverse case: across eight orthogonal estimators (TWFE, Sun-Abraham, BJS, Honest DiD, standard SDID, sequential SDID, project-level SDID, 1-NN matching, Deaner-Ku hazard-DiD, Causal Forest feature importance) spanning L3.a, L3.b, and L2, no estimator at any level produces a treatment effect statistically distinguishable from zero. The substantive interpretation is therefore as strong as the joint informativeness of the eight independent identifying assumptions allows --- which is materially stronger than a single null-result point estimate from any one of them in isolation.
 

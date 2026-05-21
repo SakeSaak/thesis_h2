@@ -186,7 +186,7 @@ We assess whether sponsor-level unobserved heterogeneity drives our findings by 
 \subsection{Out-of-sample forecast comparison via Diebold-Mariano}
 \label{sec:ch7-dm-test}
 
-The cross-validation diagnostic of Section \ref{sec:ch7-results-pooled} compared M1, M2, and M3 on in-sample fit metrics (LOO-CV, WAIC, in-sample log-likelihood). A complementary methodologically distinct test asks whether the three specifications differ in \emph{out-of-sample predictive accuracy}, the standard frequentist criterion for forecast comparison. We implement the Diebold-Mariano test \citep{diebold1995comparing} with the Harvey-Leybourne-Newbold (HLN) small-sample correction \citep{harvey1997testing}, applied to the per-observation Bernoulli log-loss.
+The cross-validation diagnostic of Section \ref{sec:ch7-results-pooled} compared M1, M2, and M3 on in-sample fit metrics (LOO-CV, WAIC, in-sample log-likelihood). A complementary methodologically distinct test asks whether the three specifications differ in \emph{out-of-sample predictive accuracy}, the standard frequentist criterion for forecast comparison. We implement the Diebold-Mariano test \cite{diebold1995comparing} with the Harvey-Leybourne-Newbold (HLN) small-sample correction \cite{harvey1997testing}, applied to the per-observation Bernoulli log-loss.
 
 For each observation $(i,t)$ in the test set, the per-observation loss under specification $m$ is
 \[
