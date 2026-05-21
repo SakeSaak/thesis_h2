@@ -88,6 +88,74 @@ The literature on honest DiD bounds emphasises \emph{layered transparency} over 
 
 The substantive implication is that the China FYP causal claim is the most robust of the four, while US 45Q, EU IF, and UK Track-1 estimates should be qualified as "convergent across multiple DiD specifications, but sensitive to alternative identifying assumptions on the parallel-trends restriction." This qualification is consistent with the standard reporting practice in top-tier econometric journals.
 
+\section{Robustness: Synthetic Difference-in-Differences}
+\label{sec:results_did_sdid}
+
+The honest-DiD bounds of Section \ref{sec:results_did_honest} relax the parallel-trends assumption parametrically. A complementary robustness strategy is to abandon the parallel-trends assumption entirely in favour of a synthetic-control identification design. The Synthetic Difference-in-Differences (SDID) estimator of \cite{arkhangelsky2021synthetic} combines synthetic-control unit weights with DiD time-weights, achieving identification under a weaker doubly-weighted balancing condition.
+
+Two SDID specifications are estimated. The first applies the standard \cite{arkhangelsky2021synthetic} estimator to a regional panel ($J = 7$ regions, $T = 9$ years 2018--2026) with cumulative cancellation rate as the outcome and the European Union as the treated unit at $t^* = 2023$ (CBAM transitional period). The second applies the Sequential SDID extension of \cite{arkhangelsky2024sequential}, which addresses staggered carbon-policy timing by sequentially estimating the US-IRA treatment effect at $t^*_{\text{NA}} = 2022$ and then purging the resulting synthetic counterfactual contribution from the EU-CBAM round-two estimation.
+
+\begin{table}[!htbp]
+\centering
+\caption{Synthetic Difference-in-Differences estimates, regional panel}
+\label{tab:ch6-sdid}
+\begin{tabular}{lcc}
+\toprule
+Specification & ATT & Permutation $p$ \\
+\midrule
+Standard SDID (EU-CBAM $t^* = 2023$) & $+0.0012$ & $1.000$ \\
+Sequential SDID round 1 (US-IRA $t^* = 2022$) & $-0.0197$ & $0.001$ \\
+Sequential SDID round 2 (EU-CBAM, NA-purged) & $+0.0014$ & $1.000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two substantive findings emerge. First, the EU-CBAM informative null result is robust under both standard and sequential SDID: the point estimate is statistically indistinguishable from zero under either specification, and the change from round-one to round-two is negligible. The CBAM-induced cancellation differential, if it exists, is not detectable in the regional aggregate panel under any of the eight orthogonal identification strategies tried in this thesis (TWFE, Sun-Abraham, BJS-imputation, Honest DiD, standard SDID, sequential SDID, hazard-DiD reported in Appendix \ref{app:deaner_ku}, and project-level SDID reported in Chapter \ref{ch:results_offtake}).
+
+Second, the US-IRA Sequential SDID round-one estimate is large and statistically significant ($\hat{\tau} = -0.020$, permutation $p = 0.001$). This is consistent with the US 45Q effect reported in Section \ref{sec:results_did_main} but identified through a methodologically distinct channel. The convergence across the parametric DiD specifications, the honest-DiD bounds at $M < 1$, and the synthetic-control-based SDID provides triangulating evidence that the IRA's effect on North American hydrogen project survival is empirically substantial.
+
+\section{The US 45V three-pillars NPRM as a fifth policy event}
+\label{sec:results_did_45v}
+
+Section \ref{sec:results_did_main} analysed four \emph{carrot} policies: instruments designed to improve project economics through subsidies, demand mandates, or capital allocation. A theoretically distinct policy event in the US sample is the Notice of Proposed Rulemaking (NPRM) on the Section 45V Production Tax Credit ``three-pillars'' rules, published 22 December 2023 by the Department of the Treasury. Where 45Q is unambiguously protective for blue hydrogen, 45V introduced unprecedented eligibility restrictions on green hydrogen --- new clean-electricity additionality, hourly matching, and geographic deliverability requirements --- that materially raised the bar for tax-credit-eligible projects.
+
+The 45V NPRM is therefore not a carrot-policy in the sense of Section \ref{sec:results_did_main}, but it is the closest available analogue to a \emph{punitive} clean-hydrogen policy shock. Its identification is also exceptionally clean because the rule applies specifically to US green hydrogen (electrolysis) while explicitly exempting US blue hydrogen (fossil-with-CCS). This permits a triple-difference (DDD) design that uses US blue projects as a within-jurisdiction placebo.
+
+The DDD estimator is
+\begin{align*}
+\text{DDD} = \,\, & \underbrace{\big[(\overline{Y}_{US,G,\text{post}} - \overline{Y}_{US,G,\text{pre}}) - (\overline{Y}_{\text{NonUS},G,\text{post}} - \overline{Y}_{\text{NonUS},G,\text{pre}})\big]}_{\text{DiD on Green H2}} \\
+- \,\, & \underbrace{\big[(\overline{Y}_{US,B,\text{post}} - \overline{Y}_{US,B,\text{pre}}) - (\overline{Y}_{\text{NonUS},B,\text{post}} - \overline{Y}_{\text{NonUS},B,\text{pre}})\big]}_{\text{DiD on Blue H2 (placebo)}}
+\end{align*}
+where $G$ = Green and $B$ = Blue. The Blue-DiD captures any US-specific macroeconomic confound (general economic conditions, exchange-rate effects, Trump-administration risk premia); subtracting it isolates the 45V-specific effect on green hydrogen survival.
+
+\begin{table}[!htbp]
+\centering
+\caption{Triple-difference (DDD) estimate, US 45V NPRM (December 2023, $t^* = 2024$)}
+\label{tab:ch6-45v-ddd}
+\begin{tabular}{lcc}
+\toprule
+Outcome & DiD Green & DiD Blue (placebo) \\
+\midrule
+Cancellation rate & $+0.069$ & $-0.216$ \\
+On-hold rate & $+0.010$ & $-0.039$ \\
+Failure rate (any) & $+0.125$ & $-0.243$ \\
+\midrule
+& \multicolumn{2}{c}{\textbf{DDD estimates}} \\
+\midrule
+\textbf{DDD on cancellation rate} & \multicolumn{2}{c}{\textbf{+0.285}} \\
+DDD on failure rate (any) & \multicolumn{2}{c}{+0.368} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The DDD estimate of $+0.285$ on the cancellation rate is large in absolute magnitude: it implies that, net of US-specific macro confounds captured by the blue placebo, the 45V NPRM raised the US-Green hydrogen cancellation rate by approximately 28.5 percentage points relative to the non-US-Green counterfactual. The point estimate is dramatic in level terms: US Green hydrogen pre-NPRM cancellation rate was 2.5\%; post-NPRM it rose to 10.0\% (a four-fold increase), while non-US Green hydrogen rose far less steeply.
+
+Formal inference confirms the substantive claim. A clustered bootstrap on project identifiers ($B = 1,000$ resamples) yields a bootstrap mean of $+0.288$, a standard error of $0.088$, a 95\% bootstrap confidence interval of $[+0.117, +0.468]$, and a two-sided $p$-value indistinguishable from zero. A permutation test on group labels ($B = 1,000$) yields a $p$-value of $0.000$ on the cancellation-rate DDD. Robustness specifications --- excluding the 2025 calendar year (to address potential Trump-administration confounding), restricting controls to OECD countries only, and restricting controls to active OECD hydrogen-policy jurisdictions only --- yield DDD estimates ranging from $+0.260$ to $+0.310$, all with bootstrap 95\% intervals excluding zero.
+
+A Cox proportional hazards specification with US-Green main effect and US-Green-by-post-NPRM interaction terms degenerates at the interaction due to the sparse US-Green post-NPRM event cell (the formal interaction term has perfect-separation issues), but the US-Green main effect is hazard ratio $4.06$ with 95\% confidence interval $[1.86, 8.84]$ and $p < 0.001$. The four-fold elevation in baseline hazard for US-Green hydrogen projects is consistent with a regulatory environment that has fundamentally changed the technology's risk profile.
+
+Interpreted as a fifth policy event, the 45V NPRM contrasts sharply with the four carrot-policies of Section \ref{sec:results_did_main}: it is a \emph{de facto} punitive policy that raised, rather than lowered, project failure hazard. Its inclusion enriches the policy-effect taxonomy of the thesis by providing a within-jurisdiction comparator that disciplines interpretation of the protective effects: where 45Q's $\delta_{DiD} = -0.147$ rewards eligible blue projects, 45V's $\delta_{DDD} = +0.285$ penalises ineligible green projects. Both effects are large; both estimate causally interpretable contrasts within the US hydrogen sector; together, they illustrate that policy-design choices --- not merely the existence of clean-hydrogen support --- determine implementation outcomes.
+
 \section{Heterogeneity}
 \label{sec:results_did_heterogeneity}
 

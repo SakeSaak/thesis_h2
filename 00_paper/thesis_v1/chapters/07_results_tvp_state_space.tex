@@ -1,10 +1,22 @@
-\chapter{Results II: Time-Varying Carbon-Conditional Hazard}
+\chapter{Results III: Time-Varying Carbon-Conditional Hazard}
 \label{ch:results_tvp}
 % =========================================================================
 \section{Introduction and Motivation}
 \label{sec:ch7-intro}
 
-The static carbon-conditional hazard model developed in Chapter 6 yields a structurally negative interaction coefficient $\bint = -1.43$ with 95\% credible interval $[-2.59, -0.37]$, implying that the cancellation hazard of blue hydrogen projects depends on the EU Emissions Allowance (EUA) price relative to that of green (PEM) projects. This static specification embeds a strong implicit assumption: the carbon-conditional sensitivity is constant throughout the 2010--2026 observation window.
+\subsection*{Position within the thesis}
+
+Chapters \ref{ch:results_did} and \ref{ch:results_offtake} established two complementary findings on hydrogen project survival via difference-in-differences and matching designs on the broader S\&P sample (N $=$ 1,354 Blue $+$ Green projects): four carrot-policy effects in Chapter \ref{ch:results_did} and the eleven-to-thirteen percentage-point offtake-commitment effect in Chapter \ref{ch:results_offtake}. Those analyses identify treatment effects through \emph{ex-ante} revenue stabilisation channels --- subsidies, mandates, and demand commitments that reduce expected variance in project cash flows before final investment decision.
+
+This chapter offers an \emph{independent confirmation} of the implementation-risk-differential phenomenon through a different identification channel: the carbon-conditional Blue/Green hazard mechanism, which exploits within-window variation in EU Emissions Allowance (EUA) prices to identify temporal heterogeneity in technology-specific cancellation risk. This is an \emph{ex-post} channel: it captures how the relative economics of blue versus green hydrogen technologies are revised as the European carbon market matures from the surplus-driven 2010--2017 era through the post-crisis 2022--2024 environment.
+
+The two narratives converge on the same substantive conclusion --- implementation-risk differs systematically across hydrogen technology pathways --- but through complementary mechanisms. Where Chapters \ref{ch:results_did} and \ref{ch:results_offtake} ask ``which projects benefit when policy or contracting institutions reduce \emph{prospective} variance,'' this chapter asks ``how does the hazard differential between blue and green projects evolve as the carbon-price uncertainty that motivates their economic divergence is itself realised.''
+
+Methodologically, this chapter also serves a distinct purpose: it implements the time-varying-parameter state-space methodology that is the core methodological contribution of the thesis. The carrot-policy and offtake analyses of Chapters \ref{ch:results_did} and \ref{ch:results_offtake} use modern difference-in-differences estimators (TWFE, Sun-Abraham, BJS-imputation) on coarse policy-treatment timing. The present chapter develops finer-grained temporal inference through three nested specifications culminating in a Generalised Autoregressive Score (GAS) model in the tradition of \cite{creal2008general,creal2013generalized,koopman2016predicting}.
+
+\subsection*{The static specification and motivation for time-variation}
+
+The static carbon-conditional hazard model developed in Chapter \ref{ch:theory} and estimated as the M1 baseline below yields a structurally negative interaction coefficient $\bint = -1.43$ with 95\% credible interval $[-2.59, -0.37]$, implying that the cancellation hazard of blue hydrogen projects depends on the EU Emissions Allowance (EUA) price relative to that of green (PEM) projects. This static specification embeds a strong implicit assumption: the carbon-conditional sensitivity is constant throughout the 2010--2026 observation window.
 
 Several economic developments motivate questioning this assumption. The EUA market underwent dramatic transitions, from the surplus-driven era of 2010--2017 (allowances below \euro 10) through the Market Stability Reserve activation in 2019, the supply-tightening induced by the 2022--2023 energy crisis (peaks above \euro 100), and the announcement of CBAM and the ETS2 framework in 2022--2023. Concurrently, the hydrogen project landscape shifted: announced electrolyser capacity rose from below 5\% of global hydrogen production projects in 2018 to over 60\% by 2023, while major blue hydrogen cancellations clustered in 2023--2024 (79\% of all events in our sample).
 

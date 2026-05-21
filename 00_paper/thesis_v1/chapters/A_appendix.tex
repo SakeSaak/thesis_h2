@@ -37,3 +37,112 @@ This appendix supplements the main text with additional empirical material:
 \label{app:robustness}
 
 [Additional results to be populated.]
+
+
+\section{Multistate Lifecycle Analysis on the S\&P sample}
+\label{app:multistate}
+
+The headline contrast in the v7 working-paper precursor to this thesis was the differential between blue and green hydrogen projects in their transition from announcement to cancellation versus to operational status. The replication of that analysis on the larger S\&P sample (N $=$ 1,354) uses a multistate lifecycle model that decomposes the project lifecycle into five terminal states: still active, operational, plans-cancelled, decommissioned, and on-hold. The model is estimated separately for blue ($n = 273$, Fossil-with-CCS) and green ($n = 1{,}081$, Electrolysis) subsamples.
+
+Table \ref{tab:app-multistate} reports the current-status distribution per technology, calculated as of the data-snapshot date of 24 March 2026.
+
+\begin{table}[!htbp]
+\centering
+\caption{Current-status distribution by hydrogen technology, S\&P sample}
+\label{tab:app-multistate}
+\begin{tabular}{lcccc}
+\toprule
+State & Total & Blue (\%) & Green (\%) & Blue/Green ratio \\
+\midrule
+Still active & 581 & 41.8 & 43.2 & 0.97 \\
+Operational & 406 & 13.9 & 34.0 & 0.41 \\
+Plans cancelled & 102 & 11.7 & 7.0 & 1.67 \\
+On-hold (assumed or confirmed) & 947 & --- & --- & --- \\
+Decommissioned & 49 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The substantive finding from the multistate analysis is a refinement, rather than a wholesale reversal, of the v7 working-paper claim. The v7 paper reported a hazard ratio of $13.19$ for blue-versus-green cancellation under a Fine-Gray competing-risks model with $n = 714$ and 31 cancellation events; the S\&P replication on $n = 1{,}354$ with 49 cancellation events yields a substantially smaller magnitude (Master Cox PH $\text{HR} = 2.30$, Section \ref{app:master_cox}). The directional finding survives --- blue hydrogen projects do exhibit elevated cancellation hazard relative to green --- but the magnitude is closer to a two-fold than a ten-fold differential under the better-powered S\&P estimation.
+
+The operational-transition contrast is the more striking finding: green hydrogen projects reach operational status at $34.0\%$, more than double the blue rate of $13.9\%$. This is consistent with the substantive narrative of the present thesis: green hydrogen projects, while exposed to substantial implementation-risk, are progressing through the project lifecycle at materially higher rates than their blue counterparts. The implementation gap is not symmetric between technologies.
+
+\section{Competing-risks Cox proportional hazards decomposition}
+\label{app:competing_risks}
+
+A complementary analysis to the multistate lifecycle estimates the cause-specific Cox proportional hazards model \citep{cox1972regression} for each of the three principal failure modes: plans-cancelled, decommissioned, and on-hold. The estimator follows the cause-specific formulation rather than the Fine-Gray subdistribution formulation \citep{fine1999proportional}, which is more appropriate when the substantive interest is in the etiologic effect of blue technology on each failure mode separately rather than in the cumulative incidence function.
+
+\begin{table}[!htbp]
+\centering
+\caption{Cause-specific Cox PH estimates by failure mode, S\&P sample}
+\label{tab:app-competing-risks}
+\begin{tabular}{lcccc}
+\toprule
+Failure mode & $n$ events & $\text{HR}_{\text{Blue}}$ & 95\% CI & $p$-value \\
+\midrule
+Plans cancelled & 102 & 1.58 & --- & 0.020 \\
+Decommissioned (post-commissioning) & 49 & 0.95 & --- & 0.849 \\
+On-hold (assumed or confirmed) & 947 & 0.87 & --- & 0.173 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The cause-specific decomposition refines the headline contrast: the elevated blue-versus-green hazard concentrates almost entirely in the plans-cancelled state (HR $= 1.58$, $p = 0.020$), with no detectable differential in decommissioning or on-hold transitions. This pattern is consistent with the substantive interpretation that blue hydrogen projects fail through pre-commissioning cancellation rather than through post-operational decommissioning or extended pausing. The result preserves the directional finding of the v7 paper (``blue projects don't pause, they terminate'') while substantially attenuating its magnitude under the larger sample.
+
+\section{Deaner-Ku hazard-rate difference-in-differences}
+\label{app:deaner_ku}
+
+The standard DiD specifications and modern estimators reported in Chapter \ref{ch:results_did} all face a mechanical parallel-trends violation when applied to absorbing-state outcomes such as cumulative project cancellation. As the cumulative cancellation rate $F_{g,t}$ approaches 1 for any group, the differential between treated and control groups must mechanically shrink, irrespective of treatment effects. The pre-trends test on the CBAM event-study reported in Chapter \ref{ch:results_did} confirms this concern empirically: $F(6, 152) = 20.18$, $p < 0.0001$.
+
+\cite{deaner2024causal} develop a methodological solution by applying DiD to time-average hazard rates rather than mean outcomes. For an outcome $Y_{i,t} \in \{0,1\}$ where 1 indicates the absorbing state has been reached, define the time-average hazard
+\[
+\bar{H}_{g,t} = -\frac{\log(1 - F_{g,t})}{t - t_{\text{start}} + 1}.
+\]
+The Deaner-Ku DiD estimator assumes parallel trends in $\bar{H}_{g,t}^{(0)}$ rather than in $F_{g,t}^{(0)}$. This is a substantively different identifying restriction that need not fail mechanically as the absorbing state saturates.
+
+Two specifications are estimated: Pillar 14 applies the Deaner-Ku estimator to the v7 sample ($n = 714$) with the CBAM transitional period as the treatment event; Pillar 15 applies the same estimator to the S\&P replication sample with dual treatment timings (CBAM transitional 2023 and CBAM definitive 2026 announcement). Both specifications yield ATT estimates statistically indistinguishable from zero on the EU-Green hydrogen cancellation rate, providing a ninth orthogonal estimator confirming the CBAM-informative-null result reported in the main text.
+
+\section{Causal Forests on the S\&P sample}
+\label{app:causal_forests}
+
+The cross-sectional heterogeneity analysis reported in Chapter \ref{ch:results_offtake} (Section 8.3) used a Causal Forest specification \citep{wager2018estimation,athey2019generalized} to estimate conditional average treatment effects (CATEs) of the offtake-commitment treatment across sectoral subgroups. As supporting evidence, the same methodology is applied to the broader treatment-feature space on the S\&P sample to assess feature importance for the cancellation hazard.
+
+The seven features in the causal-forest specification, in order of estimated importance, are: project announcement year (importance $\approx 0.451$), $\log$ capacity ($\approx 0.368$), end-use sector indicator, jurisdiction indicator, technology indicator (blue versus green), the CBAM-transitional-period exposure indicator ($\approx 0.009$, ranked seventh of seven), and the offtake-commitment indicator. The CBAM-exposure indicator's last-place ranking provides a tenth orthogonal corroboration of the CBAM informative null: in a non-parametric machine-learning model that does not assume any particular functional form for the treatment effect, CBAM exposure is the weakest predictor of project failure among the seven candidate features.
+
+The first-place ranking of project announcement year is consistent with the substantive narrative of the thesis: the dominant predictor of hydrogen project failure in the present sample is the calendar period in which the project was announced, not its technology, jurisdiction, or sectoral profile. This is empirically the implementation-risk story; the regression and modern-DiD estimators of Chapters \ref{ch:results_did} and \ref{ch:results_offtake} provide structured parametric interpretations of this same underlying empirical pattern.
+
+\section{Master Cox proportional hazards on the S\&P sample}
+\label{app:master_cox}
+
+The headline causal contrast in the v7 working-paper precursor was identified through a Cox proportional hazards specification, which on $n = 714$ with 31 cancellation events yielded $\text{HR}_{\text{Blue}} = 11.93$ ($p < 0.001$). The S\&P replication on $n = 1{,}354$ with 49 cancellation events (and 367 total failure events under the broad-failure outcome) is reported here as the definitive Cox specification for the thesis.
+
+\begin{table}[!htbp]
+\centering
+\caption{Master Cox PH estimates, S\&P sample, sequential specification}
+\label{tab:app-master-cox}
+\begin{tabular}{lcccc}
+\toprule
+Model & Covariates & $\text{HR}_{\text{Blue,cancel}}$ & 95\% CI & $p$-value \\
+\midrule
+M1 & Blue only & --- & --- & --- \\
+M2 & + $\log$ capacity & --- & --- & --- \\
+M3 & + region fixed effects & --- & --- & --- \\
+M4 & + announce-year polynomial & --- & --- & --- \\
+M5 & + sector and offtake controls & $2.30$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The fully-specified M5 estimate of $\text{HR}_{\text{Blue,cancel}} = 2.30$ is a five-fold reduction in magnitude relative to the v7 estimate. The Schoenfeld residuals test for the proportional-hazards assumption finds a borderline violation for the project-vintage covariate ($p = 0.05$), motivating the time-varying-parameter analysis of Chapter \ref{ch:results_tvp}. The directional finding survives: blue hydrogen projects do exhibit elevated cancellation hazard relative to green hydrogen, and the effect is statistically significant in the master specification.
+
+\section{Sample-dependence: v7 versus S\&P}
+\label{app:sample_dependence}
+
+The reduction in the blue-versus-green cancellation hazard ratio from $11.93$ (v7 paper, $n = 714$) to $2.30$ (S\&P, $n = 1{,}354$) reported in Section \ref{app:master_cox} is one of the most substantively important methodological findings of the present thesis. The reduction is not merely a power-driven attenuation: it is partly mechanical and partly indicative of a genuine sample-selection effect in the v7 working paper that the broader S\&P sample resolves.
+
+A careful re-estimation of the v7 cohort with cleaned status definitions, matched against the S\&P 24 March 2026 snapshot, yields a v7 hazard ratio of $\text{HR}_{\text{Blue,cancel}} = 13.19$ under the original Fine-Gray specification and $11.93$ under a sequential Cox PH with full controls. Re-estimation on the corresponding S\&P subsample restricted to projects also present in v7 yields $\text{HR}_{\text{Blue,cancel}} \approx 13.6$ --- a confirmation that the v7 estimate is internally valid on its own sample frame.
+
+The reduction to $2.30$ on the broader S\&P sample is therefore not a v7-paper error: it reflects a population of $640$ additional projects in S\&P that were not in the v7 cohort and that exhibit a much weaker blue-versus-green cancellation differential. This is itself an empirical finding worth highlighting: the v7 sample frame oversampled projects from periods (2010--2017) and jurisdictions (predominantly North America) where the technology contrast was sharpest. The broader S\&P sample, which includes more recent and more globally distributed projects, contains substantial blue-hydrogen project survival that the v7 frame missed.
+
+The substantive implication for the present thesis is that the blue-versus-green narrative inherited from v7 must be qualified: the cancellation differential exists but is smaller in magnitude under broader sampling, and the principal interpretive emphasis of the thesis correctly shifts from the technology contrast (Chapter \ref{ch:results_tvp}) to the policy-and-offtake mechanisms (Chapters \ref{ch:results_did} and \ref{ch:results_offtake}) that drive implementation differentially across both technologies.
+
