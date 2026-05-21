@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+title: "Implementation-Risk Differentials in Hydrogen Technology Pathways"
+message: "If you use this research or code, please cite it as below."
+type: software
+authors:
+  - given-names: Sake
+    family-names: Saakstra
+    affiliation: "Vrije Universiteit Amsterdam, MSc Econometrics and Operations Research"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/SakeSaak/thesis_h2"
+url: "https://github.com/SakeSaak/thesis_h2"
+abstract: >-
+  A cross-jurisdictional causal evaluation of carrot-policy mechanisms for
+  low-carbon hydrogen project survival. Using project-level survival analysis
+  of 1,354 Blue and Green hydrogen projects (S&P Global, 2010-2024), this
+  research identifies the differential effects of four major policy types
+  (US Section 45Q, EU Innovation Fund, UK Track-1, China 14th Five-Year Plan)
+  and introduces offtake commitment as an under-appreciated mechanism through
+  which subsidies operate. Findings are grounded in a Dixit-Pindyck (1994)
+  real-options framework distinguishing V/I-boost vs sigma-attack channels.
+keywords:
+  - hydrogen
+  - clean energy
+  - causal inference
+  - difference-in-differences
+  - real options
+  - mechanism design
+  - policy evaluation
+  - survival analysis
+license: CC-BY-NC-SA-4.0
+date-released: 2026-05-20
+preferred-citation:
+  type: thesis
+  title: "Implementation-Risk Differentials in Hydrogen Technology Pathways: A Cross-Jurisdictional Causal Evaluation of Carrot-Policy Mechanisms"
+  authors:
+    - given-names: Sake
+      family-names: Saakstra
+  thesis-type: "MSc thesis"
+  institution:
+    name: "Vrije Universiteit Amsterdam"
+    address: "Amsterdam, The Netherlands"
+  year: 2026
+  month: 7
+  url: "https://github.com/SakeSaak/thesis_h2"

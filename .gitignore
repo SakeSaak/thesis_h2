@@ -1,4 +1,4 @@
-# Python
+# === Python ===
 __pycache__/
 *.py[cod]
 *$py.class
@@ -7,12 +7,15 @@ __pycache__/
 .venv/
 venv/
 env/
+*.pkl
+.cache/
+.pytest_cache/
 
-# Anaconda
+# === Jupyter ===
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# LaTeX intermediate files
+# === LaTeX intermediate files ===
 *.aux
 *.bbl
 *.blg
@@ -24,41 +27,58 @@ env/
 *.toc
 *.lof
 *.lot
+*.nav
+*.snm
+*.vrb
 
-# Backup files — niet nodig in repo, git history bevat rollback
+# === LaTeX backup files (history bevat rollback) ===
 *.backup_*.tex
 *.backup.tex
 
-# OS
+# === OS ===
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE
+# === IDE ===
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
-# Restricted raw data
+# === Commercial / copyrighted raw data ===
+# S&P Global Market Intelligence — commercial license
+01_data/raw/Hydrogen_projects_master_data_table*.xlsx
 01_data/raw/Hydrogen projects master data table.xlsx
 01_data/raw/Hydrogen Production Projects Database*
 
-# Large binary archives
-backup_*.tar.gz
-*.zip
-
-# === Commercial / copyrighted data — NOOIT op GitHub ===
-# S&P Global Market Intelligence — commercial license
-01_data/raw/Hydrogen_projects_master_data_table*.xlsx
 # IEA publications — restrictive copyright
 01_data/raw/Renewables2025.pdf
+01_data/raw/IEA*.pdf
+
+# === Large bulk data (>1 MB) — should be in separate data archive ===
+# ENTSO-E energy prices (publicly downloadable from transparency.entsoe.eu)
+01_data/raw/entsoe_gui/*.csv
+
+# WUI Data (Ahir-Bloom-Furceri uncertainty index)
+01_data/raw/WUI_Data.xlsx
+
+# GPR (Geopolitical Risk index)
+01_data/raw/data_gpr_export.xls
+
+# Master panel daily (intermediate, regeneratable)
+01_data/intermediate/master_panel_daily.csv
+
+# === Large binary archives ===
+backup_*.tar.gz
+*.zip
+*.tar.gz
 
 # === Optioneel: persoonlijke supervisor-communicatie ===
-# Deze regels uitcommentariëren als je dit WEL wilt committen
 # 08_communicatie/
 # 05_supervisor/
 
-# === Python compiled / data caches (extra) ===
-*.pkl
-.cache/
-.pytest_cache/
+# === Generated output that can be regenerated ===
+*_TEMP/
+__cache_*/

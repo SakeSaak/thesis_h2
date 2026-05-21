@@ -1,0 +1,33 @@
+# Core scientific stack
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.7
+
+# Econometrics & statistics
+statsmodels>=0.14
+linearmodels>=6.0
+lifelines>=0.27
+patsy>=0.5
+
+# Machine learning
+scikit-learn>=1.3
+econml>=0.15
+lightgbm>=4.0
+xgboost>=2.0
+
+# Bayesian / state-space
+pymc>=5.10
+pytensor>=2.18
+arviz>=0.17
+
+# Data I/O
+openpyxl>=3.1
+xlrd>=2.0
+yfinance>=0.2
+
+# Plotting extras
+seaborn>=0.13
+
+# Note: also requires Anaconda Python 3.13+ environment
+# Tested with: Python 3.13.9, pandas 2.x, statsmodels 0.14.4
