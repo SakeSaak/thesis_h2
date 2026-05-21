@@ -1,0 +1,117 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{booktabs, array}
+\usepackage{graphicx, xcolor}
+\usepackage{caption, subcaption}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black
+}
+\usepackage{natbib}
+\usepackage{setspace}
+\onehalfspacing
+
+\newcommand{\bint}{\beta_{\text{int}}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\title{A time-varying-parameter state-space approach to sparse-event survival modelling: methodological design, out-of-sample performance, and application to hydrogen project implementation-risk}
+
+\author{Sake Saakstra\thanks{Vrije Universiteit Amsterdam. Email: \texttt{s.saakstra@vu.nl}. I am grateful to Siem Jan Koopman, Nadine Ketel, and seminar participants at VU Amsterdam for valuable feedback. All errors are mine.}
+\and Siem Jan Koopman\thanks{Vrije Universiteit Amsterdam and Tinbergen Institute. \emph{TBC --- subject to co-author confirmation.}}}
+
+\date{First draft: \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+We propose a time-varying-parameter (TVP) state-space approach to survival modelling under sparse-event data conditions, in which the conditional hazard depends on a generative-process parameter whose evolution is driven by the score of the predictive likelihood. The Score-Driven Generalized Autoregressive Score (GAS) specification of \cite{creal2013generalized} provides a parsimonious and asymptotically optimal mechanism for parameter time-variation, requiring only the score and a one-parameter persistence specification.
+
+Three rival TVP specifications are compared: M1 with constant parameter, M2 with random-walk innovations, and M3 with GAS-driven persistence. The three are tested for out-of-sample forecast accuracy via rolling one-step-ahead prediction, with significance assessed by the Diebold-Mariano-Harvey-Leybourne-Newbold test on per-observation log-loss. The Score-Driven specification wins uniformly across three test designs (75-25 time split, 5-fold cross-validation, full-sample rolling), with the largest performance gain concentrated in the 2023 cancellation wave where the carbon-conditional mechanism intensifies. The Hansen-Lunde-Nason Model Confidence Set at $\alpha = 0.10$ contains M3 as unique element.
+
+The methodology is applied to a sample of 1,354 hydrogen projects spanning announcement-stage status from the S\&P Global database (2010--2024). The interaction coefficient $\bint(t)$ governing the carbon-conditional Blue/Green hazard differential is estimated to intensify from $-0.46$ in 2010 to $-1.49$ in 2024, with a structural break detected around 2020. The Score-Driven TVP approach is a useful general-purpose methodology for survival modelling in domains with sparse-event data, sample-window dependence concerns, and reasonable suspicion of structural-break dynamics.
+
+\medskip
+\noindent\textbf{JEL classification}: C32, C41, Q42
+
+\noindent\textbf{Keywords}: time-varying parameter; score-driven model; state-space; survival modelling; Diebold-Mariano test; hydrogen
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Survival modelling under sparse-event conditions presents two related identification challenges. First, when the rate of events per period is low, the unconditional hazard is poorly estimated and inference about technology- or sector-specific differentials becomes sample-size-bound. Second, when the conditioning relationship itself may be evolving --- because the underlying economic environment is non-stationary, because a policy regime is shifting, or because the relevant institutional structure is recalibrating --- the standard time-invariant proportional-hazards specification can mask a substantial fraction of the true information content of the data. The conventional remedy for the first problem is to expand the sample window, but doing so often compounds the second problem: a wider window is more likely to span periods of structural change. The two problems pull in opposite directions, and any econometric strategy that resolves them must navigate the trade-off explicitly.
+
+This paper develops one such strategy. We propose a time-varying-parameter (TVP) state-space formulation in which the conditioning coefficient governing the technology-specific hazard differential is permitted to evolve over time according to a score-driven recursion. The Score-Driven Generalized Autoregressive Score (GAS) framework of \cite{creal2013generalized} provides three properties that are well-suited to the sparse-event survival problem. First, the recursion is driven by the score of the predictive log-likelihood, which under a one-step optimal scoring rule maximises the per-observation predictive Kullback-Leibler divergence and is asymptotically efficient \citep{harvey2013dynamic, blasques2015robust}. Second, the parsimony of the GAS specification --- a single persistence parameter on top of any time-invariant structure --- avoids the over-parametrisation that random-walk-driven TVP specifications incur in finite samples. Third, the score-driven structure can be integrated naturally with the Bayesian state-space inference machinery of \cite{durbin2012time}, supporting joint posterior inference on both the time-varying parameter trajectory and the static hyperparameters.
+
+The methodological contribution of this paper has three parts. First, we develop the score-driven TVP specification in the context of a Bernoulli-likelihood hazard model, deriving the GAS recursion explicitly and providing prior structure for the static parameters. We show that the resulting specification is well-identified under standard regularity conditions and that the prior structure can be calibrated to deliver shrinkage toward a constant-parameter null without violating the asymptotic efficiency of the score-driven recursion. Second, we provide a rigorous out-of-sample comparison framework that contrasts the GAS specification against the two principal alternatives in the TVP literature --- constant-parameter (M1) and random-walk-driven (M2). The comparison is conducted across three independent test designs: a 75-25 time split, 5-fold within-project block cross-validation, and a rolling one-step-ahead full-sample comparison. Statistical significance is assessed using the \cite{diebold1995comparing} test with the small-sample correction of \cite{harvey1997testing}, and joint statistical containment is established via the simplified \cite{hansen2011model} Model Confidence Set procedure. The use of multiple independent test designs is essential under sparse-event conditions, where any single design can be vulnerable to the temporal location of the events relative to the train-test boundary.
+
+Third, the methodology is applied to a substantive application of independent interest: the carbon-conditional implementation risk of hydrogen projects. The application uses a sample of 1{,}354 hydrogen projects drawn from the S\&P Global Commodity Insights database, spanning announcement-stage status from 2010 through early 2024. The binary outcome is a failure indicator aggregating cancellation, decommissioning, and on-hold transitions, and the principal time-varying parameter is the interaction coefficient $\bint(t)$ governing the Blue-versus-Green hazard differential conditional on the EUA carbon price. Under the score-driven specification, $\bint(t)$ is estimated to intensify monotonically from $-0.46$ in 2010 to $-1.49$ in 2024, with a discernible structural break around 2020 corresponding to the European Green Deal acceleration of EUA prices. The constant-parameter and random-walk-driven specifications fail to capture this trajectory adequately, with the constant-parameter specification yielding $\hat{\bint} = -0.95$ as a sample average that masks the true intensification.
+
+The substantive result --- that the Blue-versus-Green hazard differential has intensified over the EUA-price-rise period --- is consistent with a real-options interpretation in which the differential carbon payoff of clean over fossil hydrogen has grown as the EUA price has risen, raising the optimality threshold for cancellation among blue projects relative to green projects. This interpretation is consistent with the comparative-statics implications of the standard \cite{dixit1994investment} irreversibility framework when applied to the carbon-conditional payoff structure, and provides a natural test of the carbon-price-mediated mechanism in the contemporary clean-hydrogen environment.
+
+The methodological contribution of the paper is, however, the principal product. The GAS-TVP specification we develop and the OOS-comparison framework we apply are general-purpose tools for survival modelling under conditions of sparse events and potential parameter instability. Domains in which the methodology should be useful include early-stage venture failure analysis, project-finance termination, clinical-trial dropout, and any other survival application in which the conditional hazard may be evolving and the events themselves are sparse on the per-period margin. We provide full reproducibility code at \texttt{[github.com/SakeSaak/paper1\_tvp]}, including the MCMC implementation, the DM-test routines, and the rolling-window cross-validation framework.
+
+The remainder of the paper is organised as follows. Section~\ref{sec:literature} reviews the related literature on time-varying-parameter econometrics, score-driven models, survival modelling under sparse events, and the Diebold-Mariano-Hansen-Lunde-Nason inferential framework. Section~\ref{sec:methodology} develops the methodological specification and the OOS-comparison procedure. Section~\ref{sec:data} describes the application data. Section~\ref{sec:results} reports the results, including the trajectory estimates, the OOS comparison, and the model-confidence-set inference. Section~\ref{sec:discussion} discusses the interpretation, the methodological lessons, and the limitations. Section~\ref{sec:conclusion} concludes.
+
+\section{Related literature}
+\label{sec:literature}
+
+[To be drafted, ~2 pages. Source: thesis Chapter 2 Section "Recent developments" + score-driven literature: \cite{creal2013generalized}, \cite{harvey2013dynamic}, \cite{blasques2015robust}, \cite{primiceri2005time}, \cite{cogley2005drifts}, \cite{dagostino2013macroeconomic}.]
+
+\section{Methodology}
+\label{sec:methodology}
+
+[To be drafted, ~4-5 pages. Source: thesis Chapter 5 "TVP DiD via state-space" + Pijler 47 PIJLER\_47\_DIEBOLD\_MARIANO.md. Structure:
+\begin{itemize}
+\item 3.1 Hazard specification and the time-varying coefficient
+\item 3.2 Three competing specifications: M1 constant, M2 random-walk, M3 score-driven
+\item 3.3 Bayesian state-space inference
+\item 3.4 Out-of-sample comparison: time-split, CV, rolling
+\item 3.5 Diebold-Mariano test and Model Confidence Set
+\end{itemize}
+]
+
+\section{Data}
+\label{sec:data}
+
+[To be drafted, ~1-2 pages. Source: thesis Chapter 4 Section "S\&P Global Commodity Insights data".]
+
+\section{Results}
+\label{sec:results}
+
+[To be drafted, ~4-5 pages. Source: thesis Chapter 7 sections + Pijler 47.]
+
+\section{Discussion}
+\label{sec:discussion}
+
+[To be drafted, ~2 pages. Sources: thesis Chapter 10 + Pijler 48 (interval-censored timing as limitation).]
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+[To be drafted, ~1 page.]
+
+\bibliographystyle{plain}
+\bibliography{paper1_references}
+
+\end{document}

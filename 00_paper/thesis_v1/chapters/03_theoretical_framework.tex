@@ -162,6 +162,100 @@ Both mechanisms predict $|\bint(t)|$ increasing over time, consistent with the G
 If the assumption $b^B > b^G$ is reversed (Green benefits more from high EUA due to absence of residual carbon costs), the model predicts $\bint > 0$. Our empirical finding of $\bint < 0$ thus serves as a model selection device, supporting the competitive-displacement interpretation over the cost-pass-through interpretation. We return to this in Section \ref{sec:ch3-extensions}.
 
 % =========================================================================
+\section{Generalised real-options framework: five channels of policy action}
+\label{sec:ch3-five-channels}
+
+The baseline model of Sections~\ref{sec:ch3-setup}--\ref{sec:ch3-comparative} characterises optimal cancellation under a single state variable (the EUA price) and a single irreversibility friction. Real-world policy instruments operate on optimal cancellation timing through five conceptually distinct channels, each of which transmits a different type of policy intervention into the underlying dynamic optimisation problem. This section formalises these channels and derives their respective comparative-statics signs. The classification is essential for connecting the friction-based taxonomy of Section~\ref{sec:ch3-mechanism-taxonomy} to the underlying mathematical structure of the investment-timing decision, and for the publication-grade exposition of the empirical results in Chapters~\ref{ch:results_did}--\ref{ch:results_offtake}.
+
+The general formulation is as follows. Let the project value function $V(z, \theta)$ depend on the state variable $z$ (the EUA price) and a parameter vector $\theta = (\mu, \sigma, \rho, \eta, \kappa)$ collecting all policy-amenable model primitives, where $\mu$ governs the expected payoff drift, $\sigma$ governs the payoff volatility, $\rho$ governs the discount rate, $\eta$ governs network or coordination externalities, and $\kappa$ governs implementation/execution costs. The optimal cancellation threshold $z^*(\theta)$ is characterised by the value-matching and smooth-pasting conditions of the standard \cite{dixit1994investment} framework. Each policy instrument transmits its effect on $z^*$ through one or more of the following five channels.
+
+\subsection{Channel 1: Expected returns ($\mu$-channel)}
+\label{sec:ch3-channel-mu}
+
+The first channel operates on the expected-payoff drift $\mu$. An instrument that raises $\mu$ (a production tax credit, an output-based subsidy, a carbon-price floor that raises the differential payoff of clean over fossil hydrogen) shifts the threshold downward:
+\[
+\frac{\partial z^*}{\partial \mu} < 0 \qquad \text{(higher expected payoff $\Rightarrow$ lower cancellation threshold).}
+\]
+The comparative-statics sign follows directly from the value-matching condition: a higher payoff drift raises the expected continuation value $V(z, \theta)$ at every $z$, which shifts the indifference point at which immediate cancellation equals continuation downward.
+
+\emph{Empirical correspondence}: the US Section~45Q tax credit and the EU Innovation Fund Hydrogen Bank auction operate primarily through the $\mu$-channel. The $-3.4$ percentage-point ATT of the 45Q estimate in Section~\ref{sec:results_did_main} corresponds to a $\mu$-channel shift of approximately $\Delta\mu = +\$85 / \text{ton CO}_2$ on the per-unit payoff structure.
+
+\subsection{Channel 2: Uncertainty ($\sigma$-channel)}
+\label{sec:ch3-channel-sigma}
+
+The second channel operates on the payoff volatility $\sigma$. The classical \cite{mcdonald1986value} result establishes that under irreversibility, higher uncertainty raises the option value of waiting and therefore raises the cancellation threshold:
+\[
+\frac{\partial z^*}{\partial \sigma} > 0 \qquad \text{(higher uncertainty $\Rightarrow$ higher cancellation threshold).}
+\]
+An instrument that reduces $\sigma$ --- for example, a long-term offtake contract that locks in the per-unit revenue at a known price, or a regulatory commitment to a price-floor mechanism --- shifts the threshold downward by removing the convex-payoff component of the waiting option.
+
+\emph{Empirical correspondence}: the offtake-commitment effect of Chapter~\ref{ch:results_offtake} operates through the $\sigma$-channel, and the sectoral-heterogeneity result --- the offtake effect being concentrated in high-revenue-volatility sectors (power and heat, transport) and small or null in low-volatility sectors --- provides a direct test of the $\sigma$-channel transmission. The cross-sectoral interaction coefficient confirms the prediction that $\sigma$-channel reductions are more valuable where $\sigma$ is higher. The 45V three-pillars NPRM operates in the opposite direction on this channel: the additionality, hourly matching, and deliverability requirements introduce \emph{additional} compliance uncertainty, raising $\sigma$ for affected projects and shifting $z^*$ upward.
+
+\subsection{Channel 3: Timing and option value ($\rho$-channel)}
+\label{sec:ch3-channel-rho}
+
+The third channel operates on the discount rate $\rho$ or, equivalently, on the time preference structure of the investment-timing decision. An instrument that resolves policy uncertainty earlier in the project lifecycle --- for example, a Final Investment Decision deadline imposed by a tender process --- reduces the value of the waiting option by collapsing the timing flexibility of the decision-maker. Formally,
+\[
+\frac{\partial z^*}{\partial \rho} > 0 \qquad \text{(higher discount rate $\Rightarrow$ less waiting valuable $\Rightarrow$ higher threshold)}.
+\]
+The sign follows from the elementary result that the option value of waiting under irreversibility is decreasing in the discount rate \cite{bertola1994irreversibility, abel1996options}. The $\rho$-channel is the formal mechanism through which deadline-based instruments operate.
+
+\emph{Empirical correspondence}: the UK Track-1 tender and the EU Innovation Fund auction operate through both a $\mu$-channel (output subsidy) and a $\rho$-channel (deadline-based commitment). The deadline component is the source of the F6-selection friction discussed in Section~\ref{sec:ch3-mechanism-taxonomy}: projects with high option values of waiting are systematically screened out of the eligible pool, leaving a winner sample biased toward projects with lower option values, which would have proceeded irrespective of the policy.
+
+\subsection{Channel 4: Coordination and network externalities ($\eta$-channel)}
+\label{sec:ch3-channel-eta}
+
+The fourth channel operates on the network or coordination parameter $\eta$, which captures the externalities arising from complementary investments in transport, storage, and end-use facilities. Under the standard \cite{pindyck1991irreversibility} formulation, an instrument that internalises these externalities (a cluster tender, a coordinated state procurement mandate, or a coordinated demand-creation scheme such as IPCEI) reduces the threshold by raising the conditional expected payoff $E[V(z, \theta) \mid \text{other actors also invest}]$:
+\[
+\frac{\partial z^*}{\partial \eta} < 0 \qquad \text{(higher coordination value $\Rightarrow$ lower threshold).}
+\]
+The empirical signature of the $\eta$-channel is heterogeneity in the policy effect across project-level network position: projects with more complementary co-located actors should respond more strongly to coordination-based instruments than projects with fewer.
+
+\emph{Empirical correspondence}: the China 14th FYP estimate operates primarily through the $\eta$-channel, with the policy effect being amplified by the coordinated SOE procurement structure that internalises co-investment risk. The UK Track-1 cluster-tender component also operates through the $\eta$-channel, though it is contaminated by the $\rho$-channel deadline effect.
+
+\subsection{Channel 5: Implementation costs ($\kappa$-channel)}
+\label{sec:ch3-channel-kappa}
+
+The fifth channel operates on the implementation or execution cost $\kappa$. An instrument that subsidises capital cost (the EU Innovation Fund grant component, the US DOE H2Hubs grant programme) reduces the threshold through a direct effect on the net investment cost:
+\[
+\frac{\partial z^*}{\partial \kappa} > 0 \qquad \text{(higher implementation cost $\Rightarrow$ lower expected payoff $\Rightarrow$ higher threshold).}
+\]
+The corollary is that a policy that \emph{raises} implementation costs --- through compliance complexity, additional verification burden, or regulatory friction --- shifts the threshold upward. This is the formal mechanism behind the 45V three-pillars NPRM's perverse positive effect on cancellation rates.
+
+\emph{Empirical correspondence}: the $+0.285$ DDD effect of the 45V three-pillars NPRM (Section~\ref{sec:results_did_45v}) operates through the $\kappa$-channel, where the NPRM imposes compliance costs that, on margin, push projects above the cancellation threshold. The EU Innovation Fund grant operates in the opposite direction on the same channel but is sub-additive across the broader friction-instrument matrix because it does not jointly address $\sigma$ or $\eta$.
+
+\subsection{Mapping channels to friction taxonomy and to empirical estimates}
+\label{sec:ch3-channels-table}
+
+The five channels of Sections~\ref{sec:ch3-channel-mu}--\ref{sec:ch3-channel-kappa} provide the underlying mathematical mechanism through which the seven economic frictions of Section~\ref{sec:ch3-mechanism-taxonomy} are reduced or amplified. The mapping is not one-to-one: each friction reduction operates through one or more channels, and each channel can in principle reduce more than one friction.
+
+\begin{table}[!htbp]
+\centering
+\caption{Channels and frictions: mapping from theoretical mechanism to economic interpretation}
+\label{tab:ch3-channels-frictions}
+\small
+\begin{tabular}{lp{0.30\linewidth}p{0.30\linewidth}}
+\toprule
+Channel & Frictions reduced (Section~\ref{sec:ch3-mechanism-taxonomy}) & Empirical signature \\
+\midrule
+$\mu$ Expected return & F1 Revenue uncertainty & 45Q $\Delta\mu > 0$; offtake $\Delta\mu > 0$ \\
+$\sigma$ Uncertainty & F1, F2, F7 (via revenue volatility reduction) & Offtake-$\sigma$ heterogeneity; sectoral interaction \\
+$\rho$ Timing / option value & F6 Selection (deadline effect) & UK Track-1 selection funnel \\
+$\eta$ Coordination & F3 Coordination, F7 Counterparty & China FYP heterogeneity \\
+$\kappa$ Implementation cost & F4 Financing, F5 Implementation & EU IF null; 45V NPRM perverse \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The substantive consequence is that the empirical heterogeneity patterns of Chapters~\ref{ch:results_did}--\ref{ch:results_offtake} provide direct tests of the channel-by-channel transmission of policy effects. A finding that the offtake-commitment effect is concentrated in high-volatility sectors is a $\sigma$-channel test; a finding that the China FYP effect is amplified by complementary co-investment is an $\eta$-channel test; a finding that the 45V NPRM raises cancellation rates rather than lowering them is a $\kappa$-channel test in the negative-magnitude direction.
+
+\subsection{Implications for publication-grade extension}
+\label{sec:ch3-channels-publication}
+
+The five-channel framework supports two extensions beyond the current thesis. First, the framework can be formalised as a stand-alone real-options-cum-mechanism-design paper that develops the joint optimisation problem $\max_{\theta} \mathbb{E}[V(z^*(\theta), \theta)]$ over the policy-instrument space, characterising the second-best policy that addresses multiple frictions through the lowest-cost combination of channels. This is the natural publication target in Resource and Energy Economics or a similar venue. Second, the framework supports a structural-estimation publication that estimates the channel-specific parameters $(\partial z^*/\partial \mu, \partial z^*/\partial \sigma, ...)$ directly from project-level cancellation-timing data, using the thesis's S\&P sample as identification. This is the natural publication target in the Journal of Environmental Economics and Management or Journal of Public Economics.
+
+The thesis itself confines its formal use of the framework to the comparative-statics correspondence between the channels and the empirical heterogeneity patterns, leaving the joint-optimisation and structural-estimation extensions as the principal research agenda emerging from the present work.
+
 \section{Extensions and Limitations}
 \label{sec:ch3-extensions}
 
