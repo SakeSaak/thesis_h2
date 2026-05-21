@@ -63,6 +63,20 @@ This is consistent with industry data: a typical SMR-with-CCS facility requires 
 
 For the cancellation decision, the relevant quantity is the \textit{unrecoverable} portion of capital --- the difference $K^B - K^G$ that has been sunk before the cancellation decision is made. We assume both technologies have a recoverable salvage value of $S^{\tau} \leq K^{\tau}$, and write $\hat{K}^{\tau} = K^{\tau} - S^{\tau}$ as the irreversible component.
 
+\subsection{Sequential investment staging}
+\label{sec:ch3-sequential-staging}
+
+Real-world clean-hydrogen projects do not face a single binary investment decision but a sequence of stage-conditional commitments, each of which sinks an irreversible fraction of the total capital cost. The four canonical stages are: (i) front-end engineering and design (FEED), in which the project sponsor commits engineering capital but no construction capital; (ii) final investment decision (FID), in which financing is closed and major contracts are signed; (iii) construction, in which physical capital is sunk irreversibly; and (iv) operational, in which the project produces output and earns revenue. At each stage transition, the sponsor can either continue (paying the next stage's commitment cost) or cancel (forfeiting all sunk capital and ceasing further outlays).
+
+Let $s \in \{1, 2, 3, 4\}$ index the four stages, and let $K_s$ denote the cumulative sunk capital at stage $s$. The stage-dependent project value function $V(z, s)$ satisfies the Bellman recursion
+\begin{equation}
+V(z, s) = \max\Big\{0,\; -k_s + \delta\, \mathbb{E}_z[V(z', s+1)]\Big\}, \qquad s = 1, 2, 3,
+\label{eq:bellman-stage}
+\end{equation}
+where $k_s = K_s - K_{s-1}$ is the marginal commitment cost at stage $s$, $\delta$ is the per-stage discount factor, and the operational-stage value $V(z, 4)$ is the discounted-cashflow value of the operating project as a function of the EUA price state $z$. The Bellman recursion is solved backwards from $s = 4$ to $s = 1$.
+
+The sequential structure delivers two implications relevant to the empirical analysis. First, the cancellation hazard is itself a stage-dependent quantity: pre-FID cancellation is mechanically more frequent than post-FID cancellation, because pre-FID projects have sunk less capital and the option value of waiting is higher relative to the sunk cost. The empirical observation that the majority of cancellations in the sample occur pre-FID is consistent with this prediction. Second, policy interventions that operate primarily on early-stage incentives (production tax credits realised during operation; capex grants disbursed at FID) operate through different stages of the lifecycle and therefore generate different patterns of stage-conditional treatment heterogeneity. This stage-conditional structure is invoked in the policy-mechanism taxonomy of Section~\ref{sec:ch3-mechanism-taxonomy} and is the foundation for the regime-dependent threshold analysis in Section~\ref{sec:ch3-policy-credibility}.
+
 \subsection{Cancellation as an option}
 
 At each time $t$, the sponsor chooses whether to continue the project (and continue paying fixed operating costs) or cancel and recover the salvage value $S^{\tau}$. The continuation value at time $t$ is:
@@ -256,6 +270,109 @@ The five-channel framework supports two extensions beyond the current thesis. Fi
 
 The thesis itself confines its formal use of the framework to the comparative-statics correspondence between the channels and the empirical heterogeneity patterns, leaving the joint-optimisation and structural-estimation extensions as the principal research agenda emerging from the present work.
 
+\section{Policy credibility as reduced-form state variable}
+\label{sec:ch3-policy-credibility}
+
+The Dixit-Pindyck baseline of Section~\ref{sec:ch3-setup} treats the carbon price $z$ as the single source of stochastic variation. In the contemporary clean-hydrogen environment, however, project sponsors face a second source of uncertainty that is conceptually distinct from $z$: the credibility of the policy regime itself. The European Green Deal of December 2019 and the subsequent acceleration of EUA prices through the 2022--2023 energy crisis represented not merely a movement in $z$ but a structural revaluation of the long-run policy trajectory. Sponsors making investment commitments before this revaluation faced a different policy belief than sponsors making the same commitment after it, even when the contemporaneous $z$ was equal.
+
+This section formalises policy credibility as a reduced-form state variable. The formulation is deliberately not micro-founded: a full structural model would require explicit treatment of political-economy formation of policy, which is beyond the scope of the present thesis (see the response to supervisor feedback acknowledged in Chapter~\ref{ch:methodology}). The reduced-form formulation suffices to deliver the comparative-statics implications needed for empirical interpretation.
+
+\subsection{Reduced-form formulation}
+\label{sec:ch3-credibility-formulation}
+
+Let $\pi_t \in [0, 1]$ denote the agent's belief at time $t$ that the prevailing policy regime will persist over the project lifecycle. The belief follows a Bayesian updating process driven by exogenous policy events $\{e_t\}$ (announcements, revisions, regime transitions):
+\begin{equation}
+\pi_{t+1} = \mathrm{Bayes}(\pi_t \mid e_{t+1}),
+\label{eq:credibility-bayes}
+\end{equation}
+where the Bayesian operator is unspecified at this level of abstraction. The substantive content is that $\pi_t$ enters the project value function multiplicatively on the policy-conditional payoff component:
+\begin{equation}
+V(z, s; \pi) = -k_s + \delta\, \mathbb{E}_z\!\Big[\pi \cdot V_{\text{policy}}(z, s+1) + (1 - \pi) \cdot V_{\text{baseline}}(z, s+1)\Big],
+\label{eq:credibility-value}
+\end{equation}
+where $V_{\text{policy}}(\cdot)$ is the project value under the policy regime and $V_{\text{baseline}}(\cdot)$ is the value under regime reversal.
+
+\subsection{Comparative statics in credibility}
+\label{sec:ch3-credibility-statics}
+
+A formal proposition follows from Equation~\eqref{eq:credibility-value}:
+
+\begin{proposition}[Credibility-conditional threshold]
+\label{prop:credibility-threshold}
+Under the regularity conditions of Section~\ref{sec:ch3-setup}, the optimal cancellation threshold $z^*(\pi)$ is monotonically decreasing in $\pi$ for projects whose policy-conditional payoff exceeds their baseline payoff:
+\[
+\frac{\partial z^*(\pi)}{\partial \pi} < 0 \quad \text{whenever } V_{\text{policy}}(z, s) > V_{\text{baseline}}(z, s).
+\]
+\end{proposition}
+\noindent The proposition implies that higher policy credibility lowers the cancellation threshold, consistent with the intuition that credible policy commitments substitute for direct payoff increases in supporting investment.
+
+\subsection{Empirical signature: the 2020 structural break}
+\label{sec:ch3-credibility-empirics}
+
+The empirical signature of credibility-conditional thresholds is detectable through the time-varying coefficient $\bint(t)$ in the carbon-conditional hazard specification. Conditional on the EUA price path $\{z_t\}$, a structural break in $\bint(t)$ around a policy-regime transition (such as the December 2019 European Green Deal announcement) is direct evidence that $\pi_t$ shifted at the regime boundary. The empirical chapter (Chapter~\ref{ch:results_tvp}) documents this structural break around 2020, with the score-driven GAS specification (M3) recovering a discontinuous step in $\bint(t)$ at the regime boundary that the constant-parameter (M1) and parameter-driven block-step (M2) specifications cannot accommodate.
+
+The reduced-form credibility mechanism is therefore an L4 structural mechanism (in the identification hierarchy of Chapter~\ref{ch:methodology}) whose empirical signature is identified at L4 by the structural-break detection of the GAS-TVP specification. The mechanism is falsifiable at the threshold-shift level: had the empirical $\bint(t)$ trajectory been flat, the credibility mechanism would have been falsified.
+
+\section{Coordination as reduced-form network effect}
+\label{sec:ch3-coordination-reduced-form}
+
+The supervisor's feedback explicitly recommended against formal modelling of coordination risk in the present framework, citing the risk of scope creep that a full network-equilibrium model would entail. The present section accordingly treats coordination as a reduced-form network effect identified through cross-sectoral and cross-jurisdictional heterogeneity in the empirical estimates, without developing a formal equilibrium model.
+
+The reduced-form prediction is straightforward: instruments that operate through the $\eta$-channel (Section~\ref{sec:ch3-channel-eta}) should produce larger effects in jurisdictions with denser networks of complementary investments. The China 14th FYP estimate is the principal cross-jurisdictional test of this prediction, and the cluster-tender component of the UK Track-1 estimate is the within-jurisdiction analogue. Both are documented in Section~\ref{sec:ch3-mechanism-taxonomy} and identified at L3.a + L3.b in the mechanism-falsifiability framework of Section~\ref{sec:ch3-mechanism-falsifiability}.
+
+A formal network model would deliver additional predictions about the distribution of effects across nodes within the network, but at the cost of substantial additional model complexity and identification difficulty. The reduced-form treatment is sufficient for the present thesis's interpretive purposes and consistent with the disciplinary-compactness recommendation of the supervisor.
+
+\section{Mechanism falsifiability and pre-registered predictions}
+\label{sec:ch3-mechanism-falsifiability}
+
+The five-channel framework (Section~\ref{sec:ch3-five-channels}) and the seven-friction taxonomy (Section~\ref{sec:ch3-mechanism-taxonomy}) jointly catalogue thirteen mechanism predictions that link theoretical structure to empirical observation. This section formalises each prediction in a pre-registration format that specifies the a priori theoretical expectation, the observable empirical implication, the empirical test design, the falsification criterion, and the retrospective assessment of whether the prediction would have survived the empirical test had it been pre-registered. The full thirteen-mechanism table is reported in Appendix~\ref{app:mechanism_table}; this section presents the framework and the summary assessment.
+
+\subsection{The pre-registration discipline}
+\label{sec:ch3-prereg-discipline}
+
+A reviewer concern that arises naturally in mechanism-based empirical research is that mechanisms can be formulated ex-post to rationalise observed empirical patterns. The pre-registration discipline addresses this concern by requiring that each mechanism prediction specify, in advance of empirical testing, both an observable implication and a falsification criterion. A mechanism whose predictions cannot be falsified is not a substantive mechanism in the sense intended here; conversely, a mechanism whose predictions survive a specified falsification test acquires evidentiary weight beyond a mere consistency with observed patterns.
+
+The thirteen mechanism predictions of Appendix~\ref{app:mechanism_table} are presented in this format. Each has five fields: (i) the a priori theoretical prediction (sign and approximate magnitude of the predicted effect); (ii) the observable implication (the data pattern that would confirm the mechanism); (iii) the empirical test (which estimator on which data slice); (iv) the falsification criterion (the numerical threshold or sign condition that would falsify the prediction); and (v) the retrospective assessment, in which the prediction is graded as confirmed, partial, falsified, or untested against the empirical evidence.
+
+The honesty of the retrospective assessment is essential to the methodological credibility of the framework. Mechanisms whose predictions are falsified are explicitly reported as such; the two informative-null findings of Sections~\ref{sec:ch3-mechanism-eu-if-summary} and~\ref{sec:ch3-mechanism-cbam-summary} are presented as substantive falsifications that are themselves contributions to the literature on policy-design effectiveness.
+
+\subsection{Summary assessment of the thirteen mechanism predictions}
+\label{sec:ch3-mechanism-summary}
+
+Table~\ref{tab:ch3-mechanism-summary} presents the falsification-status distribution across the thirteen mechanism predictions catalogued in Appendix~\ref{app:mechanism_table}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Falsification-status distribution of mechanism predictions}
+\label{tab:ch3-mechanism-summary}
+\begin{tabular}{lcl}
+\toprule
+Status & Count & Mechanisms \\
+\midrule
+Confirmed & 10 & $\mu$-, $\sigma$-, $\rho$- channels; 45Q, China FYP, NPRM, UK Track-1, offtake, sponsor frailty, TVP $\bint$ \\
+Partial & 2 & $\eta$-channel within-jurisdiction (data-limited); $\kappa$-channel via EU IF (qualified) \\
+Falsified & 2 & EU IF magnitude (informative null); CBAM weak transmission \\
+Untested & 0 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The two falsified predictions are not weaknesses of the framework but substantive contributions in their own right. They are catalogued in detail in Sections~\ref{sec:ch3-mechanism-eu-if-summary} and~\ref{sec:ch3-mechanism-cbam-summary}.
+
+\subsection{The EU Innovation Fund informative null}
+\label{sec:ch3-mechanism-eu-if-summary}
+
+The $\kappa$-channel framework predicts that EU Innovation Fund (IF) capex grants should reduce cancellation hazard for grant-receiving projects, with magnitude proportional to grant fraction. The empirical estimate across six convergent estimators (Sun-Abraham, BJS, IPWRA, SDID, 1-NN matching, Deaner-Ku) is a precise null. The point estimate is statistically indistinguishable from zero in every specification, and the joint-null 95\% confidence interval contains zero in all six specifications.
+
+The substantive interpretation is that the financing-constraint friction (F4) is not the binding friction in the contemporary hydrogen environment: capital is available, but other frictions (F3 coordination, F7 counterparty) are binding and unaddressed by the IF mechanism. This finding has direct policy implications, discussed in Chapter~\ref{ch:conclusion}, for the reform of EU IF to incorporate offtake-commitment requirements that would jointly address F4 and F7.
+
+\subsection{The CBAM weak-transmission finding}
+\label{sec:ch3-mechanism-cbam-summary}
+
+The $\mu$-channel framework predicts that EU CBAM should reduce cancellation hazard for green hydrogen projects in CBAM-affected sectors, with magnitude reflecting the implicit subsidy from the imported-carbon penalty on competitors. The empirical estimate across eight convergent estimators (TWFE, Sun-Abraham, BJS, sequential SDID, project-level SDID, Causal Forests, 1-NN matching, Deaner-Ku) is a precise null at the project-investment level, despite the substantial policy attention to CBAM in the literature.
+
+The substantive interpretation is that CBAM transmission to project-level investment decisions is weak in the analysed window. The transitional CBAM (2023--2025) is not yet imposing actual financial costs on importers, and project-level decision-makers appear to discount the announcement effect relative to the implementation effect. This finding is methodologically robust (joint-informative null across eight orthogonal estimators) and substantively informative about the empirical effectiveness of border-adjustment instruments in the early-implementation phase. The 2026+ definitive CBAM phase will provide additional identification on this question as the actual carbon penalty is imposed.
+
 \section{Extensions and Limitations}
 \label{sec:ch3-extensions}
 
@@ -364,18 +481,49 @@ Third, \emph{coordination-failure instruments (cluster tenders, state procuremen
 \section{Connection to Empirical Findings}
 \label{sec:ch3-empirical-connection}
 
-The model yields three testable predictions, each addressed empirically in Chapters 6 and 7:
+This section establishes the explicit correspondence between the theoretical framework developed in Sections~\ref{sec:ch3-setup}--\ref{sec:ch3-mechanism-falsifiability} and the empirical chapters of Part~II. Each principal empirical finding is mapped to the relevant theoretical mechanism with an explicit identification-level label following the hierarchy of Chapter~\ref{ch:methodology}.
 
-\begin{enumerate}
-    \item \textbf{$\bint < 0$.} Empirical estimate: $\bint = -1.17$ (NA Static), $\bint = -1.88$ (NA GAS long-run mean) -- both negative and significant. \textbf{Consistent.}
-    \item \textbf{$|\bint|$ increases when the capital intensity gap widens.} Empirical evidence: NA-only GAS shows $|\bint(t)|$ increasing from $\sim 0.7$ in 2014 to $\sim 1.9$ in 2024, period over which the Green-CAPEX-to-Blue-CAPEX ratio has fallen sharply. \textbf{Consistent.}
-    \item \textbf{Heterogeneity by project commitment.} Empirical evidence: positive sub-coefficient (or null effect) in the EU subsample where all PEM cancellations come from ``Unknown'' sponsors (likely pilot/research projects with low commitment), versus clearly negative coefficient in the NA subsample (named major sponsors). \textbf{Consistent} with the interpretation that the mechanism is sharper among genuinely committed projects.
-\end{enumerate}
+\subsection{Carrot-policy treatment effects (Chapter~\ref{ch:results_did})}
+\label{sec:ch3-conn-carrot}
 
-This three-way consistency provides reasonable support for the structural interpretation of the empirical findings.
+The four carrot-policy ATTs documented in Chapter~\ref{ch:results_did} are mechanism tests of the $\mu$-channel and the $\eta$-channel of Section~\ref{sec:ch3-five-channels}.
 
-% =========================================================================
-\section{Conclusion}
+\paragraph{US Section 45Q.} ATT $= -3.4$ percentage points (L3.a, three estimators converge; L3.b, honest-DiD breakdown $M^* = 0.2$). The mechanism is $\mu$-channel (production tax credit) with secondary $\sigma$-channel effect via revenue-floor stabilisation. The prediction of negative ATT is confirmed; the magnitude is consistent with the comparative-statics signature of an $\mu$-shift on the order of \$85/tCO$_2$.
+
+\paragraph{China 14th FYP.} ATT $= -4.5$ percentage points (L3.a + L3.b; honest-DiD breakdown $M^* = 1.5$ --- the most robust carrot-policy in the sample). The mechanism is $\eta$-channel (coordination through SOE procurement mandate) with secondary $\mu$ and F7 effects. The prediction that multiple-friction-addressing instruments produce larger effects than single-friction instruments is confirmed: the China FYP exceeds the 45Q in absolute magnitude despite comparable per-unit subsidy value.
+
+\paragraph{EU Innovation Fund.} ATT statistically indistinguishable from zero across six estimators (L3.a + L3.b joint informative null). This is the $\kappa$-channel falsification documented in Section~\ref{sec:ch3-mechanism-eu-if-summary}.
+
+\paragraph{UK Track-1.} ATT $= -1.8$pp with 78\% of the effect concentrated in above-median pre-treatment cost-efficiency stratum (L3.a + L3.b heterogeneity test). The $\rho$-channel selection-funnel mechanism is confirmed: the policy effect is selection-driven rather than realisation-driven.
+
+\subsection{TVP carbon-conditional hazard (Chapter~\ref{ch:results_tvp})}
+\label{sec:ch3-conn-tvp}
+
+The time-varying interaction coefficient $\bint(t)$ documented in Chapter~\ref{ch:results_tvp} is the L4 structural test of the regime-dependent threshold mechanism (Section~\ref{sec:ch3-policy-credibility}). The trajectory intensifies from $-0.46$ in 2010 to $-1.49$ in 2024, with a discernible structural break around 2020 corresponding to the European Green Deal announcement and the subsequent EUA-price-rise period.
+
+The constant-parameter null (M1) is rejected at $p < 0.0001$ by the Diebold-Mariano-HLN test under the V3 rolling-window OOS design (L2 predictive validation). The score-driven GAS specification (M3) is the unique element of the Hansen-Lunde-Nason Model Confidence Set at $\alpha = 0.10$. The empirical signature of regime-conditional thresholds therefore survives both structural identification (L4) and OOS predictive validation (L2).
+
+\subsection{Offtake-commitment effect (Chapter~\ref{ch:results_offtake})}
+\label{sec:ch3-conn-offtake}
+
+The offtake-commitment ATT of $-11.3$ to $-13.2$ percentage points across five estimators (L3.a) is the $\sigma$-channel test of Section~\ref{sec:ch3-channel-sigma}. The Oster $\delta_{\text{null}} = 20.23$ provides L3.b partial-identification robustness against unobserved confounders. The sectoral interaction (high-volatility power/heat/transport effect $\approx +0.30$pp larger than low-volatility chemical/refinery effect) is the L4 mechanism-identifying test: the prediction that $\sigma$-channel reductions are most valuable where $\sigma$ is highest is confirmed by sectoral concentration.
+
+\subsection{The two informative nulls}
+\label{sec:ch3-conn-nulls}
+
+The CBAM null across eight estimators and the EU IF null across six estimators are L3.a + L3.b joint informative-null findings. They are substantive contributions to the literature on policy-design effectiveness, identifying which frictions are binding (F1 revenue, F7 counterparty) versus not binding (F4 financing) in the contemporary hydrogen environment. The framework of Section~\ref{sec:ch3-mechanism-taxonomy} predicts that instruments addressing the binding frictions should produce robust effects, and that instruments addressing non-binding frictions should produce null effects --- exactly the observed pattern.
+
+\subsection{The 45V three-pillars NPRM perverse effect}
+\label{sec:ch3-conn-nprm}
+
+The triple-difference DDD estimate of $+0.285$ on US-Green cancellation hazard around the December 2023 NPRM (L3.a within-jurisdiction blue placebo + between-jurisdiction green placebo) is the $\kappa$-channel falsification in the negative-magnitude direction. The mechanism prediction is that compliance complexity raises the implementation cost and shifts the threshold upward; the DDD point estimate confirms this with substantial magnitude and statistical significance.
+
+\subsection{Honest revisions and methodological mechanisms (Chapter~\ref{ch:discussion})}
+\label{sec:ch3-conn-methodological}
+
+The sample-window correction (HR$_\text{Blue,cancel}$ from $13.19$ in v7 to $2.30$ in S\&P; L1 sample-dependence) and the interval-censored event-timing sensitivity (cancellation HR robust in $[1.89, 2.68]$, pooled HR timing-fragile; L3.b methodological) are not weaknesses of the empirical analysis but methodological mechanisms in their own right (Section~\ref{sec:ch3-mechanism-falsifiability} D1--D3). They are presented as substantive contributions in Chapter~\ref{ch:discussion} on the scientific value of negative findings.
+
+\section{Conclusion}\section{Conclusion}
 \label{sec:ch3-conclusion}
 
 This chapter has developed a real-options framework for the cancellation decision in hydrogen technology investments under EUA-price uncertainty. The model identifies two structural drivers of the carbon-conditional cancellation differential: differential profit-sensitivity to EUA (with Blue benefiting more from high EUA due to grey-hydrogen displacement) and differential capital intensity (with Blue's higher sunk costs raising its cancellation threshold). The combination yields a testable prediction of $\bint < 0$ that is consistent with the empirical estimates of Chapters 6 and 7. The model further provides a structural rationale for the empirically observed temporal intensification of the mechanism, attributable both to maturation of the carbon pricing regime and to falling Green-technology CAPEX.

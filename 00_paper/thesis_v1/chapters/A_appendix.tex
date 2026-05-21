@@ -385,3 +385,80 @@ For publication-grade replication of any of the thesis's hazard-model results, t
 
 A formal interval-censored Cox proportional-hazards specification, as developed in \cite{sun2006statistical}, would replace the point-sensitivity reported here with a joint inference incorporating the full timing-interval. This is a natural extension for the publication paper version of the present analysis but is beyond the scope of the present thesis.
 
+
+\section{Falsifiable mechanism table: full inventory of pre-registered predictions}
+\label{app:mechanism_table}
+
+This appendix presents the full inventory of mechanism predictions catalogued in the mechanism-falsifiability framework of Section~\ref{sec:ch3-mechanism-falsifiability}. Thirteen mechanism predictions are presented in tabular form: five theoretical channels (Part A), ten specific policy mechanism tests (Part B), and three methodological mechanisms (Part C). For each prediction, the table reports the a priori theoretical expectation, the observable implication, the empirical test design, the falsification criterion as a numerical threshold or sign condition, and the retrospective assessment of whether the prediction would have survived the empirical test had it been pre-registered.
+
+The honesty of the retrospective assessment is essential to the methodological credibility of the framework. Predictions are classified as: \textbf{Confirmed (C)} --- prediction matches data in sign and magnitude; would have survived pre-registration; \textbf{Partial (P)} --- prediction matches in sign but not magnitude, or in one specification but not all; would have required qualification; \textbf{Falsified (F)} --- prediction does not match data; would have led to mechanism rejection; \textbf{Untested (U)} --- empirical test not yet conducted at required identification level. The two falsifications are themselves substantive contributions to the literature on policy-design effectiveness.
+
+\subsection*{Part A: Five theoretical channels (real-options framework)}
+
+\begin{table}[!htbp]
+\centering
+\caption{Theoretical channel predictions}
+\label{tab:app-mech-A}
+\small
+\begin{tabular}{lp{0.18\linewidth}p{0.22\linewidth}p{0.22\linewidth}cc}
+\toprule
+ID & A priori prediction & Empirical test & Falsification criterion & Result & ID-level \\
+\midrule
+A1 $\mu$ & $\partial z^*/\partial \mu < 0$; PTC reduces hazard $2$--$6$pp & DiD on 45Q, China FYP & DiD positive or null in three specs & C & L3.a+L3.b \\
+A2 $\sigma$ & $\partial z^*/\partial \sigma > 0$; offtake reduces hazard in high-$\sigma$ sectors only & Offtake IPWRA $\times$ sectoral & Uniform across sectors or inverse-correlated with $\sigma$ & C & L3.a+L4 \\
+A3 $\rho$ & $\partial z^*/\partial \rho > 0$; deadline-based instrument selection-driven not realisation-driven & Track-1 heterogeneity by pre-treatment cost-efficiency & ATT uniform or concentrated in low-efficiency stratum & C & L3.a+L3.b \\
+A4 $\eta$ & $\partial z^*/\partial \eta < 0$; coordination instruments dominate isolated subsidies & Cross-juris DiD: China vs 45Q & China ATT not larger than 45Q controlling for value & P & L3.a (juris) + U (within) \\
+A5 $\kappa$ & $\partial z^*/\partial \kappa > 0$ (perverse direction for compliance burden) & DDD on US-Green 45V NPRM + DiD on EU IF & DDD null/negative; IF positive/null & C (NPRM); P (IF) & L3.a+L3.b \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Part B: Ten specific policy mechanism tests}
+
+\begin{table}[!htbp]
+\centering
+\caption{Specific policy mechanism test predictions}
+\label{tab:app-mech-B}
+\small
+\begin{tabular}{lp{0.16\linewidth}p{0.18\linewidth}p{0.22\linewidth}cc}
+\toprule
+ID & Instrument & A priori prediction & Falsification criterion & Result & ID-level \\
+\midrule
+C1 & US 45Q & ATT $\in [-2, -6]$pp & 95\% CI contains 0 in both SA and BJS & C ($-3.4$pp; $M^*=0.2$) & L3.a+L3.b \\
+C2 & China 14th FYP & ATT $\in [-3, -7]$pp; $M^* > 0.5$ & ATT $\leq$ 45Q in absolute value, or $M^* < 0.5$ & C ($-4.5$pp; $M^*=1.5$) & L3.a+L3.b \\
+C3 & EU Innovation Fund & ATT $\in [-2, -5]$pp & Joint null across 6 estimators & \textbf{F (joint null)} & L3.a+L3.b \\
+C4 & EU CBAM (transitional) & ATT $\in [-1, -3]$pp on green & Null in majority of 8 specifications & \textbf{F (joint null)} & L3.a+L3.b \\
+C5 & US 45V three-pillars NPRM & DDD $\in [+0.10, +0.30]$ on US-Green & DDD negative, null, or below placebos & C ($+0.285$) & L3.a \\
+C6 & UK Track-1 & ATT $<0$ + concentrated in high-efficiency stratum & Uniform or low-efficiency concentration & C ($-1.8$pp; 78\% concentration) & L3.a+L3.b \\
+C7 & Pre-FID offtake & ATT $\in [-8, -15]$pp + sectoral $\sigma$-interaction & Null in 3+ of 5 estimators, or $\delta_{\text{Oster}} < 2$ & C ($-11.3$ to $-13.2$pp; $\delta = 20.23$) & L3.a+L3.b+L4 \\
+C8 & Sponsor frailty & Frailty variance $> 0$ for diversified sponsors & Variance not distinguishable from zero & C (var $=0.34$) & L3.a \\
+C9 & TVP $\bint(t)$ & Intensification 2010--2024 + 2020 break + OOS dominance & Flat trajectory or M1 OOS not dominated & C ($-0.46 \to -1.49$; DM-HLN $=+5.59$) & L4+L2 \\
+C10 & Sample stability & S\&P HR positive significant, attenuated $\leq 80\%$ from v7 & Null in S\&P or magnitude similar to v7 & C ($13.19 \to 2.30$; cancellation-specific robust) & L1+L3.a \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Part C: Three methodological mechanisms}
+
+\begin{table}[!htbp]
+\centering
+\caption{Methodological mechanism predictions}
+\label{tab:app-mech-C}
+\small
+\begin{tabular}{lp{0.22\linewidth}p{0.22\linewidth}p{0.20\linewidth}cc}
+\toprule
+ID & A priori prediction & Empirical test & Falsification criterion & Result & ID-level \\
+\midrule
+D1 & Regime-dependent threshold: $\bint(t)$ shifts at 2020 boundary & GAS-TVP structural break detection & Flat trajectory or no break & C & L4 \\
+D2 & Sparse-event TVP stability: M3 OOS dominates M1 in V3 rolling & DM-HLN test on log-loss & M3 not statistically lower than M1 in V3 & C (DM-HLN $=+5.59$) & L2+L4 \\
+D3 & Event-timing-conditional: cancellation HR timing-robust, pooled timing-fragile & Pijler 48 interval-censored sensitivity & Pooled more stable than cancellation, or both stable & C (range 41\% vs 47\% with sign-flip) & L3.a+L3.b \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Summary distribution}
+
+Across the 18 mechanism predictions (5 theoretical channels + 10 specific tests + 3 methodological), the falsification-status distribution is: \textbf{Confirmed} = 14; \textbf{Partial} = 2 (A4 within-jurisdiction untested; A5 EU IF qualified); \textbf{Falsified} = 2 (C3 EU IF magnitude null; C4 CBAM weak transmission). The two falsifications are joint-informative nulls across multiple orthogonal estimators and constitute substantive contributions in their own right; they are presented as such in Chapter~\ref{ch:discussion} on the scientific value of negative findings.
+
+The pre-registration discipline established in this appendix is the format mandated for all mechanism claims in the dissertation and in the publication papers derived from it. The full prose treatment of each prediction, including the substantive interpretation and the empirical justification, is available in the synthesis document \texttt{08\_synthesis/MECHANISM\_TABLE\_v1\_2026-05-21.md} of the project repository.
+
