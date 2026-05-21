@@ -1,38 +1,5 @@
-% =========================================================================
-% Chapter 7: Time-Varying Carbon-Conditional Hazard — A State-Space Approach
-% VERSION 2 — bevat alle bevindingen van 18 mei avondsessie
-% Sake Saakstra, MSc EOR thesis, Vrije Universiteit Amsterdam
-% Supervisor: prof. dr. S.J. Koopman
-% =========================================================================
-\documentclass[11pt,a4paper]{article}
-
-\usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,bm}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{natbib}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{caption}
-\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
-
-\title{\textbf{Chapter 7 (v2)}\\[0.3em] Time-Varying Carbon-Conditional Hazard:\\
-A State-Space Approach to Hydrogen Project Cancellation}
-\author{Sake Saakstra \\ \small Supervisor: prof. dr. S.J. Koopman}
-\date{Draft v2, \today}
-
-\newcommand{\bint}{\beta_{\mathrm{int}}}
-\newcommand{\bblue}{\beta_{\mathrm{blue}}}
-\newcommand{\beua}{\beta_{\mathrm{eua}}}
-\newcommand{\E}{\mathbb{E}}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-We test whether the carbon-conditional cancellation mechanism in blue versus green hydrogen projects exhibits temporal variation over 2010--2026 using three nested specifications: a static baseline, a parameter-driven Gaussian random walk over economic regimes, and an observation-driven Generalised Autoregressive Score (GAS) framework. On the cleanest data subsample (North American projects, free from sponsor confounding), all three specifications confirm a robust negative carbon-conditional coefficient; the GAS trajectory reveals gradual intensification of the mechanism from $\bint \approx -0.7$ in 2014 to $\bint \approx -1.9$ in 2024. Apparent ``regime anomalies'' in the pooled sample (notably a wide credible interval in 2023--2024) are demonstrated to reflect data composition artefacts in the European subsample, specifically the systematic association between PEM cancellation events and sponsors recorded as ``Unknown.'' A Difference-in-Differences specification around the August 2022 Inflation Reduction Act is implemented but yields insufficient power for causal identification.
-\end{abstract}
-
+\chapter{Results II: Time-Varying Carbon-Conditional Hazard}
+\label{ch:results_tvp}
 % =========================================================================
 \section{Introduction and Motivation}
 \label{sec:ch7-intro}
@@ -45,9 +12,9 @@ We develop a sequence of three nested specifications, each relaxing assumptions 
 \begin{enumerate}
     \item[(M1)] \textbf{Static}: $\bint(t) = \bint$ for all $t$.
     \item[(M2)] \textbf{Parameter-driven TVP}: $\bint(t)$ follows a Gaussian random walk over economically motivated time blocks.
-    \item[(M3)] \textbf{Observation-driven TVP (GAS)}: $\bint(t)$ updates according to the score of the likelihood, following \citet{creal2008general, creal2013generalized}.
+    \item[(M3)] \textbf{Observation-driven TVP (GAS)}: $\bint(t)$ updates according to the score of the likelihood, following \cite{creal2008general, creal2013generalized}.
 \end{enumerate}
-The progression mirrors the parameter-driven vs. observation-driven distinction developed in \citet{koopman2016predicting}.
+The progression mirrors the parameter-driven vs. observation-driven distinction developed in \cite{koopman2016predicting}.
 
 Crucially, we present results both for the pooled sample and for the North American subsample. As documented in Section \ref{sec:ch7-results-stratified}, the pooled findings mask substantial heterogeneity attributable to data composition artefacts in the European subsample, where all PEM cancellation events originate from sponsors recorded as ``Unknown.'' The North American subsample, where Blue cancellations are observed from major energy companies (Exxon, Marathon, Praxair, Suncor) and the sponsor composition is more balanced, provides the cleanest setting for inference about the time-varying carbon-conditional mechanism.
 
@@ -145,17 +112,17 @@ Before turning to regional stratification (Section \ref{sec:ch7-regional}), we r
 
 \subsection{In-sample model fit}
 
-\paragraph{Hosmer-Lemeshow goodness-of-fit.} We compute the Hosmer-Lemeshow statistic with 10 deciles \citep{hosmer2013applied}. Under the null hypothesis that the model fits the data adequately, the statistic follows a $\chi^2$ distribution with $G-2 = 8$ degrees of freedom. We obtain $\chi^2 = 7.79$ with $p = 0.454$, providing no evidence against adequate model fit.
+\paragraph{Hosmer-Lemeshow goodness-of-fit.} We compute the Hosmer-Lemeshow statistic with 10 deciles \cite{hosmer2013applied}. Under the null hypothesis that the model fits the data adequately, the statistic follows a $\chi^2$ distribution with $G-2 = 8$ degrees of freedom. We obtain $\chi^2 = 7.79$ with $p = 0.454$, providing no evidence against adequate model fit.
 
 \paragraph{Discrimination and calibration.} The Area Under the ROC curve (AUC) is $0.805$, indicating excellent discrimination between cancellation and non-cancellation projects according to standard interpretation guidelines ($0.70 < \mathrm{AUC} < 0.80$ adequate, $0.80 < \mathrm{AUC} < 0.90$ excellent). The Brier score is $0.052$, and decile-based calibration yields a calibration slope of $0.891$ (ideal value $1.00$) and $R^2_{\mathrm{cal}} = 0.93$, demonstrating that predicted probabilities are well-aligned with observed event rates across the risk spectrum.
 
 \subsection{Cox proportional-hazards cross-check}
 
-A natural concern with discrete-time logit hazard models is that the conclusions may depend on the model class. We re-estimate the baseline specification as a continuous-time Cox proportional-hazards model \citep{cox1972regression} with the same covariates. The Cox PH model yields $\hat\beta_{\mathrm{is\_blue\_ccs}} = +1.829$ (SE 0.387, $p < 0.001$), corresponding to a hazard ratio of $6.23$. The discrete-time logit gives $\mathrm{HR} = 7.81$. The two model classes give estimates that differ by about 20\%, with identical sign and significance. We conclude that the principal finding — substantially elevated cancellation hazard for Fossil-with-CCS projects relative to PEM electrolysis — is robust across model classes.
+A natural concern with discrete-time logit hazard models is that the conclusions may depend on the model class. We re-estimate the baseline specification as a continuous-time Cox proportional-hazards model \cite{cox1972regression} with the same covariates. The Cox PH model yields $\hat\beta_{\mathrm{is\_blue\_ccs}} = +1.829$ (SE 0.387, $p < 0.001$), corresponding to a hazard ratio of $6.23$. The discrete-time logit gives $\mathrm{HR} = 7.81$. The two model classes give estimates that differ by about 20\%, with identical sign and significance. We conclude that the principal finding — substantially elevated cancellation hazard for Fossil-with-CCS projects relative to PEM electrolysis — is robust across model classes.
 
 \subsection{Proportional-hazards assumption test (Schoenfeld residuals)}
 
-Crucially, the Cox model relies on the proportional-hazards (PH) assumption: the effect of each covariate must be constant over event time. We test this formally using scaled Schoenfeld residuals \citep{grambsch1994proportional}. The covariate-specific tests are:
+Crucially, the Cox model relies on the proportional-hazards (PH) assumption: the effect of each covariate must be constant over event time. We test this formally using scaled Schoenfeld residuals \cite{grambsch1994proportional}. The covariate-specific tests are:
 
 \begin{table}[ht]
 \centering
@@ -377,7 +344,7 @@ The most notable empirical finding in the North America-only analysis is the gra
 
 \subsection{Apparent ``regime anomalies'' can reflect data composition rather than economic regime change}
 
-A consequential methodological point is that the apparent 2023--2024 ``anomaly'' in the pooled block-specification ($\bint = -0.75$, 95\% CrI $[-1.90, +0.43]$) does not reflect a genuine breakdown of the carbon-conditional mechanism but rather the differential weight of the European subsample, where the comparison technology-versus-sponsor is confounded. This finding parallels broader literature on the importance of sample composition in empirical industrial organisation \citep{durbin2012time}: parameter-driven random walk specifications, while flexible, can produce misleading regime impressions when within-block data composition heterogeneity is correlated with the treatment of interest.
+A consequential methodological point is that the apparent 2023--2024 ``anomaly'' in the pooled block-specification ($\bint = -0.75$, 95\% CrI $[-1.90, +0.43]$) does not reflect a genuine breakdown of the carbon-conditional mechanism but rather the differential weight of the European subsample, where the comparison technology-versus-sponsor is confounded. This finding parallels broader literature on the importance of sample composition in empirical industrial organisation \cite{durbin2012time}: parameter-driven random walk specifications, while flexible, can produce misleading regime impressions when within-block data composition heterogeneity is correlated with the treatment of interest.
 
 \subsection{The observation-driven (GAS) specification mitigates this issue}
 
@@ -404,15 +371,13 @@ Third, the North American GAS specification reveals an empirically previously un
 
 Fourth, a Difference-in-Differences specification around the 2022 IRA introduction yields an insignificant interaction coefficient ($\beta_{\mathrm{IRA}} = -0.15$, 95\% CrI $[-1.9, +1.5]$), insufficient power for causal identification of an IRA-specific effect on the differential.
 
-Methodologically, the chapter demonstrates the complementary value of parameter-driven and observation-driven TVP specifications in survival-style hazard analysis with sparse events, drawing on the framework of \citet{koopman2016predicting}. Substantively, it documents both robustness of the carbon-conditional mechanism in clean data and the gradual intensification of this mechanism over time --- two findings that together strengthen the empirical case for treating carbon pricing as a structural determinant of hydrogen project survival in the energy transition.
+Methodologically, the chapter demonstrates the complementary value of parameter-driven and observation-driven TVP specifications in survival-style hazard analysis with sparse events, drawing on the framework of \cite{koopman2016predicting}. Substantively, it documents both robustness of the carbon-conditional mechanism in clean data and the gradual intensification of this mechanism over time --- two findings that together strengthen the empirical case for treating carbon pricing as a structural determinant of hydrogen project survival in the energy transition.
 
 % =========================================================================
-\bibliographystyle{apalike}
-
 \section{Conditional Score Residuals Diagnostic}
 \label{sec:ch7-csr}
 
-The GAS-TVP model in Section~\ref{sec:ch7-gas} produces a posterior path $\hat\beta_{\mathrm{int}}(t)$ that intensifies from $-0.46$ (2010) to $-1.49$ (2024). A natural and methodologically up-to-date diagnostic for the validity of this fit is the \emph{Conditional Score Residuals} test of \citet{blasques2025conditional}, which targets one of the central identifying assumptions of any score-driven model: under correct specification, the score residuals $\{s_t\}$ should exhibit no remaining serial dependence. Any unmodelled autocorrelation in $\{s_t\}$ would indicate that the GAS recursion $\beta_{\mathrm{int}}(t+1) = \omega(1-\phi) + \phi\,\beta_{\mathrm{int}}(t) + \alpha_{\mathrm{gas}}\,s_t$ has not captured all of the relevant time-varying dynamics.
+The GAS-TVP model in Section~\ref{sec:ch7-gas} produces a posterior path $\hat\beta_{\mathrm{int}}(t)$ that intensifies from $-0.46$ (2010) to $-1.49$ (2024). A natural and methodologically up-to-date diagnostic for the validity of this fit is the \emph{Conditional Score Residuals} test of \cite{blasques2025conditional}, which targets one of the central identifying assumptions of any score-driven model: under correct specification, the score residuals $\{s_t\}$ should exhibit no remaining serial dependence. Any unmodelled autocorrelation in $\{s_t\}$ would indicate that the GAS recursion $\beta_{\mathrm{int}}(t+1) = \omega(1-\phi) + \phi\,\beta_{\mathrm{int}}(t) + \alpha_{\mathrm{gas}}\,s_t$ has not captured all of the relevant time-varying dynamics.
 
 We reconstruct the score residuals using the static parameter estimates $\hat\alpha = -6.75$, $\hat\beta_{\mathrm{blue}} = +2.46$, $\hat\beta_{\mathrm{eua}} = +1.28$ from a baseline binomial GLM, combined with the GAS posterior path $\hat\beta_{\mathrm{int}}(t)$, applied to the year~$\times$~technology aggregated panel ($N_{\mathrm{years}} = 17$, 2010--2026). The score residual for year $t$ is
 $$
@@ -440,9 +405,9 @@ Variance pre/post 2018 ($F$) & $328.1$ & $<0.001$ & $\triangle$ heteroskedastic 
 \end{tabular}
 \end{table}
 
-The five tests for serial dependence (Ljung-Box at four lags, AR(1) coefficient, and the runs test) all fail to reject the null of no remaining structure in $\{s_t\}$, with $p$-values ranging from $0.281$ to $0.804$. This is a positive result: the GAS recursion captures the temporal dynamics of the score sufficiently well that no obvious autocorrelation remains, which is precisely the condition under which the \citet{creal2013generalized} score-driven framework yields consistent parameter estimates.
+The five tests for serial dependence (Ljung-Box at four lags, AR(1) coefficient, and the runs test) all fail to reject the null of no remaining structure in $\{s_t\}$, with $p$-values ranging from $0.281$ to $0.804$. This is a positive result: the GAS recursion captures the temporal dynamics of the score sufficiently well that no obvious autocorrelation remains, which is precisely the condition under which the \cite{creal2013generalized} score-driven framework yields consistent parameter estimates.
 
-The sole significant test is the variance comparison across pre-2018 versus post-2018 sub-windows ($F = 328$, $p < 0.001$). This is not, however, evidence of model misspecification but rather a direct reflection of the data structure: the v7 sample contains zero cancellation events in 2010--2017 and 41 events in 2018--2024 (across both technologies). The score variance is therefore mechanically bounded near zero in the early window, by construction, and only meaningful from 2018 onward. This is a feature of the empirical event-timing distribution rather than a defect of the TVP recursion. A heteroskedasticity-robust variant of the GAS model \citep[along the lines of][]{blasques2024robust} would be the appropriate methodological extension if heteroskedasticity in $s_t$ were a concern for inference, but for the present application the unconditional posterior intervals reported in Section~\ref{sec:ch7-gas} already incorporate this variance through the Bayesian posterior.
+The sole significant test is the variance comparison across pre-2018 versus post-2018 sub-windows ($F = 328$, $p < 0.001$). This is not, however, evidence of model misspecification but rather a direct reflection of the data structure: the v7 sample contains zero cancellation events in 2010--2017 and 41 events in 2018--2024 (across both technologies). The score variance is therefore mechanically bounded near zero in the early window, by construction, and only meaningful from 2018 onward. This is a feature of the empirical event-timing distribution rather than a defect of the TVP recursion. A heteroskedasticity-robust variant of the GAS model \cite{blasques2024robust} would be the appropriate methodological extension if heteroskedasticity in $s_t$ were a concern for inference, but for the present application the unconditional posterior intervals reported in Section~\ref{sec:ch7-gas} already incorporate this variance through the Bayesian posterior.
 
 \begin{figure}[ht]
 \centering
@@ -451,7 +416,7 @@ The sole significant test is the variance comparison across pre-2018 versus post
 \label{fig:ch7-csr}
 \end{figure}
 
-The overall conclusion is that the GAS-TVP fit is dynamically well-calibrated: the score-driven recursion captures the temporal evolution of the Blue-vs-PEM carbon-conditional gap without leaving unmodelled autocorrelation in the residuals. The carbon-conditional intensification from $-0.46$ in 2010 to $-1.49$ in 2024 is therefore not an artefact of misspecified TVP dynamics. This diagnostic provides the missing methodological seal on Chapter~6: the empirical finding that the Blue-vs-PEM cancellation gap intensifies under carbon-price pressure is supported by the most recent score-driven diagnostic technology available in the Koopman tradition \citep{blasques2025conditional}.
+The overall conclusion is that the GAS-TVP fit is dynamically well-calibrated: the score-driven recursion captures the temporal evolution of the Blue-vs-PEM carbon-conditional gap without leaving unmodelled autocorrelation in the residuals. The carbon-conditional intensification from $-0.46$ in 2010 to $-1.49$ in 2024 is therefore not an artefact of misspecified TVP dynamics. This diagnostic provides the missing methodological seal on Chapter~6: the empirical finding that the Blue-vs-PEM cancellation gap intensifies under carbon-price pressure is supported by the most recent score-driven diagnostic technology available in the Koopman tradition \cite{blasques2025conditional}.
 
 
 
@@ -459,7 +424,7 @@ The overall conclusion is that the GAS-TVP fit is dynamically well-calibrated: t
 \section{Score-Driven Stochastic Volatility Extension}
 \label{sec:ch7-sv}
 
-The Conditional Score Residuals diagnostic in Section~\ref{sec:ch7-csr} identifies a single piece of evidence that does not align with full GAS-TVP correctness: the heteroskedasticity test, which detects a 328-fold variance ratio between pre-2018 and post-2018 sub-windows. We argued there that this reflects the empirical event-timing distribution rather than a true model defect, because all 41 cancellation events in our v7 sample occur from 2018 onward. A more rigorous way to settle this question is to formally test whether the score-driven framework needs to be \emph{extended} with a stochastic-volatility component, in the tradition of \citet{harvey2008beta} and \citet{creal2013generalized}. Specifically, we fit a GAS-vol model
+The Conditional Score Residuals diagnostic in Section~\ref{sec:ch7-csr} identifies a single piece of evidence that does not align with full GAS-TVP correctness: the heteroskedasticity test, which detects a 328-fold variance ratio between pre-2018 and post-2018 sub-windows. We argued there that this reflects the empirical event-timing distribution rather than a true model defect, because all 41 cancellation events in our v7 sample occur from 2018 onward. A more rigorous way to settle this question is to formally test whether the score-driven framework needs to be \emph{extended} with a stochastic-volatility component, in the tradition of \cite{harvey2008beta} and \cite{creal2013generalized}. Specifically, we fit a GAS-vol model
 $$
 \log\sigma^2_{t+1} \;=\; \psi + \lambda\,\big(\log\sigma^2_t - \psi\big) + \alpha_h\,s_{h,t}, \qquad s_{h,t} \;=\; \tfrac{1}{2}\!\left(\frac{y_t^2}{\sigma^2_t} - 1\right),
 $$
@@ -490,7 +455,7 @@ The likelihood-ratio test fails to reject the constant-variance specification ($
 
 First, our Chapter~6 GAS-TVP is methodologically sufficient as specified: a one-parameter constant-variance assumption on the score residuals is not significantly worse than a three-parameter SV extension. The carbon-conditional intensification finding $\hat\beta_{\mathrm{int}}(t)$ from $-0.46$ in 2010 to $-1.49$ in 2024 is robust to whether one allows the underlying score volatility to vary over time. Second, the empirical heteroskedasticity documented in Section~\ref{sec:ch7-csr} (the $F = 328$ pre/post-2018 variance ratio) is essentially mechanical: with zero events in 2010--2017 and 41 events in 2018--2024, the score variance is bounded near zero by construction in the early sub-window and is meaningful only in the later sub-window. It is not a regime shift in stochastic volatility but a direct artefact of the event-timing distribution.
 
-Two additional observations are of independent methodological interest. The filtered log-volatility path $\hat{\log\sigma}^2_t$ exhibits a sharp single-period spike in 2024, with $\hat\sigma_{2024} = 2.15$ versus a baseline of approximately $\hat\sigma_{2010-2023} \approx 0.90$ --- consistent with the empirically observed 2023--2024 cancellation wave and aligned with what \citet{odenweller2025green} document for the broader green-hydrogen pipeline. And the persistence estimate is $\hat\lambda = -0.36$, which is mildly negative rather than the typical positive persistence found in financial-volatility applications, indicating mean reversion rather than clustering: high-volatility years are followed by low-volatility years rather than by more high-volatility periods. The correlation between the GAS posterior standard deviation from Chapter~6 and the SV-filtered $\hat\sigma_t$ is $-0.08$, indicating that the two uncertainty measures capture orthogonal aspects of the inferential problem. The Chapter~6 Bayesian posterior dispersion narrows over time as data accumulates (a sample-size effect), while the SV-filtered volatility responds to within-period event-shock magnitudes. Together they imply that the carbon-conditional intensification of $\hat\beta_{\mathrm{int}}(t)$ is identified with increasing precision as the post-2018 event-window opens up, even though the underlying volatility itself does not exhibit persistent regime behaviour.
+Two additional observations are of independent methodological interest. The filtered log-volatility path $\hat{\log\sigma}^2_t$ exhibits a sharp single-period spike in 2024, with $\hat\sigma_{2024} = 2.15$ versus a baseline of approximately $\hat\sigma_{2010-2023} \approx 0.90$ --- consistent with the empirically observed 2023--2024 cancellation wave and aligned with what \cite{odenweller2025green} document for the broader green-hydrogen pipeline. And the persistence estimate is $\hat\lambda = -0.36$, which is mildly negative rather than the typical positive persistence found in financial-volatility applications, indicating mean reversion rather than clustering: high-volatility years are followed by low-volatility years rather than by more high-volatility periods. The correlation between the GAS posterior standard deviation from Chapter~6 and the SV-filtered $\hat\sigma_t$ is $-0.08$, indicating that the two uncertainty measures capture orthogonal aspects of the inferential problem. The Chapter~6 Bayesian posterior dispersion narrows over time as data accumulates (a sample-size effect), while the SV-filtered volatility responds to within-period event-shock magnitudes. Together they imply that the carbon-conditional intensification of $\hat\beta_{\mathrm{int}}(t)$ is identified with increasing precision as the post-2018 event-window opens up, even though the underlying volatility itself does not exhibit persistent regime behaviour.
 
 \begin{figure}[ht]
 \centering
@@ -570,4 +535,3 @@ Odenweller, A., \& Ueckerdt, F. (2025).
 
 \end{thebibliography}
 
-\end{document}

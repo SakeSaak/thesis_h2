@@ -1,35 +1,5 @@
-% =========================================================================
-% Chapter 4: Data Description
-% Sake Saakstra, MSc EOR thesis, Vrije Universiteit Amsterdam
-% Supervisor: prof. dr. S.J. Koopman
-% =========================================================================
-\documentclass[11pt,a4paper]{article}
-
-\usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,bm}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{natbib}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{caption}
-\usepackage{makecell}
-\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
-
-\title{\textbf{Chapter 4}\\[0.3em] Data Description:\\
-Constructing a Hydrogen Project Survival Panel}
-\author{Sake Saakstra \\ \small Supervisor: prof. dr. S.J. Koopman}
-\date{Draft v1, \today}
-
-\newcommand{\E}{\mathbb{E}}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-This chapter documents the data construction underpinning the empirical analyses of Chapters 5 through 7. We assemble a project-level survival panel covering 714 announced hydrogen production projects globally between 2001 and 2026, comprising 244 Blue (SMR/ATR with carbon capture) and 470 Green (PEM electrolyser) technology projects. Project-level covariates include announced capacity, region, sponsor identity and type, and cancellation status. We complement the project panel with monthly EUA spot prices over 2010--2024 (mean \euro 30, range \euro 3--96), aggregated to annual averages for matching with the project event-time structure. The resulting person-year panel contains 4{,}162 observations across 714 projects, with 43 cancellation events. We document four important data limitations: systematic under-identification of sponsors for pilot-stage projects (369 of 714 projects have ``Unknown'' sponsor), right-censoring of projects announced post-2024, geographic concentration of Blue projects in oil-major-led regions, and the absence of intermediate project-status milestones (announced $\to$ FEED $\to$ FID $\to$ construction $\to$ operational). These limitations are non-trivial for inference and are explicitly addressed in the empirical chapters.
-\end{abstract}
-
+\chapter{Data}
+\label{ch:data}
 % =========================================================================
 \section{Overview and Data Philosophy}
 \label{sec:ch4-overview}
@@ -42,7 +12,7 @@ This chapter describes our sample construction choices in detail, presents summa
 \section{Primary Data Source}
 \label{sec:ch4-source}
 
-The primary data source is the International Energy Agency (IEA) Hydrogen Production Projects Database \citep{iea2024hydrogenprojects}, a publicly maintained registry of announced low-carbon hydrogen production facilities. The database catalogues projects from initial public announcement through to operational status, including: project name, location (country/region), announced production capacity (in MW for electrolysers or kt H$_2$/year for fossil-based plants), sponsor identity (where publicly disclosed), production technology, announced commissioning date, and current operational status as of the database's most recent update. We use the version of the database current as of January 2026.
+The primary data source is the International Energy Agency (IEA) Hydrogen Production Projects Database \cite{iea2024hydrogenprojects}, a publicly maintained registry of announced low-carbon hydrogen production facilities. The database catalogues projects from initial public announcement through to operational status, including: project name, location (country/region), announced production capacity (in MW for electrolysers or kt H$_2$/year for fossil-based plants), sponsor identity (where publicly disclosed), production technology, announced commissioning date, and current operational status as of the database's most recent update. We use the version of the database current as of January 2026.
 
 We supplement the IEA project data with three additional sources. EU Emissions Allowance (EUA) spot price data is sourced from Refinitiv Eikon for the period January 2010 through December 2024, sampled at monthly frequency. Natural gas spot prices (TTF) and electricity prices are sourced from the same provider, used in robustness checks (Chapter 8). Project sponsor classifications --- distinguishing oil majors, industrial gas companies, utilities, pure-play hydrogen firms, steel firms, and ``other'' (including unknown) --- are constructed from the IEA sponsor field cross-referenced with corporate-registry data. We deliberately retain the granular sponsor identity (e.g., ``BP p.l.c.'', ``Equinor ASA'') alongside the type classification to enable both pooled-type and project-specific analysis.
 
@@ -52,7 +22,7 @@ We supplement the IEA project data with three additional sources. EU Emissions A
 
 \subsection{Technology filter}
 
-Our analysis focuses on the two production technologies that dominate the announced project pipeline: Blue (fossil-based reforming with carbon capture) and Green (PEM electrolyser). Together these account for over 90\% of low-carbon hydrogen project capacity announced through 2024 \citep{iea2024hydrogenprojects}.
+Our analysis focuses on the two production technologies that dominate the announced project pipeline: Blue (fossil-based reforming with carbon capture) and Green (PEM electrolyser). Together these account for over 90\% of low-carbon hydrogen project capacity announced through 2024 \cite{iea2024hydrogenprojects}.
 
 We exclude:
 \begin{itemize}
@@ -234,7 +204,6 @@ The omission biases the estimated cancellation rate downward, especially for pro
 The v7 sample assembled in this chapter forms the empirical foundation of Chapters 5 through 7. The sample comprises 714 announced hydrogen production projects (244 Blue, 470 Green) globally over 2001--2026, with 43 formal cancellation events and a person-year panel of 4{,}162 observations. The data is supplemented by EUA spot prices and sponsor classifications. Four data limitations --- sponsor under-identification, right-censoring of recent projects, geographic concentration of Blue projects in North America, and the formal-announcement definition of cancellation --- are non-trivial and are explicitly accounted for in subsequent empirical chapters. Despite these limitations, the v7 sample is, to the best of our knowledge, the largest and most comprehensive panel of hydrogen project survival data assembled for academic econometric analysis to date.
 
 % =========================================================================
-\bibliographystyle{apalike}
 \begin{thebibliography}{99}
 
 \bibitem[IEA(2024)]{iea2024hydrogenprojects}
@@ -254,4 +223,3 @@ Odenweller, A., Ueckerdt, F., Nemet, G.~F., Jensterle, M., \& Luderer, G. (2022)
 
 \end{thebibliography}
 
-\end{document}

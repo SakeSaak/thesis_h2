@@ -47,7 +47,7 @@ The coefficient $\beta$ is interpreted as the average treatment effect on the tr
 
 \subsection{Sun-Abraham interaction-weighted estimator}
 
-\citet{sun2021estimating} eliminate "forbidden comparisons" by using event-time-specific cohort weights:
+\cite{sun2021estimating} eliminate "forbidden comparisons" by using event-time-specific cohort weights:
 
 \begin{equation}
 \hat{\delta}_e = \sum_{g} \omega(g) \cdot \widehat{ATT}(g, g+e),
@@ -58,7 +58,7 @@ where $e$ is event time (relative to treatment start), $g$ is treatment cohort (
 
 \subsection{Borusyak-Jaravel-Spiess imputation estimator}
 
-\citet{borusyak2024revisiting} (BJS) propose an imputation approach: fit a model to never-treated and pre-treated observations only,
+\cite{borusyak2024revisiting} (BJS) propose an imputation approach: fit a model to never-treated and pre-treated observations only,
 \begin{equation}
 Y_{it} = \alpha_i + \gamma_t + X_{it}' \boldsymbol{\pi} + \varepsilon_{it} \quad \text{for } (i,t) \in \mathcal{U} \cup \mathcal{P},
 \label{eq:methods_bjs}
@@ -69,7 +69,7 @@ where $\mathcal{U}$ is the never-treated set and $\mathcal{P}$ is the pre-treatm
 \widehat{ATT}^{\text{BJS}} = \frac{1}{|\mathcal{T}|} \sum_{(i,t) \in \mathcal{T}} \left( Y_{it} - \hat{Y}_{it}^0 \right),
 \label{eq:methods_bjs_att}
 \end{equation}
-where $\mathcal{T}$ is the treated set. Under correctly-specified parallel trends, BJS attains the semiparametric efficiency bound \citep[Theorem 3]{borusyak2024revisiting}.
+where $\mathcal{T}$ is the treated set. Under correctly-specified parallel trends, BJS attains the semiparametric efficiency bound \cite{borusyak2024revisiting}.
 
 \subsection{Convergence as triangulation}
 
@@ -111,7 +111,7 @@ Y_i = \alpha + \beta T_i + X_i'\boldsymbol{\pi} + u_i.
 
 \paragraph{Propensity score matching.} A propensity score $\hat{e}(X_i) = P(T_i = 1 | X_i)$ is estimated via logistic regression. One-to-three nearest-neighbour matching with replacement is performed on the estimated propensity score. The ATT is the average within-pair outcome difference, with standard errors via 500-iteration bootstrap.
 
-\paragraph{Inverse-probability-weighted regression adjustment.} \citet{robins2000marginal} (IPWRA): outcome models are estimated separately for treated and control units with inverse-probability weights, then the ATE is computed as the average difference in predicted potential outcomes:
+\paragraph{Inverse-probability-weighted regression adjustment.} \cite{robins2000marginal} (IPWRA): outcome models are estimated separately for treated and control units with inverse-probability weights, then the ATE is computed as the average difference in predicted potential outcomes:
 \begin{equation}
 \widehat{ATE}^{\text{IPWRA}} = \frac{1}{n} \sum_{i=1}^{n} \left( \hat{y}_i^{(1)} - \hat{y}_i^{(0)} \right).
 \label{eq:methods_ipwra}
@@ -156,7 +156,7 @@ The Relative Magnitudes (RM) restriction of order $M$ assumes that the post-trea
 \label{eq:methods_rr_ci}
 \end{equation}
 
-The \emph{breakdown $M^*$} is defined as the smallest $M$ at which $0 \in \text{CI}^{\text{RM}}(M)$. Conventional interpretation \citep{rambachan2023more}:
+The \emph{breakdown $M^*$} is defined as the smallest $M$ at which $0 \in \text{CI}^{\text{RM}}(M)$. Conventional interpretation \cite{rambachan2023more}:
 \begin{itemize}[leftmargin=2em]
 \item $M^* < 0.5$: \emph{fragile} --- small pre-trend violations suffice to nullify the effect.
 \item $0.5 \leq M^* < 1$: \emph{moderately robust}.
@@ -166,7 +166,7 @@ The \emph{breakdown $M^*$} is defined as the smallest $M$ at which $0 \in \text{
 
 \subsection{Oster selection-on-unobservables}
 
-As discussed in Section \ref{sec:lit_did}, $\delta_{\text{null}}$ captures the relative magnitude of unobservable-treatment correlation (vs.\ observable-treatment correlation) at which the effect vanishes. The conventional robustness threshold is $|\delta_{\text{null}}| \geq 1$ \citep{oster2019unobservable}.
+As discussed in Section \ref{sec:lit_did}, $\delta_{\text{null}}$ captures the relative magnitude of unobservable-treatment correlation (vs.\ observable-treatment correlation) at which the effect vanishes. The conventional robustness threshold is $|\delta_{\text{null}}| \geq 1$ \cite{oster2019unobservable}.
 
 \section{Counterfactual scenarios and bootstrap inference}
 \label{sec:methods_counterfactual}

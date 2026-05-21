@@ -16,23 +16,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{microtype}
+% \usepackage{microtype}  % not in 2024basic
 
 % --- Math ---
-\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+\usepackage{amsmath,amssymb,amsthm}  % removed bm,mathtools (not in 2024basic)
 
 % --- Tables & figures ---
 \usepackage{graphicx}
 \usepackage{booktabs}
 % \usepackage{multirow}  % not used
 \usepackage{caption}
-\usepackage{subcaption}
+% \usepackage{subcaption}  % not in 2024basic
 % \usepackage{adjustbox}  % not used
 \usepackage{array}
 
 % --- References & links ---
-\usepackage[numbers,sort&compress]{natbib}
-\bibliographystyle{plainnat}
+% \usepackage[numbers,sort&compress]{natbib}  % requires install
+\bibliographystyle{plain}  % was plainnat (natbib-specific)
 \usepackage[hidelinks,colorlinks=false]{hyperref}
 \usepackage{url}
 
@@ -53,6 +53,23 @@
 \newtheorem{assumption}[theorem]{Assumption}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+
+
+% =============================================================================
+% MACROS used by chapters
+% =============================================================================
+\newcommand{\bint}{\beta_{\mathrm{int}}}
+\newcommand{\bblue}{\beta_{\mathrm{blue}}}
+\newcommand{\beua}{\beta_{\mathrm{eua}}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\PB}{\Pi^{B}}
+\newcommand{\PG}{\Pi^{G}}
+\newcommand{\KB}{K^{B}}
+\newcommand{\KG}{K^{G}}
+\newcommand{\cB}{c^{B}}
+\newcommand{\cG}{c^{G}}
+\newcommand{\euro}{EUR\,}
 
 % =============================================================================
 % TITLE PAGE

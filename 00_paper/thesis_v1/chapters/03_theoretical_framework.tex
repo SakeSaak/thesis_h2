@@ -1,43 +1,5 @@
-% =========================================================================
-% Chapter 3: Theoretical Framework — Real Options Model for Hydrogen Project Cancellation
-% Sake Saakstra, MSc EOR thesis, Vrije Universiteit Amsterdam
-% Supervisor: prof. dr. S.J. Koopman
-% =========================================================================
-\documentclass[11pt,a4paper]{article}
-
-\usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,bm}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{natbib}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black}
-
-\newcommand{\bint}{\beta_{\mathrm{int}}}
-\newcommand{\bblue}{\beta_{\mathrm{blue}}}
-\newcommand{\beua}{\beta_{\mathrm{eua}}}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\PB}{\Pi^{B}}
-\newcommand{\PG}{\Pi^{G}}
-\newcommand{\KB}{K^{B}}
-\newcommand{\KG}{K^{G}}
-\newcommand{\cB}{c^{B}}
-\newcommand{\cG}{c^{G}}
-
-\title{\textbf{Chapter 3}\\[0.3em] Theoretical Framework:\\
-A Real Options Model of Carbon-Conditional Hydrogen Project Cancellation}
-\author{Sake Saakstra \\ \small Supervisor: prof. dr. S.J. Koopman}
-\date{Draft v1, \today}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-This chapter develops a real-options framework in the tradition of \citet{dixit1994investment} for the cancellation decision in hydrogen technology investments under carbon-price uncertainty. We model a project sponsor who chooses between continuing investment in a hydrogen production project or exercising a cancellation option. The state variable is the EU Emissions Allowance (EUA) price, modelled as a geometric Brownian motion. Blue (CCS-based) and Green (PEM electrolyser) technologies differ in their capital intensity ($\KB > \KG$) and in their per-period exposure to EUA prices (Blue retains a residual carbon cost relative to Green). The model yields a testable prediction: the differential cancellation hazard of Blue versus Green projects depends negatively on the realised EUA price, with the magnitude of this dependence determined by the capital-intensity differential. This prediction maps directly onto the empirical interaction coefficient $\bint$ estimated in Chapters 6 and 7 and provides a structural anchor for the empirical findings.
-\end{abstract}
-
+\chapter{Theoretical Framework}
+\label{ch:theory}
 % =========================================================================
 \section{Introduction}
 \label{sec:ch3-intro}
@@ -46,7 +8,7 @@ The empirical analysis of Chapters 6 and 7 documents a robust negative carbon-co
 
 This chapter develops a theoretical framework that derives such a coefficient from explicit project economics. The framework is consciously simple: we model a representative project sponsor making a cancellation decision in a real-options setting, with the EUA price as the single stochastic state variable. The simplicity is deliberate: a richer model with multiple state variables (gas prices, equipment costs, capital availability) would generate testable implications that are difficult to disentangle empirically. The single-state model isolates the carbon-pricing mechanism most cleanly, providing a benchmark against which empirical estimates can be compared.
 
-Three contributions follow. First, we provide an explicit economic mechanism connecting the EUA price to the cancellation hazard differential: Blue projects bear higher initial capital sunk costs and retain a small residual operational exposure to carbon prices, while Green projects have lower sunk costs and essentially no operational carbon exposure. Second, we derive the comparative statics that map the model parameters into the sign and magnitude of the empirical interaction coefficient. Third, we situate our empirical findings within the broader literature on irreversible investment under uncertainty, connecting to \citet{pindyck1991irreversibility, dixit1994investment, bolton2021carbon, odenweller2022probabilistic}.
+Three contributions follow. First, we provide an explicit economic mechanism connecting the EUA price to the cancellation hazard differential: Blue projects bear higher initial capital sunk costs and retain a small residual operational exposure to carbon prices, while Green projects have lower sunk costs and essentially no operational carbon exposure. Second, we derive the comparative statics that map the model parameters into the sign and magnitude of the empirical interaction coefficient. Third, we situate our empirical findings within the broader literature on irreversible investment under uncertainty, connecting to \cite{pindyck1991irreversibility, dixit1994investment, bolton2021carbon, odenweller2022probabilistic}.
 
 The remainder of the chapter is organised as follows. Section \ref{sec:ch3-setup} establishes the model setup. Section \ref{sec:ch3-solution} solves the cancellation problem. Section \ref{sec:ch3-comparative} derives comparative statics and the connection to $\bint$. Section \ref{sec:ch3-extensions} discusses extensions and limitations. Section \ref{sec:ch3-conclusion} concludes.
 
@@ -120,7 +82,7 @@ Equivalently, project $\tau$ is cancelled when the EUA price falls below a criti
 
 \subsection{Threshold characterisation}
 
-The optimal cancellation rule is a threshold: project $\tau$ is cancelled whenever $z_t < \bar{z}^{\tau}$. Standard arguments \citep[][Chapter 6]{dixit1994investment} yield:
+The optimal cancellation rule is a threshold: project $\tau$ is cancelled whenever $z_t < \bar{z}^{\tau}$. Standard arguments \cite{dixit1994investment} yield:
 \begin{equation}
 \bar{z}^{\tau} = \frac{r}{b^{\tau}} \left[ c^{\tau}_{\mathrm{fix}} - a^{\tau} + \hat{K}^{\tau} (r - \mu) \right] \cdot \frac{\eta_2}{\eta_2 - 1},
 \label{eq:ch3-threshold}
@@ -191,7 +153,7 @@ The magnitude of $\bint$ depends on the relative profit-sensitivity to EUA price
 Chapter 7 documents that $\bint$ in the North American subsample has gradually strengthened from $\approx -0.7$ in 2014 to $\approx -1.9$ in 2024. The model can rationalise this in two ways:
 \begin{enumerate}
     \item \textbf{Strengthening of the displacement mechanism}: as the EU ETS matured (post-2018 Market Stability Reserve, post-2022 CBAM announcement), the marginal grey-hydrogen producer became increasingly likely to exit at high EUA. This raises $b^B$ relative to $b^G$, strengthening the carbon-conditional differential.
-    \item \textbf{Capital structure shifts}: as PEM electrolyser CAPEX fell from approximately \$ 1200/kg/day in 2014 to below \$ 600/kg/day in 2024 (\citealp{iea2024hydrogen}), the gap $\hat{K}^B - \hat{K}^G$ widened. This increases Blue's relative cancellation sensitivity.
+    \item \textbf{Capital structure shifts}: as PEM electrolyser CAPEX fell from approximately \$ 1200/kg/day in 2014 to below \$ 600/kg/day in 2024 (\cite{iea2024hydrogen}), the gap $\hat{K}^B - \hat{K}^G$ widened. This increases Blue's relative cancellation sensitivity.
 \end{enumerate}
 Both mechanisms predict $|\bint(t)|$ increasing over time, consistent with the GAS posterior trajectory in Chapter 7.
 
@@ -213,7 +175,7 @@ The model assumes a representative Blue and Green project. In practice, projects
 
 \subsection{Policy uncertainty}
 
-EUA price is itself partly a function of policy uncertainty (ETS cap revisions, Market Stability Reserve activations, CBAM implementation timeline). A more sophisticated framework would model regime-switching dynamics for $\mu$ and $\sigma$ \citep{creal2013generalized}, allowing the cancellation threshold to vary across policy regimes.
+EUA price is itself partly a function of policy uncertainty (ETS cap revisions, Market Stability Reserve activations, CBAM implementation timeline). A more sophisticated framework would model regime-switching dynamics for $\mu$ and $\sigma$ \cite{creal2013generalized}, allowing the cancellation threshold to vary across policy regimes.
 
 \subsection{Strategic behaviour}
 
@@ -240,7 +202,6 @@ This three-way consistency provides reasonable support for the structural interp
 This chapter has developed a real-options framework for the cancellation decision in hydrogen technology investments under EUA-price uncertainty. The model identifies two structural drivers of the carbon-conditional cancellation differential: differential profit-sensitivity to EUA (with Blue benefiting more from high EUA due to grey-hydrogen displacement) and differential capital intensity (with Blue's higher sunk costs raising its cancellation threshold). The combination yields a testable prediction of $\bint < 0$ that is consistent with the empirical estimates of Chapters 6 and 7. The model further provides a structural rationale for the empirically observed temporal intensification of the mechanism, attributable both to maturation of the carbon pricing regime and to falling Green-technology CAPEX.
 
 % =========================================================================
-\bibliographystyle{apalike}
 \begin{thebibliography}{99}
 
 \bibitem[Bolton and Kacperczyk(2021)]{bolton2021carbon}
@@ -275,4 +236,3 @@ Pindyck, R.~S. (1991).
 
 \end{thebibliography}
 
-\end{document}

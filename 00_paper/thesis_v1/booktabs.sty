@@ -1,0 +1,26 @@
+% Minimal booktabs replacement for TeX Live 2024basic
+% Uses \let for proper alias semantics
+
+\ProvidesPackage{booktabs}[2024/05/21 minimal booktabs fallback v2]
+
+% \let-based aliases - work properly within tabular's \noalign context
+\let\toprule\hline
+\let\midrule\hline
+\let\bottomrule\hline
+
+% Optional argument variants — just consume and call \hline
+\newcommand{\specialrule}[3]{\hline}
+\newcommand{\cmidrule}[2][]{\cline{#2}}
+\newcommand{\addlinespace}[1][]{\noalign{\medskip}}
+\newcommand{\morecmidrules}{}
+
+% Dummy length values (in case anything references them)
+\newcommand{\heavyrulewidth}{.08em}
+\newcommand{\lightrulewidth}{.05em}
+\newcommand{\cmidrulewidth}{.03em}
+\newcommand{\belowrulesep}{.65ex}
+\newcommand{\aboverulesep}{.4ex}
+\newcommand{\belowbottomsep}{0pt}
+\newcommand{\abovetopsep}{0pt}
+
+\endinput

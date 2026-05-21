@@ -33,7 +33,7 @@ Controls                  & Yes & Yes & Yes \\
 \end{tabular}
 \end{table}
 
-Three substantive findings emerge. \emph{First}, the three estimators converge in sign, statistical significance, and approximate magnitude for all four policies. This convergence rules out the heterogeneous-timing bias that can plague TWFE under staggered treatment \citep{goodman2021difference}. \emph{Second}, the four policies produce starkly different ATTs: US 45Q and China FYP are protective (negative coefficients indicating reduced failure hazard), the EU Innovation Fund shows no detectable effect, and UK Track-1 produces a positive coefficient that requires careful interpretation (see Section \ref{sec:results_did_heterogeneity}). \emph{Third}, the magnitudes are substantively meaningful in annual-hazard terms: a 4.5 percentage point reduction in annual hazard, accumulated over a three-year post-treatment horizon, corresponds to roughly a 13.5 percentage point cumulative reduction in failure probability.
+Three substantive findings emerge. \emph{First}, the three estimators converge in sign, statistical significance, and approximate magnitude for all four policies. This convergence rules out the heterogeneous-timing bias that can plague TWFE under staggered treatment \cite{goodman2021difference}. \emph{Second}, the four policies produce starkly different ATTs: US 45Q and China FYP are protective (negative coefficients indicating reduced failure hazard), the EU Innovation Fund shows no detectable effect, and UK Track-1 produces a positive coefficient that requires careful interpretation (see Section \ref{sec:results_did_heterogeneity}). \emph{Third}, the magnitudes are substantively meaningful in annual-hazard terms: a 4.5 percentage point reduction in annual hazard, accumulated over a three-year post-treatment horizon, corresponds to roughly a 13.5 percentage point cumulative reduction in failure probability.
 
 \subsection{The US 45Q effect}
 
@@ -53,7 +53,7 @@ This interpretation is supported by qualitative case-study evidence (Appendix \r
 
 \subsection{The China FYP effect}
 
-China's 14th Five-Year Plan (2021--2025) integrated hydrogen production within national industrial policy, with implicit state-owned-enterprise (SOE) procurement mandates. The estimated effect, $-0.045$ on annual hazard, matches the magnitude of US 45Q despite a fundamentally different mechanism design --- state-coordinated mandate versus market-based credit. The 14th FYP was succeeded by the 15th FYP (2026--2030) in late 2025, which further elevated hydrogen as a strategic priority \citep{ing2026}.
+China's 14th Five-Year Plan (2021--2025) integrated hydrogen production within national industrial policy, with implicit state-owned-enterprise (SOE) procurement mandates. The estimated effect, $-0.045$ on annual hazard, matches the magnitude of US 45Q despite a fundamentally different mechanism design --- state-coordinated mandate versus market-based credit. The 14th FYP was succeeded by the 15th FYP (2026--2030) in late 2025, which further elevated hydrogen as a strategic priority \cite{ing2026}.
 
 \section{Honest sensitivity bounds}
 \label{sec:honest_did}
@@ -78,13 +78,13 @@ China FYP    & $-0.013$ & $0.005$ & $[-0.024, -0.002]$ & $[-0.029, +0.003]$ & $\
 \end{tabular}
 \end{table}
 
-The honest-DiD results reveal a heterogeneous robustness profile. China FYP survives the strictest test: at $M = 1.5$, post-bias permitted to be 1.5 times the median pre-bias, the 95\% interval still excludes zero. By the conventional interpretation \citep{rambachan2023more}, the China effect is \emph{robust}.
+The honest-DiD results reveal a heterogeneous robustness profile. China FYP survives the strictest test: at $M = 1.5$, post-bias permitted to be 1.5 times the median pre-bias, the 95\% interval still excludes zero. By the conventional interpretation \cite{rambachan2023more}, the China effect is \emph{robust}.
 
 The US 45Q, EU IF, and UK Track-1 estimates do not survive the same scrutiny. At $M \geq 0.5$, all three intervals contain zero. This does \emph{not} imply that the point estimates are incorrect. It means that, in the annual-hazard interpretation, the absolute magnitudes are sufficiently small that even modest unobserved parallel-trends violations could explain them away.
 
 \subsection{Interpretation: layered transparency vs.\ fragility}
 
-The literature on honest DiD bounds emphasises \emph{layered transparency} over universal "robust" framing \citep{rambachan2023more,roth2022pretest}. The present results illustrate this well. The annual-hazard rate has a small absolute baseline (failure approximately 3--5\% per year), so treatment effects of $-0.02$ to $-0.05$, while substantively meaningful in cumulative terms, are mathematically vulnerable to small parallel-trends violations. A pre-trend deviation of $0.005$ (less than half a percentage point in annual hazard) combined with a permissive $M$ suffices to nullify several of our point estimates.
+The literature on honest DiD bounds emphasises \emph{layered transparency} over universal "robust" framing \cite{rambachan2023more,roth2022pretest}. The present results illustrate this well. The annual-hazard rate has a small absolute baseline (failure approximately 3--5\% per year), so treatment effects of $-0.02$ to $-0.05$, while substantively meaningful in cumulative terms, are mathematically vulnerable to small parallel-trends violations. A pre-trend deviation of $0.005$ (less than half a percentage point in annual hazard) combined with a permissive $M$ suffices to nullify several of our point estimates.
 
 The substantive implication is that the China FYP causal claim is the most robust of the four, while US 45Q, EU IF, and UK Track-1 estimates should be qualified as "convergent across multiple DiD specifications, but sensitive to alternative identifying assumptions on the parallel-trends restriction." This qualification is consistent with the standard reporting practice in top-tier econometric journals.
 
