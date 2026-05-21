@@ -1,0 +1,316 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{booktabs, array}
+\usepackage{graphicx, xcolor}
+\usepackage{caption, subcaption}
+\usepackage{eurosym}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black
+}
+\usepackage{natbib}
+\usepackage{setspace}
+\onehalfspacing
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bint}{\beta_{\text{int}}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+
+\title{Dynamic Investment under Transition Uncertainty: \\ A Five-Channel Policy Framework for Clean Technology}
+
+\author{Sake Saakstra\thanks{Vrije Universiteit Amsterdam. Email: \texttt{s.saakstra@vu.nl}. I am grateful to Siem Jan Koopman and Nadine Ketel for guidance, and to seminar participants at VU Amsterdam for valuable feedback. All errors are mine.}}
+
+\date{First draft: \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+Clean-technology investment under policy-regime transition exhibits a structure that the canonical real-options framework of \cite{dixit1994investment} characterises only partially. We develop a dynamic-investment model in which an irreversible project decision is taken sequentially across four lifecycle stages (front-end design, final investment decision, construction, operations) under two sources of stochastic variation: the payoff-determining state variable (e.g.\ carbon price, technology cost) and the policy-regime credibility belief that determines whether the policy environment will persist over the investment horizon. The optimal cancellation policy is characterised by stage-dependent thresholds that respond to five comparative-statics channels: the expected-return channel ($\mu$), the uncertainty channel ($\sigma$), the timing/option-value channel ($\rho$), the coordination channel ($\eta$), and the implementation-cost channel ($\kappa$). The policy-credibility extension delivers a formal proposition that the optimal threshold is monotonically decreasing in policy-credibility belief whenever the policy-conditional payoff exceeds the regime-reversal baseline.
+
+The framework's primary contribution is methodological discipline: each of the five channels is matched to a pre-registered falsifiability criterion that specifies, in advance of empirical testing, both the observable implication and the numerical threshold at which the channel hypothesis would be rejected. This disciplinary structure addresses a long-standing concern in mechanism-based empirical research that mechanisms can be formulated ex-post to rationalise observed patterns. Eighteen mechanism predictions are catalogued, of which fourteen would be classified as confirmed, two as partial, and two as falsified against existing empirical evidence from related clean-hydrogen investment research. The two falsifications --- the EU Innovation Fund capex-grant null and the EU Carbon Border Adjustment Mechanism transitional-phase null --- are themselves substantive contributions to the literature on policy-design effectiveness, identifying which frictions are binding in the contemporary capital-abundant clean-technology environment.
+
+The framework is sector-agnostic and applies to any clean-technology investment context with sufficient sample size, regime-transition observation, and project-level data on cancellation events. The implications for the design of clean-technology policy portfolios are explicit: multi-friction-addressing instruments dominate single-friction high-magnitude instruments; credibility-anchoring instruments substitute for direct payoff transfers; and capex-grant instruments without offtake-commitment requirements are predicted to fail under the prevailing F4-non-binding contemporary environment.
+
+\medskip
+\noindent\textbf{JEL classification}: D81, D92, G31, Q42, Q48, Q55
+
+\noindent\textbf{Keywords}: real options; irreversible investment; policy uncertainty; transition risk; mechanism design; clean technology; pre-registered falsifiability; comparative statics
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+The investment in clean-technology projects --- electrolytic hydrogen production, direct-air-capture, low-carbon ammonia synthesis, sustainable aviation fuel, grid-scale energy storage --- is fundamentally an exercise in irreversible decision-making under transition uncertainty. The sponsor of such a project commits sunk capital across multiple stages of a multi-year development lifecycle in expectation of future operating cash flows whose magnitude depends on policy-regime conditions that the sponsor cannot directly control. The policy regime itself is not constant: governments revise their announced policies, calibrate enforcement, transition between political-economy equilibria, and occasionally reverse direction entirely. The sponsor's investment problem is therefore a dynamic stopping problem under two distinct sources of stochastic variation: the payoff-determining state variable (carbon price, electricity cost, technology learning rate) and the regime-credibility belief that determines whether the prevailing policy environment will persist over the investment horizon.
+
+The canonical real-options framework of \cite{dixit1994investment} and \cite{abel1996options} characterises this problem under a single-state-variable assumption that is increasingly difficult to defend in the contemporary clean-technology environment. The 2019 European Green Deal, the 2022 US Inflation Reduction Act, the December 2023 US 45V three-pillars Notice of Proposed Rulemaking, and the Q4 2023 transitional phase of the EU Carbon Border Adjustment Mechanism each represented a structural revaluation of the long-run policy trajectory in their respective jurisdictions. Sponsors making investment commitments before these events faced a different policy belief than sponsors making the same commitments after the events, even when the contemporaneous values of the directly-payoff-determining state variables (EUA carbon price, US electricity cost) were equal. The single-state-variable framework cannot accommodate this regime-conditional response without imposing strong constancy assumptions on the regime credibility.
+
+The present paper develops a framework that accommodates this dual structure of uncertainty while retaining the analytical tractability of the canonical model. The model has three principal features. First, the project lifecycle is structured as a four-stage sequential commitment process (front-end design, final investment decision, construction, operations) with stage-dependent sunk capital and a stage-dependent cancellation-versus-continuation decision. Second, the optimal stopping policy is characterised by stage-dependent thresholds that respond to comparative-statics shifts in five distinct economic channels: the expected-return channel ($\mu$), the uncertainty channel ($\sigma$), the timing channel ($\rho$), the coordination channel ($\eta$), and the implementation-cost channel ($\kappa$). Third, the policy-credibility extension introduces a reduced-form Bayesian belief variable that captures the sponsor's posterior probability that the policy regime will persist over the investment horizon, and delivers a formal proposition that the optimal cancellation threshold is monotonically decreasing in this credibility belief whenever the policy-conditional payoff exceeds the regime-reversal baseline.
+
+The framework's principal contribution is methodological discipline. Each of the five channels is matched to a pre-registered falsifiability criterion specifying, in advance of empirical testing, both an observable implication and a numerical threshold at which the channel hypothesis would be rejected. This pre-registration discipline addresses a recurrent concern in mechanism-based empirical research --- that mechanisms can be formulated ex-post to rationalise observed empirical patterns, with the result that the mechanism interpretation acquires no incremental evidentiary weight beyond mere consistency with the data. Eighteen mechanism predictions are catalogued in the paper, of which fourteen would be classified as confirmed, two as partial, and two as falsified against the empirical evidence on clean-hydrogen investment documented in related work \citep{saakstra2026paper2, saakstra2026paper3}. The two falsifications --- the EU Innovation Fund informative null and the EU CBAM weak-transmission finding --- are themselves substantive contributions in the sense that they identify which economic frictions are binding in the contemporary clean-technology environment and which are not.
+
+The framework is sector-agnostic. Although the empirical evidence cited in the paper is drawn from the clean-hydrogen sector, the analytical structure applies to any clean-technology investment context that satisfies three conditions: (i) the cancellation event is observable at the project level with reasonable timing precision; (ii) the sample contains at least one identified regime transition; and (iii) the sample size is sufficient to support the partial-identification sensitivity bounds that the framework requires for L3.b identification. Concrete domains that satisfy these conditions and to which the framework should generalise include grid-scale battery storage under capacity-market rule revisions, direct-air-capture under tax-credit phase-ins, low-carbon ammonia under blue-versus-green-pathway selection, and sustainable aviation fuel under mandate-versus-incentive design choices. The cross-domain generalisability is left to follow-up empirical work and is summarised briefly in the discussion section.
+
+The paper proceeds as follows. Section~\ref{sec:literature} positions the framework against the related literature on real-options investment, policy-uncertainty modelling, and mechanism-based policy evaluation. Section~\ref{sec:model} presents the model setup. Section~\ref{sec:optimal-stopping} characterises the optimal stopping policy and derives the stage-dependent threshold equations. Section~\ref{sec:five-channels} presents the five-channel comparative statics that constitute the core analytical content of the framework. Section~\ref{sec:policy-credibility} develops the policy-credibility extension and proves the credibility-conditional threshold proposition. Section~\ref{sec:falsifiability} catalogues the pre-registered mechanism-falsifiability predictions and the retrospective assessment of each against the existing empirical evidence. Section~\ref{sec:discussion} discusses the implications for clean-technology policy design and outlines extensions. Section~\ref{sec:conclusion} concludes.
+
+\section{Related literature}
+\label{sec:literature}
+
+The framework draws on, and extends, four strands of literature.
+
+\subsection{Real-options investment under irreversibility}
+\label{sec:lit-real-options}
+
+The seminal contributions of \cite{dixit1994investment}, \cite{abel1996options}, and \cite{bertola1994irreversible} establish the analytical framework for irreversible investment under stochastic payoff dynamics. The central insight --- that the optimal investment threshold is strictly higher than the Marshallian NPV threshold by the option value of waiting --- delivers the canonical comparative statics on which the present framework builds. Subsequent contributions extending the framework to multiple state variables \citep{pindyck1988irreversible}, jump-diffusion payoff dynamics \citep{boyarchenko2003perpetual}, and learning-by-doing \citep{majd1987time} provide the analytical machinery for the multi-channel comparative statics of Section~\ref{sec:five-channels}. The present framework retains the irreversibility-with-flexibility core of the canonical model but extends it in three directions: (i) the sequential staging of the investment commitment (Section~\ref{sec:model-staging}); (ii) the explicit treatment of policy-regime credibility as a second source of stochastic variation (Section~\ref{sec:policy-credibility}); and (iii) the pre-registered mechanism-falsifiability discipline (Section~\ref{sec:falsifiability}).
+
+\subsection{Policy uncertainty and political-economy regime dynamics}
+\label{sec:lit-policy-uncertainty}
+
+A distinct literature addresses the effect of policy uncertainty on investment, motivated empirically by the volatility of post-2008 macroeconomic policy and the post-2015 climate-policy transitions. \cite{bloom2009impact} documents that policy-uncertainty shocks operate as a wait-and-see mechanism in firm-level investment, with the effect concentrated in industries with large irreversibilities. \cite{baker2016measuring} develop a text-based policy-uncertainty index that has been widely deployed in subsequent applied work. The present framework's policy-credibility extension is closely related to this literature but differs in two respects. First, the credibility belief is treated as a reduced-form Bayesian posterior over a binary persistence-or-reversal regime, rather than as a continuous uncertainty measure. This reduced-form treatment is intentionally less ambitious than a full political-economy formation model (which would endogenise the policy regime as the outcome of strategic interaction between policy-makers and constituents) but sufficient for the comparative-statics implications that motivate the framework. Second, the credibility variable enters the value function multiplicatively on the policy-conditional payoff, rather than additively as a separate uncertainty shock. This multiplicative structure is the source of the credibility-conditional threshold proposition of Section~\ref{sec:policy-credibility}.
+
+\subsection{Mechanism-based policy evaluation}
+\label{sec:lit-mechanism}
+
+The contemporary applied-microeconometrics literature on policy evaluation \citep{angrist2010credibility, athey2017state} emphasises the importance of identifying causal mechanisms behind observed treatment effects, not merely the average-treatment-effect magnitude. The present framework contributes to this literature in two ways. First, the five-channel decomposition delivers an explicit mapping from theoretical mechanisms to observable empirical signatures, with the result that each channel can be tested independently through the heterogeneity-based identification strategies developed in the applied-microeconometrics literature \citep{deaner2019hazard, deaner2022hazard}. Second, the pre-registered falsifiability framework imposes the discipline of specifying observable implications and falsification criteria in advance of empirical testing. This pre-registration discipline is well-developed in the experimental economics and clinical-trial literatures \citep{olken2015promises} but has not been systematically applied to mechanism-based observational policy-evaluation work. The present paper provides a worked example.
+
+\subsection{Clean-technology investment and energy transition}
+\label{sec:lit-clean-tech}
+
+A growing applied literature documents the empirical patterns of clean-technology investment under transition uncertainty \citep{popp2010innovation, fischer2008environmental, acemoglu2012environment, calel2020adoption}. The present framework contributes to this literature by providing the analytical structure that the empirical findings collectively imply but that has not been formalised in a single tractable framework: the optimal-stopping characterisation of irreversible clean-technology investment under sequential staging, multiple economic channels, and dual-source uncertainty. The pre-registered falsifiability discipline supplements existing empirical work by formalising the mechanism interpretations that the empirical literature has typically presented in less disciplined form. Related dissertation work \citep{saakstra2026thesis, saakstra2026paper2, saakstra2026paper3} provides the empirical evidence on which the retrospective falsifiability assessment of Section~\ref{sec:falsifiability} draws.
+
+\section{Model setup}
+\label{sec:model}
+
+The model considers a single project sponsor's investment decision in a clean-technology project over a multi-stage development lifecycle. The lifecycle is structured as four stages, with sunk-capital commitments and cancellation decisions specified at each stage transition.
+
+\subsection{State variables}
+\label{sec:model-state}
+
+Let $z_t \in \R$ denote the payoff-determining state variable at time $t$, evolving according to a continuous-time Brownian motion with drift $\mu$ and volatility $\sigma$:
+\begin{equation}
+dz_t = \mu \, dt + \sigma \, dW_t,
+\label{eq:state-process}
+\end{equation}
+where $W_t$ is a standard Wiener process. In the clean-hydrogen application, $z_t$ is naturally interpreted as the EUA carbon price or as a composite payoff index combining carbon price, electricity cost, and technology learning. For other clean-technology applications, $z_t$ is the analogous payoff-determining variable (capacity-market clearing price for grid storage; tax-credit-conditional revenue for direct-air-capture; mandate-implied price for sustainable aviation fuel).
+
+A second state variable $\pi_t \in [0, 1]$ denotes the sponsor's posterior belief at time $t$ that the prevailing policy regime will persist over the investment horizon. The belief evolves according to a Bayesian updating process driven by exogenous policy events $\{e_t\}$:
+\begin{equation}
+\pi_{t+1} = \mathrm{Bayes}(\pi_t \mid e_{t+1}),
+\label{eq:credibility-update}
+\end{equation}
+where the specific Bayesian operator is unspecified at this level of abstraction. The substantive content is that $\pi_t$ enters the project value function multiplicatively on the policy-conditional payoff component; this multiplicative structure is the source of the credibility-conditional threshold proposition of Section~\ref{sec:policy-credibility}.
+
+\subsection{Project lifecycle and sunk capital}
+\label{sec:model-staging}
+
+The project lifecycle is structured as four stages indexed by $s \in \{1, 2, 3, 4\}$: (i) front-end engineering and design (FEED, $s = 1$), in which the sponsor commits engineering capital but no construction capital; (ii) final investment decision (FID, $s = 2$), at which financing is closed and major contracts are signed; (iii) construction ($s = 3$), in which physical capital is sunk irreversibly; and (iv) operations ($s = 4$), in which the project produces output and earns revenue. Let $K_s$ denote the cumulative sunk capital at stage $s$, with $K_1 < K_2 < K_3$ and $K_4 = K_3$ (no further sunk capital at operational stage). The marginal commitment cost at stage $s$ is $k_s = K_s - K_{s-1}$ with $K_0 = 0$.
+
+The structural feature of the lifecycle is that sunk capital is irrecoverable: cancelling at stage $s \geq 2$ forfeits the entire $K_{s-1}$ already committed. The cancellation option is therefore most valuable at the earliest stages (pre-FID) and progressively less valuable at later stages, a structural feature that the empirical literature on clean-technology investment confirms: the majority of cancellations occur pre-FID, consistent with the sequential-staging implication \citep{saakstra2026thesis}.
+
+\subsection{Payoff structure}
+\label{sec:model-payoff}
+
+The operational-stage value function $V(z, 4; \pi)$ is the expected discounted-cashflow value of the operating project, weighted by the policy-credibility belief:
+\begin{equation}
+V(z, 4; \pi) = \pi \cdot V_{\text{policy}}(z) + (1 - \pi) \cdot V_{\text{baseline}}(z),
+\label{eq:operational-value}
+\end{equation}
+where $V_{\text{policy}}(z)$ is the project value conditional on the policy regime persisting (e.g.\ a clean-hydrogen project earning the 45Q tax credit or the EUA-price-conditional payoff differential) and $V_{\text{baseline}}(z)$ is the value conditional on regime reversal (e.g.\ the project earning only the regime-independent commodity payoff). The substantive content of \eqref{eq:operational-value} is that the credibility belief $\pi$ multiplies the policy-conditional component, with the result that higher credibility raises the conditional expected payoff whenever the policy-conditional value exceeds the baseline.
+
+\begin{assumption}[Policy advantageous]
+\label{ass:policy-advantage}
+$V_{\text{policy}}(z) \geq V_{\text{baseline}}(z)$ for all $z$ in the relevant region of the state space, with strict inequality in the interior.
+\end{assumption}
+\noindent Assumption~\ref{ass:policy-advantage} formalises the substantive content of the clean-technology context: the prevailing policy regime is intended to subsidise or incentivise the clean-technology activity, so the policy-conditional payoff weakly exceeds the regime-reversal baseline. The assumption is innocuous in the clean-hydrogen context and analogous in other clean-technology contexts, but it is not a fundamental requirement of the framework: in contexts where the policy regime imposes a net cost on the activity (e.g.\ punitive regulation), the assumption is reversed and the credibility comparative statics in Section~\ref{sec:policy-credibility} switch sign accordingly.
+
+\section{Optimal stopping policy}
+\label{sec:optimal-stopping}
+
+The optimal investment policy is the solution to the dynamic stopping problem
+\begin{equation}
+V(z, s; \pi) = \max\Big\{0,\; -k_s + \delta \E_{z, \pi}\!\big[V(z', s+1; \pi')\big]\Big\}, \qquad s = 1, 2, 3,
+\label{eq:bellman-recursion}
+\end{equation}
+where $\delta$ is the per-stage discount factor, the expectation is over the joint distribution of $(z', \pi')$ implied by the state-evolution processes \eqref{eq:state-process} and \eqref{eq:credibility-update}, and the operational-stage value $V(z, 4; \pi)$ is given by \eqref{eq:operational-value}. The Bellman recursion is solved backwards from $s = 4$ to $s = 1$.
+
+The optimal policy at each stage $s \in \{1, 2, 3\}$ is characterised by a continuation threshold $z^{*}_{s}(\pi)$ such that the sponsor continues investment whenever $z \geq z^{*}_{s}(\pi)$ and cancels whenever $z < z^{*}_{s}(\pi)$. The threshold is implicitly defined by the value-matching condition
+\begin{equation}
+-k_s + \delta \E_{z, \pi}\!\big[V(z'_{s+1}, s+1; \pi')\big] = 0 \quad \text{at } z = z^{*}_{s}(\pi),
+\label{eq:value-matching}
+\end{equation}
+and the smooth-pasting condition that the derivative of the LHS with respect to $z$ is continuous at $z = z^{*}_{s}(\pi)$.
+
+\begin{proposition}[Sequential-staging threshold ordering]
+\label{prop:threshold-ordering}
+Under the regularity conditions on the value function and Assumption~\ref{ass:policy-advantage}, the stage-dependent thresholds satisfy
+\[
+z^{*}_{1}(\pi) > z^{*}_{2}(\pi) > z^{*}_{3}(\pi)
+\]
+for all $\pi \in (0, 1)$.
+\end{proposition}
+\noindent The proposition formalises the structural intuition that the cancellation option is most valuable at the earliest stages: the pre-FID threshold $z^{*}_{1}$ is the highest because the sunk-capital forfeit is the smallest at that stage, whereas the post-construction threshold $z^{*}_{3}$ is the lowest because the sunk-capital forfeit is essentially total. The empirical implication is that pre-FID cancellation rates exceed post-FID cancellation rates, which the empirical literature on clean-hydrogen investment confirms \citep{saakstra2026thesis}.
+
+\section{Five-channel comparative statics}
+\label{sec:five-channels}
+
+The five channels of policy transmission emerge as comparative-statics derivatives of the optimal threshold $z^{*}_{s}(\pi)$ with respect to the payoff-determining parameters of the model. Each channel corresponds to a distinct economic mechanism through which a policy instrument can shift the threshold and therefore alter the cancellation hazard.
+
+\subsection{The expected-return channel ($\mu$-channel)}
+\label{sec:channel-mu}
+
+The expected-return channel operates through the drift parameter $\mu$ of the state process \eqref{eq:state-process}. An instrument that raises the expected payoff drift --- a production tax credit, a revenue floor, a guaranteed offtake price --- shifts the optimal threshold downward.
+
+\begin{proposition}[$\mu$-channel comparative statics]
+\label{prop:mu-channel}
+$\partial z^{*}_{s}(\pi) / \partial \mu < 0$ for all $s \in \{1, 2, 3\}$ and $\pi \in (0, 1)$.
+\end{proposition}
+\noindent The empirical signature of the $\mu$-channel is a negative average treatment effect of revenue-augmenting instruments on cancellation hazard. The pre-registered falsification criterion is that a DiD estimate of the ATT of a production-payoff instrument on cancellation hazard should be statistically negative in multiple convergent specifications; failure of this prediction would falsify the $\mu$-channel interpretation of the instrument.
+
+\subsection{The uncertainty channel ($\sigma$-channel)}
+\label{sec:channel-sigma}
+
+The uncertainty channel operates through the volatility parameter $\sigma$ of the state process. Higher payoff volatility raises the option value of waiting and therefore raises the threshold; instruments that reduce $\sigma$ --- pre-FID offtake commitments, long-tenor power-purchase agreements, contract-for-differences mechanisms --- shift the threshold downward.
+
+\begin{proposition}[$\sigma$-channel comparative statics]
+\label{prop:sigma-channel}
+$\partial z^{*}_{s}(\pi) / \partial \sigma > 0$ for all $s \in \{1, 2, 3\}$ and $\pi \in (0, 1)$.
+\end{proposition}
+\noindent The empirical signature of the $\sigma$-channel is differentiated by sector: the channel predicts that volatility-reducing instruments should produce \emph{larger} effects in high-volatility sectors and \emph{smaller or null} effects in low-volatility sectors. This sectoral-heterogeneity prediction provides a sharper test of the channel than the average-effect prediction alone, because the sectoral pattern cannot easily be replicated by alternative mechanisms that operate at the aggregate level. The empirical work in \cite{saakstra2026paper3} confirms this prediction for the offtake-commitment instrument: the ATT is concentrated in power and heat ($-0.30$pp) and transport ($-0.27$pp) and substantially smaller in chemical ($-0.04$pp) and refinery ($-0.02$pp).
+
+\subsection{The timing channel ($\rho$-channel)}
+\label{sec:channel-rho}
+
+The timing channel operates through the discount factor $\delta$ or, equivalently, through any policy mechanism that imposes a binding deadline on the investment decision. A higher effective discount rate (lower $\delta$) compresses the value of waiting and raises the threshold; deadline-imposing instruments (cluster tenders with cut-off dates, expiring tax credits, regulatory phase-in deadlines) operate similarly.
+
+\begin{proposition}[$\rho$-channel comparative statics]
+\label{prop:rho-channel}
+$\partial z^{*}_{s}(\pi) / \partial (1/\delta) > 0$ for all $s \in \{1, 2, 3\}$ and $\pi \in (0, 1)$.
+\end{proposition}
+\noindent The empirical signature of the $\rho$-channel is selection-driven: deadline-imposing instruments tend to attract projects that would have continued investment irrespective of the deadline, with the result that the ATT is concentrated in projects with favourable pre-treatment cost structures. The UK Track-1 tender empirical evidence in \cite{saakstra2026paper2} confirms this prediction: 78\% of the Track-1 ATT is concentrated in projects with above-median pre-treatment cost-efficiency scores.
+
+\subsection{The coordination channel ($\eta$-channel)}
+\label{sec:channel-eta}
+
+The coordination channel operates through the conditional expectation in the Bellman recursion \eqref{eq:bellman-recursion} when the value function exhibits complementarities across multiple projects in a network. Specifically, let $V_{\text{policy}}(z, s; n)$ depend on the number $n$ of complementary projects also operating in the network. An instrument that coordinates simultaneous investment across the network --- a state-procurement mandate, a cluster-tender structured to award multiple projects together, an industrial-policy commitment to build a complete value chain --- shifts the conditional expectation of $V_{\text{policy}}$ upward and the threshold downward.
+
+\begin{proposition}[$\eta$-channel comparative statics]
+\label{prop:eta-channel}
+$\partial z^{*}_{s}(\pi) / \partial \eta < 0$ for all $s \in \{1, 2, 3\}$ and $\pi \in (0, 1)$, where $\eta$ is the coordination-conditional payoff augmentation parameter.
+\end{proposition}
+\noindent The empirical signature of the $\eta$-channel is amplification of the average-treatment-effect magnitude in jurisdictions with denser networks of complementary investments. The China 14th Five-Year Plan empirical evidence in \cite{saakstra2026paper2} confirms this prediction: the China FYP estimate ($-4.5$pp) exceeds the US 45Q estimate ($-3.4$pp) despite comparable per-unit subsidy value, consistent with the $\eta$-channel amplification of multi-friction-addressing instruments.
+
+\subsection{The implementation-cost channel ($\kappa$-channel)}
+\label{sec:channel-kappa}
+
+The implementation-cost channel operates through the marginal commitment cost $k_s$ in the Bellman recursion. An instrument that raises implementation costs at any stage --- compliance-complexity rules, additional verification requirements, restrictive eligibility criteria --- shifts the optimal threshold upward. The corollary is that capex-grant instruments that lower $k_s$ should shift the threshold downward.
+
+\begin{proposition}[$\kappa$-channel comparative statics]
+\label{prop:kappa-channel}
+$\partial z^{*}_{s}(\pi) / \partial k_s > 0$ for all $s \in \{1, 2, 3\}$ and $\pi \in (0, 1)$.
+\end{proposition}
+\noindent The $\kappa$-channel admits a perverse-direction empirical test that is particularly informative because the empirical observation can directly identify whether a policy intervention has raised or lowered implementation costs. The US 45V three-pillars Notice of Proposed Rulemaking of December 2023 is the cleanest empirical example: the rulemaking imposed substantial compliance complexity (additionality requirements, hourly time matching, deliverability constraints) on US-Green hydrogen projects, and the triple-difference DDD estimate in \cite{saakstra2026paper2} of $+0.285$ on US-Green cancellation hazard confirms the $\kappa$-channel prediction in the perverse direction. The capex-grant test in the opposite direction is more nuanced: the EU Innovation Fund instrument lowers $k_1$ and $k_2$ in the model but produces a precise empirical null across six convergent estimators. The substantive interpretation, developed in Section~\ref{sec:policy-credibility} and in \cite{saakstra2026paper2}, is that the financing-constraint friction underlying $k_s$ is not the binding friction in the contemporary capital-abundant clean-technology environment.
+
+\section{Policy credibility as reduced-form state variable}
+\label{sec:policy-credibility}
+
+The policy-credibility extension introduces the second state variable $\pi_t \in [0, 1]$ in Section~\ref{sec:model-state}. The substantive content of the extension is captured by the following proposition.
+
+\begin{proposition}[Credibility-conditional threshold]
+\label{prop:credibility-threshold}
+Under Assumption~\ref{ass:policy-advantage} and the regularity conditions of Section~\ref{sec:model}, the optimal cancellation threshold is monotonically decreasing in the credibility belief:
+\[
+\frac{\partial z^{*}_{s}(\pi)}{\partial \pi} < 0 \quad \text{for all } s \in \{1, 2, 3\}.
+\]
+\end{proposition}
+\noindent Proposition~\ref{prop:credibility-threshold} captures the central theoretical contribution of the framework. Policy interventions that anchor regime credibility --- multi-jurisdictional treaty commitments, statutory long-horizon revenue floors, constitutional carbon-budget mechanisms --- substitute for direct payoff transfers in supporting investment, by raising $\pi$ rather than by raising $\mu$ or $\eta$ directly. The implication for policy design is that credibility-anchoring is a fifth-and-a-half channel of policy transmission whose contribution to threshold reduction is structurally distinct from the conventional four channels.
+
+The empirical signature of credibility-conditional thresholds is detectable through the time-varying coefficient $\bint(t)$ in the carbon-conditional cancellation hazard specification. Conditional on the payoff state $z_t$, a structural break in $\bint(t)$ at a major policy-regime transition (the 2019 European Green Deal, the 2022 US Inflation Reduction Act) is direct evidence that $\pi_t$ shifted at the regime boundary. The score-driven GAS specification of \cite{saakstra2026paper1} recovers a discontinuous step in $\bint(t)$ at the 2020 regime boundary that constant-parameter and block-step alternatives cannot accommodate; the present framework provides the structural interpretation of this empirical finding as a credibility-conditional threshold shift.
+
+\section{Pre-registered mechanism falsifiability}
+\label{sec:falsifiability}
+
+The five channels and the credibility extension jointly catalogue eighteen mechanism predictions that link theoretical structure to empirical observation. This section formalises each prediction in a pre-registration format and presents the retrospective assessment of whether the prediction would have survived empirical testing had it been pre-registered.
+
+\subsection{The pre-registration discipline}
+\label{sec:falsifiability-discipline}
+
+A recurrent concern in mechanism-based empirical research is that mechanisms can be formulated ex-post to rationalise observed empirical patterns. The pre-registration discipline addresses this concern by requiring that each mechanism prediction specify, in advance of empirical testing, both an observable implication and a falsification criterion. A mechanism whose predictions cannot be falsified is not a substantive mechanism in the sense intended here; conversely, a mechanism whose predictions survive a specified falsification test acquires evidentiary weight beyond mere consistency with observed patterns.
+
+Each prediction in this section has five fields: (i) the a priori theoretical prediction (sign and approximate magnitude of the predicted effect); (ii) the observable implication (the data pattern that would confirm the mechanism); (iii) the empirical test (which estimator on which data slice); (iv) the falsification criterion (the numerical threshold or sign condition that would falsify the prediction); and (v) the retrospective assessment, in which the prediction is graded against the empirical evidence.
+
+The honesty of the retrospective assessment is essential to the methodological credibility of the framework. Mechanisms whose predictions are falsified are explicitly reported as such. The two principal falsifications of the existing empirical evidence --- the EU Innovation Fund capex-grant null and the EU CBAM transitional-phase null --- are presented as substantive contributions in their own right.
+
+\subsection{Distribution of pre-registered predictions}
+\label{sec:falsifiability-distribution}
+
+Table~\ref{tab:falsifiability-summary} presents the distribution of the eighteen pre-registered predictions across the four categorical outcomes (confirmed, partial, falsified, untested) and across the identification levels at which each prediction is testable.
+
+\begin{table}[!htbp]
+\centering
+\caption{Pre-registered mechanism predictions: status distribution}
+\label{tab:falsifiability-summary}
+\small
+\begin{tabular}{lcl}
+\toprule
+Status & Count & Predictions \\
+\midrule
+Confirmed & 14 & $\mu$, $\sigma$, $\rho$ channels; 45Q, China FYP, NPRM, UK Track-1, offtake, \\
+ & & sponsor frailty, TVP $\bint$, regime-dependent threshold, sparse-event \\
+ & & TVP stability, event-timing-conditional inference, sample-window \\
+Partial & 2 & $\eta$-channel within-jurisdiction (data-limited); $\kappa$-channel via EU IF \\
+ & & (mechanism-qualified) \\
+Falsified & 2 & EU IF magnitude null (informative null); CBAM weak transmission \\
+Untested & 0 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The two informative-null findings}
+\label{sec:falsifiability-nulls}
+
+The two falsifications warrant explicit discussion as substantive contributions.
+
+The \emph{EU Innovation Fund informative null} falsifies the $\kappa$-channel prediction that capex-grant instruments should reduce the cancellation threshold with magnitude proportional to the grant fraction. The empirical estimate across six convergent estimators is a precise null in every specification, with the joint-null 95\% confidence interval containing zero across all six. The substantive interpretation is that the financing-constraint friction is not the binding friction in the contemporary capital-abundant clean-technology environment. What is binding instead, according to the framework, are coordination failure ($\eta$-channel via F3 friction) and counterparty risk ($\sigma$-channel via F7 friction). The policy implication, developed in \cite{saakstra2026paper2, saakstra2026paper3}, is that reform of capex-grant instruments should incorporate offtake-commitment eligibility requirements that jointly address the financing-constraint and counterparty-risk frictions.
+
+The \emph{CBAM weak-transmission finding} falsifies the $\mu$-channel prediction that border-adjustment instruments should reduce the cancellation threshold for green clean-hydrogen projects in CBAM-affected sectors with magnitude reflecting the implicit subsidy from the imported-carbon penalty. The empirical estimate across eight convergent estimators is a precise null at the project-investment level. The substantive interpretation is that CBAM transmission to project-level investment decisions is weak in the early-implementation phase: the transitional CBAM imposes reporting obligations but no actual financial costs on importers, generating uncertainty about the eventual magnitude of the implicit subsidy. The framework's prediction is that the transmission should strengthen as the CBAM enters its definitive phase (2026 onwards), at which point the actual carbon penalty begins to be imposed on importers; the post-2026 evolution of the CBAM treatment effect therefore constitutes a natural follow-up test of the framework's $\mu$-channel prediction.
+
+\section{Discussion}
+\label{sec:discussion}
+
+The framework's principal substantive implication is that mechanism design dominates subsidy magnitude. Instruments that address multiple binding frictions produce larger and more robust effects than instruments that address a single friction at high monetary intensity. The empirical evidence on the magnitude ranking of clean-hydrogen policy interventions (China 14th FYP $>$ US 45Q $>$ UK Track-1 $\gg$ EU Innovation Fund) confirms this prediction: the ranking follows the friction count, not the per-unit monetary value of the subsidy. The implication for clean-technology policy portfolios is that policy-makers should prioritise instrument design over instrument scale, and should structure portfolios to jointly address multiple binding frictions rather than to maximise the single-instrument transfer to the recipient sector.
+
+The framework's principal methodological implication is the pre-registration discipline. Mechanism interpretations of empirical findings acquire evidentiary weight only when specified in advance of empirical testing with explicit falsification criteria. The retrospective application of this discipline to the existing empirical literature on clean-hydrogen investment delivers fourteen confirmations, two partial confirmations, and two falsifications, with the two falsifications themselves constituting substantive contributions about which economic frictions are binding in the contemporary environment. The discipline generalises to other policy-evaluation contexts and should be incorporated as a standard component of mechanism-based observational research.
+
+The framework's principal extensions concern three directions. First, the policy-credibility extension is currently treated in reduced form; a full structural extension would endogenise the political-economy formation of policy regimes, the cross-jurisdictional spillovers in regime adoption, and the strategic interaction between policy-makers and project sponsors. Such a structural extension is beyond the scope of the present paper and is left for future work. Second, the coordination channel is currently treated as a reduced-form network effect; a formal network-equilibrium extension would deliver additional predictions about the within-network distribution of effects across nodes. Third, the framework's cross-domain generalisability remains to be tested empirically in clean-technology sectors beyond hydrogen; concrete domains for follow-up empirical work include grid-scale battery storage, direct-air-capture, low-carbon ammonia, and sustainable aviation fuel.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The framework developed in this paper extends the canonical real-options model of irreversible investment under uncertainty in three directions appropriate to the contemporary clean-technology environment: sequential staging of the investment commitment, five-channel comparative statics of policy transmission, and policy-credibility as a reduced-form second state variable. The framework delivers a pre-registered mechanism-falsifiability discipline that catalogues eighteen mechanism predictions with explicit falsification criteria, of which fourteen would be classified as confirmed against the existing empirical evidence and two as substantive falsifications that themselves constitute contributions about which economic frictions are binding in the contemporary clean-technology environment.
+
+The framework's policy implications are explicit. Multi-friction-addressing instruments dominate single-friction high-magnitude instruments; credibility-anchoring instruments substitute for direct payoff transfers; capex-grant instruments without offtake-commitment requirements are predicted to fail under the prevailing F4-non-binding contemporary environment. The framework's methodological contribution is the pre-registration discipline that protects mechanism interpretations against ex-post rationalisation. The framework's empirical implications are testable in clean-technology sectors beyond hydrogen and constitute a natural research agenda for the coming decade as the post-2026 definitive phases of contemporary climate-policy instruments enter implementation.
+
+\bibliographystyle{apalike}
+\bibliography{paper4_references}
+
+\end{document}
