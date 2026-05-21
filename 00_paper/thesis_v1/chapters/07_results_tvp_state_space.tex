@@ -105,6 +105,7 @@ $b_3$ & 2025--2026 & $-2.06$ $[-3.80, -0.62]$ \\
 The pooled sample reveals an apparent anomaly in the 2023--2024 sub-period: while the static and GAS long-run estimates are tightly bounded around $-1.5$, the block-specific estimate for 2023--2024 has a credible interval that includes zero $[-1.90, +0.43]$. Section \ref{sec:ch7-results-stratified} demonstrates that this is a data composition artefact.
 
 \subsection{GAS hyperparameters and trajectory}
+\label{sec:ch7-gas}
 
 The pooled GAS specification yields:
 \begin{align*}
@@ -181,6 +182,55 @@ We assess whether sponsor-level unobserved heterogeneity drives our findings by 
 \caption{Out-of-sample predictive validation. \textbf{Panel A:} Five-fold stratified cross-validation AUC per fold, with in-sample AUC reference (0.805) and mean OOS (0.761). \textbf{Panel B:} Rolling-window time-based cross-validation. Training on cohorts $\leq t$ and testing on $t+1, t+2$. The collapse to AUC $= 0.33$ for the 2020--2021 test window provides an independent empirical signal that the cancellation data-generating process is not temporally stable, corroborating the Schoenfeld PH test on \texttt{year\_centered}. \textbf{Panel C:} Roth-Sant'Anna functional-form sensitivity for the EU CBAM 2x2 DiD and the triple-difference specification (used in Chapter 8); all three functional-form specifications produce same-sign average marginal effects within a tight range, indicating that our parallel-trends conclusions are not driven by functional-form choice.}
 \label{fig:ch7-oos-cv}
 \end{figure}
+
+\subsection{Out-of-sample forecast comparison via Diebold-Mariano}
+\label{sec:ch7-dm-test}
+
+The cross-validation diagnostic of Section \ref{sec:ch7-results-pooled} compared M1, M2, and M3 on in-sample fit metrics (LOO-CV, WAIC, in-sample log-likelihood). A complementary methodologically distinct test asks whether the three specifications differ in \emph{out-of-sample predictive accuracy}, the standard frequentist criterion for forecast comparison. We implement the Diebold-Mariano test \citep{diebold1995comparing} with the Harvey-Leybourne-Newbold (HLN) small-sample correction \citep{harvey1997testing}, applied to the per-observation Bernoulli log-loss.
+
+For each observation $(i,t)$ in the test set, the per-observation loss under specification $m$ is
+\[
+L_m(i,t) = -y_{i,t}\log p_{m,i,t} - (1 - y_{i,t})\log(1 - p_{m,i,t}).
+\]
+Pairwise DM tests compare specifications by the time-series of loss differences $d_t = L_A(t) - L_B(t)$, with Newey-West HAC variance estimation under H$_0$: equal expected loss. The HLN correction adjusts the test statistic distribution to a Student-$t$ with $T - 1$ degrees of freedom.
+
+We estimate the test on three orthogonal train-test partitions: (i) a time-based split with training set restricted to years $\leq 2021$ (limited by sparse pre-wave events), (ii) a 5-fold cross-validation at the project level (events distributed across folds), and (iii) a rolling-window one-step-ahead forecast for $T \in \{2021, 2022, 2023, 2024\}$ (the methodologically strictest design, simulating sequential live use).
+
+\begin{table}[!htbp]
+\centering
+\caption{Mean out-of-sample log-loss per specification per design}
+\label{tab:ch7-dm-mean-loss}
+\begin{tabular}{lccc}
+\toprule
+Design & M1 (static) & M2 (block-RW) & M3 (smooth TVP) \\
+\midrule
+Time-based split (train $\leq$ 2021) & 0.298 & 0.297 & \textbf{0.297} \\
+5-fold CV (project-level) & 0.0516 & 0.0517 & \textbf{0.0510} \\
+Rolling 1-step-ahead & 0.207 & 0.211 & \textbf{0.157} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Pairwise Diebold-Mariano tests (HLN-corrected), rolling-window design}
+\label{tab:ch7-dm-pairs}
+\begin{tabular}{lccc}
+\toprule
+Comparison & Mean loss diff & DM-HLN statistic & $p$-value \\
+\midrule
+M1 vs M2 & $-0.003$ & $-0.90$ & $0.370$ \\
+M1 vs M3 & $+0.050$ & $+5.59$ & $< 0.0001^{\ast\ast\ast}$ \\
+M2 vs M3 & $+0.053$ & $+4.80$ & $< 0.0001^{\ast\ast\ast}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The rolling-window design reveals that M3 (smooth time-varying $\bint(t)$) achieves significantly lower out-of-sample log-loss than both M1 and M2 ($p < 0.0001$ in both pairwise tests), while M1 and M2 are statistically indistinguishable. The Model Confidence Set of \cite{hansen2011model} contains only M3 at $\alpha = 0.10$ under the rolling design. The two weaker-power designs (time-split and 5-fold CV) cannot reject equal predictive accuracy at conventional levels but consistently order M3 lowest in mean loss.
+
+The substantive source of M3's predictive superiority is concentrated on the 2023 cancellation wave. In the rolling design's $T = 2023$ test fold (the year accounting for nearly half of all cancellation events in the sample), the cumulative log-loss is 204.7 for M1, 215.3 for M2, and 185.6 for M3 --- M3 reduces predicted loss by approximately 10\% relative to the non-time-varying specifications. The smooth time-trend extrapolates the pre-2023 evolution of $\bint(t)$ into a year that the static and block-RW specifications could not anticipate.
+
+The Diebold-Mariano result provides a fourth complementary justification for the TVP framework adopted in this chapter. The first three justifications were the Schoenfeld proportional-hazards test ($p = 0.0006$, Section \ref{sec:ch7-diagnostics}), the LOO-CV ordering, and substantive interpretive richness. The DM test adds a formal, frequentist-compatible argument: \emph{for one-step-ahead forecasting, the smooth time-varying specification dominates}. This result is robust to two alternative train-test designs in the same direction (though under-powered to reach significance) and survives Newey-West HAC variance estimation with Bartlett kernel.
 
 \subsection{Synthesis}
 

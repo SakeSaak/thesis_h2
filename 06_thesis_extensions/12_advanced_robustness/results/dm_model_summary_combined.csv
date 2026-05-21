@@ -1,0 +1,10 @@
+method,model,mean_loss,best?
+Time-split (train <=2021),M1,0.29761,False
+Time-split (train <=2021),M2,0.29749,False
+Time-split (train <=2021),M3,0.29657,True
+5-fold CV pooled,M1,0.05164175848274789,False
+5-fold CV pooled,M2,0.05174866425974974,False
+5-fold CV pooled,M3,0.051040183256403145,True
+Rolling 1-step,M1,0.20719386616943353,False
+Rolling 1-step,M2,0.210599280846111,False
+Rolling 1-step,M3,0.15723117349672114,True
