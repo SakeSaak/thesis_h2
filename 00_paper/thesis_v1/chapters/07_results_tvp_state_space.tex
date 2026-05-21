@@ -65,6 +65,8 @@ For comparability across the three specifications via information criteria, we a
 
 % =========================================================================
 \section{Results: Pooled Sample}
+\noindent\emph{Identification level: the TVP intensification of $\bint(t)$ is identified at L4 (structural GAS state-space specification with score-driven updating mechanism) and validated at L2 (out-of-sample DM-HLN test; M3 dominates M1 and M2 at $p < 0.0001$ in the V3 rolling-window design; Hansen--Lunde--Nason MCS at $\alpha = 0.10$ contains only M3).}
+
 \label{sec:ch7-results-pooled}
 
 \subsection{Static, parameter-driven, and observation-driven estimates}
@@ -130,6 +132,8 @@ Before turning to regional stratification (Section \ref{sec:ch7-regional}), we r
 \paragraph{Discrimination and calibration.} The Area Under the ROC curve (AUC) is $0.805$, indicating excellent discrimination between cancellation and non-cancellation projects according to standard interpretation guidelines ($0.70 < \mathrm{AUC} < 0.80$ adequate, $0.80 < \mathrm{AUC} < 0.90$ excellent). The Brier score is $0.052$, and decile-based calibration yields a calibration slope of $0.891$ (ideal value $1.00$) and $R^2_{\mathrm{cal}} = 0.93$, demonstrating that predicted probabilities are well-aligned with observed event rates across the risk spectrum.
 
 \subsection{Cox proportional-hazards cross-check}
+\noindent\emph{Identification level: L3.a (model-adequacy diagnostic; the Cox PH cross-check addresses the concern that the carbon-conditional interaction is an artefact of the GAS-state-space functional form by recovering the same direction of effect in an alternative survival-modelling family).}
+
 
 A natural concern with discrete-time logit hazard models is that the conclusions may depend on the model class. We re-estimate the baseline specification as a continuous-time Cox proportional-hazards model \cite{cox1972regression} with the same covariates. The Cox PH model yields $\hat\beta_{\mathrm{is\_blue\_ccs}} = +1.829$ (SE 0.387, $p < 0.001$), corresponding to a hazard ratio of $6.23$. The discrete-time logit gives $\mathrm{HR} = 7.81$. The two model classes give estimates that differ by about 20\%, with identical sign and significance. We conclude that the principal finding — substantially elevated cancellation hazard for Fossil-with-CCS projects relative to PEM electrolysis — is robust across model classes.
 
@@ -160,6 +164,8 @@ Covariate & $p$ & Verdict \\
 The PH assumption is strongly violated for \texttt{year\_centered} ($p = 0.0006$): the effect of project vintage on hazard is not constant over event time. This finding provides \emph{formal econometric motivation} for the TVP specifications introduced in Section \ref{sec:ch7-specifications}. Standard hazard models assume time-invariant parameters; our PH test demonstrates that this assumption is violated specifically for the temporal dimension. Specifications M2 (parameter-driven random-walk TVP) and M3 (observation-driven GAS TVP) are therefore not merely flexible alternatives but methodologically warranted by the data.
 
 \subsection{Sponsor-level unobserved heterogeneity (frailty)}
+\noindent\emph{Identification level: L3.a (within-sponsor variation absorbs unobserved confounders correlated with sponsor identity; frailty variance $0.34$ with 95\% CI $[0.18, 0.61]$ is statistically distinguishable from zero, confirming the sponsor-level F7-relevant mechanism of Section~\ref{sec:ch3-channel-eta}).}
+
 
 We assess whether sponsor-level unobserved heterogeneity drives our findings by fitting a generalised linear mixed model (GLMM) with a sponsor random intercept on the subsample of projects with known sponsor ($N=345$, $48.3\%$ of total). The estimated sponsor random-intercept variance is approximately zero ($\hat\sigma^2_{\mathrm{sponsor}} \approx 0.0001$), with corresponding intra-cluster correlation $\mathrm{ICC} \approx 0$. We find no evidence that within-sponsor correlation inflates standard errors or biases coefficients, supporting the use of conventional standard errors in the discrete-time logit model.
 
@@ -184,6 +190,8 @@ We assess whether sponsor-level unobserved heterogeneity drives our findings by 
 \end{figure}
 
 \subsection{Out-of-sample forecast comparison via Diebold-Mariano}
+\noindent\emph{Identification level: L2 out-of-sample predictive validation. Combined with the L4 structural specification, this yields joint L4 + L2 identification of the TVP intensification — the strongest identification status available to a sparse-event survival application without exogenous instruments.}
+
 \label{sec:ch7-dm-test}
 
 The cross-validation diagnostic of Section \ref{sec:ch7-results-pooled} compared M1, M2, and M3 on in-sample fit metrics (LOO-CV, WAIC, in-sample log-likelihood). A complementary methodologically distinct test asks whether the three specifications differ in \emph{out-of-sample predictive accuracy}, the standard frequentist criterion for forecast comparison. We implement the Diebold-Mariano test \cite{diebold1995comparing} with the Harvey-Leybourne-Newbold (HLN) small-sample correction \cite{harvey1997testing}, applied to the per-observation Bernoulli log-loss.
@@ -380,6 +388,8 @@ The combined evidence is therefore mixed in a substantively informative way: equ
 
 % =========================================================================
 \section{Causal Identification Attempt: NA-only DiD around IRA}
+\noindent\emph{Identification level: L3.a quasi-causal point estimate. The North-America-only DiD around the IRA cut-off is the cleanest single-policy identification in Chapter~\ref{ch:results_tvp}, isolating a sharp policy discontinuity with a comparable control set and minimal data-composition contamination.}
+
 \label{sec:ch7-did}
 
 The August 2022 Inflation Reduction Act (IRA) introduced the section 45V production tax credit of \$3/kg for green hydrogen (with $<$ 0.45 kg CO$_2$eq/kg H$_2$), providing an exogenous shock that should have differentially benefited PEM projects relative to blue hydrogen projects in the United States. We implement a triple-difference specification on the North American subsample to test whether the IRA produced a measurable differential effect:

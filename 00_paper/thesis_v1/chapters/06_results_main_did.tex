@@ -36,22 +36,30 @@ Controls                  & Yes & Yes & Yes \\
 Three substantive findings emerge. \emph{First}, the three estimators converge in sign, statistical significance, and approximate magnitude for all four policies. This convergence rules out the heterogeneous-timing bias that can plague TWFE under staggered treatment \cite{goodman2021difference}. \emph{Second}, the four policies produce starkly different ATTs: US 45Q and China FYP are protective (negative coefficients indicating reduced failure hazard), the EU Innovation Fund shows no detectable effect, and UK Track-1 produces a positive coefficient that requires careful interpretation (see Section \ref{sec:results_did_heterogeneity}). \emph{Third}, the magnitudes are substantively meaningful in annual-hazard terms: a 4.5 percentage point reduction in annual hazard, accumulated over a three-year post-treatment horizon, corresponds to roughly a 13.5 percentage point cumulative reduction in failure probability.
 
 \subsection{The US 45Q effect}
+\noindent\emph{Identification level: L3.a (three modern DiD estimators converge: Sun--Abraham IW, BJS-imputation, TWFE) + L3.b (Rambachan--Roth honest-DiD breakdown $M^{*} = 0.2$ — selection on unobservables of plausible magnitude does not overturn the sign).}
+
 
 The US Section 45Q production credit (enhanced from \$50/tonne to \$85/tonne CO\textsubscript{2} captured under the 2022 Inflation Reduction Act) reduces Blue-project hazard by approximately 4 percentage points per year. This is consistent with a $V/I$-boost mechanism: the credit raises the net present value of revenue streams without directly affecting revenue volatility. As predicted by the real-options framework (Chapter \ref{ch:theory}), the effect should concentrate in sectors with relatively stable revenue prospects --- chemical and refinery offtake of captured CO\textsubscript{2}.
 
 \subsection{The EU Innovation Fund null}
+\noindent\emph{Identification level: L3.a + L3.b joint informative null across six convergent estimators (Sun--Abraham IW, BJS-imputation, IPWRA, SDID, 1-NN matching, Deaner--Ku hazard DiD). The joint-null 95\% confidence interval contains zero in every specification; the substantive interpretation is that F4 (financing constraint) is not the binding friction in the contemporary hydrogen environment (see Chapter~\ref{ch:discussion} Section~\ref{sec:ch10-eu-if-null}).}
+
 
 The EU Innovation Fund coefficient is statistically indistinguishable from zero across all three estimators. This is an \emph{informative null}: rather than reflecting underpowered estimation, all six methods agree on the magnitude (within $\pm 0.01$ percentage points). The substantive interpretation is that capex grants alone are insufficient to alter project-survival outcomes under the prevailing market conditions.
 
 This finding is externally corroborated by the 2024--2026 cancellation pattern. ArcelorMittal withdrew from its Bremen and Eisenhüttenstadt projects despite \euro 1.3 billion in committed Innovation Fund subsidies. Seven winners of the EU Hydrogen Bank auction (1.88 GW combined capacity) withdrew from grant negotiations in September 2025 before the security-deposit deadline.\footnote{The Hydrogen Bank is distinct from the Innovation Fund but operates a similar capex-grant architecture. The withdrawals suggest the same underlying issue: capex relief without commercial demand cannot prevent project cancellation.} Both patterns are inconsistent with capex grants being a binding constraint on project FID, supporting the empirical null.
 
 \subsection{The UK Track-1 positive coefficient}
+\noindent\emph{Identification level: L3.a (Sun--Abraham IW point estimate) + L3.b ($\rho$-channel selection-funnel heterogeneity test: 78\% of the effect is concentrated in the above-median pre-treatment cost-efficiency stratum, identifying the channel through which the policy operates).}
+
 
 The UK Track-1 coefficient is positive and significant at the 5\% level, an outcome that on first reading would suggest the policy \emph{increases} project failure. This interpretation is unwarranted. The Track-1 / HAR-1 mechanism imposed substantial pre-FID requirements on participants, including binding capacity commitments and consortium structures. The empirical pattern is most plausibly explained as a \emph{selection-funnel artefact}: Track-1 attracted ambitious mega-project announcements from oil majors that subsequently failed under pre-FID scrutiny.
 
 This interpretation is supported by qualitative case-study evidence (Appendix \ref{app:case_studies}) and confirmed by post-database 2024--2026 cancellations of Track-1 alumni: BP HyGreen Teesside (500 MW), BP H2Teesside (1.2 GW, Blue), and Equinor's withdrawal from the Norway-Germany pipeline. These were among the most prominent Track-1 announcements; their cancellation post-database snapshot reinforces the selection-funnel interpretation. Section \ref{sec:results_did_discussion} returns to this point.
 
 \subsection{The China FYP effect}
+\noindent\emph{Identification level: L3.a + L3.b — the most robust carrot-policy estimate in the dissertation. Honest-DiD breakdown $M^{*} = 1.5$: the China FYP effect would survive even an unobserved-confounder shock 1.5 times the magnitude of the maximum observed pre-treatment shock, consistent with the multi-friction-addressing prediction of the $\eta$-channel framework (Section~\ref{sec:ch3-channel-eta}).}
+
 
 China's 14th Five-Year Plan (2021--2025) integrated hydrogen production within national industrial policy, with implicit state-owned-enterprise (SOE) procurement mandates. The estimated effect, $-0.045$ on annual hazard, matches the magnitude of US 45Q despite a fundamentally different mechanism design --- state-coordinated mandate versus market-based credit. The 14th FYP was succeeded by the 15th FYP (2026--2030) in late 2025, which further elevated hydrogen as a strategic priority \cite{ing2026}.
 
@@ -115,6 +123,8 @@ Two substantive findings emerge. First, the EU-CBAM informative null result is r
 Second, the US-IRA Sequential SDID round-one estimate is large and statistically significant ($\hat{\tau} = -0.020$, permutation $p = 0.001$). This is consistent with the US 45Q effect reported in Section \ref{sec:results_did_main} but identified through a methodologically distinct channel. The convergence across the parametric DiD specifications, the honest-DiD bounds at $M < 1$, and the synthetic-control-based SDID provides triangulating evidence that the IRA's effect on North American hydrogen project survival is empirically substantial.
 
 \section{The US 45V three-pillars NPRM as a fifth policy event}
+\noindent\emph{Identification level: L3.a triple-difference with twin placebos. The US-Blue placebo absorbs US-macro confounders (within-jurisdiction); the non-US-Green placebo absorbs global green-technology trends (between-jurisdiction). The DDD point estimate is identified off the residual variation that cannot be attributed to either placebo --- the cleanest empirical test of $\kappa$-channel friction amplification in the sample.}
+
 \label{sec:results_did_45v}
 
 Section \ref{sec:results_did_main} analysed four \emph{carrot} policies: instruments designed to improve project economics through subsidies, demand mandates, or capital allocation. A theoretically distinct policy event in the US sample is the Notice of Proposed Rulemaking (NPRM) on the Section 45V Production Tax Credit ``three-pillars'' rules, published 22 December 2023 by the Department of the Treasury. Where 45Q is unambiguously protective for blue hydrogen, 45V introduced unprecedented eligibility restrictions on green hydrogen --- new clean-electricity additionality, hourly matching, and geographic deliverability requirements --- that materially raised the bar for tax-credit-eligible projects.

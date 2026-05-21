@@ -24,6 +24,8 @@ The cross-sectoral and temporal patterns reinforce the descriptive evidence. The
 \end{itemize}
 
 \section{Identification: five strategies}
+\noindent\emph{Identification level: L3.a (five convergent matching/regression estimators: IPWRA, OLS-adjusted, regression-adjusted matching, doubly-robust, naive IPW) + L3.b (Oster $\delta_{\text{null}} = 20.23$ partial-identification bound rules out unobserved selection of plausible magnitude). The convergent point estimate of $-11.3$ to $-13.2$pp is the largest and most identification-secure treatment effect in the dissertation.}
+
 \label{sec:offtake_id}
 
 Five identification strategies are applied to the cross-sectional sample. Table \ref{tab:offtake_main} summarises the estimates.
@@ -58,6 +60,8 @@ The first four estimators converge on ATEs between $-0.111$ and $-0.133$ percent
 Common support is established. The propensity-score distribution for treated and control units shows substantial overlap, with the common-support interval $[0.012, 0.728]$ retaining 96\% of observations. Pre-matching balance tests reject equality on several covariates (notably capacity and sponsor type), but post-matching balance is acceptable: standardised mean differences for all covariates fall below the conventional 0.10 threshold.
 
 \subsection{The Oster sensitivity result}
+\noindent\emph{Identification level: L3.b partial-identification bound. The $\delta_{\text{null}} = 20.23$ threshold implies that for unobserved confounders to explain the offtake-commitment effect, they would need to be twenty times more influential than the maximally-included set of observable controls. This is implausibly high under any reasonable economic interpretation and constitutes the strongest sensitivity bound in the dissertation.}
+
 \label{sec:offtake_sensitivity}
 
 The Oster (2019) bias-adjusted estimate at $\delta = 1$ (equal selection on observables and unobservables) is $-0.125$, very close to the LPM estimate of $-0.131$. The effect-nullifying $\delta_{\text{null}} = 20.23$ indicates that unobserved confounders would need to be more than \emph{twenty times} as strongly correlated with treatment as our extensive observed controls in order to nullify the effect.
@@ -71,6 +75,8 @@ To put this magnitude in context, the conventional Oster robustness threshold is
 Such a hidden confounder is logically possible but substantively implausible.
 
 \section{Cross-sectoral heterogeneity: testing the $\sigma$-channel}
+\noindent\emph{Identification level: L4 mechanism-identifying heterogeneity test. The sectoral interaction (high-volatility power/heat/transport ATT $\approx -0.30$pp versus low-volatility chemical/refinery ATT $\approx -0.03$pp) directly identifies the $\sigma$-channel as the operating mechanism by exploiting cross-sectoral variation in revenue volatility — a test that would not have been possible at the average-effect level alone.}
+
 \label{sec:offtake_sectoral}
 
 The real-options framework developed in Chapter \ref{ch:theory} predicts that the offtake-effect should be \emph{larger} in sectors with higher revenue volatility, since offtake commitments operate by reducing $\sigma$. Table \ref{tab:offtake_sector} reports sector-stratified LPM estimates.
