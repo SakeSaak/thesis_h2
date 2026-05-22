@@ -1,9 +1,9 @@
-# Implementation-Risk Differentials in Hydrogen Technology Pathways
+# Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment
 
-**A Cross-Jurisdictional Causal Evaluation of Carrot-Policy Mechanisms**
+**A Real-Options Framework with Time-Varying Empirical Identification**
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![Status](https://img.shields.io/badge/status-thesis%20draft-orange.svg)](#status)
+[![Status](https://img.shields.io/badge/status-v2.3%20candidate-orange.svg)](#status)
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
 [![Thesis: MSc EOR](https://img.shields.io/badge/thesis-MSc%20EOR%20VU-yellow.svg)](https://vu.nl/en/education/master/econometrics-and-operations-research)
 
@@ -15,47 +15,49 @@
 
 ## Abstract
 
-Despite USD $1.3 trillion in announced subsidies and over 422 GW of green hydrogen project announcements globally, only ~7% of 2023 planned capacity reached scheduled Final Investment Decision (Odenweller & Ueckerdt, *Nature Energy* 2025). This thesis provides the first cross-jurisdictional causal evaluation of why low-carbon hydrogen projects survive or fail, and which policy mechanisms move the needle.
+Clean-hydrogen projects announce in large volumes — globally over 420 GW of green production and substantial Blue (CCS-equipped) capacity since 2020 — yet only a small fraction of announced capacity reaches Final Investment Decision. This dissertation asks why, and how policy mechanisms shape the answer.
 
-Using a project-level dataset of **1,354 Blue and Green hydrogen projects** (S&P Global, 2010-2024) with 367 documented failures, this research:
+The framework is real-options under irreversibility and transition uncertainty. The investment decision is staged (front-end design → FID → construction → operations), each stage with its own sunk-capital forfeit and cancellation threshold. The sponsor's expected payoff evolves under two sources of stochastic variation: a payoff-relevant state variable (carbon price, technology cost) and a policy-regime-credibility belief that determines whether the contemporary policy environment will persist over the investment horizon. Optimal cancellation thresholds respond to five comparative-statics channels (μ, σ, ρ, η, κ) and to the credibility belief π. The framework is intentionally reduced-form on credibility: π is treated as an organising interpretive layer rather than a structurally identified state.
 
-1. **Identifies a novel mechanism**: pre-FID offtake commitments reduce project failure probability by **11-13 percentage points** across five independent identification strategies (LPM with rich controls, propensity score matching, IPWRA, Oster sensitivity δ\_null = 20.23)
-2. **Evaluates four carrot-policy types** via modern difference-in-differences (TWFE, Sun-Abraham 2021, Borusyak-Jaravel-Spiess 2024 imputation), with Rambachan-Roth (2023) honest sensitivity bounds revealing heterogeneous causal-identification strength
-3. **Documents a structural break** in policy effectiveness around 2020 via three time-varying-parameter estimators (threshold, AR(1) state-space, random walk)
-4. **Grounds findings in a Dixit-Pindyck (1994) real-options framework**, distinguishing V/I-boost mechanisms (output credits, capex grants) from σ-attack mechanisms (offtake mandates, cluster tenders)
-5. **Quantifies counterfactual policy scenarios**: an EU sector-optimal carrot mix would deliver an estimated **+113 additional FIDs, +7.83 Mt/y additional CO₂ capture, and +1.76 Mt/y additional H₂ output** over a 3-year horizon (95% bootstrap CI)
+The empirical analysis uses a project-level dataset of **2,989 Blue and Green hydrogen projects** from the S&P Global Hydrogen Project Database (snapshot 24 March 2026), with **1,000 broad failure events** (cancelled, on-hold, or decommissioned). Three substantive findings emerge.
 
-These findings are externally corroborated by the 2024-2026 wave of high-profile cancellations: ArcelorMittal's Bremen and Eisenhüttenstadt withdrawals despite €1.3B EU Innovation Fund subsidies, BP's HyGreen Teesside and H2Teesside exits, and seven EU Hydrogen Bank auction winners (1.88 GW) withdrawing in September 2025.
+First, pre-FID offtake commitments are associated with substantially lower cancellation hazard in a stratified analysis that is robust to multiple matching estimators and to the Oster (2019) bound on selection-on-unobservables. Three formal identification tests reported in Appendix A.14 show that this effect operates through multiple co-operating channels (μ, σ, η) that are statistically indistinguishable in observational data; the empirical signature is robust, the unique-channel identification claim is not.
+
+Second, the time-varying intensity of the carbon-conditional cancellation hazard, estimated through a score-driven GAS specification with sparse-event-suitable shrinkage, recovers a discontinuous step around the 2020 European Green Deal regime boundary that constant-parameter and parameter-driven block-step specifications cannot accommodate. The structural-break finding is robust across out-of-sample tests; the interpretation of the break as a credibility-shift response is one of several observationally equivalent interpretations.
+
+Third, the cross-jurisdictional carrot-policy ranking (China 14th Five-Year Plan > US 45Q > UK Track-1 ≫ EU Innovation Fund) systematically tracks the number of economic frictions each instrument addresses, not the per-unit monetary value of the subsidy. The EU Innovation Fund informative null and the EU CBAM weak-transmission finding are reported as substantive contributions about which economic frictions are binding in the contemporary capital-abundant clean-technology environment.
 
 ---
 
 ## Status
 
-| Component | Status |
-|---|---|
-| **Empirical analysis (Pijlers 1-40)** | ✅ Complete |
-| **Theoretical framework (Pijler 40)** | ✅ Complete |
-| **Counterfactual scenarios (Pijler 36)** | ✅ Complete |
-| **Stakeholder briefings** | ✅ Complete |
-| **Thesis manuscript** | 🟡 In progress (chapters 3, 4, 7, 8 drafted) |
-| **Defense** | ⏳ Planned 2026-Q3 |
-| **Energy Economics submission** | ⏳ Planned post-defense |
+| Component | Status | Notes |
+|---|---|---|
+| **Thesis main** (`00_paper/thesis_v1/`) | v2.3 candidate, 141 pages | Awaiting supervisor feedback on Proposition formal status |
+| **Paper 1**: TVP methodology (`09_papers/paper1_*/`) | 8,193 w, 24 p, submission-ready | Target: *Journal of Applied Econometrics* |
+| **Paper 2**: Carrot-policy DiD (`09_papers/paper2_*/`) | 6,284 w, first draft | Target: *Energy Economics* |
+| **Paper 3**: Offtake mechanism (`09_papers/paper3_*/`) | 4,138 w, first draft | Target: *JEEM* |
+| **Paper 4**: Real-options theory (`09_papers/paper4_*/`) | 5,228 w, first draft | Target: *REEP* |
+| **Defence** | Planned 2026-Q3 | |
 
 ---
 
-## Key findings — robustness scorecard
+## Empirical findings — identification status
 
-| # | Finding | Methods converging | Robustness verdict |
+Findings are graded on the identification hierarchy of Appendix A.12, not on a single robustness label.
+
+| # | Finding | Identification status | Robustness evidence |
 |---|---|---|---|
-| **1** | **Offtake commitment reduces failure by 11-13 pp** | LPM + PSM + IPWRA + Oster + sector LPM (5 methods) | **WATERTIGHT** (Oster δ\_null = 20.23) |
-| **2** | **China 14th FYP causal effect: −4.5 pp annual hazard** | TWFE + Sun-Abraham + BJS-imputation + Honest DiD | **WATERTIGHT** (Honest M\* = 1.50, robust) |
-| **3** | **Structural break in policy-effect sign around 2020** | Threshold + AR(1) state-space + random walk | **WATERTIGHT** (3 TVP methods converge) |
-| **4** | **EU Innovation Fund: informative null** | All 6 methods non-significant | **WATERTIGHT** (consistent null) |
-| **5** | **UK Track-1 selection-funnel artifact** | TWFE + qualitative case-study | **STRONG, QUALIFIED** |
-| **6** | **σ-channel vs V/I-channel mechanism taxonomy** | Theoretical + empirical sector-heterogeneity | **STRONG** (falsifiable predictions) |
-| **7** | **US 45Q causal effect: −3.8 pp annual hazard** | TWFE + BJS converge, Honest DiD sensitive | **QUALIFIED** (Honest M\* = 0.20) |
+| 1 | Pre-FID offtake commitment is associated with lower cancellation hazard | L3.a + L3.b (multiple matching estimators converging) | Oster δ_null = 20.23; cross-sectoral pattern survives in 4-of-4 strata |
+| 2 | Channel-attribution of (1) to σ versus μ versus η | **Not separately identified** | Three identification tests (Appendix A.14) cannot statistically discriminate the three channels (LR p = 0.19; joint Wald p = 0.96) |
+| 3 | TVP β_int(t) structural break around 2020 in the carbon-conditional hazard | L4 + L2 (GAS structural-break detection; OOS-dominant over constant-parameter and block-step) | DM-HLN = +5.59 vs M1 baseline; placebo-stable |
+| 4 | Channel-attribution of (3) to π versus σ versus expectations | **Not separately identified** | Pooled regression cannot distinguish loadings; event-study with four exogenous shocks cannot reject equality |
+| 5 | China 14th FYP cancellation-hazard effect | L3.a + L3.b (Sun-Abraham + BJS + IPWRA + SDID + Honest DiD converging) | M* = 1.5 (substantively robust) |
+| 6 | US 45Q cancellation-hazard effect | L3.a (DiD converging) | M* = 0.2 (point-identified, partial-id-fragile); event-study corroboration p = 0.05 |
+| 7 | EU Innovation Fund informative null | L3.a + L3.b (precise null across 6 estimators) | Substantive contribution: F4-non-binding in capital-abundant environment |
+| 8 | EU CBAM weak transmission in transitional phase | L3.a + L3.b (precise null across 8 estimators) | Predicted to strengthen in post-2026 definitive phase |
 
-See `08_synthesis/` for the full synthesis document, including external industry corroboration.
+The use of "**Not separately identified**" rather than "falsified" is deliberate: the underlying empirical signatures (1) and (3) are robust, but their attribution to a specific theoretical channel is empirically underdetermined among observationally equivalent alternatives. This identification limit is documented as a methodological contribution in Chapter 10 and is the natural target for follow-up research using exogenous-variation designs (RDD around constitutional carbon-budget amendments, election-driven climate-policy reversals, natural-experiment volatility shocks isolated from policy-credibility content).
 
 ---
 
@@ -63,41 +65,34 @@ See `08_synthesis/` for the full synthesis document, including external industry
 
 ```
 thesis_h2/
-├── 00_paper/                        # Journal-version paper (LaTeX)
-│   ├── current/                     # Active draft (blueCCS_paper_final.tex)
-│   ├── elsarticle_submission/       # Energy Economics target version
-│   └── _archive/                    # Historical iterations
-├── 01_data/                         # Datasets
-│   ├── raw/                         # Original sources (S&P, ENTSO-E, FRED, ICAP, WUI, GPR)
-│   ├── intermediate/                # Cleaned + merged panels
-│   └── external/                    # API-fetched (yfinance, FRED)
-├── 02_scripts/                      # Core analysis pipeline
-│   ├── 01_data_prep/                # ETL scripts
-│   ├── 02_analysis/                 # Main DiD, TVP, survival models
-│   └── 03_figures/                  # Publication figures
-├── 03_output/                       # Generated outputs (figures, results, tables)
-├── 06_thesis_extensions/            # Pijlers 1-40 (PhD-quality analyses)
-│   ├── 01_bayesian_methodology/     # Pijler 24c TVP-DiD
-│   ├── 12_advanced_robustness/      # Pijlers 30-34, 39 (causal forest, modern DiD, offtake, Honest DiD)
-│   ├── 13_theoretical/              # Pijler 40 real-options × mechanism design
-│   └── 14_counterfactual/           # Pijler 36 counterfactual scenarios
-├── 07_thesis_drafts/                # Thesis chapter LaTeX files
-│   ├── chapter3_real_options.tex
-│   ├── chapter4_data.tex
-│   ├── chapter7_v2.tex              # Time-varying carbon-conditional hazard
-│   └── chapter8_cbam_full.tex       # CBAM causal identification
-├── 07_stakeholder_briefings/        # Policy briefings (EU, Gasunie, sponsors)
-│   └── POLICY_BRIEFINGS_v2/
-├── 08_synthesis/                    # Cross-pijler synthesis documents
-├── 08_communicatie/                 # Supervisor communication drafts
-├── 09_reproducibility/              # Reproduction instructions + Docker
-└── docs/                            # Documentation + archived early-stage notes
-    └── archive/                     # Historical working documents
+├── 00_paper/                          # Main thesis manuscript
+│   ├── thesis_v1/                     # Active v2.3 candidate (LaTeX + PDF)
+│   └── archive_v7_precursor_paper/    # Historical v7 single-paper manuscript
+├── 01_data/                           # Datasets
+│   ├── raw/                           # Original sources (S&P, FRED, ICAP, EMV, ...)
+│   └── intermediate/                  # Cleaned + merged monthly/weekly panels
+├── 02_scripts/                        # Core analysis pipeline (data-prep, analysis, figures)
+├── 03_output/                         # Generated outputs (figures, tables, results)
+├── 06_thesis_extensions/              # Extended methodological analyses
+│   ├── 01_bayesian_methodology/       # Bayesian TVP variants
+│   ├── 04_carbon_conditional/         # Carbon-conditional hazard specification
+│   ├── 05_state_space_tvp/            # GAS state-space (Paper 1 implementation)
+│   ├── 11_v7_sp_matching/             # Sample-window dependence analysis
+│   ├── 12_advanced_robustness/        # Modern DiD, IPWRA, Honest DiD, Causal Forest
+│   ├── 13_identification_tests/       # Appendix A.14 tests (pi-sigma, offtake, event-study)
+│   ├── 13_theoretical/                # Real-options analytical extensions
+│   └── 14_counterfactual/             # Counterfactual policy scenarios
+├── 07_chapter_drafts_archive/         # Historical chapter draft snapshots
+├── 07_stakeholder_briefings/          # Policy briefings (archived)
+├── 08_synthesis/                      # Cross-component synthesis documents
+├── 09_papers/                         # Four working papers (Papers 1-4)
+├── 09_reproducibility/                # Reproduction instructions
+└── docs/                              # Documentation
 ```
 
 ---
 
-## Quickstart — reproducing the analysis
+## Reproducing the analysis
 
 ### 1. Clone
 
@@ -116,28 +111,24 @@ pip install -r requirements.txt
 
 ### 3. Data
 
-**The S&P Global hydrogen projects database is NOT included** — it requires a commercial license. To reproduce:
+**The S&P Global Hydrogen Production Assets database is not included** — it requires a commercial licence. To reproduce, obtain `Hydrogen_projects_master_data_table_*.xlsx` from S&P Global Market Intelligence and place it in `01_data/raw/`. Other datasets (FRED, ICAP carbon prices, Baker-Bloom-Davis Equity Market Volatility, BBD Economic Policy Uncertainty) are publicly available; see `09_reproducibility/README.md` for source URLs.
 
-- Obtain `Hydrogen_projects_master_data_table_*.xlsx` from S&P Global Market Intelligence
-- Place in `01_data/raw/`
-- Other datasets (ENTSO-E energy prices, FRED, World Bank, ICAP, WUI, GPR) are publicly available — see `09_reproducibility/README.md` for sources
-
-### 4. Run the main analyses
-
-Each pijler is a standalone Python script. To reproduce the headline findings:
+### 4. Headline analyses
 
 ```bash
-# Pijler 32: Modern DiD robustness
+# Paper 1 (TVP methodology): score-driven GAS hazard model
+python 06_thesis_extensions/05_state_space_tvp/04_gas_hazard.py
+
+# Paper 2 (Carrot-policy): modern DiD estimators
 python 06_thesis_extensions/12_advanced_robustness/42_modern_did_robustness.py
 
-# Pijler 34: Offtake-effect (multi-method ID)
+# Paper 3 (Offtake mechanism): identification + Oster bound
 python 06_thesis_extensions/12_advanced_robustness/43_offtake_effect_identification.py
 
-# Pijler 39: Honest DiD sensitivity bounds
-python 06_thesis_extensions/12_advanced_robustness/44_honest_did_bounds.py
-
-# Pijler 36: Counterfactual scenarios
-python 06_thesis_extensions/14_counterfactual/46_counterfactual_scenarios.py
+# Appendix A.14 identification battery
+python 06_thesis_extensions/13_identification_tests/test1_credibility_vs_volatility/01_test1_pi_sigma_joint_identification.py
+python 06_thesis_extensions/13_identification_tests/test2_offtake_decomposition/02_test2_offtake_decomposition.py
+python 06_thesis_extensions/13_identification_tests/test3_instrumental_variables/01_test3_event_study_identification.py
 ```
 
 Each script writes outputs (CSV + figures) to its own results directory.
@@ -146,15 +137,13 @@ Each script writes outputs (CSV + figures) to its own results directory.
 
 ## Citation
 
-If you use this research or any of its code, please cite:
-
 ```bibtex
 @mastersthesis{saakstra2026implementation,
-  title  = {Implementation-Risk Differentials in Hydrogen Technology Pathways:
-            A Cross-Jurisdictional Causal Evaluation of Carrot-Policy Mechanisms},
+  title  = {Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment:
+            A Real-Options Framework with Time-Varying Empirical Identification},
   author = {Saakstra, Sake},
   school = {Vrije Universiteit Amsterdam},
-  type   = {MSc thesis, Econometrics and Operations Research},
+  type   = {MSc thesis, Econometrics and Operations Research (Financial Track)},
   year   = {2026},
   url    = {https://github.com/SakeSaak/thesis_h2}
 }
@@ -166,25 +155,23 @@ See `CITATION.cff` for machine-readable metadata.
 
 ## License
 
-This repository is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). See `LICENSE` for details.
+Code and original text in this repository are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). See `LICENSE` for details.
 
-**Important exclusions**: this license does NOT cover S&P Global commercial data, IEA copyrighted publications, or third-party figures from cited papers.
+**Important exclusions**: this licence does not cover S&P Global commercial data, IEA copyrighted publications, or third-party figures from cited papers. Such material is used here under fair-use academic-research provisions and is not redistributed in derivative form.
 
 ---
 
 ## Acknowledgments
 
-This research was conducted under the supervision of **prof. dr. Siem Jan Koopman** (Vrije Universiteit Amsterdam, Tinbergen Institute) and **dr. Nadine Ketel** (Vrije Universiteit Amsterdam) as second reader. The author thanks the Gasunie BL Waterstof Nederland team for context on Dutch hydrogen infrastructure development and the broader Nederland-wide HyNetwork business case.
+This research is conducted under the supervision of **prof. dr. Siem Jan Koopman** (Vrije Universiteit Amsterdam, Tinbergen Institute) and **dr. Nadine Ketel** (Vrije Universiteit Amsterdam) as second reader.
 
-The research uses commercial data from **S&P Global Market Intelligence Hydrogen Production Assets database** (snapshot 24 March 2024). All views and interpretations are the author's own and do not represent the official positions of S&P Global, the Vrije Universiteit Amsterdam, or Gasunie N.V.
+The research uses commercial data from **S&P Global Market Intelligence Hydrogen Production Assets database** (snapshot 24 March 2026). All views and interpretations are the author's own and do not represent the official positions of S&P Global, the Vrije Universiteit Amsterdam, or the author's employer.
 
 ---
 
 ## Contact
 
-**Sake Saakstra**
-MSc Econometrics & Operations Research (Financial Track)
-Vrije Universiteit Amsterdam
+**Sake Saakstra** — MSc Econometrics & Operations Research (Financial Track), Vrije Universiteit Amsterdam
 
 - 📧 sake.saakstra@student.vu.nl
 - 🔗 GitHub: [@SakeSaak](https://github.com/SakeSaak)
@@ -193,4 +180,4 @@ For thesis-related correspondence, please CC supervisor prof. Koopman.
 
 ---
 
-*Last updated: 21 May 2026*
+*Last updated: 22 May 2026*
