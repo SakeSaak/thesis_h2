@@ -53,6 +53,20 @@ This is the canonical literature underlying Paper 1's GAS methodology. Most of t
 
 ---
 
+### A methodological niche in Koopman's own programme that Paper 1 occupies
+
+A pattern worth noting across the GAS literature catalogued above: the canonical applications are on **continuous outcomes and density modelling** — GARCH-style volatility, ACD durations, ACI intensities, copula spillovers, dynamic factor structures. Across Creal-Koopman-Lucas (2013), Blasques-Koopman-Lucas (2012), Blasques-Koopman-Nientker (2022), Creal-Koopman-Lucas-Zamojski (2024), and the broader 2022–2024 wave of Koopman methodological work, **score-driven TVP is not explicitly developed for discrete-time hazard / survival modelling in sparse-event settings**. The applications focus on continuous time series with regular sampling and dense observations.
+
+Paper 1 occupies this niche. The methodological contribution is not the GAS framework itself (Creal-Koopman-Lucas 2013) but the **adaptation of GAS to discrete-time hazard modelling under sparse events**, with the practical implication that the score-scaling and shrinkage choices that work well for dense continuous data require careful re-specification for the sparse-event survival context. This is an authentic extension of Koopman's research programme into an application territory it has not previously occupied — not an external transplant of methodology, but a genuine completion of an under-developed branch within the tradition.
+
+**Strategic implication for Paper 1's positioning**: the introduction can explicitly note that score-driven TVP, while extensively tested on density and continuous-outcome models, has not previously been developed for discrete-time hazard modelling with sparse events. This is a short, defensible claim (the GAS literature catalogued above bears this out), and it locates Paper 1's contribution precisely within the methodological programme rather than as a peripheral application.
+
+### A note on methodological standards
+
+There is a tactical dimension worth acknowledging explicitly: Koopman is the methodologist behind the GAS framework. Paper 1 will be evaluated against *his own* methodological standard, not against a generic level of methodological rigour. The practical implication is that Paper 1 must be methodologically without loose ends: the score-scaling motivation explicit (Blasques-Koopman-Lucas 2014 on scaling effects), asymptotic theory references correct (Blasques-van Brummelen-Koopman-Lucas 2022 for ML inference), stationarity conditions clean (Blasques-Koopman-Lucas 2012). No operational change required at this stage; flagged here for awareness during Paper 1 finalisation.
+
+---
+
 ## Part 2 — Climate / transition risk / energy economics (Chapter 1-2 + Paper 2 territory)
 
 These are the Tinbergen-tradition climate and energy economics references that anchor the thesis's substantive positioning. They are particularly valuable because they show how Tinbergen scholars frame climate / energy questions in a way that survives Tinbergen-style scrutiny — careful claims, explicit identification, no over-reaching.
@@ -102,6 +116,16 @@ The real-options literature is well-developed outside Tinbergen too (Dixit-Pindy
 
 ---
 
+## Part 4.5 — Secondary collaborators and citation candidates
+
+Two researchers worth tracking beyond the priority citations, both relevant for the longer arc of the sandwich-PhD trajectory.
+
+**Francisco Blasques** (VU / Tinbergen). Co-author on virtually all recent Koopman GAS papers (Blasques-Koopman-Lucas 2012, Blasques-Koopman-Nientker 2022, Blasques-Gorgi-Koopman-Stegehuis 2024, Blasques-van Brummelen-Koopman-Lucas 2022). A younger researcher with his own active research line in score-driven methodology and identification. For sandwich-PhD pipeline considerations, an interesting secondary contact: Blasques supervises younger talent on the methodological side and holds his own Tinbergen research-fellow status. Paper 1's literature engagement should cite his work directly, not only through Koopman.
+
+**Rick van der Ploeg** (Oxford + Tinbergen Research Fellow). Climate-economics-macroeconomics at the theoretical end. The 2021 paper with Olijslagers and van Wijnbergen (*On current and future carbon prices in a risky world*, TI 21-045/VI) is a direct theoretical precursor for Paper 4's framework on dynamic investment under transition uncertainty. If Paper 4 is targeted at *Resource and Energy Economics* (REEP), van der Ploeg's body of work is an unavoidable citation; omitting it would be a noticeable gap in the bibliography for a referee with the field.
+
+---
+
 ## Part 5 — Stylistic lessons from the Tinbergen-tradition
 
 A pattern that emerges from reading these references closely:
@@ -122,13 +146,14 @@ A pattern that emerges from reading these references closely:
 
 If the goal is to strengthen the Tinbergen-tradition positioning of the thesis (which is consistent with the supervisor's PhD-traject framing), the priority additions to the bibliography are:
 
-1. **Blasques, Gorgi, Koopman, Stegehuis (2024)** in Chapter 10 + Appendix A.14 — strongest single citation for the "observational identification with explicit risk-accounting" methodological programme.
-2. **Blasques, Koopman, Nientker (2022)** in Paper 1 — closest methodological analogue to the β_int(t) structural-break finding.
-3. **Creal, Koopman, Lucas, Zamojski (2024)** in Paper 1's literature section — demonstrates awareness of current GAS frontier.
-4. **Loyson, Luijendijk, van Wijnbergen (2023)** in Chapter 1 + Chapter 2 — anchors the transition-risk framing in the Tinbergen-tradition.
+1. **Blasques, Gorgi, Koopman, Stegehuis (2024)** in Chapter 10 + Appendix A.14 — strongest single citation for the "observational identification with explicit risk-accounting" methodological programme. The title "Mitigating Estimation Risk" is itself the epistemic position the disciplined-interpretive-layer framing adopts.
+2. **Blasques, Koopman, Nientker (2022)** in Paper 1 — closest methodological analogue to the β_int(t) structural-break finding (the "local explosion" formalisation).
+3. **Creal, Koopman, Lucas, Zamojski (2024)** in Paper 1's literature section — demonstrates awareness of current GAS frontier (observation-driven filtering with moment conditions).
+4. **Loyson, Luijendijk, van Wijnbergen (2023)** in Chapter 1 + Chapter 2 — anchors the transition-risk framing in the Tinbergen-tradition; the macroeconomic-financial counterpart to the project-level perspective of the thesis.
 5. **van Wijnbergen, Willems (2012)** in Chapter 3 + Paper 4 — historical Tinbergen-tradition reference for the uncertainty + irreversibility argument that Paper 4 develops further.
+6. **Olijslagers, van der Ploeg, van Wijnbergen (2021, TI 21-045/VI)** in Paper 4 — theoretical precursor for the dynamic investment under transition uncertainty framework; mandatory citation for the *REEP* submission target.
 
-These five additions would establish the thesis's positioning within the Tinbergen-tradition explicitly and credibly without requiring substantive content changes.
+These six additions would establish the thesis's positioning within the Tinbergen-tradition explicitly and credibly without requiring substantive content changes. A seventh citation worth tracking but not yet ready to integrate is Lange–van Dijk (2024–2025) *Implicit score-driven filters for time-varying parameter models*, currently featured on the Tinbergen homepage as a research highlight.
 
 ---
 
