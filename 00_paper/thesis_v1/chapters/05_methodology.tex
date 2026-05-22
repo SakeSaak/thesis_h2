@@ -162,7 +162,14 @@ The Kalman filter is used to obtain filtered and smoothed estimates of $\beta_t$
 
 \paragraph{Random-walk specification.} Imposing $\rho = 1$ in (\ref{eq:methods_ar1}) yields the random-walk specification, which is more flexible but less efficient under stable regimes.
 
-The empirical finding (Chapter \ref{ch:results_tvp}) is that all three specifications converge on a sign-shift around $\tau^* = 2020$, providing strong evidence of a structural break independent of the chosen state-space parameterisation.
+\paragraph{Score-driven specification (GAS).} A fourth observation-driven specification updates $\beta_t$ via the score of the predictive likelihood:
+\begin{equation}
+\beta_{t+1} = \omega(1-\phi) + \phi \beta_t + \alpha \tilde{s}_t,
+\label{eq:methods_gas}
+\end{equation}
+where $\tilde{s}_t = \mathcal{I}_t^{-1/2} s_t$ is the information-scaled score and $\phi$ governs persistence. The Generalized Autoregressive Score recursion of \cite{creal2013generalized} is the unique observation-driven scheme that is locally optimal in the Kullback-Leibler scoring-rule sense \cite{blasques2015robust}; under regularity conditions it supports regime-sensitive transition dynamics including local explosions in the parameter trajectory \cite{blasques2022local}. The score-driven specification is developed in detail in Chapter~\ref{ch:results_tvp} (as model M3) and in companion Paper~1 \cite{saakstra2026paper1}, and situates the present thesis within the broader programme of \emph{mitigating estimation risk} in observational time-varying-parameter inference \cite{blasques2024mitigating}.
+
+The Threshold, AR(1), and Random-walk specifications above were implemented as Pijler~24a/b/c in \texttt{06\_thesis\_extensions/12\_advanced\_robustness/} (scripts \texttt{32\_tvp\_state\_space\_v2.py} for the state-space variants and \texttt{33\_tvp\_threshold\_v3.py} for the threshold and AR(1) Bayesian estimators). The threshold-test result identifies $\tau^* = 2020$ as the global optimum across candidate break years 2019--2023 (AIC $= 2329.9$, BIC $= 2385.7$, regime-difference $p < 10^{-9}$), and the AR(1) and random-walk specifications converge on the same break-year identification. The score-driven specification of Chapter~\ref{ch:results_tvp} takes this break-year identification as input and develops a continuous parametric trajectory rather than a single break point: the M1 (static) baseline of Chapter~\ref{ch:results_tvp} corresponds to the constant-parameter null, the M2 (parameter-driven random walk over blocks) corresponds to a refined version of the random-walk specification above, and the M3 (score-driven GAS) extends the methodological apparatus to the asymptotically optimal observation-driven recursion. The methodological progression from the exploratory specifications of this section to the consolidated three-model framework of Chapter~\ref{ch:results_tvp} is the principal methodological contribution of the thesis.
 
 \section{Cross-sectional matching for the offtake-effect}
 \label{sec:methods_offtake}
