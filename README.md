@@ -39,8 +39,8 @@ For BibTeX:
 ```
 
 The DOI `10.5281/zenodo.20359771` is the **concept DOI** (always resolves to
-the most recent version). The version-specific DOI for v1.0.1 is
-`10.5281/zenodo.20359772` and can be used when citing a specific version.
+the most recent version). The version-specific DOI for the current release (v1.1) is
+`10.5281/zenodo.20359902` and can be used when citing a specific version.
 For most academic citation contexts, the concept DOI is preferred.
 
 ---

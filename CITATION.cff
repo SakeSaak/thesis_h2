@@ -5,6 +5,10 @@ type: software
 version: "1.1.0"
 date-released: "2026-05-23"
 doi: "10.5281/zenodo.20359771"
+# Concept DOI above (always resolves to latest version).
+# Version-specific DOIs:
+#   v1.0.1 (2026-05-23): 10.5281/zenodo.20359772
+#   v1.1   (2026-05-23): 10.5281/zenodo.20359902 (current release)
 authors:
   - given-names: Sake
     family-names: Saakstra
