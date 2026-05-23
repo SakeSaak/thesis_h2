@@ -6,7 +6,7 @@
 [![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-yellow.svg)](LICENSE-CODE)
 [![Writing License: CC BY 4.0](https://img.shields.io/badge/Writing%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-WRITING)
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
-[![Status: v1.1 release](https://img.shields.io/badge/status-v1.1%20release-green.svg)](#status)
+[![Status: v1.1.1 release](https://img.shields.io/badge/status-v1.1.1%20release-green.svg)](#status)
 
 > **Author**: Sake Saakstra (independent researcher; MSc EOR Financial Track student, Vrije Universiteit Amsterdam)
 > **Status**: pre-thesis research infrastructure, released for academic citeability and intellectual-property timestamping. Formal MSc thesis procedure is scheduled for 2026-2027.
@@ -32,15 +32,15 @@ For BibTeX:
                   Identification},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v1.1},
+  version      = {v1.1.1},
   doi          = {10.5281/zenodo.20359771},
   url          = {https://github.com/SakeSaak/thesis_h2}
 }
 ```
 
 The DOI `10.5281/zenodo.20359771` is the **concept DOI** (always resolves to
-the most recent version). The version-specific DOI for the current release (v1.1) is
-`10.5281/zenodo.20359902` and can be used when citing a specific version.
+the most recent version). The version-specific DOI for the current release (v1.1.1) is
+`10.5281/zenodo.20360049` and can be used when citing a specific version.
 For most academic citation contexts, the concept DOI is preferred.
 
 ---

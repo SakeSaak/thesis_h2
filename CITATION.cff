@@ -2,13 +2,14 @@ cff-version: 1.2.0
 title: "Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment: A Real-Options Framework with Time-Varying Empirical Identification"
 message: "If you use this research, code, or findings, please cite as below."
 type: software
-version: "1.1.0"
+version: "1.1.1"
 date-released: "2026-05-23"
 doi: "10.5281/zenodo.20359771"
 # Concept DOI above (always resolves to latest version).
 # Version-specific DOIs:
-#   v1.0.1 (2026-05-23): 10.5281/zenodo.20359772
-#   v1.1   (2026-05-23): 10.5281/zenodo.20359902 (current release)
+#   v1.0.1 (2026-05-23): 10.5281/zenodo.20359772 (deprecated)
+#   v1.1   (2026-05-23): 10.5281/zenodo.20359902 (deprecated)
+#   v1.1.1 (2026-05-23): 10.5281/zenodo.20360049 (current release)
 authors:
   - given-names: Sake
     family-names: Saakstra
@@ -47,7 +48,7 @@ preferred-citation:
   authors:
     - given-names: Sake
       family-names: Saakstra
-  version: "1.1.0"
+  version: "1.1.1"
   doi: "10.5281/zenodo.20359771"
   year: 2026
   month: 5
