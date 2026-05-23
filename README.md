@@ -2,7 +2,7 @@
 
 **A Real-Options Framework with Time-Varying Empirical Identification**
 
-[![DOI](https://zenodo.org/badge/DOI/PENDING.svg)](https://zenodo.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20359771.svg)](https://doi.org/10.5281/zenodo.20359771)
 [![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-yellow.svg)](LICENSE-CODE)
 [![Writing License: CC BY 4.0](https://img.shields.io/badge/Writing%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-WRITING)
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
@@ -21,7 +21,7 @@ If you use this research, code, data, or findings, please cite:
 ```
 Saakstra, S. (2026). Implementation Risk under Transition Uncertainty in Clean-Hydrogen
 Investment: A Real-Options Framework with Time-Varying Empirical Identification.
-Zenodo. https://doi.org/[PENDING-after-v1.0-release]
+Zenodo. https://doi.org/10.5281/zenodo.20359771
 ```
 
 For BibTeX:
@@ -33,11 +33,16 @@ For BibTeX:
                   Identification},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v1.0},
-  doi          = {[PENDING-after-v1.0-release]},
+  version      = {v1.0.1},
+  doi          = {10.5281/zenodo.20359771},
   url          = {https://github.com/SakeSaak/thesis_h2}
 }
 ```
+
+The DOI `10.5281/zenodo.20359771` is the **concept DOI** (always resolves to
+the most recent version). The version-specific DOI for v1.0.1 is
+`10.5281/zenodo.20359772` and can be used when citing a specific version.
+For most academic citation contexts, the concept DOI is preferred.
 
 ---
 
