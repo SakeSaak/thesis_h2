@@ -6,7 +6,7 @@
 [![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-yellow.svg)](LICENSE-CODE)
 [![Writing License: CC BY 4.0](https://img.shields.io/badge/Writing%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-WRITING)
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
-[![Status: v1.0 release](https://img.shields.io/badge/status-v1.0%20release-green.svg)](#status)
+[![Status: v1.1 release](https://img.shields.io/badge/status-v1.1%20release-green.svg)](#status)
 
 > **Author**: Sake Saakstra (independent researcher; MSc EOR Financial Track student, Vrije Universiteit Amsterdam)
 > **Acknowledgement**: the author thanks prof. dr. S.J. Koopman for methodological correspondence during the development of this work.
@@ -33,7 +33,7 @@ For BibTeX:
                   Identification},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v1.0.1},
+  version      = {v1.1},
   doi          = {10.5281/zenodo.20359771},
   url          = {https://github.com/SakeSaak/thesis_h2}
 }
@@ -73,10 +73,12 @@ The central economic proposition: *implementation-risk dynamics under transition
 | **Paper 2**: Carrot-policy DiD (`09_papers/paper2_carrot_policy_did/`) | v2.7 | 21 pages | Single-author, draft-complete |
 | **Paper 3**: Offtake mechanism (`09_papers/paper3_offtake_mechanism/`) | v2.7 | 15 pages | Single-author, draft-complete |
 | **Paper 4**: Real-options theory (`09_papers/paper4_real_options_theory/`) | v2.7 | 18 pages | Single-author, draft-complete |
+| **Executive Summary** (`00_paper/executive_summary/`) | v1.0 | 4 pages | Compact entry-point document for non-specialist audiences |
+| **ETS2 Policy Brief** (`07_stakeholder_briefings/ETS2_policy_brief/`) | v1.0 | 6 pages | Evidence-positioned policy memo for EU/national audiences |
 | **Identification tests** (`06_thesis_extensions/13_identification_tests/`) | v1.0 | 3 formal tests | Battery of pi-vs-sigma joint identification, offtake decomposition, event-study |
 | **Robustness pijlers** (`06_thesis_extensions/12_advanced_robustness/`) | v1.0 | 48 Python scripts | Honest DiD, modern DiD estimators, GAS-TVP, Sun-Abraham, BJS, IPWRA, etc. |
 
-Total writing: 159-page bridging thesis + 79-page companion-paper portfolio (4 standalone papers).
+Total writing: 159-page bridging thesis + 79-page companion-paper portfolio (4 standalone papers) + 10-page distribution-ready briefs (executive summary + ETS2 policy brief).
 
 ---
 
