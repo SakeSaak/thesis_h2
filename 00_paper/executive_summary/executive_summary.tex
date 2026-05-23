@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.8cm]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{darkblue}{rgb}{0.0, 0.2, 0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=darkblue,
+  citecolor=darkblue
+}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\bint}{\beta_{\text{int}}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment} \\[0.4em]
+{\large A Real-Options Framework with Time-Varying Empirical Identification} \\[0.8em]
+{\large\textbf{Executive Summary}} \\[1.2em]
+
+Sake Saakstra \\
+Independent researcher, Amsterdam \\
+\texttt{S.Saakstra@student.vu.nl} \\[0.6em]
+
+Version 1.0.1 \textbar{} 23 May 2026 \\
+DOI: \href{https://doi.org/10.5281/zenodo.20359771}{10.5281/zenodo.20359771} \textbar{} \href{https://github.com/SakeSaak/thesis_h2}{github.com/SakeSaak/thesis\_h2}
+\end{center}
+
+\vspace{1.2em}
+
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{0.4em}
+
+\section*{Research question}
+
+Why do clean-hydrogen projects systematically fail to reach Final Investment Decision (FID), and which policy mechanisms move the needle on this implementation gap? Despite over USD 1.3 trillion in announced subsidies globally and a 422 GW project pipeline, only 7\% of 2023-announced green hydrogen capacity reached FID \cite{odenweller2025green}. The 2024--2026 wave of high-profile cancellations --- ArcelorMittal's withdrawal from Bremen and Eisenhüttenstadt despite EUR 1.3 billion in committed EU Innovation Fund subsidies, BP's exits from HyGreen Teesside and H2Teesside, and the September 2025 withdrawal of seven EU Hydrogen Bank auction winners representing 1.88 GW of combined capacity --- exemplifies what the literature terms the \emph{green hydrogen implementation gap}.
+
+This research provides the first cross-jurisdictional causal evaluation of carrot-policy mechanisms for low-carbon hydrogen project survival, identifies pre-FID offtake commitments as a substantively under-appreciated mechanism, and documents that the carbon-conditional cancellation-hazard intensity is regime-dependent rather than stable over the 2010--2024 sample.
+
+\section*{Key findings}
+
+Three substantive findings emerge from a project-level analysis of the S\&P Global Hydrogen Project Database (snapshot 24 March 2026).
+
+\paragraph{Finding 1 --- Offtake commitments mitigate coordination uncertainty.} Pre-FID offtake commitments are associated with an 11--13 percentage point reduction in cancellation hazard, robust across five independent matching strategies (IPWRA, OLS-adjusted, regression-adjusted matching, doubly-robust, naive IPW). The Oster (2019) selection-on-unobservables sensitivity bound is $\delta_{\text{null}} = 20.23$, indicating that an implausibly large omitted-variable bias would be required to overturn the finding. The effect concentrates in high-volatility sectors (power and heat, transport) and is small or null in low-volatility sectors (chemical, refinery), consistent with a real-options interpretation in which offtake commitments resolve revenue-volatility, expected-payoff, and coordination uncertainty simultaneously rather than through a single channel.
+
+\paragraph{Finding 2 --- Carrot-policy effectiveness ranks by friction-count, not subsidy magnitude.} Modern difference-in-differences estimators (Sun-Abraham 2021; Borusyak-Jaravel-Spiess 2024; Callaway-Sant'Anna 2021) produce a consistent cross-jurisdictional ranking: China 14th Five-Year Plan $>$ US Section 45Q $>$ UK Track-1 $\gg$ EU Innovation Fund. The ranking tracks the number of economic frictions each instrument addresses, not the per-unit monetary value of the subsidy. The EU Innovation Fund informative null --- a precise null across six estimators despite EUR 10 billion+ disbursed --- is interpreted as substantive evidence that the financing friction is not binding in the contemporary capital-abundant clean-technology environment. Rambachan-Roth (2023) honest-DiD sensitivity bounds reveal heterogeneous identification strength: only China's state-coordinated mandate survives the strictest robustness checks ($M^* = 1.5$), while US, EU, and UK estimates are sensitivity-bounded.
+
+\paragraph{Finding 3 --- Policy sensitivity is regime-dependent.} The carbon-conditional Blue-versus-Green cancellation-hazard differential $\bint(t)$, estimated through a score-driven Generalized Autoregressive Score (GAS) state-space specification, intensifies from $\bint = -0.46$ in 2010 to $\bint = -1.49$ in 2024. A discernible structural break occurs around 2020, coinciding with the European Green Deal regime boundary. Constant-parameter and parameter-driven random-walk specifications systematically miss this break. The Diebold-Mariano-Harvey-Leybourne-Newbold out-of-sample forecast comparison and the Hansen-Lunde-Nason Model Confidence Set both select the score-driven specification as the singleton, providing L2-level predictive validation of the L4-level structural specification.
+
+\section*{Econometric approach}
+
+The empirical analysis combines three complementary identification strategies. \emph{First}, modern difference-in-differences estimators that address heterogeneous treatment timing (Sun-Abraham interaction-weighted; Borusyak-Jaravel-Spiess imputation; Callaway-Sant'Anna group-time ATT) are applied to the four carrot-policy types. \emph{Second}, time-varying-parameter estimation via three nested state-space specifications (static M1, parameter-driven random walk M2, score-driven GAS M3) detects structural breaks in the carbon-conditional cancellation hazard. \emph{Third}, Rambachan-Roth (2023) honest-DiD bounds and Oster (2019) selection-on-unobservables sensitivity provide partial-identification robustness checks under explicit weakening of identifying assumptions.
+
+The identification hierarchy adopted throughout (L1 descriptive, L2 predictive, L3.a point quasi-causal, L3.b partial quasi-causal, L4 structural) follows the Imbens-tradition treatment of observational causal inference \cite{imbens2018causal} as a discipline of \emph{mitigating} estimation risk \cite{blasques2024mitigating} rather than achieving binary identified-or-not classification. Three formal identification tests document that the $\mu$, $\sigma$, and $\eta$ channels of the real-options framework are not empirically structurally separable in the available observational sample; the framework therefore functions as a disciplined interpretive layer for the robust empirical signatures, not as a directly identified causal-channel decomposition.
+
+\section*{Economic implications}
+
+The central economic proposition synthesised across the empirical findings is that \emph{implementation-risk dynamics under transition uncertainty are themselves a substantive economic phenomenon, not a measurement nuisance to be controlled away in pursuit of stable underlying parameters}. Five interlocking economic regularities support this proposition.
+
+\emph{First}, transition uncertainty is an evolving state variable, not a constant background condition; the $\bint(t)$ intensification across the 2020 boundary is its empirical fingerprint. \emph{Second}, the economic mechanisms through which policy reaches the cancellation decision are overlapping channels operating jointly, not orthogonal channels operating independently. \emph{Third}, policy-effect magnitudes are regime-dependent: the carrot-policy ranking is the conditional ordering of one specific window of the global clean-hydrogen build-out, not a population invariant. \emph{Fourth}, the cancellation-hazard process is sparse-event-fragile under regime shifts. \emph{Fifth}, policy effectiveness is dynamically sensitive to the contemporaneous binding-friction structure: revenue-volatility frictions (F4) are binding in the contemporary capital-abundant environment, while production-cost-gap frictions (F1) are not, with the consequence that capex-grant magnitude does not translate into hazard-reduction effectiveness.
+
+\section*{Policy relevance --- ETS2 and adjacent design discussions}
+
+The findings have direct relevance for ongoing European and national clean-energy policy discussions, particularly around the EU Emissions Trading System Phase 2 (ETS2), the EU Hydrogen Bank, member-state subsidy design, and industrial competitiveness in the energy transition. The evidence-positioned central insight is that carbon-price signals alone are likely insufficient when demand certainty, infrastructure coordination, policy credibility, and implementation frictions are not simultaneously addressed.
+
+Counterfactual scenario analysis quantifies external validity: an EU-wide hard-link between Innovation Fund eligibility and demonstrable offtake-commitments could deliver an estimated $+83$ additional FIDs and $+858$ kt/y of additional green hydrogen capacity over a three-year horizon; a full sector-optimal carrot mix could add $+113$ FIDs, $+7.83$ Mt/y of CO\textsubscript{2} capture, and $+1.76$ Mt/y of H\textsubscript{2} output (95\% bootstrap CI: $+82$ to $+141$ FIDs). These scenarios are L4 extrapolations under explicit structural-invariance assumptions and are presented as decision-relevant illustrations of per-mechanism leverage rather than as point predictions of realised outcomes.
+
+A separate ETS2 policy brief, providing audience-appropriate framing of the implementation-risk findings for European policy makers and energy-transition stakeholders, is in preparation.
+
+\section*{Companion papers and full thesis}
+
+This executive summary distils findings developed in full across a 159-page bridging thesis and four standalone companion papers:
+
+\begin{itemize}
+\item \textbf{Paper 1} (25 pages) --- score-driven / time-varying-parameter methodology for sparse-event survival modelling, applied to the carbon-conditional cancellation-hazard specification of Finding 3.
+\item \textbf{Paper 2} (21 pages) --- cross-jurisdictional carrot-policy difference-in-differences evaluation of Finding 2, including Rambachan-Roth honest sensitivity and 45V three-pillars triple-difference.
+\item \textbf{Paper 3} (15 pages) --- offtake-commitment mechanism of Finding 1, including Oster bounds and sectoral heterogeneity decomposition.
+\item \textbf{Paper 4} (18 pages) --- the five-channel real-options theoretical framework underpinning the substantive interpretation of the empirical findings.
+\end{itemize}
+
+Full thesis, all four companion papers, robustness pijler suite, and identification tests are publicly available at \href{https://github.com/SakeSaak/thesis_h2}{github.com/SakeSaak/thesis\_h2}.
+
+\section*{Citation}
+
+\noindent Saakstra, S. (2026). \emph{Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment: A Real-Options Framework with Time-Varying Empirical Identification}. Zenodo. \href{https://doi.org/10.5281/zenodo.20359771}{https://doi.org/10.5281/zenodo.20359771}.
+
+\vspace{0.5em}
+\noindent\textit{Licensing}: Python source code under MIT license; written work (thesis, papers, this executive summary, figures) under Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+\begin{thebibliography}{9}
+
+\bibitem{blasques2024mitigating}
+Blasques, F., Gorgi, P., Koopman, S.J., \& Stegehuis, M. (2024). Mitigating estimation risk in observational data through dynamic-parameter modelling. \emph{Tinbergen Institute Discussion Paper}.
+
+\bibitem{imbens2018causal}
+Imbens, G.W. (2018). Understanding the propensity score and matching estimators. \emph{Journal of Economic Literature}.
+
+\bibitem{odenweller2025green}
+Odenweller, A., et al. (2025). The green hydrogen implementation gap. \emph{Nature Energy}.
+
+\end{thebibliography}
+
+\end{document}

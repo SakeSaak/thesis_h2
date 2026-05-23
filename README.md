@@ -99,6 +99,18 @@ The phrase "**Not separately identified**" is deliberate: empirical signatures (
 
 ---
 
+## Policy relevance
+
+The empirical findings have direct relevance for ongoing European and national clean-energy policy discussions, particularly around the EU Emissions Trading System Phase 2 (ETS2), the EU Hydrogen Bank, member-state subsidy design, and industrial competitiveness in the energy transition.
+
+The central evidence-positioned insight is that **carbon-price signals alone are likely insufficient when demand certainty, infrastructure coordination, policy credibility, and implementation frictions are not simultaneously addressed**. The EU Innovation Fund informative null (€10B+ disbursed, no detectable cancellation-hazard reduction) and the EU CBAM weak-transmission finding in the transitional phase document this empirically. The offtake-commitment effect (−11 to −13pp cancellation-hazard reduction, robust across five matching estimators) identifies demand certainty as a substantively under-appreciated mechanism through which subsidies operate. The friction-count ranking of carrot-policy effectiveness (China FYP > 45Q > Track-1 ≫ EU IF) suggests that policy effectiveness tracks the number of binding economic frictions each instrument addresses, not the per-unit monetary value of the subsidy.
+
+These findings are positioned as **evidence on implementation risk under transition uncertainty** rather than as normative policy advocacy. The disposition is consistent with the dissertation's central economic proposition: implementation-risk dynamics under transition uncertainty are themselves a substantive economic phenomenon, not a measurement nuisance to be controlled away in pursuit of stable underlying parameters.
+
+A focused ETS2 policy brief, building on these findings with audience-appropriate framing, is in preparation as a separate deliverable.
+
+---
+
 ## Repository structure
 
 ```
