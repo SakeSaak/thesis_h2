@@ -1,0 +1,198 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.8cm]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{darkblue}{rgb}{0.0, 0.2, 0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=darkblue,
+  citecolor=darkblue
+}
+
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\bint}{\beta_{\text{int}}}
+
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\textit{ETS2 Policy Brief}}
+\fancyhead[R]{\small\textit{Saakstra (2026)}}
+\fancyfoot[C]{\small\thepage}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\small\textsc{Policy Brief --- ETS2 \& Industrial Decarbonisation}} \\[0.6em]
+{\Large\bfseries Why Carbon Prices Alone May Not Deliver} \\[0.2em]
+{\Large\bfseries the Clean-Hydrogen Build-Out} \\[0.7em]
+{\large Evidence on Implementation Risk under Transition Uncertainty} \\[1.2em]
+
+Sake Saakstra \\
+Independent researcher, Amsterdam \\
+\texttt{S.Saakstra@student.vu.nl} \\[0.4em]
+
+Version 1.0 \textbar{} 23 May 2026 \\
+DOI: \href{https://doi.org/10.5281/zenodo.20359771}{10.5281/zenodo.20359771} \\
+Full research: \href{https://github.com/SakeSaak/thesis_h2}{github.com/SakeSaak/thesis\_h2}
+\end{center}
+
+\vspace{0.6em}
+
+\medskip
+\hrule
+\vspace{0.4em}
+\textbf{Key messages}
+
+\begin{itemize}
+\item Despite over USD 1.3 trillion in announced clean-hydrogen subsidies globally and a 422 GW project pipeline, only 7\% of 2023-announced green hydrogen capacity reached Final Investment Decision \cite{odenweller2025green}. The 2024--2026 wave of cancellations --- ArcelorMittal (Bremen, Eisenhüttenstadt), BP (Teesside), and seven EU Hydrogen Bank auction winners (1.88 GW combined) --- documents an implementation gap that price-only instruments have not closed.
+\item Cross-jurisdictional evidence indicates that policy effectiveness tracks the \emph{number of economic frictions} an instrument addresses, not the per-unit subsidy magnitude. The EU Innovation Fund (>EUR 10 billion disbursed) produces a precise null on cancellation hazard across six estimators, while the China 14th Five-Year Plan and US Section 45Q --- which combine financial support with coordinated demand commitments or output-linked credits --- produce robust hazard reductions.
+\item Pre-FID offtake commitments are associated with an 11 to 13 percentage point reduction in cancellation hazard, robust across five matching estimators and an Oster (2019) sensitivity bound of $\delta_{\text{null}} = 20.23$. Demand certainty is the substantively under-appreciated mechanism through which policy effectiveness operates.
+\item The carbon-conditional cancellation-hazard intensity exhibits a structural break around 2020. Policy sensitivity is regime-dependent rather than stable; the empirical effect-magnitudes documented for the 2010--2024 window are not population-invariant.
+\item For ETS2 design and adjacent instruments: the evidence is consistent with the proposition that carbon-price signals alone are likely insufficient when demand certainty, infrastructure coordination, policy credibility, and implementation frictions are not simultaneously addressed.
+\end{itemize}
+\vspace{0.2em}
+\hrule
+\medskip
+
+\vspace{0.4em}
+
+\section{Background: the green-hydrogen implementation gap}
+
+The European Union, the United States, the United Kingdom, and China have between 2018 and 2025 deployed an unprecedented combination of subsidies, capex grants, tax credits, and state-coordinated investment frameworks targeting the build-out of low-carbon hydrogen production capacity. The aggregate announced subsidy envelope exceeds USD 1.3 trillion and the announced project pipeline has tripled to 422 GW between 2020 and 2024 \cite{odenweller2025green}.
+
+Yet a substantively under-appreciated empirical regularity has emerged: the conversion rate from project announcement to Final Investment Decision (FID) has remained stubbornly low. \cite{odenweller2025green} document that only 7\% of 2023-announced green hydrogen capacity reached scheduled FID. The 2024--2026 period has crystallised this regularity into a sequence of high-profile cancellations:
+
+\begin{itemize}
+\item ArcelorMittal's withdrawal from its Bremen and Eisenhüttenstadt DRI projects despite committed EU Innovation Fund subsidies of approximately EUR 1.3 billion (Q1 2025);
+\item BP's exits from HyGreen Teesside and H2Teesside (Q4 2024);
+\item The September 2025 withdrawal of seven EU Hydrogen Bank auction winners, representing 1.88 GW of combined electrolysis capacity, before the security-deposit deadline.
+\end{itemize}
+
+The pattern is not confined to Europe. Air Products has cancelled three large US projects, and the post-2024 evaluation phase of US 45V three-pillars rules has been accompanied by visible project pipeline contraction. Industrial competitiveness debates in Brussels and member-state capitals have begun to converge on a shared diagnosis: subsidy availability, in itself, is no longer the binding constraint.
+
+This brief presents evidence from a project-level cross-jurisdictional causal evaluation that helps identify which frictions \emph{are} binding, and the design implications for ETS2 and adjacent instruments.
+
+\section{Implementation-risk framework: which frictions bind?}
+
+A clean-hydrogen FID is a staged, irreversible decision under transition uncertainty. The sponsor's expected net payoff depends on a set of economic frictions, each of which may or may not bind in a particular policy environment. Seven candidate frictions are catalogued in the underlying research \cite{saakstra2026thesis}. For policy-design purposes, five are decision-relevant:
+
+\begin{itemize}
+\item \textbf{F1 --- Production cost gap.} Per-unit production cost above the avoided-emission value at prevailing carbon prices. Addressed by output credits (US 45V/45Q) and capex grants (EU Innovation Fund).
+\item \textbf{F2 --- Infrastructure coordination.} Pipeline networks, port facilities, electricity grid capacity for electrolysis. Addressed by cluster tenders (UK Track-1) and state-coordinated mandates (China 14th Five-Year Plan).
+\item \textbf{F3 --- Policy credibility.} Belief that the policy environment will persist over the multi-decade investment horizon. Addressed (or undermined) by legislative permanence, election cycles, and treaty consistency.
+\item \textbf{F4 --- Revenue uncertainty (demand certainty).} Whether expected offtake at known prices is contractually secured pre-FID. Addressed by offtake-commitment mandates, contracts-for-difference, hydrogen auctions with price-floor guarantees.
+\item \textbf{F5 --- Implementation friction.} Permitting timelines, supply-chain bottlenecks, skilled-labour availability, electrolyser-stack delivery schedules. Addressed by streamlined permitting and dedicated supply-chain interventions.
+\end{itemize}
+
+The proposition advanced by the underlying empirical research is that \emph{policy effectiveness is determined by the joint binding-friction structure}, not by the magnitude of any single instrument. An instrument that addresses a non-binding friction (such as F1 in the contemporary capital-abundant clean-technology environment) will produce a precise null in cancellation-hazard reduction even when the subsidy magnitude is large. An instrument that addresses a binding friction (such as F4 demand certainty) can produce a substantial effect at modest financial cost.
+
+\section{Regime dependence under transition uncertainty}
+
+A second methodological feature of the research is that the binding-friction structure itself \emph{evolves with the policy regime}. The carbon-conditional cancellation-hazard differential between Blue (CCS-equipped) and Green (electrolysis-based) hydrogen projects, denoted $\bint(t)$, is documented to intensify from approximately $-0.46$ in 2010 to $-1.49$ in 2024, with a discernible structural break around 2020 coinciding with the European Green Deal regime boundary \cite{saakstra2026paper1, saakstra2026thesis}.
+
+This finding has two consequences for ETS2 design. First, policy-effect magnitudes estimated on pre-2020 data systematically miss the post-2020 regime: the binding-friction structure has shifted, and effect-magnitudes have shifted with it. Second, the regime-dependence implies that ETS2 effectiveness will not be invariant to the contemporaneous structure of complementary instruments. The carbon-price signal interacts with the other four frictions; its marginal effectiveness depends on whether F2 (coordination), F4 (demand certainty), and F5 (implementation) are simultaneously addressed.
+
+\section{Empirical evidence: three findings}
+
+The underlying research --- a 159-page bridging thesis with four companion papers and a 48-script robustness suite, all archived under \href{https://doi.org/10.5281/zenodo.20359771}{DOI 10.5281/zenodo.20359771} --- documents three principal findings relevant for ETS2 and clean-hydrogen policy.
+
+\subsection*{Finding 1 --- Pre-FID offtake commitments mitigate F4 demand uncertainty}
+
+Pre-FID offtake commitments are associated with an 11 to 13 percentage point reduction in cancellation hazard. The effect is robust across five independent matching strategies (inverse-probability-weighted regression adjustment, ordinary-least-squares regression-adjusted, regression-adjusted matching, doubly-robust, and naive inverse-probability weighting). An Oster (2019) selection-on-unobservables sensitivity analysis returns $\delta_{\text{null}} = 20.23$, indicating that an implausibly large omitted-variable bias would be required to overturn the finding. The effect concentrates in high-volatility sectors (power and heat, transport) and is small or null in low-volatility sectors (chemical, refinery), consistent with a real-options interpretation in which demand certainty resolves multiple uncertainty channels simultaneously.
+
+\subsection*{Finding 2 --- Carrot-policy effectiveness ranks by friction-count, not subsidy magnitude}
+
+Cross-jurisdictional evaluation via modern difference-in-differences estimators (Sun-Abraham 2021; Borusyak-Jaravel-Spiess 2024; Callaway-Sant'Anna 2021) produces a consistent ranking:
+
+\vspace{0.4em}
+
+\medskip
+\hrule
+\vspace{0.4em}
+\centering
+\textbf{China 14th Five-Year Plan} $>$ \textbf{US Section 45Q} $>$ \textbf{UK Track-1} $\gg$ \textbf{EU Innovation Fund}
+\vspace{0.2em}
+\hrule
+\medskip
+
+\vspace{0.4em}
+
+The ranking tracks the number of binding frictions each instrument simultaneously addresses, not the per-unit monetary value of the subsidy. The EU Innovation Fund informative null --- a precise null across six estimators despite EUR 10 billion+ disbursed --- is interpreted as substantive evidence that the production cost gap (F1) is not the binding friction in the contemporary capital-abundant clean-technology environment. Rambachan-Roth (2023) honest-DiD sensitivity bounds reveal heterogeneous identification strength across the four instruments: only China's state-coordinated mandate survives the strictest robustness checks ($M^* = 1.5$), while US, EU, and UK estimates are sensitivity-bounded.
+
+\subsection*{Finding 3 --- Policy sensitivity is regime-dependent}
+
+The carbon-conditional Blue/Green cancellation-hazard differential $\bint(t)$, estimated through a score-driven Generalized Autoregressive Score (GAS) state-space specification, intensifies across the 2010--2024 window with a structural break around 2020. Constant-parameter and parameter-driven random-walk specifications systematically miss this break. The Diebold-Mariano-Harvey-Leybourne-Newbold out-of-sample forecast comparison and the Hansen-Lunde-Nason Model Confidence Set both select the score-driven specification as the singleton.
+
+\section{Implications for ETS2 design}
+
+The evidence cumulates into a coherent design observation. \textbf{Carbon-price signals operate on F1 (production cost gap), but F1 does not currently appear to be the binding friction.} The EU Innovation Fund informative null is the cleanest empirical demonstration: a large financial transfer that directly addresses F1 produces no detectable cancellation-hazard reduction in the contemporary environment. The bindings are elsewhere --- in F2 (infrastructure coordination), F3 (policy credibility), F4 (demand certainty), and F5 (implementation friction).
+
+For ETS2, this evidence is consistent with the following design proposition:
+
+\medskip
+\hrule
+\vspace{0.4em}
+\textit{The cancellation-hazard reduction achievable through carbon-price strengthening alone is bounded by the magnitude of the non-binding friction (F1) it addresses. To recover the unbinding-friction-magnitudes, ETS2 design should be evaluated jointly with complementary instruments addressing demand certainty (F4), infrastructure coordination (F2), and policy credibility (F3) --- not as an independent lever.}
+\vspace{0.2em}
+\hrule
+\medskip
+
+\vspace{0.4em}
+
+Four concrete design corollaries follow from the empirical evidence, presented here as evidence-positioned observations rather than normative recommendations:
+
+\begin{enumerate}
+\item \textbf{ETS2 effectiveness will depend on parallel demand-certainty instruments.} The offtake-commitment finding suggests that an ETS2-induced carbon-price increase will translate into accelerated FID only to the extent that downstream offtake at predictable prices is contractually secured. EU-level mechanisms creating demand certainty --- the European Hydrogen Bank, contracts-for-difference, or sectoral offtake-quota frameworks --- are the natural complements.
+
+\item \textbf{Combining instruments may yield super-additive effects.} The friction-count ranking implies that pairs of instruments addressing distinct frictions produce larger effects than the sum of their individual effects. Counterfactual scenario analysis under explicit structural-invariance assumptions estimates that an EU-wide hard-link between Innovation Fund eligibility and demonstrable offtake commitments could deliver +83 additional FIDs and +858 kt/y of additional green hydrogen capacity over a three-year horizon \cite{saakstra2026thesis}.
+
+\item \textbf{Policy credibility (F3) is a separate decision-variable.} The regime-dependence finding suggests that signal-strengthening (ETS2 expansion) without credibility-strengthening (legislative permanence, treaty consistency, election-cycle robustness) is likely to produce smaller effects than credibility-strengthening alone. Policy permanence is a separable design parameter, not a by-product of signal magnitude.
+
+\item \textbf{Per-instrument magnitudes are not population-invariant.} The Rambachan-Roth honest-DiD sensitivity bounds across instruments imply that estimated effect-magnitudes for ETS2 derived from any one historical window should not be extrapolated to future-window effectiveness without explicit regime-invariance assumptions.
+\end{enumerate}
+
+\section{Methodological caveats}
+
+The empirical evidence presented here is L3.a quasi-causal (multi-estimator convergence under modern difference-in-differences parallel-trends or conditional-independence assumptions) and L3.b partial-identified (Rambachan-Roth and Oster sensitivity bounds). The channel-attribution to specific frictions (F1--F5) is interpretive rather than directly identified: three formal identification tests \cite{saakstra2026thesis} document that the channels are not empirically structurally separable in the available observational sample. The counterfactual scenarios are L4 extrapolations conditional on structural-invariance over the projection window and on the absence of general-equilibrium feedback. They should be read as decision-relevant illustrations of per-mechanism leverage rather than as point predictions of realised outcomes.
+
+The 2024--2026 cancellation events serve as out-of-sample corroboration of the implementation-risk framework, but the framework itself is interpretive: it organises the observed evidence rather than claiming to predict each individual cancellation event.
+
+\section{Companion research and references}
+
+This brief synthesises evidence from a 159-page bridging thesis and four standalone companion papers. The complete research portfolio, including raw analysis scripts and a 48-component robustness suite, is publicly archived at \href{https://doi.org/10.5281/zenodo.20359771}{DOI 10.5281/zenodo.20359771} under CC-BY 4.0 (written work) and MIT (code) licenses.
+
+\paragraph{Suggested citation.} Saakstra, S. (2026). \emph{Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment: A Real-Options Framework with Time-Varying Empirical Identification}. Zenodo. \href{https://doi.org/10.5281/zenodo.20359771}{https://doi.org/10.5281/zenodo.20359771}.
+
+\paragraph{This brief is.} Independent academic research. It does not reflect the official position of any institution, employer, or stakeholder. All findings, errors, and opinions are the author's own.
+
+\begin{thebibliography}{9}
+
+\bibitem{odenweller2025green}
+Odenweller, A., et al. (2025). The green hydrogen implementation gap. \emph{Nature Energy}.
+
+\bibitem{saakstra2026paper1}
+Saakstra, S. (2026). Score-driven time-varying-parameter modelling for sparse-event survival data: A real-options application. Companion paper.
+
+\bibitem{saakstra2026thesis}
+Saakstra, S. (2026). Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment. Zenodo. DOI: 10.5281/zenodo.20359771.
+
+\end{thebibliography}
+
+\end{document}
