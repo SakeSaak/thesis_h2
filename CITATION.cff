@@ -1,44 +1,48 @@
 cff-version: 1.2.0
-title: "Implementation-Risk Differentials in Hydrogen Technology Pathways"
-message: "If you use this research or code, please cite it as below."
+title: "Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment: A Real-Options Framework with Time-Varying Empirical Identification"
+message: "If you use this research, code, or findings, please cite as below."
 type: software
+version: "1.0.0"
+date-released: "2026-05-23"
 authors:
   - given-names: Sake
     family-names: Saakstra
-    affiliation: "Vrije Universiteit Amsterdam, MSc Econometrics and Operations Research"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
 repository-code: "https://github.com/SakeSaak/thesis_h2"
 url: "https://github.com/SakeSaak/thesis_h2"
 abstract: >-
-  A cross-jurisdictional causal evaluation of carrot-policy mechanisms for
-  low-carbon hydrogen project survival. Using project-level survival analysis
-  of 1,354 Blue and Green hydrogen projects (S&P Global, 2010-2024), this
-  research identifies the differential effects of four major policy types
-  (US Section 45Q, EU Innovation Fund, UK Track-1, China 14th Five-Year Plan)
-  and introduces offtake commitment as an under-appreciated mechanism through
-  which subsidies operate. Findings are grounded in a Dixit-Pindyck (1994)
-  real-options framework distinguishing V/I-boost vs sigma-attack channels.
+  A real-options framework with time-varying empirical identification for implementation
+  risk in clean-hydrogen investment under transition uncertainty. The empirical analysis
+  identifies pre-FID offtake commitments as a substantively under-appreciated mechanism
+  (−11 to −13pp cancellation-hazard reduction, robust to Oster (2019) δ_null = 20.23),
+  evaluates four carrot-policy types (US 45Q, EU Innovation Fund, UK Track-1, China
+  14th FYP) via modern DiD estimators (Sun-Abraham, Borusyak-Jaravel-Spiess) with
+  Rambachan-Roth honest sensitivity bounds, and documents a structural break in the
+  carbon-conditional hazard intensity around 2020 via a score-driven GAS state-space
+  specification. The dissertation argues that implementation-risk dynamics under
+  transition uncertainty are themselves a substantive economic phenomenon, not a
+  measurement nuisance to be controlled away in pursuit of stable underlying parameters.
 keywords:
   - hydrogen
-  - clean energy
-  - causal inference
-  - difference-in-differences
+  - clean energy transition
+  - implementation risk
+  - transition uncertainty
   - real options
-  - mechanism design
-  - policy evaluation
+  - difference-in-differences
+  - score-driven state space
+  - generalized autoregressive score
+  - sensitivity analysis
+  - causal inference
   - survival analysis
-license: CC-BY-NC-SA-4.0
-date-released: 2026-05-20
+  - policy evaluation
+  - mechanism design
+license: CC-BY-4.0
 preferred-citation:
-  type: thesis
-  title: "Implementation-Risk Differentials in Hydrogen Technology Pathways: A Cross-Jurisdictional Causal Evaluation of Carrot-Policy Mechanisms"
+  type: software
+  title: "Implementation Risk under Transition Uncertainty in Clean-Hydrogen Investment: A Real-Options Framework with Time-Varying Empirical Identification"
   authors:
     - given-names: Sake
       family-names: Saakstra
-  thesis-type: "MSc thesis"
-  institution:
-    name: "Vrije Universiteit Amsterdam"
-    address: "Amsterdam, The Netherlands"
+  version: "1.0.0"
   year: 2026
-  month: 7
+  month: 5
   url: "https://github.com/SakeSaak/thesis_h2"
