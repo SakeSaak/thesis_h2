@@ -9,7 +9,6 @@
 [![Status: v1.1 release](https://img.shields.io/badge/status-v1.1%20release-green.svg)](#status)
 
 > **Author**: Sake Saakstra (independent researcher; MSc EOR Financial Track student, Vrije Universiteit Amsterdam)
-> **Acknowledgement**: the author thanks prof. dr. S.J. Koopman for methodological correspondence during the development of this work.
 > **Status**: pre-thesis research infrastructure, released for academic citeability and intellectual-property timestamping. Formal MSc thesis procedure is scheduled for 2026-2027.
 
 ---
