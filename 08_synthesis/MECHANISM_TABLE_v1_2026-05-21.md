@@ -3,7 +3,7 @@
 
 **Author**: Sake Saakstra
 **Date**: 21 May 2026
-**Purpose**: Discipline the mechanism-based interpretation of empirical findings against post-hoc rationalization. Each mechanism receives an explicit a priori theoretical prediction, an observable implication, an empirical test specification, a falsification criterion, and a retrospective empirical assessment. This document is the methodological backbone of Chapter 3 (theoretical framework) v2 and constitutes the response to the supervisor's concern that "reviewers may feel that for each empirical result a new mechanism is formulated ex-post" (supervisor feedback, May 2026, point #2).
+**Purpose**: Discipline the mechanism-based interpretation of empirical findings against post-hoc rationalization. Each mechanism receives an explicit a priori theoretical prediction, an observable implication, an empirical test specification, a falsification criterion, and a retrospective empirical assessment. This document is the methodological backbone of Chapter 3 (theoretical framework) v2 and constitutes the response to the supervisor's concern that "reviewers may feel that for each empirical result a new mechanism is formulated ex-post" (reviewer feedback, May 2026, point #2).
 
 ---
 

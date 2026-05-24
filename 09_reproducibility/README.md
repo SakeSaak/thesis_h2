@@ -4,8 +4,8 @@
 **Vrije Universiteit Amsterdam, 2025-2026**
 
 **Author:** Sake Saakstra
-**Supervisor:** prof. Siem Jan Koopman
-**Second reader (proposed):** dr. Nadine Ketel
+**Reviewer:** prof. the external reviewer
+**Second reader (proposed):** the second reviewer
 
 ## Abstract
 

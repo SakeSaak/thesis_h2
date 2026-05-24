@@ -1,6 +1,6 @@
-# Thesis v1 — Manuscript draft for supervisor feedback
+# Thesis v1 — Manuscript draft for reviewer feedback
 
-**Status**: Complete draft, ready for first supervisor review (21 May 2026)
+**Status**: Complete draft, ready for first external review (21 May 2026)
 **Word count**: ~22,450 words across 13 chapters + abstract
 **Compilation**:
 

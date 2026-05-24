@@ -333,7 +333,7 @@ met aparte transition-hazards tussen elke state, plus absorbing states cancelled
 
 ## DEEL E — Concrete PhD-onderzoeksagenda
 
-Vijf onderzoekslijnen voor follow-up, gerangschikt naar haalbaarheid in 4-jaar PhD venster met Koopman + Ketel als supervisor-combinatie.
+Vijf onderzoekslijnen voor follow-up, gerangschikt naar haalbaarheid in 4-jaar PhD venster met the reviewers als supervisor-combinatie.
 
 ### E.1 [Methodologisch — Koopman-lijn] Joint multistate hazard + multivariate state-space TVP
 

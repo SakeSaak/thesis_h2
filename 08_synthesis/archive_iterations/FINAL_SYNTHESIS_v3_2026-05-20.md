@@ -2,7 +2,7 @@
 ## Implementation-Risk Differentials in Hydrogen Technology Pathways
 
 **Auteur**: Sake Saakstra (MSc EOR Financial Track, VU Amsterdam)
-**Supervisor**: prof. Siem Jan Koopman | Second reader: dr. Nadine Ketel
+**Supervisor**: prof. the external reviewer | Second reviewer: the second reviewer
 **Datum**: 20 mei 2026
 **Affiliatie**: VU Amsterdam + Gasunie Business Line Waterstof Nederland
 

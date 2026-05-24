@@ -1,6 +1,6 @@
 # Thesis stand van zaken — 18 mei 2026
 
-**Sake Saakstra | MSc EOR Financial Track VU Amsterdam | Supervisor: prof. dr. S.J. Koopman**
+**Sake Saakstra | MSc EOR Financial Track VU Amsterdam | Reviewer: the external reviewer**
 
 ---
 

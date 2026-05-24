@@ -1,5 +1,5 @@
 # Thesis Synthesis — Volledige Stand van Zaken
-**Sake Saakstra | MSc EOR Financial Track VU Amsterdam | Supervisor: prof. dr. S.J. Koopman**
+**Sake Saakstra | MSc EOR Financial Track VU Amsterdam | Reviewer: the external reviewer**
 **Datum: 18 mei 2026**
 
 ---

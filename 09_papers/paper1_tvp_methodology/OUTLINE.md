@@ -2,7 +2,7 @@
 ## Score-driven specification, OOS-optimal performance, and a Diebold-Mariano test
 
 **Target**: Journal of Applied Econometrics
-**Authors**: Sake Saakstra (VU Amsterdam), Siem Jan Koopman (VU Amsterdam) [TBC]
+**Authors**: Sake Saakstra (VU Amsterdam), the external reviewer (VU Amsterdam) [TBC]
 **Status**: Outline + abstract + introduction drafted (May 2026)
 
 ---

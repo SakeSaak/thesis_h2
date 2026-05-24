@@ -74,4 +74,4 @@ Alternative target if REEP declines: JEEM (broader scope, accepts theoretical co
 
 ## Coauthorship
 
-Single-author. Empirical co-author Nadine Ketel is appropriate for Papers 2 and 3 (which use the empirical work she co-supervised) but not for the theoretical Paper 4.
+Single-author. Empirical co-author the second reviewer is appropriate for Papers 2 and 3 (which use the empirical work she co-supervised) but not for the theoretical Paper 4.

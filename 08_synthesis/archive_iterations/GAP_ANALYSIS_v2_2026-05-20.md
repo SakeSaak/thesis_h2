@@ -407,7 +407,7 @@
 
 ## SECTIE 10: WHAT YOU HAVE ENOUGH FOR
 
-### Voor PhD-defense (Koopman + Ketel)
+### Voor PhD-defense (the reviewers)
 
 ✅ **Empirisch deel**: 5 publication-grade findings, 5 jurisdicties
 ✅ **Methodologisch deel**: Three convergerende TVP methoden

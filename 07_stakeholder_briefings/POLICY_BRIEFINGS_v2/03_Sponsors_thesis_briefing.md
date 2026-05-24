@@ -1,6 +1,6 @@
 # Thesis Status & Findings Briefing — Sponsors
 
-**Voor**: prof. dr. Siem Jan Koopman (supervisor) | dr. Nadine Ketel (second reader) | Gasunie sponsors
+**Voor**: the external reviewer (supervisor) | the second reviewer (second reader) | Gasunie sponsors
 
 **Auteur**: Sake Saakstra (MSc EOR Financial Track, VU Amsterdam — student no. [redacted])
 

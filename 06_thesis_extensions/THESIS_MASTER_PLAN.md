@@ -2,7 +2,7 @@
 ## "Time-Varying Hazard Intensity for Hydrogen Project Cancellation: A State-Space Approach"
 
 **Author:** Sake Saakstra  
-**Supervisor:** Siem Jan Koopman (VU Amsterdam, Department of Econometrics)  
+**Reviewer:** the external reviewer (VU Amsterdam, Department of Econometrics)  
 **Target:** MSc EOR Financial Track thesis (18 EC), grade target 8.5+, PhD-aspirational  
 **Defense window:** September-November 2026
 

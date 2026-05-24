@@ -14,7 +14,7 @@ This directory contains the work-in-progress drafts of four standalone publicati
 
 **Aggregate**: 4 papers, ca. 23.843 woorden, ca. 78 pagina's, 0 errors compile clean across the portfolio.
 
-**Note on Paper 3 and Paper 4 titles**: Both papers contain a `σ`-channel identification claim (Paper 3) and a credibility-conditional threshold proposition (Paper 4) whose direct empirical identification is qualified by the identification battery in thesis Appendix A.14. Methodological notes in both papers acknowledge this; the formal status of the proposition and the channel-identification claim awaits supervisor feedback (see `06_thesis_extensions/13_identification_tests/SUPERVISOR_CLARIFICATION_DRAFT.md`).
+**Note on Paper 3 and Paper 4 titles**: Both papers contain a `σ`-channel identification claim (Paper 3) and a credibility-conditional threshold proposition (Paper 4) whose direct empirical identification is qualified by the identification battery in thesis Appendix A.14. Methodological notes in both papers acknowledge this; the formal status of the proposition and the channel-identification claim awaits reviewer feedback (see `06_thesis_extensions/13_identification_tests/REVIEWER_CLARIFICATION_DRAFT.md`).
 
 ## Shared foundation
 

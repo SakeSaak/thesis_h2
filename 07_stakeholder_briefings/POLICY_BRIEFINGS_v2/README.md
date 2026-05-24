@@ -3,7 +3,7 @@
 **Datum**: 20 mei 2026
 **Onderzoek**: *Implementation-Risk Differentials in Hydrogen Technology Pathways*
 **Auteur**: Sake Saakstra (MSc EOR Financial Track, VU Amsterdam)
-**Supervisor**: prof. Siem Jan Koopman | **Second reader**: dr. Nadine Ketel
+**Supervisor**: prof. the external reviewer | **Second reader**: the second reviewer
 
 ---
 

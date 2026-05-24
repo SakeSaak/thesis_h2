@@ -1,7 +1,7 @@
 # Paper 3 — The Offtake-Commitment Mechanism: σ-Channel Identification via Cross-Sectoral Heterogeneity
 
 **Target**: Journal of Environmental Economics and Management (alt: Resource and Energy Economics)
-**Authors**: Sake Saakstra (VU Amsterdam), Nadine Ketel (VU Amsterdam) [TBC]
+**Authors**: Sake Saakstra (VU Amsterdam), the second reviewer (VU Amsterdam) [TBC]
 **Status**: First full draft (May 2026)
 
 ---

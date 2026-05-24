@@ -105,7 +105,7 @@ We hebben de canonical literatuur op orde voor:
 
 ### B.1 Wat Koopman's onderzoeksprofiel is
 
-Prof. Siem Jan Koopman is een wereldautoriteit op:
+Prof. the external reviewer is een wereldautoriteit op:
 - **State-space modelling** (boek met Durbin, *Time Series Analysis by State Space Methods*, OUP 2012)
 - **Generalized Autoregressive Score (GAS) models** (Creal-Koopman-Lucas 2013, JAE; uitbreiding observation-driven framework)
 - **Dynamic factor models** (uitgebreid werk in macro-economische nowcasting)
@@ -193,7 +193,7 @@ Een verrassend gap: we hebben *causale* identificatie maar geen *predictive* eva
 
 ### C.1 Wat Ketel's onderzoeksprofiel is
 
-Dr. Nadine Ketel is gespecialiseerd in:
+Dr. the second reviewer is gespecialiseerd in:
 - **Causale identificatie** in arbeidsmarkt-economie
 - **Field experiments en RCTs**
 - **Beleidsevaluatie** met natural experiments
@@ -464,7 +464,7 @@ Gegeven Sake's:
 - 32u/week werk bij Gasunie BL Waterstof Nederland
 - Beperkte beschikbare tijd voor v2-iteratie (~6 weken realistisch)
 
-**Aanbevolen scope voor v2** (vóór verzending naar Koopman + Ketel):
+**Aanbevolen scope voor v2** (vóór verzending naar the reviewers):
 
 1. **GEEN nieuwe analyse meer** voor v1-verzending. De huidige draft is voldoende voor *eerste* feedback ronde.
 2. **WEL deze v2-uitbreidingen klaarzetten** vóór feedback-ontvangst, zodat we direct kunnen reageren op specifieke vragen:
@@ -497,7 +497,7 @@ Het manuscript heeft *één duidelijke zwakte*:
 
 **Concrete eerstvolgende actie** (24-48 uur):
 
-1. **Verstuur v1 naar Koopman + Ketel** zoals het is. De huidige kwaliteit is *meer* dan voldoende voor eerste feedback. Wacht niet op v2-items want dat creates eindeloze opzettelijke vertraging.
+1. **Verstuur v1 naar the reviewers** zoals het is. De huidige kwaliteit is *meer* dan voldoende voor eerste feedback. Wacht niet op v2-items want dat creates eindeloze opzettelijke vertraging.
 
 2. **Parallel**: start scripts voor items 1-3 (GAS-model, Synthetic Control, Competing Risks). Deze drie zijn de meest direct relevante uitbreidingen die *waarschijnlijk* in de feedback worden genoemd.
 

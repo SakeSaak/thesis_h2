@@ -4,8 +4,8 @@
 **Auteur**: Sake Saakstra
 **Datum**: 20 mei 2026
 **Versie**: v4 (consolideert Pijlers 1-29 + sub-pijlers 24a/24b/24c + 27a)
-**Supervisor**: prof. Siem Jan Koopman
-**Second reader**: dr. Nadine Ketel
+**Supervisor**: prof. the external reviewer
+**Second reader**: the second reviewer
 **Repo**: github.com/SakeSaak/thesis_h2 (private)
 **Status na 20 mei 2026**: 30+ pijlers, 5 jurisdicties, 5 publication-grade findings, theoretical framework
 

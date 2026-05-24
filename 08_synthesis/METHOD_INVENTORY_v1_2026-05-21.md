@@ -304,7 +304,7 @@ Deze 43 scripts vormen de complete moderne econometrische toolkit:
 8663e52 Gap analyse v4.1 CORRECTIE: GAS en Synthetic Control zijn al gedaan
 25093c6 Gap analyse v4: post-thesis-draft strategische beoordeling
 9a8cdc1 Thesis v1: PDF compileert (90 pagina's, 720 KB)
-32b93f0 Email-draft voor supervisor feedback (Koopman + Ketel)
+32b93f0 Email-draft voor reviewer feedback (the reviewers)
 e311e5d Thesis manuscript v1 draft (22,450 words)
 8da1306 Repo optimization: hygiene + documentation
 9f71538 Track C COMPLEET: POLICY_BRIEFINGS_v2
